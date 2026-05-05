@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FlyingRC product wiki for flight controllers, ESCs, BEC modules, sensors, GPS, and stack kits.">
+    <title>Products | FlyingRC Official</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-page="wiki">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FlyingRC Official home">
+        <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="" class="brand-mark">
+        <span>FlyingRC Official</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="wiki.html" data-i18n="products">Products</a>
+        <a href="index.html#hardware" data-i18n="hardware">Hardware</a>
+        <a href="index.html#contact" data-i18n="contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="wiki-hero">
+        <div>
+          <p class="status" data-i18n="source">Curated from FlyingRC listing materials</p>
+          <h1 data-i18n="wikiTitle">FlyingRC Product Wiki</h1>
+          <p class="lead" data-i18n="wikiLead">Search flight controllers, ESCs, BEC modules, sensors, GPS, receivers, adapters, and stack kits with bilingual product notes and original wiring/spec images.</p>
+        </div>
+        <div class="language-switch" aria-label="Language selector">
+          <button type="button" data-lang-button="en">EN</button>
+          <button type="button" data-lang-button="zh">中文</button>
+        </div>
+      </section>
+
+      <section class="wiki-toolbar" aria-label="Product search and filters">
+        <div class="search-wrap">
+          <input data-product-search type="search" placeholder="Search products, specs, wiring, firmware..." data-i18n-placeholder="search">
+          <span data-product-count></span>
+        </div>
+        <div class="category-filters" data-category-filters></div>
+      </section>
+
+      <section class="wiki-grid-section">
+        <div class="wiki-product-grid" data-product-grid></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>FlyingRC Official</span>
+      <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
+    </footer>
+
+    <script src="data/products.js"></script>
+    <script src="scripts/product-wiki.js"></script>
+  </body>
+</html>

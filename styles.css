@@ -330,6 +330,20 @@ h2 {
   background: #eaf1ed;
 }
 
+.product-wiki-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.product-wiki-band div {
+  max-width: 840px;
+}
+
 .capability-list {
   margin: 0;
   padding: 0;
@@ -375,6 +389,11 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .product-wiki-band {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   nav {
     width: 100%;
     justify-content: space-between;
@@ -395,5 +414,336 @@ h2 {
     left: 26%;
     width: 104px;
     height: 88px;
+  }
+}
+
+.wiki-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 28px;
+  padding: clamp(46px, 7vw, 86px) clamp(20px, 5vw, 72px) 34px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.wiki-hero h1,
+.product-detail-hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px;
+  background: #ffffff;
+}
+
+.language-switch.compact {
+  margin-left: auto;
+}
+
+.language-switch button,
+.filter-button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.language-switch button.active,
+.filter-button.active {
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.wiki-toolbar {
+  display: grid;
+  gap: 16px;
+  padding: 24px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: #fdfefd;
+}
+
+.search-wrap {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-wrap input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 16px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.search-wrap span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-button {
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.wiki-grid-section {
+  padding: 30px clamp(20px, 5vw, 72px) 86px;
+}
+
+.wiki-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.wiki-product-card {
+  display: grid;
+  grid-template-rows: 190px 1fr;
+  min-height: 430px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.product-media,
+.detail-hero-image {
+  display: block;
+  background:
+    linear-gradient(135deg, rgba(43, 143, 92, 0.08), rgba(52, 111, 159, 0.1)),
+    #f6f9f7;
+}
+
+.product-media img,
+.detail-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+}
+
+.product-card-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 20px;
+  color: var(--muted);
+  font-weight: 760;
+  text-align: center;
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.product-card-meta,
+.detail-kicker {
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 790;
+}
+
+.wiki-product-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.18;
+}
+
+.wiki-product-card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 18px;
+}
+
+.product-tags span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 690;
+}
+
+.text-link {
+  margin-top: auto;
+  color: var(--green-dark);
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  margin: 20px 0;
+  color: var(--muted);
+  font-weight: 720;
+}
+
+.product-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.8fr);
+  gap: clamp(32px, 6vw, 74px);
+  align-items: center;
+  padding: clamp(44px, 7vw, 86px) clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.product-detail-hero p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.detail-hero-image {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: var(--green-dark);
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.detail-section {
+  padding: 54px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-section h2 {
+  font-size: clamp(26px, 3vw, 38px);
+}
+
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec-list li {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+  font-weight: 680;
+}
+
+.detail-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.detail-media-grid figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.detail-media-grid img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  padding: 14px;
+  background: #f8faf8;
+}
+
+.detail-media-grid figcaption {
+  border-top: 1px solid var(--line);
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.download-list,
+.related-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.download-list a,
+.related-grid a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #ffffff;
+  color: var(--green-dark);
+  font-weight: 760;
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .wiki-product-grid,
+  .spec-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .wiki-hero,
+  .product-detail-hero,
+  .search-wrap,
+  .detail-media-grid,
+  .wiki-product-grid,
+  .spec-list {
+    grid-template-columns: 1fr;
+  }
+
+  .language-switch.compact {
+    margin-left: 0;
+  }
+
+  .wiki-product-card {
+    grid-template-rows: 220px 1fr;
   }
 }
