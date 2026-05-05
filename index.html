@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FlyingRC Official hardware, firmware, and drone electronics projects.">
+    <title>FlyingRC Official</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FlyingRC Official home">
+        <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="" class="brand-mark">
+        <span>FlyingRC Official</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="status">Open hardware, flight controllers, sensors, and embedded firmware</p>
+          <h1>Practical drone electronics for builders who actually fly.</h1>
+          <p class="lead">
+            FlyingRC develops compact autopilot, sensor, ESC, and firmware reference projects for UAV builders,
+            robotics teams, and embedded engineers.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/FlyingRC-Official">View GitHub</a>
+            <a class="button secondary" href="#projects">Explore Projects</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="FlyingRC project signal">
+          <div class="board-visual">
+            <span class="chip main-chip">MCU</span>
+            <span class="chip sensor-chip">IMU</span>
+            <span class="chip flash-chip">FLASH</span>
+            <span class="trace trace-a"></span>
+            <span class="trace trace-b"></span>
+            <span class="trace trace-c"></span>
+            <span class="pad pad-a"></span>
+            <span class="pad pad-b"></span>
+            <span class="pad pad-c"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <h2>Featured Projects</h2>
+          <p>Firmware, demo code, and board-support work kept close to real hardware needs.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Betaflight Config</h3>
+            <p>Target definitions and board configuration work for FlyingRC flight-control hardware.</p>
+            <a href="https://github.com/FlyingRC-Official/betaflight-config">Open repository</a>
+          </article>
+          <article class="project-card">
+            <h3>RM3100 SPI Demos</h3>
+            <p>Reference demos for magnetic sensor bring-up, integration checks, and embedded experiments.</p>
+            <a href="https://github.com/FlyingRC-Official/RM3100-SPI-Demos">Open repository</a>
+          </article>
+          <article class="project-card">
+            <h3>MicroSense C3</h3>
+            <p>Micropython demo resources for compact sensor and controller workflows.</p>
+            <a href="https://github.com/FlyingRC-Official/MicroSenseC3_Micropython_Demo">Open repository</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section hardware-band" id="hardware">
+        <div>
+          <h2>Hardware-first development</h2>
+          <p>
+            The work starts from board constraints: pin mapping, boot behavior, signal integrity, and firmware
+            targets. The goal is simple: designs that are easier to bring up, verify, document, and fly.
+          </p>
+        </div>
+        <ul class="capability-list">
+          <li>ArduPilot and Betaflight board-support work</li>
+          <li>CAN, SPI, flash, sensor, and ESC integration</li>
+          <li>Reference firmware, demos, and validation notes</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <span>FlyingRC Official</span>
+      <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
+    </footer>
+  </body>
+</html>
