@@ -76,9 +76,11 @@
       empty: "没有匹配的产品",
       view: "查看详情",
       keySpecs: "关键参数",
-      specTable: "原始参数表",
-      specItem: "参数项",
-      specDetail: "说明",
+      specTable: "结构化参数表",
+      specTableTitle: "便于选型的参数说明",
+      specTableNote: "根据产品简介、说明书要点、接线参考和技术参数整理，方便快速判断是否适合当前装机。",
+      specItem: "项目",
+      specDetail: "规格说明",
       whatItDoes: "这个产品做什么",
       bestFor: "适合场景",
       keyFeatures: "主要功能",
@@ -294,23 +296,59 @@
     `).join("")}</div>`;
   }
 
-  function enList(value) {
+  const specRowLabels = {
+    en: {
+      role: "Product role",
+      bestFor: "Best used for",
+      productClass: "Product class",
+      hardware: "Core hardware",
+      firmware: "Firmware / software",
+      input: "Electrical input",
+      recommended: "Recommended battery",
+      power: "Power outputs",
+      current: "Current rating",
+      size: "Size / mounting / weight",
+      io: "Interfaces / I/O",
+      setup: "Setup notes",
+      watch: "Check before use",
+      source: "Documentation basis"
+    },
+    zh: {
+      role: "产品定位",
+      bestFor: "适合场景",
+      productClass: "产品类别",
+      hardware: "核心硬件",
+      firmware: "固件 / 软件",
+      input: "电源输入",
+      recommended: "推荐电池",
+      power: "供电输出",
+      current: "电流等级",
+      size: "尺寸 / 安装 / 重量",
+      io: "接口 / I/O",
+      setup: "设置注意",
+      watch: "使用前检查",
+      source: "资料来源"
+    }
+  };
+
+  function localizedValue(value, lang) {
     if (!value) return [];
     if (Array.isArray(value)) return value;
-    return value.en || value.zh || [];
+    return value[lang] || value.en || value.zh || [];
   }
 
-  function enText(value) {
+  function localizedText(value, lang) {
     if (!value) return "";
-    return typeof value === "string" ? value : value.en || value.zh || "";
+    return typeof value === "string" ? value : value[lang] || value.en || value.zh || "";
   }
 
-  function sentenceJoin(items, limit = 3) {
+  function sentenceJoin(items, limit = 3, lang = "en") {
+    const separator = lang === "zh" ? "；" : "; ";
     return uniqueList(items)
       .filter(Boolean)
       .slice(0, limit)
-      .map((item) => String(item).replace(/\.$/, ""))
-      .join("; ");
+      .map((item) => String(item).replace(/[.。]$/, ""))
+      .join(separator);
   }
 
   function uniqueList(items) {
@@ -323,8 +361,8 @@
     });
   }
 
-  function matchingDetails(items, pattern, limit = 3, excludePattern = null) {
-    return sentenceJoin(items.filter((item) => pattern.test(item) && !(excludePattern && excludePattern.test(item))), limit);
+  function matchingDetails(items, pattern, limit = 3, excludePattern = null, lang = "en") {
+    return sentenceJoin(items.filter((item) => pattern.test(item) && !(excludePattern && excludePattern.test(item))), limit, lang);
   }
 
   function labeledDetail(items, labelPattern) {
@@ -336,13 +374,14 @@
     return row;
   }
 
-  function specRowsForEnglish(product, specs) {
-    const technical = enList(product.technicalHighlights);
-    const features = enList(product.keyFeatures);
-    const setup = enList(product.setupNotes);
-    const watch = enList(product.watchOut);
-    const allTechnical = uniqueList([...specs, ...technical, ...features]);
-    const productClassSpecs = specs.filter((item) => !/\b(input|LiPo|LiHV|DC|BEC|output|size|dimension|mounting|weight|UART|PWM|SBUS|I2C|SPI|USB|connector|current|continuous|burst|per channel)\b/i.test(item));
+  function specRowsForProduct(product, specs, lang) {
+    const rowLabels = specRowLabels[lang] || specRowLabels.en;
+    const technical = localizedValue(product.technicalHighlights, lang);
+    const features = localizedValue(product.keyFeatures, lang);
+    const setup = localizedValue(product.setupNotes, lang);
+    const watch = localizedValue(product.watchOut, lang);
+    const allTechnical = uniqueList([...technical, ...features, ...specs]);
+    const productClassSpecs = specs.filter((item) => !/\b(input|输入|LiPo|LiHV|DC|BEC|output|输出|size|尺寸|dimension|mounting|孔距|安装|weight|重量|UART|PWM|SBUS|I2C|SPI|USB|connector|接口|current|电流|continuous|持续|burst|瞬时|per channel|单路)\b/i.test(item));
     const rows = [];
     const usedLabels = new Set();
 
@@ -354,39 +393,41 @@
       rows.push([label, value.replace(/\.$/, ".")]);
     }
 
-    add("Product role", enText(product.whatItDoes) || enText(product.summary));
-    add("Best used for", sentenceJoin(enList(product.bestFor), 3));
-    add("Product class", sentenceJoin(productClassSpecs.length ? productClassSpecs : specs, 2));
-    add("Core hardware", matchingDetails(allTechnical, /\b(STM32|MCU|gyro|barometer|MOSFET|driver|RM3100|ASIC|QF32|Infineon|MP9447|U-?Blox)\b/i, 3, /\b(current sensor|external I2C current)\b/i));
-    add("Firmware / software", labeledDetail(technical, /^Firmware target$/i) || matchingDetails(allTechnical, /\b(firmware|Betaflight|ArduPilot|ArduPlane|INAV|AM32|ELRS|AP_Periph|BF4|target)\b/i, 3, /\b(UART|PWM|SBUS|I2C|SPI|USB|connector|plug-in)\b/i));
-    add("Electrical input", labeledDetail(technical, /^Input$/i) || matchingDetails(allTechnical, /\b(input|LiPo|LiHV|DC|[0-9]+S)\b/i, 2, /\b(recommended|BEC output|Power outputs)\b/i));
-    add("Recommended battery", labeledDetail(technical, /^Recommended$/i));
-    add("Power outputs", labeledDetail(allTechnical, /^(Dual BEC outputs|Power outputs|Selectable output voltage|Output)$/i) || matchingDetails(allTechnical, /\b(BEC|5 V|6\.2 V|7\.4 V|9 V|12 V|VTX\/camera power|flight controller power input)\b/i, 3, /\b(recommended|voltage detection|input range)\b/i));
-    add("Current rating", matchingDetails(allTechnical, /\b(continuous current|burst current|current class|ESC class|per channel|[0-9]+\s*A\s*(single|dual|four|4-in-1|two-in-one|x\s*4)?)\b/i, 3, /\b(BEC|output|VTX|camera|power|sensor|requirements)\b/i));
-    add("Size / mounting / weight", labeledDetail(technical, /^(Size|Dimensions)$/i) || matchingDetails(allTechnical, /\b(size|dimension|dimensions|mounting|weight|mm|board size)\b/i, 3, /\b(requirements|orientation|connector)\b/i));
-    add("Interfaces / I/O", matchingDetails(allTechnical, /\b(UART|USART|PWM|SBUS|I2C|SPI|USB|Type-C|CAN|GPS|connector|DRDY|SCK|MISO|MOSI|LED|buzzer|ADC|RSSI|OSD)\b/i, 4, /\b(weight|mounting hole|voltage\/current requirements)\b/i));
-    add("Setup notes", sentenceJoin(setup, 2));
-    add("Check before use", sentenceJoin(watch, 2));
-    add("Documentation basis", product.manualSource || labels.en.source);
+    add(rowLabels.role, localizedText(product.whatItDoes, lang) || localizedText(product.summary, lang));
+    add(rowLabels.bestFor, sentenceJoin(localizedValue(product.bestFor, lang), 3, lang));
+    add(rowLabels.productClass, sentenceJoin(productClassSpecs.length ? productClassSpecs : specs, 2, lang));
+    add(rowLabels.hardware, matchingDetails(allTechnical, /\b(STM32|MCU|gyro|陀螺仪|barometer|气压计|MOSFET|driver|驱动|RM3100|ASIC|QF32|Infineon|MP9447|U-?Blox|主控|芯片|传感器)\b/i, 3, /\b(current sensor|external I2C current|电流计|外接 I2C 电流)\b/i, lang));
+    add(rowLabels.firmware, labeledDetail(technical, /^(Firmware target|固件目标)$/i) || matchingDetails(allTechnical, /\b(firmware|固件|Betaflight|ArduPilot|ArduPlane|INAV|AM32|ELRS|AP_Periph|BF4|target|目标)\b/i, 3, /\b(UART|PWM|SBUS|I2C|SPI|USB|connector|plug-in|接口|直插)\b/i, lang));
+    const inputDetail = labeledDetail(technical, /^(Input|输入)$/i)
+      || matchingDetails(allTechnical, /(input|输入)/i, 2, /\b(recommended|推荐|BEC output|Power outputs|供电输出)\b/i, lang)
+      || matchingDetails(allTechnical, /\b(LiPo|LiHV|DC|[0-9]+S)\b/i, 2, /\b(recommended|推荐|BEC output|Power outputs|供电输出)\b/i, lang);
+    add(rowLabels.input, inputDetail);
+    add(rowLabels.recommended, labeledDetail(technical, /^(Recommended|推荐)$/i));
+    add(rowLabels.power, labeledDetail(allTechnical, /^(Dual BEC outputs|Power outputs|Selectable output voltage|Output|双 BEC|供电输出|可选输出电压|输出)$/i) || matchingDetails(allTechnical, /\b(BEC|5\s*V|6\.2\s*V|7\.4\s*V|9\s*V|12\s*V|VTX\/camera power|图传\/相机供电)\b/i, 3, /(recommended|推荐|voltage detection|电压检测|input range|输入范围|power input|供电为)/i, lang));
+    add(rowLabels.current, matchingDetails(allTechnical, /\b(continuous current|burst current|current class|ESC class|per channel|持续电流|瞬时电流|电流级别|单路|[0-9]+\s*A\s*(single|dual|four|4-in-1|two-in-one|x\s*4|单体|二合一|四合一)?)\b/i, 3, /\b(BEC|output|输出|VTX|camera|power|供电|sensor|requirements|要求)\b/i, lang));
+    add(rowLabels.size, labeledDetail(technical, /^(Size|Dimensions|尺寸)$/i) || matchingDetails(allTechnical, /\b(size|dimension|dimensions|mounting|weight|尺寸|孔距|安装|重量|mm|board size)\b/i, 3, /\b(requirements|要求|orientation|方向|connector|接口)\b/i, lang));
+    add(rowLabels.io, matchingDetails(allTechnical, /\b(UART|USART|PWM|SBUS|I2C|SPI|USB|Type-C|CAN|GPS|connector|接口|引脚|DRDY|SCK|MISO|MOSI|LED|buzzer|蜂鸣器|ADC|RSSI|OSD)\b/i, 4, /\b(weight|重量|mounting hole|孔距|voltage\/current requirements|电压\/电流要求)\b/i, lang));
+    add(rowLabels.setup, sentenceJoin(setup, 2, lang));
+    add(rowLabels.watch, sentenceJoin(watch, 2, lang));
+    add(rowLabels.source, product.manualSource || labels[lang].source);
     return rows;
   }
 
-  function englishSpecTable(product, specs) {
-    if (state.lang !== "en") return "";
-    const rows = specRowsForEnglish(product, specs);
+  function specTable(product, specs) {
+    const rows = specRowsForProduct(product, specs, state.lang);
     if (!rows.length) return "";
 
     return `
-      <div class="spec-table-wrap" aria-label="${labels.en.specTable}">
+      <div class="spec-table-wrap" aria-label="${labels[state.lang].specTable}">
         <div class="spec-table-intro">
-          <h3>${labels.en.specTableTitle}</h3>
-          <p>${labels.en.specTableNote}</p>
+          <h3>${labels[state.lang].specTableTitle}</h3>
+          <p>${labels[state.lang].specTableNote}</p>
         </div>
         <table class="spec-table">
           <thead>
             <tr>
-              <th>${labels.en.specItem}</th>
-              <th>${labels.en.specDetail}</th>
+              <th>${labels[state.lang].specItem}</th>
+              <th>${labels[state.lang].specDetail}</th>
             </tr>
           </thead>
           <tbody>
@@ -468,7 +509,7 @@
       <section class="detail-section">
         <h2>${labels[state.lang].keySpecs}</h2>
         <ul class="spec-list">${specs.map((spec) => `<li>${escapeHtml(spec)}</li>`).join("")}</ul>
-        ${englishSpecTable(product, specs)}
+        ${specTable(product, specs)}
         ${specImages}
       </section>
       ${diagramHtml ? `<section class="detail-section"><h2>${labels[state.lang].diagrams}</h2>${diagramHtml}</section>` : ""}
