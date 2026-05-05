@@ -7,18 +7,22 @@
     <title>FlyingRC Official</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="home-page">
+  <body class="home-page" data-page="home">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="FlyingRC Official home">
         <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="" class="brand-mark">
         <span>FlyingRC Official</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#top" aria-current="page">Home</a>
-        <a href="wiki.html">Products</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="#top" aria-current="page" data-i18n="home">Home</a>
+        <a href="wiki.html" data-i18n="products">Products</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
       </nav>
+      <div class="language-switch compact" aria-label="Language selector">
+        <button type="button" data-lang-button="en">EN</button>
+        <button type="button" data-lang-button="zh">中文</button>
+      </div>
     </header>
 
     <main id="top">
@@ -26,43 +30,44 @@
         <div class="hero-mark" aria-label="FlyingRC Official">
           <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="">
         </div>
-        <h1>FlyingRC Official</h1>
-        <p>Flight controllers, ESCs, BEC modules, GPS, sensors, and open firmware notes for UAV builders.</p>
+        <h1 data-i18n="homeTitle">FlyingRC Official</h1>
+        <p data-i18n="homeLead">Flight controllers, ESCs, BEC modules, GPS, sensors, and open firmware notes for UAV builders.</p>
         <div class="hero-links">
-          <a href="wiki.html">Products</a>
+          <a href="wiki.html" data-i18n="products">Products</a>
           <a href="https://github.com/FlyingRC-Official">GitHub</a>
         </div>
       </section>
 
       <section class="home-strip product-wiki-band">
         <div>
-          <h2>Product Wiki</h2>
-          <p>
+          <h2 data-i18n="productWikiTitle">Product Wiki</h2>
+          <p data-i18n="productWikiLead">
             Bilingual product notes, wiring diagrams, dimensions, and setup notes for FlyingRC hardware.
           </p>
         </div>
-        <a class="plain-link" href="wiki.html">Open Product Wiki</a>
+        <a class="plain-link" href="wiki.html" data-i18n="openProductWiki">Open Product Wiki</a>
       </section>
 
       <section class="home-strip hardware-band" id="hardware">
         <div>
-          <h2>Hardware</h2>
-          <p>
+          <h2 data-i18n="hardware">Hardware</h2>
+          <p data-i18n="hardwareLead">
             Board support and documentation for autopilot, sensor, ESC, CAN, GPS, receiver, and power modules.
           </p>
         </div>
         <ul class="capability-list">
-          <li><a href="wiki.html?categories=flight-controllers">Flight controllers</a></li>
-          <li><a href="wiki.html?categories=esc,bec">ESCs and BEC modules</a></li>
-          <li><a href="wiki.html?categories=sensors,modules">GPS, CAN, receivers, and sensors</a></li>
+          <li><a href="wiki.html?categories=flight-controllers" data-i18n="flightControllers">Flight controllers</a></li>
+          <li><a href="wiki.html?categories=esc,bec" data-i18n="escBecModules">ESCs and BEC modules</a></li>
+          <li><a href="wiki.html?categories=sensors,modules" data-i18n="sensorModules">GPS, CAN, receivers, and sensors</a></li>
         </ul>
-      </section>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>FlyingRC Official</span>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" data-i18n="contact">Contact</a>
     </footer>
+    <script src="data/products.js?v=20260505"></script>
+    <script src="scripts/product-wiki.js?v=20260505-site-lang"></script>
   </body>
 </html>

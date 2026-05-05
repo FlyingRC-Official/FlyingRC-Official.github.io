@@ -7,49 +7,53 @@
     <title>Projects | FlyingRC Official</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body data-page="projects">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="FlyingRC Official home">
         <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="" class="brand-mark">
         <span>FlyingRC Official</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="wiki.html">Products</a>
-        <a href="projects.html" aria-current="page">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="wiki.html" data-i18n="products">Products</a>
+        <a href="projects.html" aria-current="page" data-i18n="projects">Projects</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
       </nav>
+      <div class="language-switch compact" aria-label="Language selector">
+        <button type="button" data-lang-button="en">EN</button>
+        <button type="button" data-lang-button="zh">中文</button>
+      </div>
     </header>
 
     <main>
       <section class="page-hero">
         <p class="status">FlyingRC Official</p>
-        <h1>Projects</h1>
-        <p class="lead">Firmware configuration, board support notes, and hardware demos for FlyingRC products.</p>
+        <h1 data-i18n="projectsTitle">Projects</h1>
+        <p class="lead" data-i18n="projectsLead">Firmware configuration, board support notes, and hardware demos for FlyingRC products.</p>
       </section>
 
       <section class="content-band">
         <div class="section-heading">
-          <h2>Repositories</h2>
-          <p>Selected public repositories for builders who want firmware targets, sensor demos, and reference code.</p>
+          <h2 data-i18n="repositories">Repositories</h2>
+          <p data-i18n="repositoriesLead">Selected public repositories for builders who want firmware targets, sensor demos, and reference code.</p>
         </div>
         <div class="project-list roomy">
           <a href="https://github.com/FlyingRC-Official/betaflight-config">
             <span>
               <strong>Betaflight Config</strong>
-              <small>FlyingRC Betaflight target configuration and firmware notes.</small>
+              <small data-i18n="betaflightConfigDesc">FlyingRC Betaflight target configuration and firmware notes.</small>
             </span>
           </a>
           <a href="https://github.com/FlyingRC-Official/RM3100-SPI-Demos">
             <span>
               <strong>RM3100 SPI Demos</strong>
-              <small>Example code for working with RM3100 magnetometer modules over SPI.</small>
+              <small data-i18n="rm3100DemoDesc">Example code for working with RM3100 magnetometer modules over SPI.</small>
             </span>
           </a>
           <a href="https://github.com/FlyingRC-Official/MicroSenseC3_Micropython_Demo">
             <span>
               <strong>MicroSense C3 Micropython Demo</strong>
-              <small>MicroPython demo materials for the MicroSense C3 product family.</small>
+              <small data-i18n="microsenseDemoDesc">MicroPython demo materials for the MicroSense C3 product family.</small>
             </span>
           </a>
         </div>
@@ -60,5 +64,7 @@
       <span>FlyingRC Official</span>
       <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
     </footer>
+    <script src="data/products.js?v=20260505"></script>
+    <script src="scripts/product-wiki.js?v=20260505-site-lang"></script>
   </body>
 </html>
