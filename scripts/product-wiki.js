@@ -14,6 +14,7 @@
       all: "All products",
       search: "Search products, specs, wiring, firmware...",
       products: "Products",
+      eol: "EOL",
       empty: "No matching products",
       view: "Open details",
       keySpecs: "Key Specs",
@@ -73,6 +74,7 @@
       all: "全部产品",
       search: "搜索产品、参数、接线、固件...",
       products: "产品资料",
+      eol: "已停产",
       empty: "没有匹配的产品",
       view: "查看详情",
       keySpecs: "关键参数",
@@ -173,6 +175,9 @@
       text(product.summary),
       text(product.cardSummary),
       text(product.whatItDoes),
+      product.status,
+      product.status ? labels.en[product.status] : "",
+      product.status ? labels.zh[product.status] : "",
       ...(product.tags || []),
       ...(product.specs?.en || []),
       ...(product.specs?.zh || []),
@@ -198,6 +203,12 @@
 
   function productCardSummary(product) {
     return text(product.cardSummary) || text(product.whatItDoes) || text(product.summary);
+  }
+
+  function productStatusBadge(product) {
+    if (!product.status) return "";
+    const label = labels[state.lang][product.status] || product.status.toUpperCase();
+    return `<span class="product-status product-status-${escapeHtml(product.status)}">${escapeHtml(label)}</span>`;
   }
 
   function requestedCategories() {
@@ -249,7 +260,10 @@
           ${productImage(product)}
         </a>
         <div class="product-card-body">
-          <div class="product-card-meta">${escapeHtml(text(catalog.categories[product.category]))}</div>
+          <div class="product-card-meta">
+            <span>${escapeHtml(text(catalog.categories[product.category]))}</span>
+            ${productStatusBadge(product)}
+          </div>
           <h3>${escapeHtml(text(product.title))}</h3>
           <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
@@ -497,7 +511,10 @@
       <section class="product-detail-hero">
         <div>
           <a class="back-link" href="wiki.html">${labels[state.lang].back}</a>
-          <p class="detail-kicker">${escapeHtml(text(catalog.categories[product.category]))}</p>
+          <p class="detail-kicker">
+            <span>${escapeHtml(text(catalog.categories[product.category]))}</span>
+            ${productStatusBadge(product)}
+          </p>
           <h1>${escapeHtml(text(product.title))}</h1>
           <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>

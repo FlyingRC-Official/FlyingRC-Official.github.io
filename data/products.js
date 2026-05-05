@@ -41,6 +41,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "f4wse-f405",
       category: "flight-controllers",
+      status: "eol",
       tags: ["F405", "fixed-wing", "Type-C", "wiring"],
       title: { en: "FlyingRC F4WSE F405 Fixed-wing Flight Controller", zh: "FlyingRC F4WSE F405 主控固定翼飞控" },
       summary: { en: "F4WSE fixed-wing controller reference page with product images, wiring layout, and render material.", zh: "F4WSE 固定翼飞控资料页，包含产品图、接线布局和渲染素材。" },
@@ -73,6 +74,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "h7d-h743",
       category: "flight-controllers",
+      status: "eol",
       tags: ["H743", "FPV", "DJI O4", "ELRS", "analog VTX"],
       title: { en: "FlyingRC H7D H743 FPV Flight Controller", zh: "FlyingRC H7D H743 主控穿越机飞控" },
       summary: { en: "H743 FPV controller reference with dimension drawing and common receiver/video wiring diagrams.", zh: "H743 穿越机飞控资料，包含尺寸图以及常用接收机和图传接线图。" },
@@ -270,6 +272,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "h7-can-gps",
       category: "sensors",
+      status: "eol",
       tags: ["GPS", "CAN", "H7"],
       title: { en: "FlyingRC H7 CAN GPS", zh: "FlyingRC H7 CAN GPS" },
       summary: { en: "CAN GPS product material for ArduPilot-style CAN sensor integration.", zh: "CAN GPS 产品资料，面向 ArduPilot 类 CAN 传感器集成。" },
@@ -297,6 +300,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "l4-can-rcgps-adapter",
       category: "modules",
+      status: "eol",
       tags: ["CAN", "serial", "PWM", "adapter"],
       title: { en: "FlyingRC L4 CAN RCGPS Adapter CAN Serial and PWM Expansion Board", zh: "FlyingRC L4 CAN RCGPS Adapter CAN 总线串口 & PWM 扩展板" },
       summary: { en: "CAN bus adapter and serial/PWM expansion board material for peripheral integration.", zh: "CAN 总线串口与 PWM 扩展板资料，用于外设集成。" },

@@ -841,10 +841,29 @@ h2 {
 
 .product-card-meta,
 .detail-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
   margin-bottom: 10px;
   color: var(--green-dark);
   font-size: 13px;
   font-weight: 790;
+}
+
+.product-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border: 1px solid #d79a2b;
+  border-radius: 999px;
+  padding: 2px 8px;
+  background: #fff7e8;
+  color: #8a4f00;
+  font-size: 11px;
+  font-weight: 820;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .wiki-product-card h3 {
