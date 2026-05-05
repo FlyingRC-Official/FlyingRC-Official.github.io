@@ -102,6 +102,14 @@ nav a:hover::after {
   background: var(--green-dark);
 }
 
+nav a[aria-current="page"] {
+  color: var(--green-dark);
+}
+
+nav a[aria-current="page"]::after {
+  background: var(--green-dark);
+}
+
 nav a:hover,
 .project-card a:hover,
 .site-footer a:hover {

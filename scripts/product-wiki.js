@@ -32,6 +32,7 @@
       contactCta: "GitHub / Contact",
       source: "Curated from FlyingRC manuals and listing materials",
       home: "Home",
+      projects: "Projects",
       hardware: "Hardware",
       wikiLead: "Search flight controllers, ESCs, BEC modules, sensors, GPS, receivers, adapters, and stack kits with bilingual product notes and original wiring/spec images.",
       wikiTitle: "FlyingRC Product Wiki"
@@ -58,6 +59,7 @@
       contactCta: "GitHub / 联系",
       source: "整理自 FlyingRC 产品说明书和上架资料",
       home: "首页",
+      projects: "项目",
       hardware: "硬件",
       wikiLead: "搜索飞控、电调、BEC 降压模块、传感器、GPS、接收机、扩展板和飞塔套装，查看双语产品说明和原始接线/参数图片。",
       wikiTitle: "FlyingRC 产品资料"
