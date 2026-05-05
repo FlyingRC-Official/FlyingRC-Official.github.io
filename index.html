@@ -7,7 +7,7 @@
     <title>FlyingRC Official</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="home-page">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="FlyingRC Official home">
         <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="" class="brand-mark">
@@ -23,81 +23,51 @@
 
     <main id="top">
       <section class="hero">
-        <div class="hero-copy">
-          <p class="status">Open hardware, flight controllers, sensors, and embedded firmware</p>
-          <h1>Practical drone electronics for builders who actually fly.</h1>
-          <p class="lead">
-            FlyingRC develops compact autopilot, sensor, ESC, and firmware reference projects for UAV builders,
-            robotics teams, and embedded engineers.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://github.com/FlyingRC-Official">View GitHub</a>
-            <a class="button secondary" href="wiki.html">Product Wiki</a>
-          </div>
+        <div class="hero-mark" aria-label="FlyingRC Official">
+          <img src="https://avatars.githubusercontent.com/FlyingRC-Official" alt="">
         </div>
-        <div class="hero-panel" aria-label="FlyingRC project signal">
-          <div class="board-visual">
-            <span class="chip main-chip">MCU</span>
-            <span class="chip sensor-chip">IMU</span>
-            <span class="chip flash-chip">FLASH</span>
-            <span class="trace trace-a"></span>
-            <span class="trace trace-b"></span>
-            <span class="trace trace-c"></span>
-            <span class="pad pad-a"></span>
-            <span class="pad pad-b"></span>
-            <span class="pad pad-c"></span>
-          </div>
+        <h1>FlyingRC Official</h1>
+        <p>Flight controllers, ESCs, BEC modules, GPS, sensors, and open firmware notes for UAV builders.</p>
+        <div class="hero-links">
+          <a href="wiki.html">Products</a>
+          <a href="https://github.com/FlyingRC-Official">GitHub</a>
         </div>
       </section>
 
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <h2>Featured Projects</h2>
-          <p>Firmware, demo code, and board-support work kept close to real hardware needs.</p>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <h3>Betaflight Config</h3>
-            <p>Target definitions and board configuration work for FlyingRC flight-control hardware.</p>
-            <a href="https://github.com/FlyingRC-Official/betaflight-config">Open repository</a>
-          </article>
-          <article class="project-card">
-            <h3>RM3100 SPI Demos</h3>
-            <p>Reference demos for magnetic sensor bring-up, integration checks, and embedded experiments.</p>
-            <a href="https://github.com/FlyingRC-Official/RM3100-SPI-Demos">Open repository</a>
-          </article>
-          <article class="project-card">
-            <h3>MicroSense C3</h3>
-            <p>Micropython demo resources for compact sensor and controller workflows.</p>
-            <a href="https://github.com/FlyingRC-Official/MicroSenseC3_Micropython_Demo">Open repository</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section product-wiki-band">
+      <section class="home-strip product-wiki-band">
         <div>
           <h2>Product Wiki</h2>
           <p>
-            Browse bilingual product notes, wiring diagrams, dimensions, parameter tables, and curated listing
-            materials for FlyingRC flight controllers, ESCs, BEC modules, sensors, GPS, receivers, and stack kits.
+            Bilingual product notes, wiring diagrams, dimensions, and setup notes for FlyingRC hardware.
           </p>
         </div>
-        <a class="button primary" href="wiki.html">Open Product Wiki</a>
+        <a class="plain-link" href="wiki.html">Open Product Wiki</a>
       </section>
 
-      <section class="section hardware-band" id="hardware">
+      <section class="home-strip hardware-band" id="hardware">
         <div>
-          <h2>Hardware-first development</h2>
+          <h2>Hardware</h2>
           <p>
-            The work starts from board constraints: pin mapping, boot behavior, signal integrity, and firmware
-            targets. The goal is simple: designs that are easier to bring up, verify, document, and fly.
+            Board support and documentation for autopilot, sensor, ESC, CAN, GPS, receiver, and power modules.
           </p>
         </div>
         <ul class="capability-list">
-          <li>ArduPilot and Betaflight board-support work</li>
-          <li>CAN, SPI, flash, sensor, and ESC integration</li>
-          <li>Reference firmware, demos, and validation notes</li>
+          <li>Flight controllers</li>
+          <li>ESCs and BEC modules</li>
+          <li>GPS, CAN, receivers, and sensors</li>
         </ul>
+      </section>
+
+      <section class="home-strip" id="projects">
+        <div class="section-heading">
+          <h2>Projects</h2>
+          <p>Selected firmware and demo repositories.</p>
+        </div>
+        <div class="project-list">
+          <a href="https://github.com/FlyingRC-Official/betaflight-config">Betaflight Config</a>
+          <a href="https://github.com/FlyingRC-Official/RM3100-SPI-Demos">RM3100 SPI Demos</a>
+          <a href="https://github.com/FlyingRC-Official/MicroSenseC3_Micropython_Demo">MicroSense C3</a>
+        </div>
       </section>
     </main>
 
