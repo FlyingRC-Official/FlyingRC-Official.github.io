@@ -17,6 +17,9 @@
       empty: "No matching products",
       view: "Open details",
       keySpecs: "Key Specs",
+      specTable: "English spec table",
+      specItem: "Spec item",
+      specDetail: "Detail",
       whatItDoes: "What this does",
       bestFor: "Best used for",
       keyFeatures: "Key features",
@@ -44,6 +47,9 @@
       empty: "没有匹配的产品",
       view: "查看详情",
       keySpecs: "关键参数",
+      specTable: "原始参数表",
+      specItem: "参数项",
+      specDetail: "说明",
       whatItDoes: "这个产品做什么",
       bestFor: "适合场景",
       keyFeatures: "主要功能",
@@ -232,6 +238,42 @@
     `).join("")}</div>`;
   }
 
+  function splitSpecRow(item) {
+    const match = String(item).match(/^([^:：]+)[:：]\s*(.+)$/);
+    if (!match) return [labels[state.lang].specItem, item];
+    return [match[1], match[2]];
+  }
+
+  function englishSpecTable(product, specs) {
+    if (state.lang !== "en") return "";
+    const rows = [...specs, ...localizedList(product.technicalHighlights)]
+      .filter(Boolean)
+      .filter((item, index, list) => list.indexOf(item) === index)
+      .map(splitSpecRow);
+    if (!rows.length) return "";
+
+    return `
+      <div class="spec-table-wrap" aria-label="${labels.en.specTable}">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>${labels.en.specItem}</th>
+              <th>${labels.en.specDetail}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(([label, detail]) => `
+              <tr>
+                <th scope="row">${escapeHtml(label)}</th>
+                <td>${escapeHtml(detail)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
   function textPanel(titleKey, value) {
     const content = text(value);
     if (!content) return "";
@@ -277,7 +319,7 @@
     document.title = `${text(product.title)} | FlyingRC Official`;
     const specs = product.specs?.[state.lang] || product.specs?.en || [];
     const diagramHtml = mediaSection(product, "diagram");
-    const specImages = mediaSection(product, "spec");
+    const specImages = state.lang === "zh" ? mediaSection(product, "spec") : "";
     const galleryHtml = mediaSection(product, "gallery");
     const downloads = product.downloads || [];
     const related = catalog.products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 4);
@@ -298,6 +340,7 @@
       <section class="detail-section">
         <h2>${labels[state.lang].keySpecs}</h2>
         <ul class="spec-list">${specs.map((spec) => `<li>${escapeHtml(spec)}</li>`).join("")}</ul>
+        ${englishSpecTable(product, specs)}
         ${specImages}
       </section>
       ${diagramHtml ? `<section class="detail-section"><h2>${labels[state.lang].diagrams}</h2>${diagramHtml}</section>` : ""}
