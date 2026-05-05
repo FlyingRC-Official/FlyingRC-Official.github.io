@@ -35,7 +35,22 @@
       related: "Related Products",
       back: "Back to products",
       contact: "Contact",
-      contactCta: "GitHub / Contact",
+      contactCta: "Email sales",
+      whatsappCta: "WhatsApp support",
+      githubCta: "GitHub",
+      compareTitle: "Product comparison",
+      compareLead: "Quick category comparisons for choosing the right FlyingRC hardware before opening the detail pages.",
+      compareProduct: "Product",
+      compareRole: "Best for",
+      comparePower: "Power / input",
+      compareFirmware: "Firmware / notes",
+      compareDownloads: "Files",
+      compareOpen: "Details",
+      compareFlightControllers: "Flight controllers",
+      compareEscStacks: "ESCs and stack kits",
+      comparePowerModules: "BEC and power modules",
+      compareSensorsModules: "Sensors, GPS, and modules",
+      manualAvailable: "Manual",
       source: "Curated from FlyingRC manuals and listing materials",
       home: "Home",
       projects: "Projects",
@@ -62,6 +77,16 @@
       contactLead: "Contact FlyingRC Official for product, sales, and technical support.",
       directContactTitle: "Direct contact",
       directContactLead: "For product, sales, and technical support, use the contact methods below.",
+      salesLaneTitle: "Sales / Product Inquiry",
+      salesLaneLead: "Product selection, pricing, availability, and order questions.",
+      techLaneTitle: "Technical Support",
+      techLaneLead: "Wiring, firmware setup, troubleshooting, and compatibility questions.",
+      distributorLaneTitle: "Distributor / OEM",
+      distributorLaneLead: "Bulk purchasing, reseller discussions, and custom hardware opportunities.",
+      firmwareLaneTitle: "Firmware / GitHub",
+      firmwareLaneLead: "Public repositories, firmware targets, demo code, and documentation issues.",
+      startEmail: "Start by email",
+      openWhatsapp: "Open WhatsApp",
       managerContact: "Manager Liu",
       technicalContact: "Technical support",
       emailContact: "Email",
@@ -95,7 +120,22 @@
       related: "相关产品",
       back: "返回产品列表",
       contact: "联系",
-      contactCta: "GitHub / 联系",
+      contactCta: "邮件咨询",
+      whatsappCta: "WhatsApp 技术支持",
+      githubCta: "GitHub",
+      compareTitle: "产品对比",
+      compareLead: "按类别快速对比 FlyingRC 硬件，先判断适合哪一款，再打开详情页查看接线和资料。",
+      compareProduct: "产品",
+      compareRole: "适合场景",
+      comparePower: "供电 / 输入",
+      compareFirmware: "固件 / 说明",
+      compareDownloads: "资料",
+      compareOpen: "详情",
+      compareFlightControllers: "飞控",
+      compareEscStacks: "电调和飞塔套装",
+      comparePowerModules: "BEC 和电源模块",
+      compareSensorsModules: "传感器、GPS 和模块",
+      manualAvailable: "说明书",
       source: "整理自 FlyingRC 产品说明书和上架资料",
       home: "首页",
       projects: "项目",
@@ -122,6 +162,16 @@
       contactLead: "联系 FlyingRC Official，获取产品、销售和技术支持。",
       directContactTitle: "直接联系方式",
       directContactLead: "产品咨询、销售沟通和技术支持可使用以下方式联系。",
+      salesLaneTitle: "销售 / 产品咨询",
+      salesLaneLead: "产品选型、价格、库存和订单问题。",
+      techLaneTitle: "技术支持",
+      techLaneLead: "接线、固件设置、故障排查和兼容性问题。",
+      distributorLaneTitle: "代理 / OEM",
+      distributorLaneLead: "批量采购、代理合作和定制硬件机会。",
+      firmwareLaneTitle: "固件 / GitHub",
+      firmwareLaneLead: "公开仓库、固件目标、演示代码和文档问题。",
+      startEmail: "邮件联系",
+      openWhatsapp: "打开 WhatsApp",
       managerContact: "刘经理",
       technicalContact: "技术支持",
       emailContact: "邮箱",
@@ -131,6 +181,36 @@
       openGithub: "打开 GitHub"
     }
   };
+
+  const contact = {
+    email: "FlyingRC.Official@gmail.com",
+    whatsapp: "https://wa.me/6591216107",
+    github: "https://github.com/FlyingRC-Official",
+    siteUrl: "https://flyingrc-official.github.io"
+  };
+
+  const comparisonGroups = [
+    {
+      titleKey: "compareFlightControllers",
+      categories: ["flight-controllers"],
+      slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-pro", "f4d-mk1", "h7d-pro", "h7d-h743", "f4wse-f405"]
+    },
+    {
+      titleKey: "compareEscStacks",
+      categories: ["esc", "stacks", "fpv-kits", "fixed-wing-kits"],
+      slugs: ["am32-4in1-45a", "am32-4in1-75a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "fixed-wing-kit", "fpv-kit"]
+    },
+    {
+      titleKey: "comparePowerModules",
+      categories: ["bec", "modules"],
+      slugs: ["bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a"]
+    },
+    {
+      titleKey: "compareSensorsModules",
+      categories: ["sensors", "modules"],
+      slugs: ["rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter", "elrs-24g-diversity", "am32-configurator"]
+    }
+  ];
 
   function text(value) {
     if (!value) return "";
@@ -271,6 +351,77 @@
         </div>
       </article>
     `).join("") : `<p class="empty-state">${labels[state.lang].empty}</p>`;
+    renderComparisons();
+  }
+
+  function renderComparisons() {
+    const target = document.querySelector("[data-comparison-tables]");
+    if (!target) return;
+    target.innerHTML = `
+      <div class="section-heading">
+        <h2>${labels[state.lang].compareTitle}</h2>
+        <p>${labels[state.lang].compareLead}</p>
+      </div>
+      <div class="comparison-stack">
+        ${comparisonGroups.map((group) => comparisonTable(group)).join("")}
+      </div>
+    `;
+  }
+
+  function comparisonTable(group) {
+    const products = group.slugs
+      .map((slug) => catalog.products.find((product) => product.slug === slug))
+      .filter(Boolean);
+    return `
+      <section class="comparison-table-wrap">
+        <h3>${labels[state.lang][group.titleKey]}</h3>
+        <div class="comparison-table-scroll">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>${labels[state.lang].compareProduct}</th>
+                <th>${labels[state.lang].compareRole}</th>
+                <th>${labels[state.lang].comparePower}</th>
+                <th>${labels[state.lang].compareFirmware}</th>
+                <th>${labels[state.lang].compareDownloads}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${products.map((product) => comparisonRow(product)).join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    `;
+  }
+
+  function comparisonRow(product) {
+    const specs = localizedValue(product.specs, state.lang);
+    const technical = localizedValue(product.technicalHighlights, state.lang);
+    const allDetails = uniqueList([...specs, ...technical, ...(product.tags || [])]);
+    const role = sentenceJoin(localizedValue(product.bestFor, state.lang), 1, state.lang)
+      || localizedText(product.summary, state.lang);
+    const power = matchingDetails(allDetails, /\b(input|输入|LiPo|LiHV|DC|[0-9]+S|BEC|VTX|5\s*V|9\s*V|12\s*V|电源|供电|输出)\b/i, 2, null, state.lang)
+      || sentenceJoin(specs, 1, state.lang);
+    const firmware = matchingDetails(allDetails, /\b(firmware|固件|Betaflight|ArduPilot|ArduPlane|INAV|AM32|ELRS|AP_Periph|target|目标|CAN|GPS)\b/i, 2, null, state.lang)
+      || sentenceJoin(product.tags || [], 2, state.lang);
+    const hasManual = (product.downloads || []).some((item) => /\.docx$/i.test(item.href));
+
+    return `
+      <tr>
+        <th scope="row">
+          <a href="product.html?p=${encodeURIComponent(product.slug)}">${escapeHtml(text(product.title))}</a>
+          ${productStatusBadge(product)}
+        </th>
+        <td>${escapeHtml(role)}</td>
+        <td>${escapeHtml(power)}</td>
+        <td>${escapeHtml(firmware)}</td>
+        <td>
+          ${hasManual ? `<span>${labels[state.lang].manualAvailable}</span>` : ""}
+          <a href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].compareOpen}</a>
+        </td>
+      </tr>
+    `;
   }
 
   function initWiki() {
@@ -500,6 +651,7 @@
     const product = catalog.products.find((item) => item.slug === slug) || catalog.products[0];
     const main = document.querySelector("[data-product-detail]");
     document.title = `${text(product.title)} | FlyingRC Official`;
+    updateProductMeta(product);
     const specs = product.specs?.[state.lang] || product.specs?.en || [];
     const diagramHtml = mediaSection(product, "diagram");
     const specImages = state.lang === "zh" ? mediaSection(product, "spec") : "";
@@ -518,7 +670,11 @@
           <h1>${escapeHtml(text(product.title))}</h1>
           <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
-          <a class="button primary" href="https://github.com/FlyingRC-Official">${labels[state.lang].contactCta}</a>
+          <div class="detail-actions">
+            <a class="button primary" href="${productEmailHref(product)}">${labels[state.lang].contactCta}</a>
+            <a class="button secondary" href="${contact.whatsapp}" target="_blank" rel="noopener">${labels[state.lang].whatsappCta}</a>
+            <a class="button secondary" href="${contact.github}" target="_blank" rel="noopener">${labels[state.lang].githubCta}</a>
+          </div>
         </div>
         <div class="detail-hero-image">${productImage(product)}</div>
       </section>
@@ -534,6 +690,93 @@
       ${downloads.length ? `<section class="detail-section"><h2>${labels[state.lang].downloads}</h2><div class="download-list">${downloads.map((item) => `<a href="${item.href}" target="_blank" rel="noopener">${escapeHtml(text(item.label))}</a>`).join("")}</div></section>` : ""}
       ${related.length ? `<section class="detail-section"><h2>${labels[state.lang].related}</h2><div class="related-grid">${related.map((item) => `<a href="product.html?p=${encodeURIComponent(item.slug)}">${escapeHtml(text(item.title))}</a>`).join("")}</div></section>` : ""}
     `;
+  }
+
+  function productEmailHref(product) {
+    const subject = `FlyingRC product inquiry: ${localizedText(product.title, "en")}`;
+    const body = [
+      `Hello FlyingRC,`,
+      ``,
+      `I would like to ask about ${localizedText(product.title, "en")}.`,
+      `Product page: ${absoluteUrl(`product.html?p=${encodeURIComponent(product.slug)}`)}`,
+      ``,
+      `My question:`
+    ].join("\n");
+    return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function updateProductMeta(product) {
+    const title = `${text(product.title)} | FlyingRC Official`;
+    const description = productCardSummary(product);
+    const url = absoluteUrl(`product.html?p=${encodeURIComponent(product.slug)}`);
+    const image = product.hero ? absoluteUrl(product.hero) : absoluteUrl("assets/products/rm3100-module/hero.jpg");
+
+    document.title = title;
+    setMeta("description", description);
+    setLink("canonical", url);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:type", "product", "property");
+    setMeta("og:url", url, "property");
+    setMeta("og:image", image, "property");
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", image);
+    setJsonLd(product, url, image, description);
+  }
+
+  function setJsonLd(product, url, image, description) {
+    let node = document.querySelector("#product-jsonld");
+    if (!node) {
+      node = document.createElement("script");
+      node.type = "application/ld+json";
+      node.id = "product-jsonld";
+      document.head.appendChild(node);
+    }
+    node.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: text(product.title),
+      description,
+      image,
+      url,
+      brand: {
+        "@type": "Brand",
+        name: "FlyingRC Official"
+      },
+      category: text(catalog.categories[product.category]),
+      additionalProperty: (product.tags || []).slice(0, 8).map((tag) => ({
+        "@type": "PropertyValue",
+        name: "Tag",
+        value: tag
+      }))
+    });
+  }
+
+  function setMeta(name, content, attribute = "name") {
+    let node = document.head.querySelector(`meta[${attribute}="${name}"]`);
+    if (!node) {
+      node = document.createElement("meta");
+      node.setAttribute(attribute, name);
+      document.head.appendChild(node);
+    }
+    node.setAttribute("content", content);
+  }
+
+  function setLink(rel, href) {
+    let node = document.head.querySelector(`link[rel="${rel}"]`);
+    if (!node) {
+      node = document.createElement("link");
+      node.setAttribute("rel", rel);
+      document.head.appendChild(node);
+    }
+    node.setAttribute("href", href);
+  }
+
+  function absoluteUrl(path) {
+    if (/^https?:\/\//i.test(path)) return path;
+    return `${contact.siteUrl}/${path.replace(/^\//, "")}`;
   }
 
   function escapeHtml(value) {

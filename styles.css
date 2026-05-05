@@ -602,6 +602,65 @@ h2 {
   font-size: clamp(18px, 2vw, 24px);
 }
 
+.business-contact-band {
+  display: block;
+}
+
+.business-contact-band > div {
+  max-width: 1160px;
+}
+
+.business-lanes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.business-lanes a {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 176px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: inherit;
+  text-decoration: none;
+}
+
+.business-lanes a:first-child {
+  border-color: rgba(20, 105, 65, 0.34);
+  box-shadow: inset 0 4px 0 var(--green-dark);
+}
+
+.business-lanes span,
+.business-lanes small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.business-lanes span {
+  color: var(--green-dark);
+  text-transform: uppercase;
+}
+
+.business-lanes strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(17px, 1.7vw, 22px);
+}
+
+.business-lanes small {
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.compact-methods a {
+  min-height: 96px;
+}
+
 .github-band {
   border-top: 1px solid var(--line);
   background: #ffffff;
@@ -619,7 +678,8 @@ h2 {
   }
 
   .contact-band,
-  .contact-methods {
+  .contact-methods,
+  .business-lanes {
     grid-template-columns: 1fr;
   }
 
@@ -789,6 +849,100 @@ h2 {
   padding: 30px clamp(20px, 5vw, 72px) 86px;
 }
 
+.comparison-section {
+  padding: 54px clamp(20px, 5vw, 72px) 86px;
+  border-top: 1px solid var(--line);
+  background: #f5f7f5;
+}
+
+.comparison-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.comparison-table-wrap {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.comparison-table-wrap h3 {
+  margin: 0;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--green-dark);
+  font-size: 22px;
+}
+
+.comparison-table-scroll {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 13px 16px;
+  vertical-align: top;
+}
+
+.comparison-table thead th {
+  background: #fdfefd;
+  color: var(--green-dark);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.comparison-table tbody th {
+  width: 24%;
+}
+
+.comparison-table tbody th a,
+.comparison-table tbody td a {
+  color: var(--green-dark);
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.comparison-table tbody th .product-status {
+  margin-top: 8px;
+}
+
+.comparison-table tbody td {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.comparison-table tbody td:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comparison-table tbody td:last-child span,
+.comparison-table tbody td:last-child a {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  background: #ffffff;
+}
+
+.comparison-table tr:last-child th,
+.comparison-table tr:last-child td {
+  border-bottom: 0;
+}
+
 .wiki-product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -936,6 +1090,13 @@ h2 {
   color: var(--green-dark);
   font-weight: 760;
   text-decoration: none;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
 }
 
 .detail-practical-grid {
@@ -1130,7 +1291,8 @@ h2 {
 
 @media (max-width: 980px) {
   .wiki-product-grid,
-  .spec-list {
+  .spec-list,
+  .business-lanes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -632,8 +632,47 @@ const PRODUCT_EXPLANATIONS = {
   "fpv-kit": kitExplain("An FPV kit overview for stack and drone-electronics bundles.", "穿越机套餐总览，用于飞塔和穿越机电子组合选择。", "FPV flight-controller and ESC manuals")
 };
 
+const PUBLIC_MANUALS = {
+  "f4wing-mini-mk1": manualDownload("assets/downloads/manuals/f4wing-mini-mk1-manual.docx"),
+  "h7wlite-mk1": manualDownload("assets/downloads/manuals/f4wse-pro-manual.docx", "Fixed-wing family manual", "固定翼系列说明书"),
+  "f4wse-f405": manualDownload("assets/downloads/manuals/f4wse-f405-manual.docx"),
+  "f4wse-pro": manualDownload("assets/downloads/manuals/f4wse-pro-manual.docx"),
+  "f4d-mk1": manualDownload("assets/downloads/manuals/f4d-mk1-manual.docx"),
+  "h7d-h743": manualDownload("assets/downloads/manuals/h7d-h743-manual.docx"),
+  "h7d-pro": manualDownload("assets/downloads/manuals/h7d-pro-manual.docx"),
+  "am32-4in1-75a": manualDownload("assets/downloads/manuals/am32-4in1-75a-manual.docx"),
+  "am32-4in1-45a": manualDownload("assets/downloads/manuals/am32-4in1-45a-manual.docx"),
+  "am32-mini-esc-40a": manualDownload("assets/downloads/manuals/am32-mini-esc-40a-manual.docx"),
+  "am32-esc-75a-v25": manualDownload("assets/downloads/manuals/am32-esc-75a-v25-manual.docx"),
+  "am32-dual-esc-40a": manualDownload("assets/downloads/manuals/am32-dual-esc-40a-manual.docx"),
+  "bec-5a-6s": manualDownload("assets/downloads/manuals/bec-5a-6s-manual.docx"),
+  "bec-10a-12s": manualDownload("assets/downloads/manuals/bec-10a-12s-manual.docx"),
+  "bec-mini-dji-o4": manualDownload("assets/downloads/manuals/bec-mini-dji-o4-manual.docx"),
+  "rm3100-module": manualDownload("assets/downloads/manuals/rm3100-module-manual.docx"),
+  "h7-can-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx", "CAN/GPS family manual", "CAN/GPS 系列说明书"),
+  "ublox-m10-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx"),
+  "digital-airspeed": manualDownload("assets/downloads/manuals/digital-airspeed-manual.docx"),
+  "l4-can-rcgps-adapter": manualDownload("assets/downloads/manuals/l4-can-rcgps-adapter-manual.docx"),
+  "elrs-24g-diversity": manualDownload("assets/downloads/manuals/elrs-24g-diversity-manual.docx"),
+  "am32-configurator": manualDownload("assets/downloads/manuals/am32-configurator-manual.docx"),
+  "pdb-12s-400a": manualDownload("assets/downloads/manuals/pdb-12s-400a-manual.docx")
+};
+
+const PUBLIC_REFERENCE_FILES = {
+  "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "elrs-24g-diversity": [download("assets/products/elrs-24g-diversity/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")]
+};
+
 window.FLYINGRC_CATALOG.products.forEach((product) => {
   Object.assign(product, PRODUCT_EXPLANATIONS[product.slug] || {});
+  product.downloads = uniqueDownloads([
+    PUBLIC_MANUALS[product.slug],
+    ...(PUBLIC_REFERENCE_FILES[product.slug] || []),
+    ...(product.downloads || [])
+  ].filter(Boolean));
 });
 
 function img(src, en, zh, type) {
@@ -642,6 +681,19 @@ function img(src, en, zh, type) {
 
 function download(href, en, zh) {
   return { href, label: { en, zh } };
+}
+
+function manualDownload(href, en = "Product manual", zh = "产品说明书") {
+  return download(href, en, zh);
+}
+
+function uniqueDownloads(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    if (seen.has(item.href)) return false;
+    seen.add(item.href);
+    return true;
+  });
 }
 
 function explain(config) {
