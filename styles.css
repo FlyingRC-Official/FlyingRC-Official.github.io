@@ -1264,13 +1264,11 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #ffffff;
-  overflow: hidden;
 }
 
 .detail-media-grid a {
   display: grid;
   min-height: clamp(220px, 24vw, 340px);
-  overflow: hidden;
   padding: 14px;
   place-items: center;
   background: #f8faf8;
@@ -1278,10 +1276,10 @@ h2 {
 
 .detail-media-grid img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: min(78vh, 900px);
+  object-fit: contain;
 }
 
 .detail-media-grid figcaption {
@@ -1348,6 +1346,5 @@ h2 {
 
   .detail-media-grid img {
     width: 100%;
-    max-height: none;
   }
 }
