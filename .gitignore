@@ -1,6 +1,7 @@
 .DS_Store
 _private/
 上架资料/
+产品说明书/
 assets/products/**/*.step
 assets/products/f4d-mk1/video.mp4
 assets/products/**/*.png

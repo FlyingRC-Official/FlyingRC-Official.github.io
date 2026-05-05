@@ -15,6 +15,12 @@
       empty: "No matching products",
       view: "Open details",
       keySpecs: "Key Specs",
+      whatItDoes: "What this does",
+      bestFor: "Best used for",
+      keyFeatures: "Key features",
+      technicalHighlights: "Technical highlights",
+      setupNotes: "Setup / wiring notes",
+      watchOut: "Check before use",
       diagrams: "Wiring / Pinout / Dimension",
       gallery: "Gallery",
       downloads: "Downloads / Reference Files",
@@ -22,7 +28,7 @@
       back: "Back to products",
       contact: "Contact",
       contactCta: "GitHub / Contact",
-      source: "Curated from FlyingRC listing materials",
+      source: "Curated from FlyingRC manuals and listing materials",
       home: "Home",
       hardware: "Hardware",
       wikiLead: "Search flight controllers, ESCs, BEC modules, sensors, GPS, receivers, adapters, and stack kits with bilingual product notes and original wiring/spec images.",
@@ -35,6 +41,12 @@
       empty: "没有匹配的产品",
       view: "查看详情",
       keySpecs: "关键参数",
+      whatItDoes: "这个产品做什么",
+      bestFor: "适合场景",
+      keyFeatures: "主要功能",
+      technicalHighlights: "技术要点",
+      setupNotes: "设置 / 接线注意",
+      watchOut: "使用前检查",
       diagrams: "接线 / 引脚 / 尺寸",
       gallery: "图片资料",
       downloads: "下载 / 参考文件",
@@ -42,7 +54,7 @@
       back: "返回产品列表",
       contact: "联系",
       contactCta: "GitHub / 联系",
-      source: "整理自 FlyingRC 上架资料",
+      source: "整理自 FlyingRC 产品说明书和上架资料",
       home: "首页",
       hardware: "硬件",
       wikiLead: "搜索飞控、电调、BEC 降压模块、传感器、GPS、接收机、扩展板和飞塔套装，查看双语产品说明和原始接线/参数图片。",
@@ -91,10 +103,33 @@
       product.category,
       text(product.title),
       text(product.summary),
+      text(product.cardSummary),
+      text(product.whatItDoes),
       ...(product.tags || []),
       ...(product.specs?.en || []),
-      ...(product.specs?.zh || [])
+      ...(product.specs?.zh || []),
+      ...plainList(product.bestFor),
+      ...plainList(product.keyFeatures),
+      ...plainList(product.technicalHighlights),
+      ...plainList(product.setupNotes),
+      ...plainList(product.watchOut)
     ].join(" ").toLowerCase();
+  }
+
+  function localizedList(value) {
+    if (!value) return [];
+    if (Array.isArray(value)) return value;
+    return value[state.lang] || value.en || value.zh || [];
+  }
+
+  function plainList(value) {
+    if (!value) return [];
+    if (Array.isArray(value)) return value;
+    return [...(value.en || []), ...(value.zh || [])];
+  }
+
+  function productCardSummary(product) {
+    return text(product.cardSummary) || text(product.whatItDoes) || text(product.summary);
   }
 
   function productImage(product) {
@@ -122,7 +157,7 @@
         <div class="product-card-body">
           <div class="product-card-meta">${escapeHtml(text(catalog.categories[product.category]))}</div>
           <h3>${escapeHtml(text(product.title))}</h3>
-          <p>${escapeHtml(text(product.summary))}</p>
+          <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
           <a class="text-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].view}</a>
         </div>
@@ -164,6 +199,44 @@
     `).join("")}</div>`;
   }
 
+  function textPanel(titleKey, value) {
+    const content = text(value);
+    if (!content) return "";
+    return `
+      <section class="detail-info-panel detail-info-panel-wide">
+        <h2>${labels[state.lang][titleKey]}</h2>
+        <p>${escapeHtml(content)}</p>
+      </section>
+    `;
+  }
+
+  function listPanel(titleKey, value, className = "") {
+    const items = localizedList(value).filter(Boolean);
+    if (!items.length) return "";
+    return `
+      <section class="detail-info-panel ${className}">
+        <h2>${labels[state.lang][titleKey]}</h2>
+        <ul class="detail-rich-list">
+          ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+        </ul>
+      </section>
+    `;
+  }
+
+  function practicalSections(product) {
+    const sections = [
+      textPanel("whatItDoes", product.whatItDoes || product.summary),
+      listPanel("bestFor", product.bestFor),
+      listPanel("keyFeatures", product.keyFeatures),
+      listPanel("technicalHighlights", product.technicalHighlights),
+      listPanel("setupNotes", product.setupNotes),
+      listPanel("watchOut", product.watchOut, "detail-info-panel-warning")
+    ].filter(Boolean);
+
+    if (!sections.length) return "";
+    return `<section class="detail-practical-grid">${sections.join("")}</section>`;
+  }
+
   function renderProduct() {
     const slug = new URLSearchParams(location.search).get("p") || location.hash.replace("#", "");
     const product = catalog.products.find((item) => item.slug === slug) || catalog.products[0];
@@ -182,12 +255,13 @@
           <a class="back-link" href="wiki.html">${labels[state.lang].back}</a>
           <p class="detail-kicker">${escapeHtml(text(catalog.categories[product.category]))}</p>
           <h1>${escapeHtml(text(product.title))}</h1>
-          <p>${escapeHtml(text(product.summary))}</p>
+          <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
           <a class="button primary" href="https://github.com/FlyingRC-Official">${labels[state.lang].contactCta}</a>
         </div>
         <div class="detail-hero-image">${productImage(product)}</div>
       </section>
+      ${practicalSections(product)}
       <section class="detail-section">
         <h2>${labels[state.lang].keySpecs}</h2>
         <ul class="spec-list">${specs.map((spec) => `<li>${escapeHtml(spec)}</li>`).join("")}</ul>
