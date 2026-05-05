@@ -1003,6 +1003,25 @@ h2 {
   overflow-x: auto;
 }
 
+.spec-table-intro {
+  padding: 18px 18px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-table-intro h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: 18px;
+}
+
+.spec-table-intro p {
+  max-width: 780px;
+  margin: 6px 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .spec-table {
   width: 100%;
   min-width: 560px;

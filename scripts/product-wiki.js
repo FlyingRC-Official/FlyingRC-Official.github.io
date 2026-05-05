@@ -17,9 +17,11 @@
       empty: "No matching products",
       view: "Open details",
       keySpecs: "Key Specs",
-      specTable: "English spec table",
-      specItem: "Spec item",
-      specDetail: "Detail",
+      specTable: "English specification table",
+      specTableTitle: "Buyer-readable specifications",
+      specTableNote: "Consolidated from the product summary, manual notes, wiring references, and listed technical highlights.",
+      specItem: "Attribute",
+      specDetail: "Specification",
       whatItDoes: "What this does",
       bestFor: "Best used for",
       keyFeatures: "Key features",
@@ -292,22 +294,94 @@
     `).join("")}</div>`;
   }
 
-  function splitSpecRow(item) {
-    const match = String(item).match(/^([^:：]+)[:：]\s*(.+)$/);
-    if (!match) return [labels[state.lang].specItem, item];
-    return [match[1], match[2]];
+  function enList(value) {
+    if (!value) return [];
+    if (Array.isArray(value)) return value;
+    return value.en || value.zh || [];
+  }
+
+  function enText(value) {
+    if (!value) return "";
+    return typeof value === "string" ? value : value.en || value.zh || "";
+  }
+
+  function sentenceJoin(items, limit = 3) {
+    return uniqueList(items)
+      .filter(Boolean)
+      .slice(0, limit)
+      .map((item) => String(item).replace(/\.$/, ""))
+      .join("; ");
+  }
+
+  function uniqueList(items) {
+    const seen = new Set();
+    return items.filter((item) => {
+      const key = String(item).trim().toLowerCase();
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
+  function matchingDetails(items, pattern, limit = 3, excludePattern = null) {
+    return sentenceJoin(items.filter((item) => pattern.test(item) && !(excludePattern && excludePattern.test(item))), limit);
+  }
+
+  function labeledDetail(items, labelPattern) {
+    const row = items.reduce((found, item) => {
+      if (found) return found;
+      const parsed = String(item).match(/^([^:：]+)[:：]\s*(.+)$/);
+      return parsed && labelPattern.test(parsed[1].trim()) ? parsed[2] : "";
+    }, "");
+    return row;
+  }
+
+  function specRowsForEnglish(product, specs) {
+    const technical = enList(product.technicalHighlights);
+    const features = enList(product.keyFeatures);
+    const setup = enList(product.setupNotes);
+    const watch = enList(product.watchOut);
+    const allTechnical = uniqueList([...specs, ...technical, ...features]);
+    const productClassSpecs = specs.filter((item) => !/\b(input|LiPo|LiHV|DC|BEC|output|size|dimension|mounting|weight|UART|PWM|SBUS|I2C|SPI|USB|connector|current|continuous|burst|per channel)\b/i.test(item));
+    const rows = [];
+    const usedLabels = new Set();
+
+    function add(label, detail) {
+      const value = String(detail || "").trim();
+      const key = label.toLowerCase();
+      if (!value || usedLabels.has(key)) return;
+      usedLabels.add(key);
+      rows.push([label, value.replace(/\.$/, ".")]);
+    }
+
+    add("Product role", enText(product.whatItDoes) || enText(product.summary));
+    add("Best used for", sentenceJoin(enList(product.bestFor), 3));
+    add("Product class", sentenceJoin(productClassSpecs.length ? productClassSpecs : specs, 2));
+    add("Core hardware", matchingDetails(allTechnical, /\b(STM32|MCU|gyro|barometer|MOSFET|driver|RM3100|ASIC|QF32|Infineon|MP9447|U-?Blox)\b/i, 3, /\b(current sensor|external I2C current)\b/i));
+    add("Firmware / software", labeledDetail(technical, /^Firmware target$/i) || matchingDetails(allTechnical, /\b(firmware|Betaflight|ArduPilot|ArduPlane|INAV|AM32|ELRS|AP_Periph|BF4|target)\b/i, 3, /\b(UART|PWM|SBUS|I2C|SPI|USB|connector|plug-in)\b/i));
+    add("Electrical input", labeledDetail(technical, /^Input$/i) || matchingDetails(allTechnical, /\b(input|LiPo|LiHV|DC|[0-9]+S)\b/i, 2, /\b(recommended|BEC output|Power outputs)\b/i));
+    add("Recommended battery", labeledDetail(technical, /^Recommended$/i));
+    add("Power outputs", labeledDetail(allTechnical, /^(Dual BEC outputs|Power outputs|Selectable output voltage|Output)$/i) || matchingDetails(allTechnical, /\b(BEC|5 V|6\.2 V|7\.4 V|9 V|12 V|VTX\/camera power|flight controller power input)\b/i, 3, /\b(recommended|voltage detection|input range)\b/i));
+    add("Current rating", matchingDetails(allTechnical, /\b(continuous current|burst current|current class|ESC class|per channel|[0-9]+\s*A\s*(single|dual|four|4-in-1|two-in-one|x\s*4)?)\b/i, 3, /\b(BEC|output|VTX|camera|power|sensor|requirements)\b/i));
+    add("Size / mounting / weight", labeledDetail(technical, /^(Size|Dimensions)$/i) || matchingDetails(allTechnical, /\b(size|dimension|dimensions|mounting|weight|mm|board size)\b/i, 3, /\b(requirements|orientation|connector)\b/i));
+    add("Interfaces / I/O", matchingDetails(allTechnical, /\b(UART|USART|PWM|SBUS|I2C|SPI|USB|Type-C|CAN|GPS|connector|DRDY|SCK|MISO|MOSI|LED|buzzer|ADC|RSSI|OSD)\b/i, 4, /\b(weight|mounting hole|voltage\/current requirements)\b/i));
+    add("Setup notes", sentenceJoin(setup, 2));
+    add("Check before use", sentenceJoin(watch, 2));
+    add("Documentation basis", product.manualSource || labels.en.source);
+    return rows;
   }
 
   function englishSpecTable(product, specs) {
     if (state.lang !== "en") return "";
-    const rows = [...specs, ...localizedList(product.technicalHighlights)]
-      .filter(Boolean)
-      .filter((item, index, list) => list.indexOf(item) === index)
-      .map(splitSpecRow);
+    const rows = specRowsForEnglish(product, specs);
     if (!rows.length) return "";
 
     return `
       <div class="spec-table-wrap" aria-label="${labels.en.specTable}">
+        <div class="spec-table-intro">
+          <h3>${labels.en.specTableTitle}</h3>
+          <p>${labels.en.specTableNote}</p>
+        </div>
         <table class="spec-table">
           <thead>
             <tr>
