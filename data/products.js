@@ -22,7 +22,9 @@ window.FLYINGRC_CATALOG = {
       images: [
         img("assets/products/f4wing-mini-mk1/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/f4wing-mini-mk1/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
-        img("assets/products/f4wing-mini-mk1/wiring.jpg", "Full wiring diagram", "完整接线图", "diagram")
+        img("assets/products/f4wing-mini-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
+        img("assets/products/f4wing-mini-mk1/receiver-kit.jpg", "Flight controller with receiver", "飞控 + 接收机组合", "gallery"),
+        img("assets/products/f4wing-mini-mk1/detail.jpg", "Product detail image", "产品细节图", "gallery")
       ]
     },
     {
@@ -34,8 +36,12 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["H743-class fixed-wing autopilot controller", "Supports CAN/GPS/peripheral expansion planning", "Includes dimension and battery wiring references"], zh: ["H743 主控固定翼飞控", "包含布局、尺寸与电池接线参考", "公开图片已整理为网页尺寸"] },
       hero: "assets/products/h7wlite-mk1/hero.jpg",
       images: [
-        img("assets/products/h7wlite-mk1/dimension.jpg", "Dimension and layout", "尺寸与布局", "diagram"),
-        img("assets/products/h7wlite-mk1/bat.jpeg", "Battery wiring", "电池接线", "diagram")
+        img("assets/products/h7wlite-mk1/specs.jpg", "Spec table", "参数表", "spec"),
+        img("assets/products/h7wlite-mk1/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/h7wlite-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
+        img("assets/products/h7wlite-mk1/layout-top.jpg", "Top layout", "正面布局", "diagram"),
+        img("assets/products/h7wlite-mk1/layout-bottom.jpg", "Bottom layout", "反面布局", "diagram"),
+        img("assets/products/h7wlite-mk1/soldered-pins.jpg", "Soldered pin headers", "焊好排针", "gallery")
       ]
     },
     {
@@ -47,7 +53,13 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "F4WSE fixed-wing controller reference page with product images, wiring layout, and render material.", zh: "F4WSE 固定翼飞控资料页，包含产品图、接线布局和渲染素材。" },
       specs: { en: ["STM32F405 fixed-wing autopilot controller", "ArduPilot/INAV-style airplane control workflow", "Wiring layout reference for receiver, GPS, telemetry, and PWM outputs"], zh: ["F405 主控", "固定翼飞控布局", "提供 Type-C 渲染素材"] },
       hero: "assets/products/f4wse-f405/hero.jpg",
-      images: [img("assets/products/f4wse-f405/wiring.jpg", "Wiring and layout", "接线与布局", "diagram")]
+      images: [
+        img("assets/products/f4wse-f405/specs.jpg", "Spec table", "参数表", "spec"),
+        img("assets/products/f4wse-f405/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/f4wse-f405/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
+        img("assets/products/f4wse-f405/layout-top.jpg", "Top layout", "正面布局", "diagram"),
+        img("assets/products/f4wse-f405/board.jpeg", "Board photo", "整板图", "gallery")
+      ]
     },
     {
       slug: "f4wse-pro",
@@ -56,7 +68,14 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC F4WSE F405 Pro Fixed-wing Flight Controller", zh: "FlyingRC F4WSE F405 Pro 主控固定翼飞控" },
       summary: { en: "Pro version listing material for the F4WSE fixed-wing controller family.", zh: "F4WSE 固定翼飞控系列 Pro 版本上架资料。" },
       specs: { en: ["F405 Pro fixed-wing autopilot controller", "Supports ArduPilot and INAV workflows", "MatekF405-TE compatible firmware path noted in manual"], zh: ["F405 Pro 固定翼飞控", "已整理产品主图", "作为 F4WSE 系列高配资料页"] },
-      hero: "assets/products/f4wse-pro/hero.jpg"
+      hero: "assets/products/f4wse-pro/hero.jpg",
+      images: [
+        img("assets/products/f4wse-pro/specs.jpg", "Spec table", "参数表", "spec"),
+        img("assets/products/f4wse-pro/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
+        img("assets/products/f4wse-pro/base-soldered.jpg", "Base version soldered headers", "基础版焊好排针", "gallery"),
+        img("assets/products/f4wse-pro/advanced-soldered.jpg", "Advanced version soldered headers and TF board", "进阶版焊好排针和 TF 卡小板", "gallery"),
+        img("assets/products/f4wse-pro/detail.jpg", "Product detail image", "产品细节图", "gallery")
+      ]
     },
     {
       slug: "f4d-mk1",
@@ -67,8 +86,13 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["STM32F405 FPV flight controller", "7-28 V DC / 2-6S LiPo input range", "Onboard 9 V BEC for VTX/camera power"], zh: ["F405 穿越机飞控", "DJI O4 接线参考", "包含产品特点图与视频素材"] },
       hero: "assets/products/f4d-mk1/hero.jpg",
       images: [
+        img("assets/products/f4d-mk1/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/f4d-mk1/features.jpg", "Product features", "产品特点", "spec"),
-        img("assets/products/f4d-mk1/wiring.jpg", "DJI O4 wiring", "DJI O4 接线", "diagram")
+        img("assets/products/f4d-mk1/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/f4d-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
+        img("assets/products/f4d-mk1/dji-o4.jpg", "DJI O4 wiring", "DJI O4 接线", "diagram"),
+        img("assets/products/f4d-mk1/elrs.jpg", "ELRS receiver wiring", "ELRS 接收机接线", "diagram"),
+        img("assets/products/f4d-mk1/kit-fc-75a.jpg", "F4D with 75A ESC kit", "飞控 + 75A 金封电调套装", "gallery")
       ]
     },
     {
@@ -81,9 +105,14 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["STM32H743 FPV flight controller", "12-28 V DC / 3-6S LiPo input range", "Dual BEC outputs: 5 V/4 A and 12 V/2 A"], zh: ["H743 穿越机飞控", "包含尺寸、DJI O4、ELRS 与图传参考", "包含产品组合图"] },
       hero: "assets/products/h7d-h743/hero.jpg",
       images: [
+        img("assets/products/h7d-h743/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/h7d-h743/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/h7d-h743/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/h7d-h743/dji-o4.jpg", "DJI O4 wiring", "DJI O4 接线", "diagram"),
-        img("assets/products/h7d-h743/elrs.jpg", "ELRS receiver connector", "ELRS 接收机接口", "diagram")
+        img("assets/products/h7d-h743/elrs.jpg", "ELRS receiver connector", "ELRS 接收机接口", "diagram"),
+        img("assets/products/h7d-h743/gps.jpeg", "GPS wiring", "GPS 接线", "diagram"),
+        img("assets/products/h7d-h743/led-buzzer.jpg", "LED and buzzer wiring", "LED 与蜂鸣器接线", "diagram"),
+        img("assets/products/h7d-h743/fc-gps-receiver.jpg", "Flight controller with GPS and receiver", "飞控 + GPS + 接收机组合", "gallery")
       ]
     },
     {
@@ -94,7 +123,16 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "H7D Pro listing material with board and front-side images for the H743 FPV line.", zh: "H7D Pro 上架资料，包含整板图与正面图，属于 H743 穿越机飞控系列。" },
       specs: { en: ["STM32H743 Pro FPV flight controller", "Dual gyro and barometer sensor architecture", "Switchable onboard 9 V BEC for VTX/camera power"], zh: ["H743 穿越机飞控系列", "H7D Pro 高配版本", "包含整板图与正面图"] },
       hero: "assets/products/h7d-pro/hero.jpg",
-      images: [img("assets/products/h7d-pro/board.jpg", "Board view", "整板图", "gallery")]
+      images: [
+        img("assets/products/h7d-pro/specs.jpg", "Spec table", "参数表", "spec"),
+        img("assets/products/h7d-pro/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/h7d-pro/pinout-front.jpg", "Front connector and pad map", "正面连接器与焊盘功能", "diagram"),
+        img("assets/products/h7d-pro/pinout-back.jpg", "Back connector and pad map", "反面连接器与焊盘功能", "diagram"),
+        img("assets/products/h7d-pro/wiring-esc.jpg", "4IN1 75A ESC wiring", "与 4IN1 75A 金封电调连接", "diagram"),
+        img("assets/products/h7d-pro/wiring-digital-vtx.jpg", "Digital VTX wiring", "数字图传连接", "diagram"),
+        img("assets/products/h7d-pro/front.jpg", "Front view", "正面图", "gallery"),
+        img("assets/products/h7d-pro/back.jpg", "Back view", "反面图", "gallery")
+      ]
     },
     {
       slug: "am32-4in1-75a",
@@ -106,7 +144,10 @@ window.FLYINGRC_CATALOG = {
       hero: "assets/products/am32-4in1-75a/hero.jpg",
       images: [
         img("assets/products/am32-4in1-75a/specs.jpg", "Parameter table", "参数表", "spec"),
-        img("assets/products/am32-4in1-75a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram")
+        img("assets/products/am32-4in1-75a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-4in1-75a/product-photo.jpg", "Product photo", "实拍图", "gallery"),
+        img("assets/products/am32-4in1-75a/back.jpg", "Back view", "反面图", "gallery"),
+        img("assets/products/am32-4in1-75a/detail.jpg", "Product detail image", "产品细节图", "gallery")
       ]
     },
     {
@@ -114,8 +155,16 @@ window.FLYINGRC_CATALOG = {
       category: "esc",
       tags: ["AM32", "4-in-1", "45A", "FPV"],
       title: { en: "FlyingRC 4IN1 45A ESC FPV ESC", zh: "FlyingRC 4IN1 45A ESC 四合一穿越机电调" },
-      summary: { en: "Product folder is present in the listing materials; curated public imagery is not yet available in v1.", zh: "上架资料中已有产品文件夹；v1 暂无可公开整理的清晰素材。" },
-      specs: { en: ["AM32 4-in-1 FPV ESC", "45 A per channel class", "Supports DShot150/300/600, OneShot, and PWM protocols"], zh: ["四合一穿越机电调", "45A 级别", "等待清晰公开图纸素材"] }
+      summary: { en: "45A four-in-one FPV ESC with product photos, parameter table, dimension drawing, and pinout reference.", zh: "45A 四合一穿越机电调，包含实物图、参数表、尺寸图和引脚定义图。" },
+      specs: { en: ["AM32 4-in-1 FPV ESC", "45 A per channel class", "Supports DShot150/300/600, OneShot, and PWM protocols"], zh: ["四合一穿越机电调", "45A 级别", "包含参数、尺寸与引脚定义图"] },
+      hero: "assets/products/am32-4in1-45a/hero.jpg",
+      images: [
+        img("assets/products/am32-4in1-45a/specs.jpg", "Parameter table", "参数表", "spec"),
+        img("assets/products/am32-4in1-45a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-4in1-45a/pinout.jpg", "Pinout diagram", "引脚定义图", "diagram"),
+        img("assets/products/am32-4in1-45a/product-front.jpg", "Product front photo", "实物正面图", "gallery"),
+        img("assets/products/am32-4in1-45a/product-back.jpg", "Product back photo", "实物背面图", "gallery")
+      ]
     },
     {
       slug: "am32-mini-esc-40a",
@@ -125,7 +174,14 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "Mini 40A AM32 single ESC with main image and top/bottom render references.", zh: "Mini 40A AM32 单体电调，包含主图和上下视角渲染参考。" },
       specs: { en: ["AM32 single-channel ESC", "40 A class for one brushless motor", "6-30 V / 2-6S LiPo input range"], zh: ["AM32 固件系列", "40A 单体电调", "Mini 紧凑尺寸"] },
       hero: "assets/products/am32-mini-esc-40a/hero.jpg",
-      images: [img("assets/products/am32-mini-esc-40a/render-up.jpg", "PCB render", "PCB 渲染图", "gallery")]
+      images: [
+        img("assets/products/am32-mini-esc-40a/specs.jpg", "Parameter table", "参数表", "spec"),
+        img("assets/products/am32-mini-esc-40a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-mini-esc-40a/wiring.jpg", "Wiring diagram", "接线图", "diagram"),
+        img("assets/products/am32-mini-esc-40a/pad-map.jpg", "Pad map", "焊盘示意图", "diagram"),
+        img("assets/products/am32-mini-esc-40a/package-board.jpg", "Delivery board photo", "整板发货图", "gallery"),
+        img("assets/products/am32-mini-esc-40a/render-up.jpg", "PCB render", "PCB 渲染图", "gallery")
+      ]
     },
     {
       slug: "am32-esc-75a-v25",
@@ -135,7 +191,13 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "75A single AM32 ESC listing page with product image and control-board render.", zh: "75A AM32 单体电调资料页，包含产品图和控制板渲染图。" },
       specs: { en: ["AM32 single-channel ESC", "75 A class for one high-current brushless motor", "7-28 V DC / 2-6S LiPo input range"], zh: ["AM32 单体电调", "75A 级别", "V2.5 上架资料"] },
       hero: "assets/products/am32-esc-75a-v25/hero.jpg",
-      images: [img("assets/products/am32-esc-75a-v25/render.jpg", "PCB render", "PCB 渲染图", "gallery")]
+      images: [
+        img("assets/products/am32-esc-75a-v25/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-esc-75a-v25/detail-1.jpg", "Product introduction", "产品介绍图", "gallery"),
+        img("assets/products/am32-esc-75a-v25/with-bec.jpg", "Version with BEC", "有 BEC 版本", "gallery"),
+        img("assets/products/am32-esc-75a-v25/no-bec.jpg", "Version without BEC", "无 BEC 版本", "gallery"),
+        img("assets/products/am32-esc-75a-v25/render.jpg", "PCB render", "PCB 渲染图", "gallery")
+      ]
     },
     {
       slug: "am32-dual-esc-40a",
@@ -144,7 +206,14 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC AM32 Dual ESC 40A Two-in-one ESC", zh: "FlyingRC AM32 Dual ESC 40A 二合一电调" },
       summary: { en: "Dual 40A AM32 ESC material for fixed-wing twin-motor style builds.", zh: "40A AM32 二合一电调资料，适合固定翼双发类装机。" },
       specs: { en: ["AM32 two-in-one ESC", "40 A dual-motor class", "2-6S LiPo input range"], zh: ["二合一电调布局", "40A 级别", "AM32 固件系列"] },
-      hero: "assets/products/am32-dual-esc-40a/hero.jpg"
+      hero: "assets/products/am32-dual-esc-40a/hero.jpg",
+      images: [
+        img("assets/products/am32-dual-esc-40a/specs.jpg", "Parameter table", "参数表", "spec"),
+        img("assets/products/am32-dual-esc-40a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-dual-esc-40a/pinout.jpg", "Interface diagram", "接口示意图", "diagram"),
+        img("assets/products/am32-dual-esc-40a/wiring-f4wse-pro.jpg", "F4WSE Pro wiring", "与 F4WSE Pro 接线图", "diagram"),
+        img("assets/products/am32-dual-esc-40a/soldered-set.jpeg", "Soldered set", "全套焊好", "gallery")
+      ]
     },
     {
       slug: "bec-5a-6s",
@@ -157,6 +226,8 @@ window.FLYINGRC_CATALOG = {
       images: [
         img("assets/products/bec-5a-6s/specs.jpg", "Parameter table", "参数表", "spec"),
         img("assets/products/bec-5a-6s/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/bec-5a-6s/wiring.jpg", "Wiring diagram", "接线图", "diagram"),
+        img("assets/products/bec-5a-6s/capacitor-kit.jpg", "BEC and capacitor kit", "BEC 和配套电容", "gallery"),
         img("assets/products/bec-5a-6s/wired.jpg", "Wired capacitor and power leads", "焊好电容和电源线", "gallery")
       ]
     },
@@ -169,8 +240,11 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["10 A step-down BEC module", "6-60 V / 2-12S LiPo input range", "Designed for higher-current accessory power"], zh: ["10A BEC 模块", "12S 输入级别", "电池与电容连接参考"] },
       hero: "assets/products/bec-10a-12s/hero.jpg",
       images: [
+        img("assets/products/bec-10a-12s/specs.jpg", "Parameter table", "参数表", "spec"),
+        img("assets/products/bec-10a-12s/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/bec-10a-12s/bat.jpeg", "Battery connection", "电池连接", "diagram"),
         img("assets/products/bec-10a-12s/cap.jpg", "Capacitor connection", "电容连接", "diagram"),
+        img("assets/products/bec-10a-12s/board.jpg", "Board photo", "整板图", "gallery"),
         img("assets/products/bec-10a-12s/render.jpg", "PCB render", "PCB 渲染图", "gallery")
       ]
     },
@@ -182,7 +256,12 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "Mini BEC module for DJI O4 power use, with 9V layout image reference.", zh: "面向 DJI O4 供电的小型 BEC 模块，包含 9V 布局图参考。" },
       specs: { en: ["Mini step-down BEC for DJI O4", "7-36 V / 2-8S LiPo input range", "Dedicated digital-video power module"], zh: ["DJI O4 小型 BEC", "9V 布局参考", "适合数字图传装机的小型供电模块"] },
       hero: "assets/products/bec-mini-dji-o4/hero.jpg",
-      images: [img("assets/products/bec-mini-dji-o4/layout.jpg", "9V layout", "9V 布局", "diagram")]
+      images: [
+        img("assets/products/bec-mini-dji-o4/specs.jpg", "Spec table", "技术参数", "spec"),
+        img("assets/products/bec-mini-dji-o4/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/bec-mini-dji-o4/layout.jpg", "9V layout", "9V 布局", "diagram"),
+        img("assets/products/bec-mini-dji-o4/board.jpeg", "Board photo", "整板图", "gallery")
+      ]
     },
     {
       slug: "stack-f405-45a",
@@ -208,8 +287,10 @@ window.FLYINGRC_CATALOG = {
       category: "stacks",
       tags: ["F4D", "75A", "stack"],
       title: { en: "FlyingRC Advanced Stack Kit F4D FC + 75A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 F4D 穿越机飞控 + 四合一 75A 金封电调" },
-      summary: { en: "Product folder is present in listing materials; clean public images are not yet available in v1.", zh: "上架资料中已有产品文件夹；v1 暂无清晰公开图片。" },
-      specs: { en: ["F4D FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "Matched stack kit for high-current FPV builds"], zh: ["F4D 穿越机飞控飞塔", "75A 四合一电调组合", "等待整理公开图片"] }
+      summary: { en: "F4D FPV flight-controller bundle with 75A metal-sealed ESC kit photos.", zh: "F4D 穿越机飞控与 75A 金封电调组合套装，已补充套装图片。" },
+      specs: { en: ["F4D FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "Matched stack kit for high-current FPV builds"], zh: ["F4D 穿越机飞控飞塔", "75A 四合一电调组合", "包含组合套装图片"] },
+      hero: "assets/products/stack-f4d-75a/hero.jpg",
+      images: [img("assets/products/stack-f4d-75a/gallery.jpg", "Expanded kit option", "扩展套装选项", "gallery")]
     },
     {
       slug: "stack-h743-75a",
@@ -241,7 +322,8 @@ window.FLYINGRC_CATALOG = {
       hero: "assets/products/fixed-wing-kit/hero.jpg",
       images: [
         img("assets/products/fixed-wing-kit/f4wse.jpg", "F4WSE kit image", "F4WSE 套餐图", "gallery"),
-        img("assets/products/fixed-wing-kit/f4wing-mini.jpg", "F4Wing Mini kit image", "F4Wing Mini 套餐图", "gallery")
+        img("assets/products/fixed-wing-kit/f4wing-mini.jpg", "F4Wing Mini kit image", "F4Wing Mini 套餐图", "gallery"),
+        img("assets/products/fixed-wing-kit/h7wlite.jpg", "H7Wlite kit image", "H7Wlite 套餐图", "gallery")
       ]
     },
     {
@@ -252,7 +334,11 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "FPV package materials for stack and drone electronics bundles.", zh: "穿越机套餐资料，用于飞塔和穿越机电子组合展示。" },
       specs: { en: ["FPV electronics kit family", "Stack and drone-electronics bundle options", "Bundle overview for comparing FPV build packages"], zh: ["穿越机套餐系列", "飞塔与电子设备组合图片", "用于套餐选择"] },
       hero: "assets/products/fpv-kit/hero.jpg",
-      images: [img("assets/products/fpv-kit/gallery.jpg", "Kit image", "套餐图", "gallery")]
+      images: [
+        img("assets/products/fpv-kit/gallery-1.jpg", "Kit overview 1", "套餐介绍图 1", "gallery"),
+        img("assets/products/fpv-kit/gallery-2.jpg", "Kit overview 2", "套餐介绍图 2", "gallery"),
+        img("assets/products/fpv-kit/gallery-3.jpg", "Kit overview 3", "套餐介绍图 3", "gallery")
+      ]
     },
     {
       slug: "rm3100-module",
@@ -265,7 +351,10 @@ window.FLYINGRC_CATALOG = {
       images: [
         img("assets/products/rm3100-module/specs.jpg", "Parameter table", "参数表", "spec"),
         img("assets/products/rm3100-module/layout.jpg", "Layout", "布局图", "diagram"),
-        img("assets/products/rm3100-module/wiring.jpg", "Wiring table", "接线表", "diagram")
+        img("assets/products/rm3100-module/pinout.jpg", "Pin definition", "引脚定义", "diagram"),
+        img("assets/products/rm3100-module/wiring.jpg", "Wiring table", "接线表", "diagram"),
+        img("assets/products/rm3100-module/board.jpg", "Board photo", "整板图", "gallery"),
+        img("assets/products/rm3100-module/instructions.jpg", "Instruction image", "说明图", "gallery")
       ],
       downloads: [download("assets/products/rm3100-module/video-square.mp4", "Product video", "产品视频")]
     },
@@ -316,8 +405,10 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["ExpressLRS 2.4 GHz diversity receiver", "Factory firmware version documented as ELRS 3.5.5", "Transmitter module firmware 3.x or newer recommended"], zh: ["ELRS 2.4G 接收机", "分集接收机定位", "包含整理后的产品图"] },
       hero: "assets/products/elrs-24g-diversity/hero.jpg",
       images: [
-        img("assets/products/elrs-24g-diversity/gallery-1.jpg", "Product image", "产品图", "gallery"),
-        img("assets/products/elrs-24g-diversity/gallery-2.jpg", "Product image", "产品图", "gallery")
+        img("assets/products/elrs-24g-diversity/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/elrs-24g-diversity/usage.jpg", "Usage guide", "使用方法", "diagram"),
+        img("assets/products/elrs-24g-diversity/front-back.jpg", "Front and back view", "正反面图", "gallery"),
+        img("assets/products/elrs-24g-diversity/board.jpeg", "Board photo", "整板图", "gallery")
       ]
     },
     {
@@ -329,9 +420,11 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["USB programmer for AM32 ESCs", "Connects computer tuning software to the ESC signal wire", "Offline firmware flashing workflow recommended"], zh: ["AM32 电调调参工具", "电调连接参考", "资料展示支持多种固件流程"] },
       hero: "assets/products/am32-configurator/hero.jpg",
       images: [
+        img("assets/products/am32-configurator/firmware.jpg", "Firmware support", "固件支持", "spec"),
         img("assets/products/am32-configurator/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-configurator/wiring.jpg", "ESC connection", "电调连接图", "diagram"),
-        img("assets/products/am32-configurator/firmware.jpg", "Firmware support", "固件支持", "spec")
+        img("assets/products/am32-configurator/front.jpg", "Front view", "正面图", "gallery"),
+        img("assets/products/am32-configurator/back.jpg", "Back view", "反面图", "gallery")
       ]
     },
     {
@@ -342,7 +435,14 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "High-current FPV power distribution board materials with top and bottom renders.", zh: "大电流穿越机分电板资料，包含正反面渲染图。" },
       specs: { en: ["High-current FPV power distribution board", "6-60 V / 2-12S LiPo input range", "400 A / 440 A class power-distribution family"], zh: ["穿越机分电板", "资料标注 12S 与 400A 级别", "包含正反面 PCB 渲染图"] },
       hero: "assets/products/pdb-12s-400a/hero.jpg",
-      images: [img("assets/products/pdb-12s-400a/bottom.jpg", "Bottom render", "反面渲染图", "gallery")]
+      images: [
+        img("assets/products/pdb-12s-400a/specs.jpg", "Parameter table", "参数表", "spec"),
+        img("assets/products/pdb-12s-400a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/pdb-12s-400a/wiring-esc.jpeg", "ESC wiring", "与电调连接图", "diagram"),
+        img("assets/products/pdb-12s-400a/wiring-fc.jpeg", "Flight controller wiring", "与飞控连接图", "diagram"),
+        img("assets/products/pdb-12s-400a/board.jpeg", "Board photo", "整板图", "gallery"),
+        img("assets/products/pdb-12s-400a/bottom.jpg", "Bottom render", "反面渲染图", "gallery")
+      ]
     }
   ]
 };
