@@ -1,9 +1,11 @@
 (function () {
   const catalog = window.FLYINGRC_CATALOG;
   const langKey = "flyingrc-wiki-lang";
+  const initialCategories = requestedCategories();
   const state = {
     lang: localStorage.getItem(langKey) || "en",
-    category: "all",
+    category: initialCategories.length === 1 ? initialCategories[0] : "all",
+    categories: initialCategories,
     query: ""
   };
 
@@ -132,6 +134,31 @@
     return text(product.cardSummary) || text(product.whatItDoes) || text(product.summary);
   }
 
+  function requestedCategories() {
+    const params = new URLSearchParams(location.search);
+    const multi = params.get("categories");
+    const single = params.get("category");
+    const requested = multi ? multi.split(",") : single ? [single] : [];
+    return requested.map((id) => id.trim()).filter((id) => id && id !== "all" && catalog.categories[id]);
+  }
+
+  function activeCategoryIds() {
+    if (state.categories.length) return state.categories;
+    return state.category === "all" ? [] : [state.category];
+  }
+
+  function updateCategoryUrl(category) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("categories");
+    if (category === "all") {
+      url.searchParams.delete("category");
+    } else {
+      url.searchParams.delete("category");
+      url.searchParams.set("categories", category);
+    }
+    history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
   function productImage(product) {
     if (product.hero) {
       return `<img src="${product.hero}" alt="${escapeHtml(text(product.title))}">`;
@@ -142,8 +169,9 @@
   function renderWiki() {
     const grid = document.querySelector("[data-product-grid]");
     const count = document.querySelector("[data-product-count]");
+    const activeCategories = activeCategoryIds();
     const filtered = catalog.products.filter((product) => {
-      const categoryMatch = state.category === "all" || product.category === state.category;
+      const categoryMatch = !activeCategories.length || activeCategories.includes(product.category);
       const queryMatch = !state.query || searchable(product).includes(state.query.toLowerCase());
       return categoryMatch && queryMatch;
     });
@@ -167,14 +195,17 @@
 
   function initWiki() {
     const filters = document.querySelector("[data-category-filters]");
+    const activeCategories = activeCategoryIds();
     filters.innerHTML = Object.entries(catalog.categories).map(([id, label]) => `
-      <button class="filter-button${id === state.category ? " active" : ""}" type="button" data-category="${id}">${escapeHtml(text(label))}</button>
+      <button class="filter-button${(id === "all" && !activeCategories.length) || activeCategories.includes(id) ? " active" : ""}" type="button" data-category="${id}">${escapeHtml(text(label))}</button>
     `).join("");
     filters.addEventListener("click", (event) => {
       const button = event.target.closest("[data-category]");
       if (!button) return;
       state.category = button.dataset.category;
+      state.categories = state.category === "all" ? [] : [state.category];
       document.querySelectorAll("[data-category]").forEach((item) => item.classList.toggle("active", item === button));
+      updateCategoryUrl(state.category);
       renderWiki();
     });
 

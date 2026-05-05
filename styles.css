@@ -445,8 +445,28 @@ h2 {
 
 .capability-list li {
   border-top: 1px solid rgba(23, 33, 27, 0.16);
-  padding: 14px 0;
+  padding: 0;
   font-weight: 690;
+}
+
+.capability-list a {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.capability-list a::after {
+  content: "Products";
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.capability-list a:hover {
+  color: var(--green-dark);
 }
 
 .plain-link {
