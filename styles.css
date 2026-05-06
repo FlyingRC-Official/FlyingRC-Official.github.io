@@ -1024,6 +1024,12 @@ h2 {
   text-transform: uppercase;
 }
 
+.product-status-latest {
+  border-color: #6fc184;
+  background: #eefaf1;
+  color: #176d34;
+}
+
 .wiki-product-card h3 {
   margin-bottom: 10px;
   font-size: 20px;

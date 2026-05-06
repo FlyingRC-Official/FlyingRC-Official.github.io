@@ -64,6 +64,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "f4wse-pro",
       category: "flight-controllers",
+      status: "latest",
       tags: ["F405", "fixed-wing", "Pro"],
       title: { en: "FlyingRC F4WSE F405 Pro Fixed-wing Flight Controller", zh: "FlyingRC F4WSE F405 Pro 主控固定翼飞控" },
       summary: { en: "Pro version listing material for the F4WSE fixed-wing controller family.", zh: "F4WSE 固定翼飞控系列 Pro 版本上架资料。" },
@@ -118,6 +119,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "h7d-pro",
       category: "flight-controllers",
+      status: "latest",
       tags: ["H743", "FPV", "Pro"],
       title: { en: "FlyingRC H7D Pro H743 FPV Flight Controller", zh: "FlyingRC H7D Pro H743 主控穿越机飞控" },
       summary: { en: "H7D Pro listing material with board and front-side images for the H743 FPV line.", zh: "H7D Pro 上架资料，包含整板图与正面图，属于 H743 穿越机飞控系列。" },
@@ -153,6 +155,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "am32-4in1-45a",
       category: "esc",
+      status: "latest",
       tags: ["AM32", "4-in-1", "45A", "FPV"],
       title: { en: "FlyingRC 4IN1 45A ESC FPV ESC", zh: "FlyingRC 4IN1 45A ESC 四合一穿越机电调" },
       summary: { en: "45A four-in-one FPV ESC with product photos, parameter table, dimension drawing, and pinout reference.", zh: "45A 四合一穿越机电调，包含实物图、参数表、尺寸图和引脚定义图。" },
@@ -169,6 +172,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "am32-mini-esc-40a",
       category: "esc",
+      status: "latest",
       tags: ["AM32", "40A", "fixed-wing", "mini"],
       title: { en: "FlyingRC AM32 Mini ESC 40A V1 Single ESC", zh: "FlyingRC AM32 Mini ESC 40A V1 单体电调" },
       summary: { en: "Mini 40A AM32 single ESC with main image and top/bottom render references.", zh: "Mini 40A AM32 单体电调，包含主图和上下视角渲染参考。" },
@@ -202,6 +206,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "am32-dual-esc-40a",
       category: "esc",
+      status: "latest",
       tags: ["AM32", "dual", "40A", "fixed-wing"],
       title: { en: "FlyingRC AM32 Dual ESC 40A Two-in-one ESC", zh: "FlyingRC AM32 Dual ESC 40A 二合一电调" },
       summary: { en: "Dual 40A AM32 ESC material for fixed-wing twin-motor style builds.", zh: "40A AM32 二合一电调资料，适合固定翼双发类装机。" },
@@ -251,6 +256,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "bec-mini-dji-o4",
       category: "bec",
+      status: "latest",
       tags: ["BEC", "DJI O4", "9V", "mini"],
       title: { en: "FlyingRC Mini BEC for DJI O4", zh: "FlyingRC Mini BEC For DJI O4" },
       summary: { en: "Mini BEC module for DJI O4 power use, with 9V layout image reference.", zh: "面向 DJI O4 供电的小型 BEC 模块，包含 9V 布局图参考。" },
