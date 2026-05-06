@@ -6,6 +6,8 @@
     lang: localStorage.getItem(langKey) || "en",
     category: initialCategories.length === 1 ? initialCategories[0] : "all",
     categories: initialCategories,
+    selector: "all",
+    requirements: [],
     query: ""
   };
 
@@ -18,6 +20,28 @@
       eol: "EOL",
       empty: "No matching products",
       view: "Open details",
+      inquire: "Ask price / stock",
+      fileManual: "Manual",
+      fileStep: "STEP",
+      fileVideo: "Video",
+      fileWiring: "Wiring",
+      fileImages: "Images",
+      selectorTitle: "Find the right hardware",
+      selectorLead: "Choose a build style and optional requirements to narrow the catalog before comparing details.",
+      selectorAll: "All builds",
+      selectorFixedWing: "Fixed-wing aircraft",
+      selectorFpv: "FPV / multirotor",
+      selectorRobot: "Robotics / vehicle",
+      selectorPower: "Power system",
+      selectorNavigation: "Navigation / sensors",
+      selectorNeeds: "Requirements",
+      selectorClear: "Clear selector",
+      reqArdupilot: "ArduPilot / CAN",
+      reqBetaflight: "Betaflight / FPV",
+      reqAm32: "AM32 ESC",
+      reqDjiO4: "DJI O4",
+      reqHighVoltage: "7S-12S power",
+      reqCompact: "Compact / mini",
       keySpecs: "Key Specs",
       specTable: "English specification table",
       specTableTitle: "Buyer-readable specifications",
@@ -104,6 +128,28 @@
       eol: "已停产",
       empty: "没有匹配的产品",
       view: "查看详情",
+      inquire: "询价 / 库存",
+      fileManual: "说明书",
+      fileStep: "STEP",
+      fileVideo: "视频",
+      fileWiring: "接线",
+      fileImages: "张图片",
+      selectorTitle: "快速选型",
+      selectorLead: "先选择装机场景，再按需求缩小产品范围，然后再进入详情页对比参数。",
+      selectorAll: "全部场景",
+      selectorFixedWing: "固定翼",
+      selectorFpv: "穿越机 / 多旋翼",
+      selectorRobot: "机器人 / 车辆",
+      selectorPower: "电源系统",
+      selectorNavigation: "导航 / 传感器",
+      selectorNeeds: "需求",
+      selectorClear: "清空选型",
+      reqArdupilot: "ArduPilot / CAN",
+      reqBetaflight: "Betaflight / FPV",
+      reqAm32: "AM32 电调",
+      reqDjiO4: "DJI O4",
+      reqHighVoltage: "7S-12S 供电",
+      reqCompact: "紧凑 / mini",
       keySpecs: "关键参数",
       specTable: "结构化参数表",
       specTableTitle: "便于选型的参数说明",
@@ -191,6 +237,24 @@
     siteUrl: "https://flyingrc-official.github.io"
   };
 
+  const selectorProfiles = [
+    { id: "all", labelKey: "selectorAll", slugs: [] },
+    { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
+    { id: "fpv", labelKey: "selectorFpv", slugs: ["f4d-mk1", "h7d-h743", "h7d-pro", "am32-4in1-75a", "am32-4in1-45a", "bec-mini-dji-o4", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "fpv-kit", "elrs-24g-diversity", "pdb-12s-400a"] },
+    { id: "robot", labelKey: "selectorRobot", slugs: ["am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "rm3100-module", "bec-5a-6s", "bec-10a-12s", "am32-configurator", "pdb-12s-400a"] },
+    { id: "power", labelKey: "selectorPower", slugs: ["am32-4in1-75a", "am32-4in1-45a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a"] },
+    { id: "navigation", labelKey: "selectorNavigation", slugs: ["rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] }
+  ];
+
+  const selectorRequirements = [
+    { id: "ardupilot", labelKey: "reqArdupilot", tokens: ["ardupilot", "arduplane", "can", "ap_periph", "gps", "airspeed"] },
+    { id: "betaflight", labelKey: "reqBetaflight", tokens: ["betaflight", "fpv", "dji", "vtx", "elrs", "stack"] },
+    { id: "am32", labelKey: "reqAm32", tokens: ["am32", "esc"] },
+    { id: "dji-o4", labelKey: "reqDjiO4", tokens: ["dji o4", "dji", "o4", "9 v", "9v"] },
+    { id: "high-voltage", labelKey: "reqHighVoltage", tokens: ["7s", "8s", "12s", "60 v", "60v", "75a", "400a", "440a"] },
+    { id: "compact", labelKey: "reqCompact", tokens: ["compact", "mini", "small", "micro", "2.8 g", "紧凑", "小型"] }
+  ];
+
   const comparisonGroups = [
     {
       titleKey: "compareFlightControllers",
@@ -238,6 +302,7 @@
       const category = button.dataset.category;
       if (catalog.categories[category]) button.textContent = text(catalog.categories[category]);
     });
+    if (document.body.dataset.page === "wiki") renderSelector();
     if (document.body.dataset.page === "wiki") renderWiki();
     if (document.body.dataset.page === "product") renderProduct();
   }
@@ -271,6 +336,22 @@
     ].join(" ").toLowerCase();
   }
 
+  function productCorpus(product) {
+    return [
+      searchable(product),
+      product.slug,
+      product.category,
+      ...(product.tags || []),
+      ...(product.specs?.en || []),
+      ...(product.specs?.zh || []),
+      ...plainList(product.bestFor),
+      ...plainList(product.keyFeatures),
+      ...plainList(product.technicalHighlights),
+      ...plainList(product.setupNotes),
+      ...plainList(product.watchOut)
+    ].join(" ").toLowerCase();
+  }
+
   function localizedList(value) {
     if (!value) return [];
     if (Array.isArray(value)) return value;
@@ -291,6 +372,19 @@
     if (!product.status) return "";
     const label = labels[state.lang][product.status] || product.status.toUpperCase();
     return `<span class="product-status product-status-${escapeHtml(product.status)}">${escapeHtml(label)}</span>`;
+  }
+
+  function productFileBadges(product) {
+    const badges = [];
+    const downloads = product.downloads || [];
+    const images = product.images || [];
+    if (downloads.some((item) => /\.docx$/i.test(item.href))) badges.push(labels[state.lang].fileManual);
+    if (downloads.some((item) => /\.(step|stp)$/i.test(item.href))) badges.push(labels[state.lang].fileStep);
+    if (downloads.some((item) => /\.(mp4|mov|webm)$/i.test(item.href))) badges.push(labels[state.lang].fileVideo);
+    if (images.some((item) => item.type === "diagram")) badges.push(labels[state.lang].fileWiring);
+    if (images.length) badges.push(`${images.length} ${labels[state.lang].fileImages}`);
+    if (!badges.length) return "";
+    return `<div class="file-badges" aria-label="${labels[state.lang].downloads}">${badges.slice(0, 4).map((badge) => `<span>${escapeHtml(badge)}</span>`).join("")}</div>`;
   }
 
   function requestedCategories() {
@@ -318,6 +412,84 @@
     history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   }
 
+  function selectorMatches(product) {
+    const profile = selectorProfiles.find((item) => item.id === state.selector) || selectorProfiles[0];
+    const corpus = productCorpus(product);
+    const profileSlugs = profile.slugs || [];
+    const profileCategories = profile.categories || [];
+    const profileTokens = profile.tokens || [];
+    const profileMatch = profile.id === "all"
+      || profileSlugs.includes(product.slug)
+      || ((profileCategories.length || profileTokens.length)
+        && (!profileCategories.length || profileCategories.includes(product.category))
+        && (!profileTokens.length || profileTokens.some((token) => corpus.includes(token))));
+    if (!profileMatch) return false;
+    return state.requirements.every((id) => {
+      const requirement = selectorRequirements.find((item) => item.id === id);
+      return !requirement || requirement.tokens.some((token) => corpus.includes(token));
+    });
+  }
+
+  function renderSelector() {
+    const target = document.querySelector("[data-selector-panel]");
+    if (!target) return;
+    target.innerHTML = `
+      <div class="selector-copy">
+        <p class="status">${labels[state.lang].selectorNeeds}</p>
+        <h2>${labels[state.lang].selectorTitle}</h2>
+        <p>${labels[state.lang].selectorLead}</p>
+      </div>
+      <div class="selector-controls">
+        <div class="selector-button-row" role="group" aria-label="${labels[state.lang].selectorTitle}">
+          ${selectorProfiles.map((profile) => `
+            <button class="selector-button${state.selector === profile.id ? " active" : ""}" type="button" data-selector-profile="${profile.id}">
+              ${labels[state.lang][profile.labelKey]}
+            </button>
+          `).join("")}
+        </div>
+        <div class="selector-button-row selector-requirements" role="group" aria-label="${labels[state.lang].selectorNeeds}">
+          ${selectorRequirements.map((requirement) => `
+            <button class="selector-button selector-chip${state.requirements.includes(requirement.id) ? " active" : ""}" type="button" data-selector-requirement="${requirement.id}">
+              ${labels[state.lang][requirement.labelKey]}
+            </button>
+          `).join("")}
+          <button class="selector-button selector-clear" type="button" data-selector-clear>${labels[state.lang].selectorClear}</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindSelector() {
+    const panel = document.querySelector("[data-selector-panel]");
+    if (!panel) return;
+    panel.addEventListener("click", (event) => {
+      const profileButton = event.target.closest("[data-selector-profile]");
+      const requirementButton = event.target.closest("[data-selector-requirement]");
+      if (profileButton) {
+        state.selector = profileButton.dataset.selectorProfile;
+        renderSelector();
+        renderWiki();
+        return;
+      }
+      if (requirementButton) {
+        const id = requirementButton.dataset.selectorRequirement;
+        state.requirements = state.requirements.includes(id)
+          ? state.requirements.filter((item) => item !== id)
+          : [...state.requirements, id];
+        renderSelector();
+        renderWiki();
+        return;
+      }
+      if (event.target.closest("[data-selector-clear]")) {
+        state.selector = "all";
+        state.requirements = [];
+        renderSelector();
+        renderWiki();
+      }
+    });
+    renderSelector();
+  }
+
   function productImage(product) {
     if (product.hero) {
       return `<img src="${product.hero}" alt="${escapeHtml(text(product.title))}">`;
@@ -332,7 +504,7 @@
     const filtered = catalog.products.filter((product) => {
       const categoryMatch = !activeCategories.length || activeCategories.includes(product.category);
       const queryMatch = !state.query || searchable(product).includes(state.query.toLowerCase());
-      return categoryMatch && queryMatch;
+      return categoryMatch && queryMatch && selectorMatches(product);
     });
 
     count.textContent = `${filtered.length} ${labels[state.lang].products}`;
@@ -349,7 +521,11 @@
           <h3>${escapeHtml(text(product.title))}</h3>
           <p>${escapeHtml(productCardSummary(product))}</p>
           <div class="product-tags">${(product.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
-          <a class="text-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].view}</a>
+          ${productFileBadges(product)}
+          <div class="card-actions">
+            <a class="text-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].view}</a>
+            <a class="inquiry-link" href="${productEmailHref(product)}">${labels[state.lang].inquire}</a>
+          </div>
         </div>
       </article>
     `).join("") : `<p class="empty-state">${labels[state.lang].empty}</p>`;
@@ -415,10 +591,10 @@
           <a href="product.html?p=${encodeURIComponent(product.slug)}">${escapeHtml(text(product.title))}</a>
           ${productStatusBadge(product)}
         </th>
-        <td>${escapeHtml(role)}</td>
-        <td>${escapeHtml(power)}</td>
-        <td>${escapeHtml(firmware)}</td>
-        <td>
+        <td data-label="${labels[state.lang].compareRole}">${escapeHtml(role)}</td>
+        <td data-label="${labels[state.lang].comparePower}">${escapeHtml(power)}</td>
+        <td data-label="${labels[state.lang].compareFirmware}">${escapeHtml(firmware)}</td>
+        <td data-label="${labels[state.lang].compareDownloads}">
           <div class="comparison-actions">
             ${hasManual ? `<span>${labels[state.lang].manualAvailable}</span>` : `<span class="comparison-action-placeholder" aria-hidden="true"></span>`}
             <a href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].compareOpen}</a>
@@ -429,6 +605,7 @@
   }
 
   function initWiki() {
+    bindSelector();
     const filters = document.querySelector("[data-category-filters]");
     const activeCategories = activeCategoryIds();
     filters.innerHTML = Object.entries(catalog.categories).map(([id, label]) => `
