@@ -419,8 +419,10 @@
         <td>${escapeHtml(power)}</td>
         <td>${escapeHtml(firmware)}</td>
         <td>
-          ${hasManual ? `<span>${labels[state.lang].manualAvailable}</span>` : ""}
-          <a href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].compareOpen}</a>
+          <div class="comparison-actions">
+            ${hasManual ? `<span>${labels[state.lang].manualAvailable}</span>` : `<span class="comparison-action-placeholder" aria-hidden="true"></span>`}
+            <a href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].compareOpen}</a>
+          </div>
         </td>
       </tr>
     `;
