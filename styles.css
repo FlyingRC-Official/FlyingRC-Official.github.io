@@ -1501,7 +1501,13 @@ h2 {
   }
 
   .comparison-table tbody th {
+    width: 100%;
     margin-bottom: 10px;
+  }
+
+  .comparison-table tbody th a {
+    display: block;
+    max-width: 100%;
   }
 
   .comparison-table tbody td {
