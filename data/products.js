@@ -312,7 +312,7 @@ window.FLYINGRC_CATALOG = {
       slug: "fpv-stack-f4d-45a",
       category: "fpv-kits",
       tags: ["F4D", "45A", "FPV", "stack"],
-      title: { en: "FlyingRC FPV Stack F4D + 41N1 45A ESC", zh: "FlyingRC 飞塔 F4D + 41N1 45A ESC" },
+      title: { en: "FlyingRC FPV Stack F4D + 4IN1 45A ESC", zh: "FlyingRC 飞塔 F4D + 4IN1 45A ESC" },
       summary: { en: "FPV stack bundle page for F4D flight controller plus 45A ESC package materials.", zh: "F4D 飞控加 45A 电调穿越机飞塔套装资料页。" },
       specs: { en: ["F4D FPV flight controller bundle", "45 A ESC package", "Compact FPV stack kit"], zh: ["F4D 穿越机飞控组合", "45A 电调套装", "穿越机飞塔套餐"] },
       hero: "assets/products/fpv-stack-f4d-45a/hero.jpg",
@@ -436,10 +436,10 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "pdb-12s-400a",
       category: "modules",
-      tags: ["PDB", "12S", "400A", "FPV"],
-      title: { en: "FlyingRC 10A 12S 400A FPV Power Distribution Board", zh: "FlyingRC 10A 12S 400A 穿越机分电板" },
-      summary: { en: "High-current FPV power distribution board materials with top and bottom renders.", zh: "大电流穿越机分电板资料，包含正反面渲染图。" },
-      specs: { en: ["High-current FPV power distribution board", "6-60 V / 2-12S LiPo input range", "400 A / 440 A class power-distribution family"], zh: ["穿越机分电板", "资料标注 12S 与 400A 级别", "包含正反面 PCB 渲染图"] },
+      tags: ["PDB", "12S", "440A", "FPV"],
+      title: { en: "FlyingRC 12S 440A FPV Power Distribution Board", zh: "FlyingRC 12S 440A 穿越机分电板" },
+      summary: { en: "High-current FPV power distribution board with 5 V / 12 V BEC outputs and top/bottom render references.", zh: "大电流穿越机分电板，带 5V / 12V BEC 输出，并包含正反面渲染图参考。" },
+      specs: { en: ["High-current FPV power distribution board", "6-60 V / 2-12S LiPo input range", "4 x 80 A continuous / 110 A peak ESC outputs; current sensor range up to 440 A"], zh: ["穿越机大电流分电板", "6-60 V / 2-12S LiPo 输入", "4 路 80A 持续 / 110A 峰值电调输出；电流检测最高 440A"] },
       hero: "assets/products/pdb-12s-400a/hero.jpg",
       images: [
         img("assets/products/pdb-12s-400a/specs.jpg", "Parameter table", "参数表", "spec"),
@@ -764,6 +764,232 @@ const PUBLIC_MANUALS = {
   "pdb-12s-400a": manualDownload("assets/downloads/manuals/pdb-12s-400a-manual.docx")
 };
 
+const PRODUCT_LABELS = {
+  "f4wing-mini-mk1": [
+    productLabel("Fixed-wing FC", "固定翼飞控", "role"),
+    productLabel("STM32F405", "STM32F405", "hardware"),
+    productLabel("ArduPlane / INAV", "ArduPlane / INAV", "firmware"),
+    productLabel("6 PWM", "6 路 PWM", "io"),
+    productLabel("3 UART", "3 路 UART", "io"),
+    productLabel("HD VTX plug-in", "高清图传直插", "io"),
+    productLabel("2.8 g bare board", "裸板 2.8g", "physical"),
+    productLabel("Needs external 5 V", "需外部 5V", "power")
+  ],
+  "h7wlite-mk1": [
+    productLabel("Fixed-wing FC", "固定翼飞控", "role"),
+    productLabel("H743 class", "H743 级", "hardware"),
+    productLabel("ArduPilot fixed-wing", "ArduPilot 固定翼", "firmware"),
+    productLabel("CAN / GPS planning", "CAN / GPS 规划", "io"),
+    productLabel("High-end fixed-wing", "高配固定翼", "role")
+  ],
+  "f4wse-f405": [
+    productLabel("Fixed-wing FC", "固定翼飞控", "role"),
+    productLabel("STM32F405", "STM32F405", "hardware"),
+    productLabel("ArduPilot / INAV", "ArduPilot / INAV", "firmware"),
+    productLabel("UART mapping required", "需核对串口映射", "setup"),
+    productLabel("Classic F4WSE", "经典 F4WSE", "role")
+  ],
+  "f4wse-pro": [
+    productLabel("Fixed-wing FC", "固定翼飞控", "role"),
+    productLabel("F405 Pro", "F405 Pro", "hardware"),
+    productLabel("ArduPlane recommended", "推荐 ArduPlane", "firmware"),
+    productLabel("MatekF405-TE path", "MatekF405-TE 固件路径", "firmware"),
+    productLabel("SERIAL mapping table", "SERIAL 映射表", "setup")
+  ],
+  "f4d-mk1": [
+    productLabel("FPV flight controller", "穿越机飞控", "role"),
+    productLabel("STM32F405", "STM32F405", "hardware"),
+    productLabel("Betaflight default", "默认 Betaflight", "firmware"),
+    productLabel("DJI O4 wiring", "DJI O4 接线", "io"),
+    productLabel("9 V VTX BEC", "9V 图传 BEC", "power"),
+    productLabel("2-6S LiPo", "2-6S LiPo", "power")
+  ],
+  "h7d-h743": [
+    productLabel("FPV flight controller", "穿越机飞控", "role"),
+    productLabel("STM32H743", "STM32H743", "hardware"),
+    productLabel("Betaflight default", "默认 Betaflight", "firmware"),
+    productLabel("7 UART", "7 路 UART", "io"),
+    productLabel("9 PWM", "9 路 PWM", "io"),
+    productLabel("5 V / 12 V BEC", "5V / 12V BEC", "power"),
+    productLabel("128 MB blackbox", "128MB 黑匣子", "hardware")
+  ],
+  "h7d-pro": [
+    productLabel("FPV flight controller", "穿越机飞控", "role"),
+    productLabel("H743 Pro", "H743 Pro", "hardware"),
+    productLabel("Dual gyro", "双陀螺仪", "hardware"),
+    productLabel("13 PWM", "13 路 PWM", "io"),
+    productLabel("5 V / 9 V BEC", "5V / 9V BEC", "power"),
+    productLabel("TF blackbox", "TF 黑匣子", "hardware"),
+    productLabel("Betaflight default", "默认 Betaflight", "firmware")
+  ],
+  "am32-4in1-75a": [
+    productLabel("4-in-1 ESC", "四合一电调", "role"),
+    productLabel("75 A x4", "75A x4", "power"),
+    productLabel("AM32 firmware", "AM32 固件", "firmware"),
+    productLabel("3-7S LiPo", "3-7S LiPo", "power"),
+    productLabel("IRF7480 MOSFET", "IRF7480 MOSFET", "hardware"),
+    productLabel("10-layer 2 oz PCB", "10 层 2oz PCB", "hardware"),
+    productLabel("30.5 mm M3", "30.5mm M3", "physical")
+  ],
+  "am32-4in1-45a": [
+    productLabel("4-in-1 ESC", "四合一电调", "role"),
+    productLabel("45 A x4", "45A x4", "power"),
+    productLabel("AM32 firmware", "AM32 固件", "firmware"),
+    productLabel("3-7S LiPo", "3-7S LiPo", "power"),
+    productLabel("DSHOT / OneShot / PWM", "DSHOT / OneShot / PWM", "io"),
+    productLabel("6-layer 2 oz PCB", "6 层 2oz PCB", "hardware"),
+    productLabel("30.5 mm M3", "30.5mm M3", "physical")
+  ],
+  "am32-mini-esc-40a": [
+    productLabel("Single ESC", "单体电调", "role"),
+    productLabel("40 A", "40A", "power"),
+    productLabel("AM32 firmware", "AM32 固件", "firmware"),
+    productLabel("2-6S LiPo", "2-6S LiPo", "power"),
+    productLabel("Compact", "紧凑", "physical"),
+    productLabel("Fixed-wing / robot", "固定翼 / 机器人", "role")
+  ],
+  "am32-esc-75a-v25": [
+    productLabel("Single ESC", "单体电调", "role"),
+    productLabel("75 A", "75A", "power"),
+    productLabel("AM32 firmware", "AM32 固件", "firmware"),
+    productLabel("2-6S LiPo", "2-6S LiPo", "power"),
+    productLabel("5 V / 7 V BEC", "5V / 7V BEC", "power"),
+    productLabel("IRF7480 MOSFET", "IRF7480 MOSFET", "hardware"),
+    productLabel("RPM telemetry", "RPM 回传", "io")
+  ],
+  "am32-dual-esc-40a": [
+    productLabel("2-in-1 ESC", "二合一电调", "role"),
+    productLabel("40 A dual", "双路 40A", "power"),
+    productLabel("AM32 firmware", "AM32 固件", "firmware"),
+    productLabel("2-6S LiPo", "2-6S LiPo", "power"),
+    productLabel("Dual QF32 MCUs", "双 QF32 MCU", "hardware"),
+    productLabel("Twin-motor builds", "双电机装机", "role")
+  ],
+  "bec-5a-6s": [
+    productLabel("Step-down BEC", "降压 BEC", "role"),
+    productLabel("2-6S LiPo", "2-6S LiPo", "power"),
+    productLabel("Selectable 5/6.2/7.4/9 V", "5/6.2/7.4/9V 可选", "power"),
+    productLabel("MP9447", "MP9447", "hardware"),
+    productLabel("Capacitor polarity", "注意电容极性", "setup")
+  ],
+  "bec-10a-12s": [
+    productLabel("Step-down BEC", "降压 BEC", "role"),
+    productLabel("2-12S LiPo", "2-12S LiPo", "power"),
+    productLabel("6-60 V input", "6-60V 输入", "power"),
+    productLabel("High-voltage power", "高压供电", "role"),
+    productLabel("Check output before use", "上电前确认输出", "setup")
+  ],
+  "bec-mini-dji-o4": [
+    productLabel("DJI O4 BEC", "DJI O4 BEC", "role"),
+    productLabel("2-8S LiPo", "2-8S LiPo", "power"),
+    productLabel("9 V video power", "9V 图传供电", "power"),
+    productLabel("Compact", "紧凑", "physical"),
+    productLabel("Dedicated VTX supply", "独立图传供电", "role")
+  ],
+  "stack-f405-45a": [
+    productLabel("FPV stack", "穿越机飞塔", "role"),
+    productLabel("F405 FC", "F405 飞控", "hardware"),
+    productLabel("45 A 4-in-1 ESC", "45A 四合一电调", "power"),
+    productLabel("Entry bundle", "入门套装", "role")
+  ],
+  "stack-h743-45a": [
+    productLabel("FPV stack", "穿越机飞塔", "role"),
+    productLabel("H743 FC", "H743 飞控", "hardware"),
+    productLabel("45 A 4-in-1 ESC", "45A 四合一电调", "power"),
+    productLabel("Advanced bundle", "进阶套装", "role")
+  ],
+  "stack-f4d-75a": [
+    productLabel("FPV stack", "穿越机飞塔", "role"),
+    productLabel("F4D FC", "F4D 飞控", "hardware"),
+    productLabel("75 A 4-in-1 ESC", "75A 四合一电调", "power"),
+    productLabel("High-current bundle", "大电流套装", "role")
+  ],
+  "stack-h743-75a": [
+    productLabel("FPV stack", "穿越机飞塔", "role"),
+    productLabel("H743 FC", "H743 飞控", "hardware"),
+    productLabel("75 A 4-in-1 ESC", "75A 四合一电调", "power"),
+    productLabel("High-end bundle", "高阶套装", "role")
+  ],
+  "fpv-stack-f4d-45a": [
+    productLabel("FPV stack", "穿越机飞塔", "role"),
+    productLabel("F4D FC", "F4D 飞控", "hardware"),
+    productLabel("45 A 4-in-1 ESC", "45A 四合一电调", "power"),
+    productLabel("Compact bundle", "紧凑套装", "physical")
+  ],
+  "fixed-wing-kit": [
+    productLabel("Fixed-wing kit", "固定翼套餐", "role"),
+    productLabel("F4WSE family", "F4WSE 系列", "hardware"),
+    productLabel("F4Wing Mini", "F4Wing Mini", "hardware"),
+    productLabel("H7Wlite", "H7Wlite", "hardware"),
+    productLabel("Bundle selector", "套餐选型", "role")
+  ],
+  "fpv-kit": [
+    productLabel("FPV kit", "穿越机套餐", "role"),
+    productLabel("Stack bundle", "飞塔组合", "role"),
+    productLabel("FC + ESC", "飞控 + 电调", "hardware"),
+    productLabel("Bundle selector", "套餐选型", "role")
+  ],
+  "rm3100-module": [
+    productLabel("Compass module", "罗盘模块", "role"),
+    productLabel("PNI RM3100", "PNI RM3100", "hardware"),
+    productLabel("SPI", "SPI", "io"),
+    productLabel("+/-400 uT", "+/-400 uT", "hardware"),
+    productLabel("External mounting", "外置安装", "setup"),
+    productLabel("3.3 V VCC", "3.3V VCC", "power")
+  ],
+  "h7-can-gps": [
+    productLabel("CAN GPS", "CAN GPS", "role"),
+    productLabel("Navigation", "导航", "role"),
+    productLabel("ArduPilot CAN", "ArduPilot CAN", "firmware"),
+    productLabel("External GPS", "外置 GPS", "hardware")
+  ],
+  "ublox-m10-gps": [
+    productLabel("GNSS module", "GNSS 模块", "role"),
+    productLabel("U-Blox M10", "U-Blox M10", "hardware"),
+    productLabel("GPS / GLONASS / Galileo / BeiDou", "GPS / GLONASS / Galileo / 北斗", "hardware"),
+    productLabel("18/20/28 mm variants", "18/20/28mm 规格", "physical"),
+    productLabel("BF / INAV / ArduPilot", "BF / INAV / ArduPilot", "firmware")
+  ],
+  "digital-airspeed": [
+    productLabel("Airspeed sensor", "空速传感器", "role"),
+    productLabel("Pitotless", "无空速管", "hardware"),
+    productLabel("Fixed-wing", "固定翼", "role"),
+    productLabel("ArduPilot setup", "ArduPilot 设置", "firmware"),
+    productLabel("Thermal soaring", "热气流盘旋", "role")
+  ],
+  "l4-can-rcgps-adapter": [
+    productLabel("CAN adapter", "CAN 适配器", "role"),
+    productLabel("Serial / PWM expansion", "串口 / PWM 扩展", "io"),
+    productLabel("AP_Periph", "AP_Periph", "firmware"),
+    productLabel("STM32L431", "STM32L431", "hardware"),
+    productLabel("GH1.25", "GH1.25", "io"),
+    productLabel("CAN bus wiring", "CAN 总线接线", "setup")
+  ],
+  "elrs-24g-diversity": [
+    productLabel("ELRS receiver", "ELRS 接收机", "role"),
+    productLabel("2.4 GHz", "2.4GHz", "hardware"),
+    productLabel("True diversity", "真分集", "hardware"),
+    productLabel("Factory 3.5.5", "出厂 3.5.5", "firmware"),
+    productLabel("TX firmware 3.x+", "发射端 3.x+", "setup")
+  ],
+  "am32-configurator": [
+    productLabel("ESC programmer", "电调调参器", "role"),
+    productLabel("AM32 tool", "AM32 工具", "firmware"),
+    productLabel("USB", "USB", "io"),
+    productLabel("CH340 driver", "CH340 驱动", "setup"),
+    productLabel("Offline flashing", "离线刷写", "setup"),
+    productLabel("No web flashing", "不要网页刷写", "setup")
+  ],
+  "pdb-12s-400a": [
+    productLabel("Power distribution", "分电板", "role"),
+    productLabel("2-12S LiPo", "2-12S LiPo", "power"),
+    productLabel("4 x 80 A continuous", "4 路 80A 持续", "power"),
+    productLabel("440 A current sensor", "440A 电流检测", "hardware"),
+    productLabel("5 V / 12 V BEC", "5V / 12V BEC", "power"),
+    productLabel("12VSW control", "12VSW 控制", "io")
+  ]
+};
+
 const PUBLIC_REFERENCE_FILES = {
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
@@ -774,6 +1000,7 @@ const PUBLIC_REFERENCE_FILES = {
 
 window.FLYINGRC_CATALOG.products.forEach((product) => {
   Object.assign(product, PRODUCT_EXPLANATIONS[product.slug] || {});
+  product.labels = PRODUCT_LABELS[product.slug] || [];
   product.downloads = uniqueDownloads([
     PUBLIC_MANUALS[product.slug],
     ...(PUBLIC_REFERENCE_FILES[product.slug] || []),
@@ -787,6 +1014,10 @@ function img(src, en, zh, type) {
 
 function download(href, en, zh) {
   return { href, label: { en, zh } };
+}
+
+function productLabel(en, zh, type = "feature") {
+  return { en, zh, type };
 }
 
 function manualDownload(href, en = "Product manual", zh = "产品说明书") {

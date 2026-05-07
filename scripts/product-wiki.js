@@ -326,6 +326,7 @@
       product.status ? labels.en[product.status] : "",
       product.status ? labels.zh[product.status] : "",
       ...(product.tags || []),
+      ...plainLabels(product.labels),
       ...(product.specs?.en || []),
       ...(product.specs?.zh || []),
       ...plainList(product.bestFor),
@@ -342,6 +343,7 @@
       product.slug,
       product.category,
       ...(product.tags || []),
+      ...plainLabels(product.labels),
       ...(product.specs?.en || []),
       ...(product.specs?.zh || []),
       ...plainList(product.bestFor),
@@ -362,6 +364,29 @@
     if (!value) return [];
     if (Array.isArray(value)) return value;
     return [...(value.en || []), ...(value.zh || [])];
+  }
+
+  function plainLabels(value) {
+    if (!value) return [];
+    return value.flatMap((item) => [item.en, item.zh, item.type]).filter(Boolean);
+  }
+
+  function productLabels(product) {
+    const manualLabels = product.labels || [];
+    if (manualLabels.length) return manualLabels;
+    return (product.tags || []).map((tag) => ({ en: tag, zh: tag, type: "legacy" }));
+  }
+
+  function labelText(item) {
+    return item[state.lang] || item.en || item.zh || "";
+  }
+
+  function productLabelChips(product, limit = Infinity) {
+    const chips = productLabels(product).slice(0, limit);
+    if (!chips.length) return "";
+    return `<div class="product-tags product-labels">${chips.map((item) => `
+      <span class="product-label product-label-${escapeHtml(item.type || "feature")}">${escapeHtml(labelText(item))}</span>
+    `).join("")}</div>`;
   }
 
   function productCardSummary(product) {
@@ -520,7 +545,7 @@
           </div>
           <h3>${escapeHtml(text(product.title))}</h3>
           <p>${escapeHtml(productCardSummary(product))}</p>
-          <div class="product-tags">${(product.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
+          ${productLabelChips(product, 5)}
           ${productFileBadges(product)}
           <div class="card-actions">
             <a class="text-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].view}</a>
@@ -576,7 +601,7 @@
   function comparisonRow(product) {
     const specs = localizedValue(product.specs, state.lang);
     const technical = localizedValue(product.technicalHighlights, state.lang);
-    const allDetails = uniqueList([...specs, ...technical, ...(product.tags || [])]);
+    const allDetails = uniqueList([...specs, ...technical, ...(product.tags || []), ...plainLabels(product.labels)]);
     const role = sentenceJoin(localizedValue(product.bestFor, state.lang), 1, state.lang)
       || localizedText(product.summary, state.lang);
     const power = matchingDetails(allDetails, /\b(input|输入|LiPo|LiHV|DC|[0-9]+S|BEC|VTX|5\s*V|9\s*V|12\s*V|电源|供电|输出)\b/i, 2, null, state.lang)
@@ -850,7 +875,7 @@
           </p>
           <h1>${escapeHtml(text(product.title))}</h1>
           <p>${escapeHtml(productCardSummary(product))}</p>
-          <div class="product-tags">${(product.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
+          ${productLabelChips(product)}
           <div class="detail-actions">
             <a class="button primary" href="${productEmailHref(product)}">${labels[state.lang].contactCta}</a>
             <a class="button secondary" href="${contact.whatsapp}" target="_blank" rel="noopener">${labels[state.lang].whatsappCta}</a>
