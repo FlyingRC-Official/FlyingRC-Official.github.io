@@ -109,6 +109,8 @@ def inspect_image(path: Path, args: argparse.Namespace) -> CropCandidate | None:
 
 
 def iter_images(root: Path) -> list[Path]:
+    if root.is_file():
+        return [root] if root.suffix.lower() in IMAGE_EXTENSIONS else []
     return sorted(
         path
         for path in root.rglob("*")

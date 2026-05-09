@@ -24,7 +24,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4wing-mini-mk1/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/f4wing-mini-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/f4wing-mini-mk1/receiver-kit.jpg", "Flight controller with receiver", "飞控 + 接收机组合", "gallery"),
-        img("assets/products/f4wing-mini-mk1/detail.jpg", "Product detail image", "产品细节图", "gallery")
+        img("assets/products/f4wing-mini-mk1/detail.jpg", "Product detail image", "产品细节图", "gallery"),
+        img("assets/products/f4wing-mini-mk1/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/f4wing-mini-mk1/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/f4wing-mini-mk1/photo-pin-headers-20260508.jpg", "Soldered pin header photo", "焊接排针实物图", "gallery"),
+        img("assets/products/f4wing-mini-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -75,7 +79,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4wse-pro/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/f4wse-pro/base-soldered.jpg", "Base version soldered headers", "基础版焊好排针", "gallery"),
         img("assets/products/f4wse-pro/advanced-soldered.jpg", "Advanced version soldered headers and TF board", "进阶版焊好排针和 TF 卡小板", "gallery"),
-        img("assets/products/f4wse-pro/detail.jpg", "Product detail image", "产品细节图", "gallery")
+        img("assets/products/f4wse-pro/detail.jpg", "Product detail image", "产品细节图", "gallery"),
+        img("assets/products/f4wse-pro/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/f4wse-pro/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/f4wse-pro/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -93,7 +100,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4d-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/f4d-mk1/dji-o4.jpg", "DJI O4 wiring", "DJI O4 接线", "diagram"),
         img("assets/products/f4d-mk1/elrs.jpg", "ELRS receiver wiring", "ELRS 接收机接线", "diagram"),
-        img("assets/products/f4d-mk1/kit-fc-75a.jpg", "F4D with 75A ESC kit", "飞控 + 75A 金封电调套装", "gallery")
+        img("assets/products/f4d-mk1/kit-fc-75a.jpg", "F4D with 75A ESC kit", "飞控 + 75A 金封电调套装", "gallery"),
+        img("assets/products/f4d-mk1/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/f4d-mk1/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/f4d-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -149,7 +159,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-4in1-75a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-4in1-75a/product-photo.jpg", "Product photo", "实拍图", "gallery"),
         img("assets/products/am32-4in1-75a/back.jpg", "Back view", "反面图", "gallery"),
-        img("assets/products/am32-4in1-75a/detail.jpg", "Product detail image", "产品细节图", "gallery")
+        img("assets/products/am32-4in1-75a/detail.jpg", "Product detail image", "产品细节图", "gallery"),
+        img("assets/products/am32-4in1-75a/photo-front-wired-20260508.jpg", "Wired front photo", "焊线正面实物图", "gallery"),
+        img("assets/products/am32-4in1-75a/photo-back-wired-20260508.jpg", "Wired back photo", "焊线背面实物图", "gallery"),
+        img("assets/products/am32-4in1-75a/photo-heatsink-20260508.jpg", "Heatsink side photo", "散热片侧实物图", "gallery"),
+        img("assets/products/am32-4in1-75a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -184,7 +198,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-mini-esc-40a/wiring.jpg", "Wiring diagram", "接线图", "diagram"),
         img("assets/products/am32-mini-esc-40a/pad-map.jpg", "Pad map", "焊盘示意图", "diagram"),
         img("assets/products/am32-mini-esc-40a/package-board.jpg", "Delivery board photo", "整板发货图", "gallery"),
-        img("assets/products/am32-mini-esc-40a/render-up.jpg", "PCB render", "PCB 渲染图", "gallery")
+        img("assets/products/am32-mini-esc-40a/render-up.jpg", "PCB render", "PCB 渲染图", "gallery"),
+        img("assets/products/am32-mini-esc-40a/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/am32-mini-esc-40a/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/am32-mini-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -200,7 +217,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-esc-75a-v25/detail-1.jpg", "Product introduction", "产品介绍图", "gallery"),
         img("assets/products/am32-esc-75a-v25/with-bec.jpg", "Version with BEC", "有 BEC 版本", "gallery"),
         img("assets/products/am32-esc-75a-v25/no-bec.jpg", "Version without BEC", "无 BEC 版本", "gallery"),
-        img("assets/products/am32-esc-75a-v25/render.jpg", "PCB render", "PCB 渲染图", "gallery")
+        img("assets/products/am32-esc-75a-v25/render.jpg", "PCB render", "PCB 渲染图", "gallery"),
+        img("assets/products/am32-esc-75a-v25/photo-wired-front-20260508.jpg", "Wired front photo", "焊线正面实物图", "gallery"),
+        img("assets/products/am32-esc-75a-v25/photo-wired-back-20260508.jpg", "Wired back photo", "焊线背面实物图", "gallery"),
+        img("assets/products/am32-esc-75a-v25/photo-board-20260508.jpg", "Bare board photo", "裸板实物图", "gallery"),
+        img("assets/products/am32-esc-75a-v25/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -217,7 +238,9 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-dual-esc-40a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-dual-esc-40a/pinout.jpg", "Interface diagram", "接口示意图", "diagram"),
         img("assets/products/am32-dual-esc-40a/wiring-f4wse-pro.jpg", "F4WSE Pro wiring", "与 F4WSE Pro 接线图", "diagram"),
-        img("assets/products/am32-dual-esc-40a/soldered-set.jpeg", "Soldered set", "全套焊好", "gallery")
+        img("assets/products/am32-dual-esc-40a/soldered-set.jpeg", "Soldered set", "全套焊好", "gallery"),
+        img("assets/products/am32-dual-esc-40a/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/am32-dual-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -233,7 +256,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/bec-5a-6s/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/bec-5a-6s/wiring.jpg", "Wiring diagram", "接线图", "diagram"),
         img("assets/products/bec-5a-6s/capacitor-kit.jpg", "BEC and capacitor kit", "BEC 和配套电容", "gallery"),
-        img("assets/products/bec-5a-6s/wired.jpg", "Wired capacitor and power leads", "焊好电容和电源线", "gallery")
+        img("assets/products/bec-5a-6s/wired.jpg", "Wired capacitor and power leads", "焊好电容和电源线", "gallery"),
+        img("assets/products/bec-5a-6s/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/bec-5a-6s/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/bec-5a-6s/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/bec-5a-6s/photo-wired-20260508.jpg", "Wired product photo", "焊线实物图", "gallery")
       ]
     },
     {
@@ -250,7 +277,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/bec-10a-12s/bat.jpeg", "Battery connection", "电池连接", "diagram"),
         img("assets/products/bec-10a-12s/cap.jpg", "Capacitor connection", "电容连接", "diagram"),
         img("assets/products/bec-10a-12s/board.jpg", "Board photo", "整板图", "gallery"),
-        img("assets/products/bec-10a-12s/render.jpg", "PCB render", "PCB 渲染图", "gallery")
+        img("assets/products/bec-10a-12s/render.jpg", "PCB render", "PCB 渲染图", "gallery"),
+        img("assets/products/bec-10a-12s/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/bec-10a-12s/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/bec-10a-12s/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     },
     {
@@ -266,7 +296,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/bec-mini-dji-o4/specs.jpg", "Spec table", "技术参数", "spec"),
         img("assets/products/bec-mini-dji-o4/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/bec-mini-dji-o4/layout.jpg", "9V layout", "9V 布局", "diagram"),
-        img("assets/products/bec-mini-dji-o4/board.jpeg", "Board photo", "整板图", "gallery")
+        img("assets/products/bec-mini-dji-o4/board.jpeg", "Board photo", "整板图", "gallery"),
+        img("assets/products/bec-mini-dji-o4/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/bec-mini-dji-o4/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/bec-mini-dji-o4/photo-side-20260508.jpg", "Side product photo", "实物侧面图", "gallery")
       ]
     },
     {
@@ -390,7 +423,10 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Pitotless Digital Airspeed Meter", zh: "FlyingRC 无空速管数字空速计" },
       summary: { en: "Digital airspeed product material for fixed-wing users who want a no-pitot airspeed option.", zh: "无空速管数字空速计资料，面向需要无空速管方案的固定翼用户。" },
       specs: { en: ["Pitotless digital airspeed sensor", "Fixed-wing airspeed aid for ArduPilot workflows", "Supports automatic thermal soaring use cases"], zh: ["数字空速传感器", "无空速管定位", "固定翼传感器配件"] },
-      hero: "assets/products/digital-airspeed/hero.jpg"
+      hero: "assets/products/digital-airspeed/hero.jpg",
+      images: [
+        img("assets/products/digital-airspeed/photo-package-20260508.jpg", "Packaged product photo", "包装实物图", "gallery")
+      ]
     },
     {
       slug: "l4-can-rcgps-adapter",
@@ -414,7 +450,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/elrs-24g-diversity/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/elrs-24g-diversity/usage.jpg", "Usage guide", "使用方法", "diagram"),
         img("assets/products/elrs-24g-diversity/front-back.jpg", "Front and back view", "正反面图", "gallery"),
-        img("assets/products/elrs-24g-diversity/board.jpeg", "Board photo", "整板图", "gallery")
+        img("assets/products/elrs-24g-diversity/board.jpeg", "Board photo", "整板图", "gallery"),
+        img("assets/products/elrs-24g-diversity/photo-front-20260508.jpg", "Front receiver photo", "接收机正面实物图", "gallery"),
+        img("assets/products/elrs-24g-diversity/photo-back-20260508.jpg", "Back receiver photo", "接收机背面实物图", "gallery"),
+        img("assets/products/elrs-24g-diversity/photo-pair-20260508.jpg", "Receiver pair photo", "接收机组合实物图", "gallery")
       ]
     },
     {
@@ -430,7 +469,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-configurator/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-configurator/wiring.jpg", "ESC connection", "电调连接图", "diagram"),
         img("assets/products/am32-configurator/front.jpg", "Front view", "正面图", "gallery"),
-        img("assets/products/am32-configurator/back.jpg", "Back view", "反面图", "gallery")
+        img("assets/products/am32-configurator/back.jpg", "Back view", "反面图", "gallery"),
+        img("assets/products/am32-configurator/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/am32-configurator/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/am32-configurator/photo-side-20260508.jpg", "USB side photo", "USB 侧实物图", "gallery")
       ]
     },
     {
@@ -447,7 +489,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/pdb-12s-400a/wiring-esc.jpeg", "ESC wiring", "与电调连接图", "diagram"),
         img("assets/products/pdb-12s-400a/wiring-fc.jpeg", "Flight controller wiring", "与飞控连接图", "diagram"),
         img("assets/products/pdb-12s-400a/board.jpeg", "Board photo", "整板图", "gallery"),
-        img("assets/products/pdb-12s-400a/bottom.jpg", "Bottom render", "反面渲染图", "gallery")
+        img("assets/products/pdb-12s-400a/bottom.jpg", "Bottom render", "反面渲染图", "gallery"),
+        img("assets/products/pdb-12s-400a/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/pdb-12s-400a/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
+        img("assets/products/pdb-12s-400a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
       ]
     }
   ]
