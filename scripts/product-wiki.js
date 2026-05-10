@@ -8,7 +8,6 @@
     categories: initialCategories,
     labels: requestedLabelIds(),
     selector: "all",
-    requirements: [],
     query: ""
   };
 
@@ -30,21 +29,13 @@
       labelFilters: "Label filters",
       clearLabels: "Clear labels",
       selectorTitle: "Find the right hardware",
-      selectorLead: "Choose a build style and optional requirements to narrow the catalog before comparing details.",
+      selectorLead: "Choose a build style here, then use the label filters below for firmware, power, and compatibility details.",
       selectorAll: "All builds",
       selectorFixedWing: "Fixed-wing aircraft",
       selectorFpv: "FPV / multirotor",
-      selectorRobot: "Robotics / vehicle",
-      selectorPower: "Power system",
-      selectorNavigation: "Navigation / sensors",
-      selectorNeeds: "Requirements",
-      selectorClear: "Clear selector",
-      reqArdupilot: "ArduPilot / CAN",
-      reqBetaflight: "Betaflight / FPV",
-      reqAm32: "AM32 ESC",
-      reqDjiO4: "DJI O4",
-      reqHighVoltage: "HV / high-voltage system",
-      reqCompact: "Compact / mini",
+      selectorPower: "Power / modules",
+      selectorNeeds: "Build style",
+      selectorClear: "Clear build style",
       keySpecs: "Key Specs",
       specTable: "English specification table",
       specTableTitle: "Buyer-readable specifications",
@@ -140,21 +131,13 @@
       labelFilters: "标签筛选",
       clearLabels: "清空标签",
       selectorTitle: "快速选型",
-      selectorLead: "先选择装机场景，再按需求缩小产品范围，然后再进入详情页对比参数。",
+      selectorLead: "这里先选择装机场景；固件、供电和兼容性等细分需求用下方标签筛选。",
       selectorAll: "全部场景",
       selectorFixedWing: "固定翼",
       selectorFpv: "穿越机 / 多旋翼",
-      selectorRobot: "机器人 / 车辆",
-      selectorPower: "电源系统",
-      selectorNavigation: "导航 / 传感器",
-      selectorNeeds: "需求",
-      selectorClear: "清空选型",
-      reqArdupilot: "ArduPilot / CAN",
-      reqBetaflight: "Betaflight / FPV",
-      reqAm32: "AM32 电调",
-      reqDjiO4: "DJI O4",
-      reqHighVoltage: "HV 高压系统",
-      reqCompact: "紧凑 / mini",
+      selectorPower: "电源 / 模块",
+      selectorNeeds: "装机场景",
+      selectorClear: "清空场景",
       keySpecs: "关键参数",
       specTable: "结构化参数表",
       specTableTitle: "便于选型的参数说明",
@@ -246,18 +229,7 @@
     { id: "all", labelKey: "selectorAll", slugs: [] },
     { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
     { id: "fpv", labelKey: "selectorFpv", slugs: ["f4d-mk1", "h7d-h743", "h7d-pro", "am32-4in1-75a", "am32-4in1-45a", "bec-mini-dji-o4", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "fpv-kit", "elrs-24g-diversity", "pdb-12s-400a"] },
-    { id: "robot", labelKey: "selectorRobot", slugs: ["am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "rm3100-module", "bec-5a-6s", "bec-10a-12s", "am32-configurator", "pdb-12s-400a"] },
-    { id: "power", labelKey: "selectorPower", slugs: ["am32-4in1-75a", "am32-4in1-45a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a"] },
-    { id: "navigation", labelKey: "selectorNavigation", slugs: ["rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] }
-  ];
-
-  const selectorRequirements = [
-    { id: "ardupilot", labelKey: "reqArdupilot", tokens: ["ardupilot", "arduplane", "can", "ap_periph", "gps", "airspeed"] },
-    { id: "betaflight", labelKey: "reqBetaflight", tokens: ["betaflight", "fpv", "dji", "vtx", "elrs", "stack"] },
-    { id: "am32", labelKey: "reqAm32", tokens: ["am32", "esc"] },
-    { id: "dji-o4", labelKey: "reqDjiO4", tokens: ["dji o4", "dji", "o4", "9 v", "9v"] },
-    { id: "high-voltage", labelKey: "reqHighVoltage", tokens: ["7s", "8s", "12s", "60 v", "60v", "75a", "400a", "440a"] },
-    { id: "compact", labelKey: "reqCompact", tokens: ["compact", "mini", "small", "micro", "2.8 g", "紧凑", "小型"] }
+    { id: "power", labelKey: "selectorPower", slugs: ["am32-4in1-75a", "am32-4in1-45a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "am32-configurator"] }
   ];
 
   const comparisonGroups = [
@@ -480,11 +452,7 @@
       || ((profileCategories.length || profileTokens.length)
         && (!profileCategories.length || profileCategories.includes(product.category))
         && (!profileTokens.length || profileTokens.some((token) => corpus.includes(token))));
-    if (!profileMatch) return false;
-    return state.requirements.every((id) => {
-      const requirement = selectorRequirements.find((item) => item.id === id);
-      return !requirement || requirement.tokens.some((token) => corpus.includes(token));
-    });
+    return profileMatch;
   }
 
   function labelMatches(product) {
@@ -497,7 +465,6 @@
     const seen = new Set();
     const broadView = !activeCategoryIds().length
       && state.selector === "all"
-      && !state.requirements.length
       && !state.query
       && !state.labels.length;
     const filterIds = broadView
@@ -571,14 +538,7 @@
             </button>
           `).join("")}
         </div>
-        <div class="selector-button-row selector-requirements" role="group" aria-label="${labels[state.lang].selectorNeeds}">
-          ${selectorRequirements.map((requirement) => `
-            <button class="selector-button selector-chip${state.requirements.includes(requirement.id) ? " active" : ""}" type="button" data-selector-requirement="${requirement.id}">
-              ${labels[state.lang][requirement.labelKey]}
-            </button>
-          `).join("")}
-          <button class="selector-button selector-clear" type="button" data-selector-clear>${labels[state.lang].selectorClear}</button>
-        </div>
+        ${state.selector !== "all" ? `<button class="selector-button selector-clear" type="button" data-selector-clear>${labels[state.lang].selectorClear}</button>` : ""}
       </div>
     `;
   }
@@ -588,7 +548,6 @@
     if (!panel) return;
     panel.addEventListener("click", (event) => {
       const profileButton = event.target.closest("[data-selector-profile]");
-      const requirementButton = event.target.closest("[data-selector-requirement]");
       if (profileButton) {
         state.selector = profileButton.dataset.selectorProfile;
         renderSelector();
@@ -596,19 +555,8 @@
         renderWiki();
         return;
       }
-      if (requirementButton) {
-        const id = requirementButton.dataset.selectorRequirement;
-        state.requirements = state.requirements.includes(id)
-          ? state.requirements.filter((item) => item !== id)
-          : [...state.requirements, id];
-        renderSelector();
-        renderLabelFilters();
-        renderWiki();
-        return;
-      }
       if (event.target.closest("[data-selector-clear]")) {
         state.selector = "all";
-        state.requirements = [];
         renderSelector();
         renderLabelFilters();
         renderWiki();

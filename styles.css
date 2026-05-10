@@ -843,10 +843,6 @@ h2 {
   gap: 8px;
 }
 
-.selector-requirements {
-  padding-top: 2px;
-}
-
 .selector-button {
   min-height: 38px;
   border: 1px solid var(--line);
