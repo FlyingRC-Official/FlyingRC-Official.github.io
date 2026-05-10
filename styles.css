@@ -904,11 +904,90 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  grid-column: 1 / -1;
 }
 
 .filter-button {
   border: 1px solid var(--line);
   background: #ffffff;
+}
+
+.label-filters {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.label-filter-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 820;
+}
+
+.label-filter-clear {
+  border: 1px solid rgba(42, 69, 88, 0.18);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: #ffffff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.label-filter-groups {
+  display: grid;
+  gap: 10px;
+}
+
+.label-filter-group {
+  display: grid;
+  grid-template-columns: minmax(118px, 0.18fr) minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.label-filter-group-title {
+  min-height: 30px;
+  padding-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.label-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.label-filter-button {
+  min-height: 30px;
+  max-width: 100%;
+  border: 1px solid rgba(42, 69, 88, 0.16);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 740;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.label-filter-button.active {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+  color: #ffffff;
 }
 
 .wiki-grid-section {
@@ -1136,9 +1215,14 @@ h2 {
 }
 
 .product-labels .product-label {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
   border-color: rgba(42, 69, 88, 0.16);
   background: #f7f9fb;
   color: #334155;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .product-labels .product-label-role {
@@ -1148,24 +1232,50 @@ h2 {
 }
 
 .product-labels .product-label-firmware,
-.product-labels .product-label-setup {
+.label-filter-button.product-label-firmware {
   border-color: rgba(74, 85, 162, 0.22);
   background: #f3f5ff;
   color: #39428f;
 }
 
-.product-labels .product-label-power {
+.product-labels .product-label-setup,
+.label-filter-button.product-label-setup {
+  border-color: rgba(132, 81, 44, 0.2);
+  background: #fff8f1;
+  color: #754c24;
+}
+
+.product-labels .product-label-power,
+.label-filter-button.product-label-power {
   border-color: rgba(190, 124, 47, 0.24);
   background: #fff7ed;
   color: #93591d;
 }
 
-.product-labels .product-label-io,
 .product-labels .product-label-hardware,
+.label-filter-button.product-label-hardware,
+.product-labels .product-label-io,
 .product-labels .product-label-physical {
   border-color: rgba(35, 116, 155, 0.2);
   background: #eef8fc;
   color: #1d6682;
+}
+
+.product-labels .product-label-role,
+.label-filter-button.product-label-role {
+  border-color: rgba(34, 110, 91, 0.24);
+  background: #eefaf5;
+  color: #17624e;
+}
+
+.label-filter-button.active.product-label-role,
+.label-filter-button.active.product-label-firmware,
+.label-filter-button.active.product-label-power,
+.label-filter-button.active.product-label-hardware,
+.label-filter-button.active.product-label-setup {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+  color: #ffffff;
 }
 
 .file-badges {
@@ -1491,6 +1601,16 @@ h2 {
 
   .wiki-product-card {
     grid-template-rows: 220px 1fr;
+  }
+
+  .label-filter-group {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .label-filter-group-title {
+    min-height: auto;
+    padding-top: 0;
   }
 
   .detail-media-grid a {

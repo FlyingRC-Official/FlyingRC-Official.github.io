@@ -6,6 +6,7 @@
     lang: localStorage.getItem(langKey) || "en",
     category: initialCategories.length === 1 ? initialCategories[0] : "all",
     categories: initialCategories,
+    labels: requestedLabelIds(),
     selector: "all",
     requirements: [],
     query: ""
@@ -26,6 +27,8 @@
       fileVideo: "Video",
       fileWiring: "Wiring",
       fileImages: "Images",
+      labelFilters: "Label filters",
+      clearLabels: "Clear labels",
       selectorTitle: "Find the right hardware",
       selectorLead: "Choose a build style and optional requirements to narrow the catalog before comparing details.",
       selectorAll: "All builds",
@@ -134,6 +137,8 @@
       fileVideo: "视频",
       fileWiring: "接线",
       fileImages: "张图片",
+      labelFilters: "标签筛选",
+      clearLabels: "清空标签",
       selectorTitle: "快速选型",
       selectorLead: "先选择装机场景，再按需求缩小产品范围，然后再进入详情页对比参数。",
       selectorAll: "全部场景",
@@ -302,6 +307,7 @@
       const category = button.dataset.category;
       if (catalog.categories[category]) button.textContent = text(catalog.categories[category]);
     });
+    if (document.body.dataset.page === "wiki") renderLabelFilters();
     if (document.body.dataset.page === "wiki") renderSelector();
     if (document.body.dataset.page === "wiki") renderWiki();
     if (document.body.dataset.page === "product") renderProduct();
@@ -368,13 +374,25 @@
 
   function plainLabels(value) {
     if (!value) return [];
-    return value.flatMap((item) => [item.en, item.zh, item.type]).filter(Boolean);
+    return value.flatMap((item) => [item.id, item.en, item.zh, item.group]).filter(Boolean);
   }
 
   function productLabels(product) {
     const manualLabels = product.labels || [];
-    if (manualLabels.length) return manualLabels;
+    if (manualLabels.length) {
+      return manualLabels
+        .map((item) => labelDefinition(item))
+        .filter(Boolean)
+        .sort((a, b) => (a.priority || 50) - (b.priority || 50) || a.id.localeCompare(b.id));
+    }
     return (product.tags || []).map((tag) => ({ en: tag, zh: tag, type: "legacy" }));
+  }
+
+  function labelDefinition(item) {
+    if (!item) return null;
+    const source = typeof item === "string" ? { id: item } : item;
+    const definition = catalog.labelDefinitions?.[source.id] || {};
+    return { ...definition, ...source, group: source.group || definition.group || "feature" };
   }
 
   function labelText(item) {
@@ -385,7 +403,7 @@
     const chips = productLabels(product).slice(0, limit);
     if (!chips.length) return "";
     return `<div class="product-tags product-labels">${chips.map((item) => `
-      <span class="product-label product-label-${escapeHtml(item.type || "feature")}">${escapeHtml(labelText(item))}</span>
+      <span class="product-label product-label-${escapeHtml(item.group || item.type || "feature")}">${escapeHtml(labelText(item))}</span>
     `).join("")}</div>`;
   }
 
@@ -420,19 +438,33 @@
     return requested.map((id) => id.trim()).filter((id) => id && id !== "all" && catalog.categories[id]);
   }
 
+  function requestedLabelIds() {
+    const params = new URLSearchParams(location.search);
+    const requested = (params.get("labels") || "").split(",");
+    return uniqueList(requested.map((id) => id.trim()).filter((id) => catalog.labelDefinitions?.[id]));
+  }
+
   function activeCategoryIds() {
     if (state.categories.length) return state.categories;
     return state.category === "all" ? [] : [state.category];
   }
 
-  function updateCategoryUrl(category) {
+  function updateFilterUrl() {
     const url = new URL(window.location.href);
     url.searchParams.delete("categories");
-    if (category === "all") {
+    if (state.categories.length > 1) {
+      url.searchParams.delete("category");
+      url.searchParams.set("categories", state.categories.join(","));
+    } else if (state.category === "all") {
       url.searchParams.delete("category");
     } else {
       url.searchParams.delete("category");
-      url.searchParams.set("categories", category);
+      url.searchParams.set("categories", state.category);
+    }
+    if (state.labels.length) {
+      url.searchParams.set("labels", state.labels.join(","));
+    } else {
+      url.searchParams.delete("labels");
     }
     history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   }
@@ -453,6 +485,73 @@
       const requirement = selectorRequirements.find((item) => item.id === id);
       return !requirement || requirement.tokens.some((token) => corpus.includes(token));
     });
+  }
+
+  function labelMatches(product) {
+    if (!state.labels.length) return true;
+    const productLabelIds = new Set(productLabels(product).map((item) => item.id).filter(Boolean));
+    return state.labels.every((id) => productLabelIds.has(id));
+  }
+
+  function labelsByGroup() {
+    const seen = new Set();
+    const broadView = !activeCategoryIds().length
+      && state.selector === "all"
+      && !state.requirements.length
+      && !state.query
+      && !state.labels.length;
+    const filterIds = broadView
+      ? catalog.primaryFilterLabelIds || catalog.filterLabelIds
+      : catalog.filterLabelIds;
+    const visibleFilterIds = new Set(filterIds || Object.keys(catalog.labelDefinitions || {}));
+    const groups = Object.fromEntries(Object.keys(catalog.labelGroups || {}).map((group) => [group, []]));
+    const activeCategories = activeCategoryIds();
+    const baseProducts = catalog.products.filter((product) => {
+      const categoryMatch = !activeCategories.length || activeCategories.includes(product.category);
+      const queryMatch = !state.query || searchable(product).includes(state.query.toLowerCase());
+      return categoryMatch && queryMatch && selectorMatches(product);
+    });
+    baseProducts.forEach((product) => {
+      productLabels(product).forEach((item) => {
+        if (!item.id || seen.has(item.id)) return;
+        if (!visibleFilterIds.has(item.id) && !state.labels.includes(item.id)) return;
+        seen.add(item.id);
+        const group = item.group || "feature";
+        if (!groups[group]) groups[group] = [];
+        groups[group].push(item);
+      });
+    });
+    Object.values(groups).forEach((items) => {
+      items.sort((a, b) => labelText(a).localeCompare(labelText(b), state.lang === "zh" ? "zh-Hans" : "en"));
+    });
+    return groups;
+  }
+
+  function renderLabelFilters() {
+    const target = document.querySelector("[data-label-filters]");
+    if (!target) return;
+    const groups = labelsByGroup();
+    const groupEntries = Object.entries(catalog.labelGroups || {}).filter(([id]) => groups[id]?.length);
+    target.innerHTML = `
+      <div class="label-filter-heading">
+        <span>${labels[state.lang].labelFilters}</span>
+        ${state.labels.length ? `<button class="label-filter-clear" type="button" data-label-clear>${labels[state.lang].clearLabels}</button>` : ""}
+      </div>
+      <div class="label-filter-groups">
+        ${groupEntries.map(([groupId, groupLabel]) => `
+          <div class="label-filter-group">
+            <span class="label-filter-group-title">${escapeHtml(text(groupLabel))}</span>
+            <div class="label-filter-options">
+              ${groups[groupId].map((item) => `
+                <button class="label-filter-button product-label-${escapeHtml(item.group)}${state.labels.includes(item.id) ? " active" : ""}" type="button" data-label-filter="${escapeHtml(item.id)}">
+                  ${escapeHtml(labelText(item))}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
   }
 
   function renderSelector() {
@@ -493,6 +592,7 @@
       if (profileButton) {
         state.selector = profileButton.dataset.selectorProfile;
         renderSelector();
+        renderLabelFilters();
         renderWiki();
         return;
       }
@@ -502,6 +602,7 @@
           ? state.requirements.filter((item) => item !== id)
           : [...state.requirements, id];
         renderSelector();
+        renderLabelFilters();
         renderWiki();
         return;
       }
@@ -509,10 +610,34 @@
         state.selector = "all";
         state.requirements = [];
         renderSelector();
+        renderLabelFilters();
         renderWiki();
       }
     });
     renderSelector();
+  }
+
+  function bindLabelFilters() {
+    const target = document.querySelector("[data-label-filters]");
+    if (!target) return;
+    target.addEventListener("click", (event) => {
+      const clearButton = event.target.closest("[data-label-clear]");
+      const filterButton = event.target.closest("[data-label-filter]");
+      if (clearButton) {
+        state.labels = [];
+      } else if (filterButton) {
+        const id = filterButton.dataset.labelFilter;
+        state.labels = state.labels.includes(id)
+          ? state.labels.filter((item) => item !== id)
+          : [...state.labels, id];
+      } else {
+        return;
+      }
+      updateFilterUrl();
+      renderLabelFilters();
+      renderWiki();
+    });
+    renderLabelFilters();
   }
 
   function productImage(product) {
@@ -529,7 +654,7 @@
     const filtered = catalog.products.filter((product) => {
       const categoryMatch = !activeCategories.length || activeCategories.includes(product.category);
       const queryMatch = !state.query || searchable(product).includes(state.query.toLowerCase());
-      return categoryMatch && queryMatch && selectorMatches(product);
+      return categoryMatch && queryMatch && selectorMatches(product) && labelMatches(product);
     });
 
     count.textContent = `${filtered.length} ${labels[state.lang].products}`;
@@ -631,6 +756,7 @@
 
   function initWiki() {
     bindSelector();
+    bindLabelFilters();
     const filters = document.querySelector("[data-category-filters]");
     const activeCategories = activeCategoryIds();
     filters.innerHTML = Object.entries(catalog.categories).map(([id, label]) => `
@@ -642,13 +768,15 @@
       state.category = button.dataset.category;
       state.categories = state.category === "all" ? [] : [state.category];
       document.querySelectorAll("[data-category]").forEach((item) => item.classList.toggle("active", item === button));
-      updateCategoryUrl(state.category);
+      updateFilterUrl();
+      renderLabelFilters();
       renderWiki();
     });
 
     const search = document.querySelector("[data-product-search]");
     search.addEventListener("input", () => {
       state.query = search.value.trim();
+      renderLabelFilters();
       renderWiki();
     });
     renderWiki();
