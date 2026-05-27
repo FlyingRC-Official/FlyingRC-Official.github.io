@@ -482,6 +482,23 @@ h2 {
   font-style: normal;
 }
 
+.address-map-link {
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.address-map-link:hover {
+  border-color: var(--green-dark);
+  box-shadow: 0 12px 24px rgba(15, 61, 46, 0.12);
+  transform: translateY(-1px);
+}
+
+.address-map-link:focus-visible {
+  outline: 3px solid rgba(19, 132, 88, 0.28);
+  outline-offset: 4px;
+}
+
 .company-address span,
 .address-panel span {
   color: var(--green-dark);
@@ -503,6 +520,14 @@ h2 {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.45;
+}
+
+.map-cta {
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 780;
+  line-height: 1.35;
+  margin-top: 5px;
 }
 
 .company-gallery {
