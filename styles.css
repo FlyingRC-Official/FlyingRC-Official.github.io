@@ -445,6 +445,97 @@ h2 {
   max-width: 840px;
 }
 
+.company-band {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.54fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.company-copy {
+  max-width: 560px;
+}
+
+.status {
+  margin-bottom: 12px;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.company-copy p:not(.status) {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.company-address,
+.address-panel {
+  display: grid;
+  gap: 5px;
+  margin-top: 22px;
+  border-left: 3px solid var(--green-dark);
+  padding-left: 14px;
+  font-style: normal;
+}
+
+.company-address span,
+.address-panel span {
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.company-address strong,
+.address-panel strong {
+  color: var(--ink);
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.25;
+}
+
+.company-address small,
+.address-panel small {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.company-gallery {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  gap: 14px;
+}
+
+.company-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.company-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.company-gallery figure:last-child img {
+  aspect-ratio: 3 / 4;
+}
+
+.company-gallery figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .capability-list {
   margin: 0;
   padding: 0;
@@ -661,6 +752,16 @@ h2 {
   min-height: 96px;
 }
 
+.address-panel {
+  max-width: 760px;
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green-dark);
+  border-radius: 8px;
+  padding: 18px 20px;
+  background: #ffffff;
+}
+
 .github-band {
   border-top: 1px solid var(--line);
   background: #ffffff;
@@ -675,6 +776,19 @@ h2 {
 
   .hardware-band {
     grid-template-columns: 1fr;
+  }
+
+  .company-band {
+    grid-template-columns: 1fr;
+  }
+
+  .company-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .company-gallery img,
+  .company-gallery figure:last-child img {
+    aspect-ratio: 4 / 3;
   }
 
   .contact-band,
