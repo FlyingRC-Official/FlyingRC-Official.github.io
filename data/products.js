@@ -92,6 +92,9 @@ window.FLYINGRC_CATALOG = {
           }
         }
       },
+      hardwareRevisionImages: [
+        img("assets/products/f4wing-mini-mk1/imu-revision-20260527.jpg", "IMU chip marking guide for earlier and current revisions", "IMU 芯片丝印新旧版本辨别图", "gallery")
+      ],
       hero: "assets/products/f4wing-mini-mk1/hero.jpg",
       images: [
         img("assets/products/f4wing-mini-mk1/specs.jpg", "Spec table", "参数表", "spec"),
