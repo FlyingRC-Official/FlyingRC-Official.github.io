@@ -97,6 +97,13 @@
       projectsLead: "Firmware configuration, board support notes, and hardware demos for FlyingRC products.",
       repositories: "Repositories",
       repositoriesLead: "Selected public repositories for builders who want firmware targets, sensor demos, and reference code.",
+      px4H7dProDesc: "PX4 board port and firmware branch for the FlyingRC H7D Pro flight controller.",
+      apL4CanRm3100Desc: "ArduPilot branch for the FlyingRC L4 CAN RM3100 compass target.",
+      apF4wseProDesc: "ArduPilot target branch for the FlyingRC F4WSE Pro flight controller.",
+      apH7dDesc: "ArduPilot target branch for the FlyingRC H7D flight controller.",
+      apH7dProDesc: "ArduPilot target branch for the FlyingRC H7D Pro flight controller.",
+      bfH7dDesc: "Betaflight target configuration branch for the FlyingRC H7D flight controller.",
+      bfH7dProDesc: "Betaflight target configuration branch for the FlyingRC H7D Pro flight controller.",
       betaflightConfigDesc: "FlyingRC Betaflight target configuration and firmware notes.",
       rm3100DemoDesc: "Example code for working with RM3100 magnetometer modules over SPI.",
       microsenseDemoDesc: "MicroPython demo materials for the MicroSense C3 product family.",
@@ -207,6 +214,13 @@
       projectsLead: "FlyingRC 产品相关的固件配置、板卡支持说明和硬件演示仓库。",
       repositories: "仓库",
       repositoriesLead: "面向装机用户整理的公开仓库，包括固件目标、传感器演示和参考代码。",
+      px4H7dProDesc: "FlyingRC H7D Pro 飞控的 PX4 板级移植代码与固件分支。",
+      apL4CanRm3100Desc: "FlyingRC L4 CAN RM3100 罗盘目标的 ArduPilot 分支。",
+      apF4wseProDesc: "FlyingRC F4WSE Pro 飞控的 ArduPilot 目标分支。",
+      apH7dDesc: "FlyingRC H7D 飞控的 ArduPilot 目标分支。",
+      apH7dProDesc: "FlyingRC H7D Pro 飞控的 ArduPilot 目标分支。",
+      bfH7dDesc: "FlyingRC H7D 飞控的 Betaflight 目标配置分支。",
+      bfH7dProDesc: "FlyingRC H7D Pro 飞控的 Betaflight 目标配置分支。",
       betaflightConfigDesc: "FlyingRC Betaflight 目标配置和固件说明。",
       rm3100DemoDesc: "RM3100 磁力计模块 SPI 使用示例代码。",
       microsenseDemoDesc: "MicroSense C3 产品系列的 MicroPython 演示资料。",
@@ -243,7 +257,7 @@
 
   const selectorProfiles = [
     { id: "all", labelKey: "selectorAll", slugs: [] },
-    { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
+    { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "rm3100-module", "l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
     { id: "fpv", labelKey: "selectorFpv", slugs: ["f4d-mk1", "h7d-h743", "h7d-pro", "am32-4in1-75a", "am32-4in1-45a", "bec-mini-dji-o4", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "fpv-kit", "elrs-24g-diversity", "pdb-12s-400a"] },
     { id: "power", labelKey: "selectorPower", slugs: ["am32-4in1-75a", "am32-4in1-45a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "am32-configurator"] }
   ];
@@ -267,7 +281,7 @@
     {
       titleKey: "compareSensorsModules",
       categories: ["sensors", "modules"],
-      slugs: ["rm3100-module", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter", "elrs-24g-diversity", "am32-configurator"]
+      slugs: ["rm3100-module", "l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter", "elrs-24g-diversity", "am32-configurator"]
     }
   ];
 

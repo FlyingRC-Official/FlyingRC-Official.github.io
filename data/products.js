@@ -204,7 +204,7 @@ window.FLYINGRC_CATALOG = {
       slug: "h7d-pro",
       category: "flight-controllers",
       status: "latest",
-      tags: ["H743", "FPV", "Pro"],
+      tags: ["H743", "FPV", "Pro", "PX4"],
       title: { en: "FlyingRC H7D Pro H743 FPV Flight Controller", zh: "FlyingRC H7D Pro H743 主控穿越机飞控" },
       summary: { en: "H7D Pro listing material with board and front-side images for the H743 FPV line.", zh: "H7D Pro 上架资料，包含整板图与正面图，属于 H743 穿越机飞控系列。" },
       specs: { en: ["STM32H743 Pro FPV flight controller", "Dual gyro and barometer sensor architecture", "Switchable onboard 9 V BEC for VTX/camera power"], zh: ["H743 穿越机飞控系列", "H7D Pro 高配版本", "包含整板图与正面图"] },
@@ -472,6 +472,24 @@ window.FLYINGRC_CATALOG = {
       downloads: [download("assets/products/rm3100-module/video-square.mp4", "Product video", "产品视频")]
     },
     {
+      slug: "l4-can-rm3100",
+      category: "sensors",
+      tags: ["RM3100", "CAN", "ArduPilot", "PX4"],
+      title: { en: "FlyingRC L4CAN RM3100 CAN Compass Module", zh: "FlyingRC L4CAN RM3100 CAN 总线罗盘模块" },
+      summary: { en: "Professional CAN-bus RM3100 compass module for remote mounting and cleaner heading data in ArduPilot/PX4 builds.", zh: "专业级 CAN 总线 RM3100 罗盘模块，适合远离干扰源安装，为 ArduPilot/PX4 装机提供更干净的航向数据。" },
+      specs: { en: ["RM3100 CAN-bus compass module", "STM32L431RCT6 controller with AP_Periph-style firmware workflow", "29.3 x 29.3 x 9.0 mm board size"], zh: ["RM3100 CAN 总线罗盘模块", "STM32L431RCT6 主控，面向 AP_Periph 类固件流程", "尺寸 29.3 x 29.3 x 9.0 mm"] },
+      hero: "assets/products/l4-can-rm3100/hero.jpg",
+      images: [
+        img("assets/products/l4-can-rm3100/specs.png", "Parameter and package list", "产品参数与发货清单", "spec"),
+        img("assets/products/l4-can-rm3100/intro.png", "Product introduction", "产品介绍", "spec"),
+        img("assets/products/l4-can-rm3100/dimension.png", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/l4-can-rm3100/render-front.png", "Front 3D render", "正面 3D 渲染图", "gallery"),
+        img("assets/products/l4-can-rm3100/front.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/l4-can-rm3100/back-rotated.jpg", "Back product photo", "实物反面图", "gallery"),
+        img("assets/products/l4-can-rm3100/package.jpg", "Package contents", "发货清单", "gallery")
+      ]
+    },
+    {
       slug: "h7-can-gps",
       category: "sensors",
       status: "eol",
@@ -626,8 +644,8 @@ const PRODUCT_EXPLANATIONS = {
     bestZh: ["希望使用更完整 F4WSE 系列板子的固定翼用户。", "重视开源固件和清晰接线的 ArduPlane/INAV 装机。", "从更简单固定翼飞控升级的用户。"],
     featuresEn: ["Supports ArduPilot and INAV; ArduPlane is the fixed-wing recommended path in the manual.", "Directly compatible with MatekF405-TE firmware according to the manual.", "Manual includes UART/SERIAL mapping and default function references."],
     featuresZh: ["支持 ArduPilot 和 INAV；说明书中固定翼推荐 ArduPlane。", "说明书标注可直接兼容 MatekF405-TE 固件。", "说明书包含 UART/SERIAL 映射和默认功能参考。"],
-    techEn: ["F405-class flight controller.", "Use S12/LED notes from the manual when configuring LED strip behavior.", "Firmware support and wiring are documented in the manual."],
-    techZh: ["F405 级飞控。", "配置 LED 灯带时参考说明书中的 S12/LED 说明。", "说明书提供固件支持和接线说明。"],
+    techEn: ["F405-class flight controller.", "ArduPilot target branch: FlyingRC-Official/ardupilot add_FlyingRC_F4WSE_Pro_target.", "Use S12/LED notes from the manual when configuring LED strip behavior.", "Firmware support and wiring are documented in the manual."],
+    techZh: ["F405 级飞控。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 add_FlyingRC_F4WSE_Pro_target。", "配置 LED 灯带时参考说明书中的 S12/LED 说明。", "说明书提供固件支持和接线说明。"],
     setupEn: ["For fixed-wing aircraft, start with ArduPlane or INAV rather than generic multirotor assumptions.", "Check the SERIAL mapping table before assigning telemetry, GPS, or receiver ports."],
     setupZh: ["固定翼装机应从 ArduPlane 或 INAV 逻辑出发，不要套用普通多旋翼默认假设。", "分配数传、GPS、接收机接口前先查看 SERIAL 映射表。"],
     watchEn: ["Do not guess port numbers from silkscreen alone; use the firmware mapping table."],
@@ -656,10 +674,10 @@ const PRODUCT_EXPLANATIONS = {
     bestZh: ["需要 H743 性能余量的穿越机装机。", "使用 DJI O4、ELRS 接收机、模拟图传、LED、蜂鸣器和多个串口外设的玩家。", "需要板载 5 V 和 12 V BEC，并希望可开关图传供电的用户。"],
     featuresEn: ["STM32H743VIT6 MCU, dual ICM-42688-P gyros, and DPS310/DPS368 barometer.", "Analog/HD OSD, 7 UARTs, 9 PWM channels, I2C, ADC RSSI, LED, buzzer, Type-C USB, and 128 MB onboard flash.", "Dual BECs: 5 V/4 A for devices and 12 V/2 A for VTX/camera.", "Switchable onboard 12 V BEC via PINIO1/User1 to reduce VTX overheating during bench testing."],
     featuresZh: ["STM32H743VIT6 主控，双 ICM-42688-P 陀螺仪，DPS310/DPS368 气压计。", "支持模拟/高清 OSD，7 路 UART、9 路 PWM、I2C、ADC RSSI、LED、蜂鸣器、Type-C USB 和 128 MB 板载黑匣子闪存。", "双 BEC：5 V/4 A 给设备供电，12 V/2 A 给图传/相机供电。", "板载 12 V BEC 可通过 PINIO1/User1 开关，减少台架测试时图传过热。"],
-    techEn: ["Input: 12-28 V DC / 3-6S LiPo.", "Recommended: 5S/6S LiPo or 4S LiHV for stable VTX BEC margin; for 3S/4S ensure VTX BEC input is above 12.8 V.", "Dimensions: 36.6 x 36.6 x 7.45 mm; weight about 9.3 g.", "Firmware target: FLRC H7D; factory default Betaflight 4.4.2."],
-    techZh: ["输入：12-28 V DC / 3-6S LiPo。", "推荐 5S/6S LiPo 或 4S LiHV；使用 3S/4S 时需确保图传 BEC 输入高于 12.8 V。", "尺寸：36.6 x 36.6 x 7.45 mm；重量约 9.3 g。", "固件目标：FLRC H7D；出厂默认 Betaflight 4.4.2。"],
-    setupEn: ["Use the product wiring diagrams for DJI O4, ELRS, analog VTX, and other peripherals.", "Firmware is compiled by FlyingRC and may not appear in the public Betaflight target list.", "Limited support is provided for BF and ArduPilot; INAV has no technical support according to the manual."],
-    setupZh: ["按产品接线图连接 DJI O4、ELRS、模拟图传等外设。", "固件由 FlyingRC 编译，可能不在 Betaflight 公共目标列表中。", "说明书标注 BF 和 ArduPilot 提供有限技术支持，INAV 不提供技术支持。"],
+    techEn: ["Input: 12-28 V DC / 3-6S LiPo.", "Recommended: 5S/6S LiPo or 4S LiHV for stable VTX BEC margin; for 3S/4S ensure VTX BEC input is above 12.8 V.", "Dimensions: 36.6 x 36.6 x 7.45 mm; weight about 9.3 g.", "Firmware target: FLRC H7D; factory default Betaflight 4.4.2.", "ArduPilot target branch: FlyingRC-Official/ardupilot add_FlyingRC_H7D_target.", "Betaflight config branch: FlyingRC-Official/betaflight-config Add-FlyingRC-H7D-Config."],
+    techZh: ["输入：12-28 V DC / 3-6S LiPo。", "推荐 5S/6S LiPo 或 4S LiHV；使用 3S/4S 时需确保图传 BEC 输入高于 12.8 V。", "尺寸：36.6 x 36.6 x 7.45 mm；重量约 9.3 g。", "固件目标：FLRC H7D；出厂默认 Betaflight 4.4.2。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 add_FlyingRC_H7D_target。", "Betaflight 配置分支：FlyingRC-Official/betaflight-config 的 Add-FlyingRC-H7D-Config。"],
+    setupEn: ["Use the product wiring diagrams for DJI O4, ELRS, analog VTX, and other peripherals.", "Firmware is compiled by FlyingRC and may not appear in the public Betaflight target list.", "Choose the firmware path that matches your build, then verify board target, wiring, and sensor orientation before flight."],
+    setupZh: ["按产品接线图连接 DJI O4、ELRS、模拟图传等外设。", "固件由 FlyingRC 编译，可能不在 Betaflight 公共目标列表中。", "请按装机用途选择对应固件，并在飞行前确认板级目标、接线和传感器方向。"],
     watchEn: ["Check battery voltage before relying on the 12 V VTX output.", "ArduPilot SERIAL numbers do not correspond one-to-one with UART labels."],
     watchZh: ["依赖 12 V 图传输出前必须确认电池电压条件。", "ArduPilot SERIAL 编号不与 UART 丝印一一对应。"]
   }),
@@ -669,14 +687,14 @@ const PRODUCT_EXPLANATIONS = {
     whatZh: "Pro 版 H743 穿越机飞控，面向功能更丰富的多旋翼装机。它承担 H7D 同类主控职责，并使用 Pro 版本资料与可开关 9 V 图传/相机 BEC。",
     bestEn: ["FPV builds requiring H743 performance with Pro-family layout.", "Digital/analog video setups where switchable VTX power is useful.", "Users who want dual gyro/barometer stability features."],
     bestZh: ["需要 H743 性能和 Pro 系列布局的穿越机装机。", "需要可开关图传供电的数字/模拟图传装机。", "希望使用双陀螺仪和气压计稳定性特性的用户。"],
-    featuresEn: ["STM32H743VIT6 MCU family with dual high-precision gyros and barometer.", "Switchable onboard 9 V BEC controlled through PINIO1/User1.", "BF, AP, and INAV firmware paths are documented; factory default is BF4.4.2."],
-    featuresZh: ["STM32H743VIT6 主控系列，配备双高精度陀螺仪和气压计。", "板载 9 V BEC 可通过 PINIO1/User1 控制。", "说明书包含 BF、AP、INAV 固件路径；出厂默认 BF4.4.2。"],
-    techEn: ["Firmware target: FLRC H7D.", "LED pad is S13 and can be configured in Betaflight; AP firmware can show flight-controller status through WS2812 LEDs."],
-    techZh: ["固件目标：FLRC H7D。", "LED 焊盘为 S13，可在 Betaflight 中配置；AP 固件可用 WS2812 显示飞控状态。"],
+    featuresEn: ["STM32H743VIT6 MCU family with dual high-precision gyros and barometer.", "Switchable onboard 9 V BEC controlled through PINIO1/User1.", "BF, AP, INAV, and PX4 firmware paths are documented; factory default is BF4.4.2."],
+    featuresZh: ["STM32H743VIT6 主控系列，配备双高精度陀螺仪和气压计。", "板载 9 V BEC 可通过 PINIO1/User1 控制。", "说明书包含 BF、AP、INAV 与 PX4 固件路径；出厂默认 BF4.4.2。"],
+    techEn: ["Firmware target: FLRC H7D.", "PX4 board port: FlyingRC-Official/PX4-Autopilot branch FlyingRC-H7D-Pro-Board.", "ArduPilot target branch: FlyingRC-Official/ardupilot add_FlyingRC_H7DPro_target.", "Betaflight config branch: FlyingRC-Official/betaflight-config Add-FlyingRC-H7D-Pro-Config.", "LED pad is S13 and can be configured in Betaflight; AP firmware can show flight-controller status through WS2812 LEDs."],
+    techZh: ["固件目标：FLRC H7D。", "PX4 板级移植：FlyingRC-Official/PX4-Autopilot 的 FlyingRC-H7D-Pro-Board 分支。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 add_FlyingRC_H7DPro_target。", "Betaflight 配置分支：FlyingRC-Official/betaflight-config 的 Add-FlyingRC-H7D-Pro-Config。", "LED 焊盘为 S13，可在 Betaflight 中配置；AP 固件可用 WS2812 显示飞控状态。"],
     setupEn: ["Use the H7D Pro wiring references before connecting video, receiver, and LED accessories.", "Do not infer ArduPilot SERIAL numbers from UART labels without the mapping table."],
     setupZh: ["连接图传、接收机和 LED 外设前，先查看 H7D Pro 接线参考。", "不要在未查看映射表的情况下用 UART 丝印推断 ArduPilot SERIAL 编号。"],
-    watchEn: ["Manual states limited support for BF and ArduPilot, and no technical support for INAV."],
-    watchZh: ["说明书标注 BF 和 ArduPilot 提供有限技术支持，INAV 不提供技术支持。"]
+    watchEn: ["Choose the firmware path that matches your build, and verify the board target, wiring, and sensor orientation before flight."],
+    watchZh: ["请按装机用途选择对应固件，并在飞行前确认板级目标、接线和传感器方向。"]
   }),
   "am32-4in1-75a": escExplain("FlyingRC® 4IN1 75A ESC for FPV Drones – Product Manual.docx", "A four-in-one ESC for FPV drones. It takes one battery input and independently drives four brushless motors from flight-controller throttle signals.", "四合一穿越机电调。它接收一个电池输入，并根据飞控油门信号分别驱动四个无刷电机。", ["High-current FPV builds needing a 75 A x 4 ESC.", "5-inch to larger FPV builds where thermal and current margin matter.", "AM32 users who want configurable open-source ESC firmware."], ["需要 75A x4 电调的大电流穿越机。", "重视散热和电流余量的 5 寸或更大穿越机。", "希望使用可配置 AM32 开源电调固件的用户。"], ["QF32F4AK8U7 32-bit MCU with ID6288 gate driver.", "Infineon IRF7480 gold-packaged MOSFETs.", "10-layer 2 oz PCB with copper strip current assistance.", "Pre-flashed with AM32 firmware."], ["QF32F4AK8U7 32 位 MCU，集成 ID6288 栅极驱动。", "Infineon IRF7480 金封 MOSFET。", "10 层 2 oz PCB，并使用铜条辅助过流。", "出厂预刷 AM32 固件。"], ["Input: 9-30 V / 3-7S LiPo or 3-6S LiHV.", "Continuous current: 75 A per channel for 45 seconds under manual test conditions.", "Burst current: 85 A per channel under manual test conditions.", "Size: 45 x 45.2 x 5.5 mm; mounting: 30.5 x 30.5 mm M3; weight: 18.6 g."], ["输入：9-30 V / 3-7S LiPo 或 3-6S LiHV。", "持续电流：说明书测试条件下单路 75 A 持续 45 秒。", "瞬时电流：说明书测试条件下单路 85 A。", "尺寸：45 x 45.2 x 5.5 mm；孔距：30.5 x 30.5 mm M3；重量：18.6 g。"]),
   "am32-4in1-45a": escExplain("FlyingRC® 4IN1 45A ESC for FPV Drones Product Manual.docx", "A 45 A four-in-one AM32 ESC for FPV drones, intended to drive four brushless motors from one compact board.", "一块 45 A 四合一 AM32 穿越机电调，用一块紧凑电调板驱动四个无刷电机。", ["FPV builds that need a lighter current class than the 75 A ESC.", "AM32 firmware users who want configurable motor behavior.", "Builds where a single 4-in-1 ESC simplifies wiring."], ["电流需求低于 75A 版本的穿越机装机。", "希望使用 AM32 固件调参的用户。", "希望用单块四合一电调简化走线的装机。"], ["Pre-flashed with AM32 firmware.", "Supports DSHOT150/300/600, OneShot, PWM and other control signal inputs.", "Manual includes firmware flashing and parameter setting workflow."], ["出厂预刷 AM32 固件。", "支持 DSHOT150/300/600、OneShot、PWM 等控制信号。", "说明书包含固件刷新和参数设置流程。"], ["Input: 9-30 V / 3-7S LiPo or 3-6S LiHV.", "45 A four-in-one current class.", "Current meter ratio and protocol setup are documented in the manual."], ["输入：9-30 V / 3-7S LiPo 或 3-6S LiHV。", "45 A 四合一电流级别。", "说明书记录了电流计比例和协议设置。"]),
@@ -742,6 +760,21 @@ const PRODUCT_EXPLANATIONS = {
     setupZh: ["安装时远离电机、电调、大电流电池线和磁铁。", "连接飞控 SPI 口前先查看引脚定义图/表。", "安装后在飞控固件中执行罗盘校准。"],
     watchEn: ["Compass performance depends strongly on installation location and magnetic cleanliness."],
     watchZh: ["罗盘效果高度依赖安装位置和磁环境。"]
+  }),
+  "l4-can-rm3100": explain({
+    manual: "FlyingRC L4CAN RM3100 listing materials",
+    whatEn: "A CAN-bus compass module built around the RM3100 geomagnetic sensor and AP_Periph-style firmware. It lets builders mount the compass away from power wiring, ESCs, motors, and other magnetic noise sources while keeping communication on a robust CAN link.",
+    whatZh: "一款基于 RM3100 地磁传感器和 AP_Periph 类固件的 CAN 总线罗盘模块。它可以把罗盘安装在远离电源线、电调、电机和其他磁干扰源的位置，同时通过 CAN 总线保持稳定通信。",
+    bestEn: ["ArduPilot or PX4 aircraft that need a remote compass on CAN.", "Fixed-wing or multirotor builds where the main flight controller is close to high-current wiring.", "Longer-distance sensor placement where CAN wiring is cleaner than direct SPI/I2C wiring."],
+    bestZh: ["需要 CAN 外置罗盘的 ArduPilot 或 PX4 飞机。", "主飞控靠近大电流线、电调或电机的固定翼/多旋翼装机。", "需要较远距离布置传感器，且 CAN 接线比直接 SPI/I2C 更适合的场景。"],
+    featuresEn: ["Industrial-grade RM3100 compass sensor for high-resolution heading data.", "CAN communication for remote mounting and stable wiring.", "Supports AP and PX4 firmware workflows according to the listing material.", "Includes 3D printed base, GH1.25 4P cable, and mounting screws in the package list."],
+    featuresZh: ["采用工业级 RM3100 磁力计，提供高分辨率航向数据。", "通过 CAN 通信，便于远距离安装和稳定接线。", "上架资料标注支持 AP 和 PX4 固件流程。", "发货清单包含 3D 打印底座、GH1.25 4P 硅胶线和安装螺丝。"],
+    techEn: ["Size: 29.3 x 29.3 x 9.0 mm.", "Weight: 4.5 g without base, 10.5 g with base.", "Board: 4 layers, 1.64 mm thickness, 1 oz gold-plated finish.", "Controller: STM32L431RCT6.", "ArduPilot branch: FlyingRC-Official/ardupilot L4_CAN_RM3100."],
+    techZh: ["尺寸：29.3 x 29.3 x 9.0 mm。", "重量：不加底座 4.5 g，加底座 10.5 g。", "板卡：4 层板，板厚 1.64 mm，沉金 1u。", "主控：STM32L431RCT6。", "ArduPilot 分支：FlyingRC-Official/ardupilot 的 L4_CAN_RM3100。"],
+    setupEn: ["Mount at least 10 cm away from power wires, ESCs, motors, magnets, and ferrous metal materials.", "If the CAN cable is long, short the onboard 120 ohm termination jumper as needed for the bus layout.", "After installation, configure CAN/AP_Periph parameters and run compass calibration in the flight firmware."],
+    setupZh: ["安装时应远离电源线、电调、电机、磁铁和铁质金属物料，间距不小于 10 厘米。", "如果 CAN 总线接线较长，可按总线布局短接板上 120 欧终端电阻跳帽。", "安装后在飞控固件中配置 CAN/AP_Periph 参数并执行罗盘校准。"],
+    watchEn: ["Compass accuracy depends on magnetic cleanliness, orientation, CAN bus wiring, and correct firmware setup."],
+    watchZh: ["罗盘精度取决于磁环境、安装方向、CAN 总线接线和正确的固件配置。"]
   }),
   "h7-can-gps": explain({
     manual: "FlyingRC® U-Blox M10 GPS Product Manual.docx / CAN GPS product assets",
@@ -913,6 +946,7 @@ const LABEL_DEFINITIONS = {
   am32: productLabelDef("AM32", "AM32", "firmware"),
   apperiph: productLabelDef("AP_Periph", "AP_Periph", "firmware"),
   expresslrs: productLabelDef("ExpressLRS", "ExpressLRS", "firmware"),
+  px4: productLabelDef("PX4", "PX4", "firmware"),
   "offline-flashing": productLabelDef("Offline flashing", "离线刷写", "firmware"),
 
   "2-6s": productLabelDef("2-6S LiPo", "2-6S LiPo", "power"),
@@ -1066,7 +1100,8 @@ const PRODUCT_LABELS = {
     productLabel("flight-controller", 2),
     productLabel("h743", 3),
     productLabel("betaflight", 4),
-    productLabel("onboard-bec", 5),
+    productLabel("ardupilot", 5),
+    productLabel("onboard-bec"),
     productLabel("uart"),
     productLabel("pwm"),
     productLabel("dji-o4"),
@@ -1076,8 +1111,10 @@ const PRODUCT_LABELS = {
     productLabel("fpv", 1),
     productLabel("flight-controller", 2),
     productLabel("h743", 3),
-    productLabel("betaflight", 4),
-    productLabel("onboard-bec", 5),
+    productLabel("px4", 4),
+    productLabel("betaflight", 5),
+    productLabel("ardupilot"),
+    productLabel("onboard-bec"),
     productLabel("pwm"),
     productLabel("dji-o4"),
     productLabel("blackbox")
@@ -1222,6 +1259,17 @@ const PRODUCT_LABELS = {
     productLabel("spi", 5),
     productLabel("external-mounting")
   ],
+  "l4-can-rm3100": [
+    productLabel("navigation-sensor", 1),
+    productLabel("can", 2),
+    productLabel("rm3100", 3),
+    productLabel("ardupilot", 4),
+    productLabel("px4", 5),
+    productLabel("apperiph"),
+    productLabel("l431"),
+    productLabel("can-wiring"),
+    productLabel("external-mounting")
+  ],
   "h7-can-gps": [
     productLabel("navigation-sensor", 1),
     productLabel("fixed-wing", 2),
@@ -1287,6 +1335,17 @@ const PRODUCT_LABELS = {
 const PUBLIC_REFERENCE_FILES = {
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "f4wse-pro": [download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支")],
+  "h7d-h743": [
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7D_target", "ArduPilot H7D target branch", "ArduPilot H7D 目标分支"),
+    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Config", "Betaflight H7D config branch", "Betaflight H7D 配置分支")
+  ],
+  "h7d-pro": [
+    download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7D-Pro-Board", "PX4 H7D Pro firmware repository", "PX4 H7D Pro 固件仓库"),
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7DPro_target", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
+    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支")
+  ],
+  "l4-can-rm3100": [download("https://github.com/FlyingRC-Official/ardupilot/tree/L4_CAN_RM3100", "ArduPilot L4 CAN RM3100 branch", "ArduPilot L4 CAN RM3100 分支")],
   "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],
   "elrs-24g-diversity": [download("assets/products/elrs-24g-diversity/model.step", "STEP 3D model", "STEP 3D 模型")],
   "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")]
