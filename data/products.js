@@ -18,6 +18,80 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC F4Wing Mini MK1 F405 Fixed-wing Flight Controller", zh: "FlyingRC F4Wing Mini MK1 F405 主控固定翼飞控" },
       summary: { en: "Compact F405 fixed-wing controller with product photos, parameter table, packing list, and wiring diagrams.", zh: "紧凑型 F405 固定翼飞控，包含产品图、参数表、发货清单和接线图。" },
       specs: { en: ["STM32F405 fixed-wing autopilot controller", "27.9 x 20.3 x 11.2 mm board size", "6 PWM outputs, 3 UARTs, SBUS, I2C, USB-C, and HD VTX connector"], zh: ["F405 主控固定翼飞控", "包含尺寸图与接线参考图", "适合紧凑固定翼装机"] },
+      hardwareChanges: {
+        title: { en: "F4Wing Mini MK1 Hardware Revision Notice: IMU Update", zh: "F4Wing Mini MK1 硬件版本说明：IMU 更新" },
+        note: {
+          en: "F4Wing Mini MK1 units shipped on or after May 25, 2026 use the BMI270 IMU with the SPA06-003 barometer. Earlier units may use ICM42688P / ICM42605 IMUs and SPL06-001 / SPA06-003 barometers.",
+          zh: "2026/5/25 日以后发货的 F4Wing Mini MK1 使用 BMI270 IMU 和 SPA06-003 气压计。早期版本可能使用 ICM42688P / ICM42605 IMU，以及 SPL06-001 / SPA06-003 气压计。"
+        },
+        reason: {
+          en: "Reason for the revision: ICM-series IMUs became difficult and expensive to source consistently. The current BMI270 + SPA06-003 combination allows us to keep this Mini product line affordable and available, while still providing tested firmware support for the intended use case.",
+          zh: "版本调整原因：ICM 系列 IMU 变得较难稳定采购且成本明显上升。当前 BMI270 + SPA06-003 组合可以继续维持 Mini 产品线的可负担价格和稳定供货，同时为目标使用场景提供经过测试的固件支持。"
+        },
+        identifyNote: {
+          en: "Please check the onboard sensor markings and the version-identification photos below before selecting firmware or configuration files.",
+          zh: "选择固件或配置文件前，请先核对板上器件丝印，并参考下方版本辨别图片。"
+        },
+        columns: {
+          en: ["Item", "Earlier hardware", "Current revision shipped from May 25, 2026"],
+          zh: ["项目", "早期硬件", "当前版本（2026/5/25 起发货）"]
+        },
+        rows: [
+          {
+            item: { en: "IMU (gyro and accelerometer)", zh: "IMU（陀螺仪和加速度计）" },
+            values: [
+              { en: "ICM42688P / ICM42605", zh: "ICM42688P / ICM42605" },
+              { en: "BMI270 (current revision)", zh: "BMI270（当前版本）" }
+            ],
+            emphasis: true
+          },
+          {
+            item: { en: "Barometer", zh: "气压计" },
+            values: [
+              { en: "SPL06-001 / SPA06-003", zh: "SPL06-001 / SPA06-003" },
+              { en: "SPA06-003", zh: "SPA06-003" }
+            ]
+          },
+          {
+            item: { en: "Firmware target / config", zh: "固件目标 / 配置" },
+            values: [
+              { en: "Use earlier hardware target/config", zh: "使用早期硬件对应目标 / 配置" },
+              { en: "Use BMI270 hardware revision target/config", zh: "使用 BMI270 硬件版本对应目标 / 配置" }
+            ]
+          },
+          {
+            item: { en: "How to identify", zh: "如何辨别" },
+            values: [
+              { en: "Check sensor marking / photos", zh: "查看传感器丝印 / 图片" },
+              { en: "Check sensor marking / photos", zh: "查看传感器丝印 / 图片" }
+            ]
+          }
+        ],
+        firmwareNote: {
+          title: {
+            en: "Firmware compatibility note for SPA06-003 barometer",
+            zh: "SPA06-003 气压计固件兼容性说明"
+          },
+          intro: {
+            en: "The SPA06-003 barometer requires firmware with SPA06 / DPS310-compatible barometer support.",
+            zh: "SPA06-003 气压计需要固件包含 SPA06 / DPS310-compatible 气压计支持。"
+          },
+          recommendedTitle: { en: "Recommended tested versions", zh: "建议使用的已测试版本" },
+          versions: [
+            { firmware: "ArduPilot", version: "4.6.0 or newer", versionZh: "4.6.0 或更新版本" },
+            { firmware: "INAV", version: "8.0.0 or newer", versionZh: "8.0.0 或更新版本" },
+            { firmware: "Betaflight", version: "4.5.0 or newer", versionZh: "4.5.0 或更新版本" }
+          ],
+          caution: {
+            en: "Older firmware or old user-submitted targets may not detect the barometer correctly. Please use the firmware target/configuration listed for this hardware revision.",
+            zh: "旧固件或旧的用户提交 target 可能无法正确识别气压计。请使用此硬件版本对应的固件 target / 配置文件。"
+          },
+          targetNote: {
+            en: "Driver support alone is not enough. The firmware target must also enable the correct barometer driver and bus configuration for this board revision.",
+            zh: "只有驱动支持还不够。固件 target 还必须为这个板卡版本启用正确的气压计驱动和总线配置。"
+          }
+        }
+      },
       hero: "assets/products/f4wing-mini-mk1/hero.jpg",
       images: [
         img("assets/products/f4wing-mini-mk1/specs.jpg", "Spec table", "参数表", "spec"),
@@ -505,8 +579,8 @@ const PRODUCT_EXPLANATIONS = {
     whatZh: "一块超小型固定翼自动驾驶飞控。它是小飞机的核心控制板：读取传感器、运行 ArduPilot/INAV 类飞控固件、输出舵机/PWM 控制，并连接接收机和高清图传设备。",
     bestEn: ["Small and micro fixed-wing aircraft where board size and weight matter.", "Builders who want ArduPlane/INAV capability in a compact airframe.", "HD digital video builds using DJI HD, Walksnail HD, OpenIPC, or similar HD OSD workflows."],
     bestZh: ["空间和重量都很紧张的小型/微型固定翼。", "想在小机身里使用 ArduPlane/INAV 能力的玩家。", "使用 DJI HD、Walksnail HD、OpenIPC 等高清图传/HD OSD 的装机。"],
-    featuresEn: ["STM32F405RGT6 MCU with ICM42688P/ICM42605 gyro and SPL06/SPA06 barometer.", "Dual independent sensor LDOs improve sensor power stability.", "3 UARTs plus SBUS, 6 PWM outputs, I2C, Type-C USB, HD VTX plug-in, and ELRS receiver plug-in support.", "Supports AP, Betaflight, and INAV; ArduPlane is recommended for fixed-wing use."],
-    featuresZh: ["STM32F405RGT6 主控，搭配 ICM42688P/ICM42605 陀螺仪与 SPL06/SPA06 气压计。", "传感器使用双独立 LDO 供电，提高传感器供电稳定性。", "提供 3 路 UART、SBUS、6 路 PWM、I2C、Type-C USB、高清图传直插和 ELRS 接收机直插支持。", "支持 AP、Betaflight、INAV；固定翼推荐使用 ArduPlane。"],
+    featuresEn: ["STM32F405RGT6 MCU with BMI270 IMU on current units released from May 25, 2026; earlier units used ICM42688P/ICM42605.", "SPL06/SPA06 barometer, with dual independent sensor LDOs to improve sensor power stability.", "3 UARTs plus SBUS, 6 PWM outputs, I2C, Type-C USB, HD VTX plug-in, and ELRS receiver plug-in support.", "Supports AP, Betaflight, and INAV; ArduPlane is recommended for fixed-wing use."],
+    featuresZh: ["STM32F405RGT6 主控；2026/5/25 日以后上市版本使用 BMI270 IMU，早期版本使用 ICM42688P/ICM42605。", "搭配 SPL06/SPA06 气压计，传感器使用双独立 LDO 供电，提高供电稳定性。", "提供 3 路 UART、SBUS、6 路 PWM、I2C、Type-C USB、高清图传直插和 ELRS 接收机直插支持。", "支持 AP、Betaflight、INAV；固定翼推荐使用 ArduPlane。"],
     techEn: ["Dimensions: 27.9 x 20.3 x 11.2 mm.", "Weight: 2.8 g without pin headers, about 5.3 g with soldered headers.", "Voltage detection range: 2.5-30 V / 1-6S LiPo; flight controller power input is 5 V.", "No onboard analog current sensor; external I2C current sensor is supported."],
     techZh: ["尺寸：27.9 x 20.3 x 11.2 mm。", "重量：未焊排针 2.8 g，焊接排针约 5.3 g。", "电压检测范围：2.5-30 V / 1-6S LiPo；飞控本体供电为 5 V。", "无板载模拟电流计，支持外接 I2C 电流计。"],
     setupEn: ["Use the SH1.0 2P connector only for battery voltage detection and HD VTX direct-power input, not as the flight-controller power input.", "For fixed-wing aircraft, start from ArduPlane wiring examples and check UART/SERIAL mapping carefully.", "Use USB-C for configuration; mobile ground-station setup is possible with a USB-C to USB-C cable."],

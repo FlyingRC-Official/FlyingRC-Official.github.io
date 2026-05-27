@@ -327,7 +327,8 @@
       ...plainList(product.keyFeatures),
       ...plainList(product.technicalHighlights),
       ...plainList(product.setupNotes),
-      ...plainList(product.watchOut)
+      ...plainList(product.watchOut),
+      ...hardwareChangeSearchTerms(product)
     ].join(" ").toLowerCase();
   }
 
@@ -344,7 +345,8 @@
       ...plainList(product.keyFeatures),
       ...plainList(product.technicalHighlights),
       ...plainList(product.setupNotes),
-      ...plainList(product.watchOut)
+      ...plainList(product.watchOut),
+      ...hardwareChangeSearchTerms(product)
     ].join(" ").toLowerCase();
   }
 
@@ -358,6 +360,51 @@
     if (!value) return [];
     if (Array.isArray(value)) return value;
     return [...(value.en || []), ...(value.zh || [])];
+  }
+
+  function hardwareChangeSearchTerms(product) {
+    const changes = product.hardwareChanges;
+    if (!changes) return [];
+    return [
+      localizedText(changes.title, "en"),
+      localizedText(changes.title, "zh"),
+      localizedText(changes.note, "en"),
+      localizedText(changes.note, "zh"),
+      localizedText(changes.reason, "en"),
+      localizedText(changes.reason, "zh"),
+      localizedText(changes.identifyNote, "en"),
+      localizedText(changes.identifyNote, "zh"),
+      ...(changes.columns?.en || []),
+      ...(changes.columns?.zh || []),
+      ...firmwareNoteSearchTerms(changes.firmwareNote),
+      ...(changes.rows || []).flatMap((row) => [
+        localizedText(row.item, "en"),
+        localizedText(row.item, "zh"),
+        localizedText(row.value, "en"),
+        localizedText(row.value, "zh"),
+        ...(row.values || []).flatMap((value) => [
+          localizedText(value, "en"),
+          localizedText(value, "zh")
+        ])
+      ])
+    ].filter(Boolean);
+  }
+
+  function firmwareNoteSearchTerms(note) {
+    if (!note) return [];
+    return [
+      localizedText(note.title, "en"),
+      localizedText(note.title, "zh"),
+      localizedText(note.intro, "en"),
+      localizedText(note.intro, "zh"),
+      localizedText(note.recommendedTitle, "en"),
+      localizedText(note.recommendedTitle, "zh"),
+      localizedText(note.caution, "en"),
+      localizedText(note.caution, "zh"),
+      localizedText(note.targetNote, "en"),
+      localizedText(note.targetNote, "zh"),
+      ...(note.versions || []).flatMap((item) => [item.firmware, item.version, item.versionZh])
+    ].filter(Boolean);
   }
 
   function plainLabels(value) {
@@ -606,7 +653,7 @@
 
   function productImage(product) {
     if (product.hero) {
-      return `<img src="${product.hero}" alt="${escapeHtml(text(product.title))}">`;
+      return `<img src="${product.hero}" alt="${escapeHtml(text(product.title))}" loading="lazy" decoding="async">`;
     }
     return `<div class="product-card-placeholder" aria-hidden="true">${escapeHtml(text(catalog.categories[product.category]))}</div>`;
   }
@@ -752,7 +799,7 @@
     return `<div class="detail-media-grid">${items.map((item) => `
       <figure>
         <a href="${item.src}" target="_blank" rel="noopener">
-          <img src="${item.src}" alt="${escapeHtml(text(item.label))}">
+          <img src="${item.src}" alt="${escapeHtml(text(item.label))}" loading="lazy" decoding="async">
         </a>
         <figcaption>${escapeHtml(text(item.label))}</figcaption>
       </figure>
@@ -906,6 +953,92 @@
     `;
   }
 
+  function hardwareChangesSection(product) {
+    const changes = product.hardwareChanges;
+    const rows = changes?.rows || [];
+    if (!changes || !rows.length) return "";
+    const columns = localizedValue(changes.columns, state.lang);
+    const itemColumn = columns[0] || (state.lang === "zh" ? "项目" : "Item");
+    const valueColumns = columns.slice(1);
+    const fallbackValueColumn = state.lang === "zh" ? "硬件版本" : "Hardware revision";
+    const title = localizedText(changes.title, state.lang) || (state.lang === "zh" ? "硬件改动说明" : "Hardware revision note");
+    const note = localizedText(changes.note, state.lang);
+    const reason = localizedText(changes.reason, state.lang);
+    const identifyNote = localizedText(changes.identifyNote, state.lang);
+
+    return `
+      <section class="detail-section hardware-change-section">
+        <div class="hardware-change-heading">
+          <h2>${escapeHtml(title)}</h2>
+          ${note ? `<p>${escapeHtml(note)}</p>` : ""}
+          ${reason ? `<p class="hardware-change-reason">${escapeHtml(reason)}</p>` : ""}
+          ${identifyNote ? `<p>${escapeHtml(identifyNote)}</p>` : ""}
+        </div>
+        <div class="hardware-change-table-wrap">
+          <table class="hardware-change-table">
+            <thead>
+              <tr>
+                <th>${escapeHtml(itemColumn)}</th>
+                ${(valueColumns.length ? valueColumns : [fallbackValueColumn]).map((column) => `<th>${escapeHtml(column)}</th>`).join("")}
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((row) => `
+                <tr class="${row.emphasis ? "hardware-change-emphasis" : ""}">
+                  <th scope="row">${escapeHtml(localizedText(row.item, state.lang))}</th>
+                  ${hardwareChangeValues(row).map((value) => `<td>${escapeHtml(value)}</td>`).join("")}
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+        ${firmwareCompatibilityNote(changes.firmwareNote)}
+        ${hardwareRevisionImages(product)}
+      </section>
+    `;
+  }
+
+  function hardwareChangeValues(row) {
+    const values = row.values?.length ? row.values : [row.value];
+    return values.map((value) => localizedText(value, state.lang)).filter(Boolean);
+  }
+
+  function firmwareCompatibilityNote(note) {
+    if (!note) return "";
+    const versions = note.versions || [];
+    return `
+      <div class="firmware-compat-note">
+        <h3>${escapeHtml(localizedText(note.title, state.lang))}</h3>
+        <p>${escapeHtml(localizedText(note.intro, state.lang))}</p>
+        ${versions.length ? `
+          <div class="firmware-version-list" aria-label="${escapeHtml(localizedText(note.recommendedTitle, state.lang))}">
+            <strong>${escapeHtml(localizedText(note.recommendedTitle, state.lang))}</strong>
+            <ul>
+              ${versions.map((item) => `
+                <li><span>${escapeHtml(item.firmware)}</span><b>${escapeHtml(state.lang === "zh" ? item.versionZh || item.version : item.version)}</b></li>
+              `).join("")}
+            </ul>
+          </div>
+        ` : ""}
+        <p>${escapeHtml(localizedText(note.caution, state.lang))}</p>
+        <p class="firmware-target-note">${escapeHtml(localizedText(note.targetNote, state.lang))}</p>
+      </div>
+    `;
+  }
+
+  function hardwareRevisionImages(product) {
+    const items = product.hardwareRevisionImages || [];
+    if (!items.length) return "";
+    return `<div class="detail-media-grid hardware-revision-grid">${items.map((item) => `
+      <figure>
+        <a href="${item.src}" target="_blank" rel="noopener">
+          <img src="${item.src}" alt="${escapeHtml(text(item.label))}" loading="lazy" decoding="async">
+        </a>
+        <figcaption>${escapeHtml(text(item.label))}</figcaption>
+      </figure>
+    `).join("")}</div>`;
+  }
+
   function textPanel(titleKey, value) {
     const content = text(value);
     if (!content) return "";
@@ -983,6 +1116,7 @@
         ${specTable(product, specs)}
         ${specImages}
       </section>
+      ${hardwareChangesSection(product)}
       ${diagramHtml ? `<section class="detail-section"><h2>${labels[state.lang].diagrams}</h2>${diagramHtml}</section>` : ""}
       ${galleryHtml ? `<section class="detail-section"><h2>${labels[state.lang].gallery}</h2>${galleryHtml}</section>` : ""}
       ${downloads.length ? `<section class="detail-section"><h2>${labels[state.lang].downloads}</h2><div class="download-list">${downloads.map((item) => `<a href="${item.href}" target="_blank" rel="noopener">${escapeHtml(text(item.label))}</a>`).join("")}</div></section>` : ""}

@@ -1618,6 +1618,159 @@ h2 {
   border-bottom: 0;
 }
 
+.hardware-change-section {
+  background: #f8faf8;
+}
+
+.hardware-change-heading {
+  max-width: 860px;
+}
+
+.hardware-change-heading h2 {
+  margin-bottom: 10px;
+}
+
+.hardware-change-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hardware-change-heading p + p {
+  margin-top: 8px;
+}
+
+.hardware-change-reason {
+  max-width: 940px;
+  border-left: 3px solid var(--green-dark);
+  padding-left: 12px;
+}
+
+.hardware-change-table-wrap {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow-x: auto;
+}
+
+.hardware-change-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.hardware-change-table th,
+.hardware-change-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 15px 18px;
+  line-height: 1.36;
+  vertical-align: middle;
+}
+
+.hardware-change-table thead th {
+  background: #e8f0e9;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.hardware-change-table tbody th {
+  width: 34%;
+  color: var(--ink);
+  font-size: clamp(16px, 1.55vw, 20px);
+  font-weight: 760;
+}
+
+.hardware-change-table tbody td {
+  color: var(--ink);
+  font-size: clamp(17px, 1.65vw, 22px);
+  font-weight: 760;
+}
+
+.hardware-change-emphasis td:last-child {
+  color: var(--green-dark);
+  font-weight: 820;
+}
+
+.hardware-change-table tr:last-child th,
+.hardware-change-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.firmware-compat-note {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+  border: 1px solid rgba(20, 105, 65, 0.24);
+  border-radius: 8px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.firmware-compat-note h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.16;
+}
+
+.firmware-compat-note p {
+  max-width: 980px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.firmware-version-list {
+  display: grid;
+  gap: 10px;
+}
+
+.firmware-version-list strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.firmware-version-list ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.firmware-version-list li {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #f8faf8;
+}
+
+.firmware-version-list span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.firmware-version-list b {
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.firmware-target-note {
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+}
+
+.hardware-revision-grid {
+  margin-top: 20px;
+}
+
 .detail-media-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
