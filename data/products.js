@@ -197,7 +197,16 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/h7d-h743/elrs.jpg", "ELRS receiver connector", "ELRS 接收机接口", "diagram"),
         img("assets/products/h7d-h743/gps.jpeg", "GPS wiring", "GPS 接线", "diagram"),
         img("assets/products/h7d-h743/led-buzzer.jpg", "LED and buzzer wiring", "LED 与蜂鸣器接线", "diagram"),
-        img("assets/products/h7d-h743/fc-gps-receiver.jpg", "Flight controller with GPS and receiver", "飞控 + GPS + 接收机组合", "gallery")
+        img("assets/products/h7d-h743/fc-gps-receiver.jpg", "Flight controller with GPS and receiver", "飞控 + GPS + 接收机组合", "gallery"),
+        img("assets/products/h7d-h743/kit-fc-gps-receiver-20260527.jpg", "Flight controller, GPS, and receiver kit", "飞控 + GPS + 接收机组合图", "gallery"),
+        img("assets/products/h7d-h743/kit-fc-gps-20260527.jpg", "Flight controller and GPS kit", "飞控 + GPS 组合图", "gallery"),
+        img("assets/products/h7d-h743/kit-fc-receiver-20260527.jpg", "Flight controller and receiver kit", "飞控 + 接收机组合图", "gallery"),
+        img("assets/products/h7d-h743/board-overview-20260527.jpg", "Board overview photo", "整板图", "gallery"),
+        img("assets/products/h7d-h743/detail-closeup-20260527.jpg", "Board detail image", "局部细节图", "gallery"),
+        img("assets/products/h7d-h743/packing-list-20260527.jpg", "Packing list", "发货清单", "gallery"),
+        img("assets/products/h7d-h743/render-bec-20260527.jpg", "BEC render detail", "BEC 功能渲染图", "gallery"),
+        img("assets/products/h7d-h743/render-imu-baro-20260527.jpg", "IMU and barometer render detail", "IMU 与气压计渲染图", "gallery"),
+        img("assets/products/h7d-h743/render-dji-analog-20260527.jpg", "Digital and analog video render detail", "数字/模拟图传渲染图", "gallery")
       ]
     },
     {
@@ -208,7 +217,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC H7D Pro H743 FPV Flight Controller", zh: "FlyingRC H7D Pro H743 主控穿越机飞控" },
       summary: { en: "H7D Pro listing material with board and front-side images for the H743 FPV line.", zh: "H7D Pro 上架资料，包含整板图与正面图，属于 H743 穿越机飞控系列。" },
       specs: { en: ["STM32H743 Pro FPV flight controller", "Dual gyro and barometer sensor architecture", "Switchable onboard 9 V BEC for VTX/camera power"], zh: ["H743 穿越机飞控系列", "H7D Pro 高配版本", "包含整板图与正面图"] },
-      hero: "assets/products/h7d-pro/hero.jpg",
+      hero: "assets/products/h7d-pro/hero-info-20260527.jpg",
       images: [
         img("assets/products/h7d-pro/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/h7d-pro/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
@@ -217,7 +226,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/h7d-pro/wiring-esc.jpg", "4IN1 75A ESC wiring", "与 4IN1 75A 金封电调连接", "diagram"),
         img("assets/products/h7d-pro/wiring-digital-vtx.jpg", "Digital VTX wiring", "数字图传连接", "diagram"),
         img("assets/products/h7d-pro/front.jpg", "Front view", "正面图", "gallery"),
-        img("assets/products/h7d-pro/back.jpg", "Back view", "反面图", "gallery")
+        img("assets/products/h7d-pro/back.jpg", "Back view", "反面图", "gallery"),
+        img("assets/products/h7d-pro/photo-01-20260525.jpg", "Product photo 1", "实物图 1", "gallery"),
+        img("assets/products/h7d-pro/photo-02-20260525.jpg", "Product photo 2", "实物图 2", "gallery"),
+        img("assets/products/h7d-pro/photo-03-20260525.jpg", "Product photo 3", "实物图 3", "gallery"),
+        img("assets/products/h7d-pro/photo-04-20260525.jpg", "Product photo 4", "实物图 4", "gallery")
       ]
     },
     {
@@ -383,17 +396,23 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Entry Stack Kit F405 FC + 45A 4-in-1 ESC", zh: "FlyingRC 入门版飞塔套装 F405 控 + 四合一 45A 金封电调" },
       summary: { en: "Entry-level FPV stack kit combining an F405 flight controller with a 45A four-in-one ESC.", zh: "入门版穿越机飞塔套装，组合 F405 飞控和 45A 四合一电调。" },
       specs: { en: ["F405 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for compact FPV builds"], zh: ["F405 飞控飞塔", "45A 四合一电调组合", "入门版定位"] },
-      hero: "assets/products/stack-f405-45a/hero.jpg"
+      hero: "assets/products/stack-f405-45a/photo-stack-20260513.jpg",
+      images: [
+        img("assets/products/stack-f405-45a/photo-stack-20260513.jpg", "Stack kit product photo", "飞塔套装实物图", "gallery")
+      ]
     },
     {
       slug: "stack-h743-45a",
       category: "stacks",
-      tags: ["H743", "45A", "stack"],
-      title: { en: "FlyingRC Advanced Stack Kit H743 FC + 45A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 H743 飞控 + 四合一 45A 电调" },
-      summary: { en: "H743-based advanced stack kit with 45A four-in-one ESC materials.", zh: "基于 H743 飞控的进阶飞塔套装，搭配 45A 四合一电调资料。" },
-      specs: { en: ["H743 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for higher-performance FPV builds"], zh: ["H743 飞控飞塔", "45A 四合一电调组合", "进阶版定位"] },
-      hero: "assets/products/stack-h743-45a/hero.jpg",
-      images: [img("assets/products/stack-h743-45a/gallery.jpg", "Product detail", "产品细节", "gallery")]
+      tags: ["H7D Pro", "H743", "45A", "stack"],
+      title: { en: "FlyingRC Advanced Stack Kit H7D Pro FC + 45A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 H7D Pro 飞控 + 45A 四合一电调" },
+      summary: { en: "Advanced FPV stack kit pairing the H7D Pro H743 flight controller with a 45A four-in-one ESC.", zh: "进阶版穿越机飞塔套装，组合 H7D Pro H743 飞控和 45A 四合一电调。" },
+      specs: { en: ["H7D Pro H743 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for higher-performance FPV builds"], zh: ["H7D Pro H743 穿越机飞控飞塔", "45A 四合一电调组合", "进阶版定位"] },
+      hero: "assets/products/stack-h743-45a/listing-main-20260527.jpg",
+      images: [
+        img("assets/products/stack-h743-45a/gallery.jpg", "Product detail", "产品细节", "gallery"),
+        img("assets/products/stack-h743-45a/detail-20260403.jpg", "Stack kit detail", "飞塔套装细节图", "gallery")
+      ]
     },
     {
       slug: "stack-f4d-75a",
@@ -402,28 +421,27 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Advanced Stack Kit F4D FC + 75A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 F4D 穿越机飞控 + 四合一 75A 金封电调" },
       summary: { en: "F4D FPV flight-controller bundle with 75A metal-sealed ESC kit photos.", zh: "F4D 穿越机飞控与 75A 金封电调组合套装，已补充套装图片。" },
       specs: { en: ["F4D FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "Matched stack kit for high-current FPV builds"], zh: ["F4D 穿越机飞控飞塔", "75A 四合一电调组合", "包含组合套装图片"] },
-      hero: "assets/products/stack-f4d-75a/hero.jpg",
-      images: [img("assets/products/stack-f4d-75a/gallery.jpg", "Expanded kit option", "扩展套装选项", "gallery")]
+      hero: "assets/products/stack-f4d-75a/photo-01-20260513.jpg",
+      images: [
+        img("assets/products/stack-f4d-75a/gallery.jpg", "Expanded kit option", "扩展套装选项", "gallery"),
+        img("assets/products/stack-f4d-75a/photo-01-20260513.jpg", "Stack kit product photo 1", "飞塔套装实物图 1", "gallery"),
+        img("assets/products/stack-f4d-75a/photo-02-20260513.jpg", "Stack kit product photo 2", "飞塔套装实物图 2", "gallery")
+      ]
     },
     {
       slug: "stack-h743-75a",
       category: "stacks",
-      tags: ["H743", "75A", "stack", "high-end"],
-      title: { en: "FlyingRC High-end Stack Kit H743 FC + 75A 4-in-1 ESC", zh: "FlyingRC 高阶版飞塔套装 H743 穿越机飞控 + 四合一 75A 金封电调" },
-      summary: { en: "High-end H743 FPV stack kit with 75A metal-sealed four-in-one ESC listing images.", zh: "高阶 H743 穿越机飞塔套装，搭配 75A 金封四合一电调上架图片。" },
-      specs: { en: ["H743 FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "High-current stack kit for advanced FPV builds"], zh: ["H743 穿越机飞控飞塔", "75A 四合一电调组合", "高阶版定位"] },
-      hero: "assets/products/stack-h743-75a/hero.jpg",
-      images: [img("assets/products/stack-h743-75a/details.jpg", "Detail image", "详情图", "gallery")]
-    },
-    {
-      slug: "fpv-stack-f4d-45a",
-      category: "fpv-kits",
-      tags: ["F4D", "45A", "FPV", "stack"],
-      title: { en: "FlyingRC FPV Stack F4D + 4IN1 45A ESC", zh: "FlyingRC 飞塔 F4D + 4IN1 45A ESC" },
-      summary: { en: "FPV stack bundle page for F4D flight controller plus 45A ESC package materials.", zh: "F4D 飞控加 45A 电调穿越机飞塔套装资料页。" },
-      specs: { en: ["F4D FPV flight controller bundle", "45 A ESC package", "Compact FPV stack kit"], zh: ["F4D 穿越机飞控组合", "45A 电调套装", "穿越机飞塔套餐"] },
-      hero: "assets/products/fpv-stack-f4d-45a/hero.jpg",
-      images: [img("assets/products/fpv-stack-f4d-45a/gallery.jpg", "Product image", "产品图", "gallery")]
+      tags: ["H7D Pro", "H743", "75A", "stack", "high-end"],
+      title: { en: "FlyingRC High-end Stack Kit H7D Pro FC + 75A 4-in-1 ESC", zh: "FlyingRC 高阶版飞塔套装 H7D Pro 飞控 + 75A 四合一金封电调" },
+      summary: { en: "High-end FPV stack kit pairing the H7D Pro H743 flight controller with a 75A metal-sealed four-in-one ESC.", zh: "高阶穿越机飞塔套装，组合 H7D Pro H743 飞控和 75A 金封四合一电调。" },
+      specs: { en: ["H7D Pro H743 FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "High-current stack kit for advanced FPV builds"], zh: ["H7D Pro H743 穿越机飞控飞塔", "75A 四合一电调组合", "高阶版定位"] },
+      hero: "assets/products/stack-h743-75a/photo-02-20260525.jpg",
+      images: [
+        img("assets/products/stack-h743-75a/details.jpg", "Detail image", "详情图", "gallery"),
+        img("assets/products/stack-h743-75a/detail-20260527.jpg", "Stack kit detail", "飞塔套装详情图", "gallery"),
+        img("assets/products/stack-h743-75a/photo-01-20260525.jpg", "Stack kit product photo 1", "飞塔套装实物图 1", "gallery"),
+        img("assets/products/stack-h743-75a/photo-02-20260525.jpg", "Stack kit product photo 2", "飞塔套装实物图 2", "gallery")
+      ]
     },
     {
       slug: "fixed-wing-kit",
@@ -506,7 +524,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC U-Blox M10 GPS", zh: "FlyingRC U-Blox M10 GPS" },
       summary: { en: "U-Blox M10 GPS product material for navigation builds.", zh: "U-Blox M10 GPS 产品资料，用于导航类装机。" },
       specs: { en: ["U-Blox M10 GNSS module", "Provides position data for navigation and return-to-home modes", "Manual family covers 18 x 18, 20 x 20, and 28 x 28 mm variants"], zh: ["U-Blox M10 GPS", "导航模块", "包含产品渲染图"] },
-      hero: "assets/products/ublox-m10-gps/hero.jpg"
+      hero: "assets/products/ublox-m10-gps/product-render-20260527.jpg"
     },
     {
       slug: "digital-airspeed",
@@ -515,9 +533,12 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Pitotless Digital Airspeed Meter", zh: "FlyingRC 无空速管数字空速计" },
       summary: { en: "Digital airspeed product material for fixed-wing users who want a no-pitot airspeed option.", zh: "无空速管数字空速计资料，面向需要无空速管方案的固定翼用户。" },
       specs: { en: ["Pitotless digital airspeed sensor", "Fixed-wing airspeed aid for ArduPilot workflows", "Supports automatic thermal soaring use cases"], zh: ["数字空速传感器", "无空速管定位", "固定翼传感器配件"] },
-      hero: "assets/products/digital-airspeed/hero.jpg",
+      hero: "assets/products/digital-airspeed/product-render-20260527.jpg",
       images: [
-        img("assets/products/digital-airspeed/photo-package-20260508.jpg", "Packaged product photo", "包装实物图", "gallery")
+        img("assets/products/digital-airspeed/photo-package-20260508.jpg", "Packaged product photo", "包装实物图", "gallery"),
+        img("assets/products/digital-airspeed/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
+        img("assets/products/digital-airspeed/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/digital-airspeed/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery")
       ]
     },
     {
@@ -528,7 +549,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC L4 CAN RCGPS Adapter CAN Serial and PWM Expansion Board", zh: "FlyingRC L4 CAN RCGPS Adapter CAN 总线串口 & PWM 扩展板" },
       summary: { en: "CAN bus adapter and serial/PWM expansion board material for peripheral integration.", zh: "CAN 总线串口与 PWM 扩展板资料，用于外设集成。" },
       specs: { en: ["CAN bus serial and PWM expansion board", "Runs AP_Periph-style firmware workflow", "Uses GH1.25 connector ecosystem"], zh: ["CAN 总线适配器", "串口与 PWM 扩展", "外设集成板"] },
-      hero: "assets/products/l4-can-rcgps-adapter/hero.jpg"
+      hero: "assets/products/l4-can-rcgps-adapter/product-render-20260527.jpg"
     },
     {
       slug: "elrs-24g-diversity",
@@ -754,8 +775,8 @@ const PRODUCT_EXPLANATIONS = {
     bestZh: ["无人机/航模电子罗盘应用。", "机器人定位、车辆导航、AHRS 和磁场检测。", "需要把罗盘远离动力线安装的装机。"],
     featuresEn: ["Uses PNI RM3100 3-axis geomagnetic magnetometer IC.", "Manual describes X/Y sensors, Z sensor, and MagI2C ASIC controller architecture.", "SPI pins include VCC, GND, DRDY, SCK, MISO, MOSI, and chip-select style signals."],
     featuresZh: ["采用 PNI RM3100 三轴地磁磁力计 IC。", "说明书描述了 X/Y 轴传感器、Z 轴传感器和 MagI2C ASIC 控制器结构。", "SPI 引脚包含 VCC、GND、DRDY、SCK、MISO、MOSI 和片选类信号。"],
-    techEn: ["Size: 12.70 x 12.70 x 7.42 mm; weight: 0.53 g.", "Measurement range: +/-400 uT.", "Sensitivity: 13 nT; noise: 15 nT; maximum tri-axis sampling rate: 550 Hz.", "Recommended power: 3.3 V on VCC according to pin table."],
-    techZh: ["尺寸：12.70 x 12.70 x 7.42 mm；重量：0.53 g。", "测量范围：+/-400 uT。", "灵敏度：13 nT；噪声：15 nT；最大三轴采样率：550 Hz。", "引脚表建议 VCC 使用 3.3 V。"],
+    techEn: ["Size: 12.70 x 12.70 x 7.42 mm; weight: 0.53 g.", "Measurement range: +/-400 uT.", "Sensitivity: 13 nT; noise: 15 nT; maximum tri-axis sampling rate: 550 Hz.", "Recommended power: 3.3 V on VCC according to pin table.", "ArduPilot branch: FlyingRC-Official/ardupilot L4_CAN_RM3100."],
+    techZh: ["尺寸：12.70 x 12.70 x 7.42 mm；重量：0.53 g。", "测量范围：+/-400 uT。", "灵敏度：13 nT；噪声：15 nT；最大三轴采样率：550 Hz。", "引脚表建议 VCC 使用 3.3 V。", "ArduPilot 分支：FlyingRC-Official/ardupilot 的 L4_CAN_RM3100。"],
     setupEn: ["Mount the compass away from motors, ESCs, high-current battery wires, and magnets.", "Use the pin definition image/table before connecting to a flight controller SPI port.", "After installation, run compass calibration in the flight firmware."],
     setupZh: ["安装时远离电机、电调、大电流电池线和磁铁。", "连接飞控 SPI 口前先查看引脚定义图/表。", "安装后在飞控固件中执行罗盘校准。"],
     watchEn: ["Compass performance depends strongly on installation location and magnetic cleanliness."],
@@ -882,10 +903,9 @@ const PRODUCT_EXPLANATIONS = {
     watchZh: ["大电流分电故障破坏性很强，上电前必须检查每个焊点。"]
   }),
   "stack-f405-45a": kitExplain("A starter FPV stack bundle combining an F405 flight controller with a 45 A 4-in-1 ESC.", "入门级穿越机飞塔套装，组合 F405 飞控和 45 A 四合一电调。", "F405 flight-controller family plus 4IN1 45A ESC manual"),
-  "stack-h743-45a": kitExplain("An advanced FPV stack bundle combining an H743-class flight controller with a 45 A 4-in-1 ESC.", "进阶穿越机飞塔套装，组合 H743 级飞控和 45 A 四合一电调。", "H7D/H7D Pro family plus 4IN1 45A ESC manual"),
+  "stack-h743-45a": kitExplain("An advanced FPV stack bundle combining the H7D Pro H743 flight controller with a 45 A 4-in-1 ESC.", "进阶穿越机飞塔套装，组合 H7D Pro H743 飞控和 45 A 四合一电调。", "H7D Pro manual plus 4IN1 45A ESC manual"),
   "stack-f4d-75a": kitExplain("An FPV stack bundle pairing the F4D flight controller family with a 75 A 4-in-1 ESC.", "穿越机飞塔套装，组合 F4D 飞控系列和 75 A 四合一电调。", "F4D manual plus 4IN1 75A ESC manual"),
-  "stack-h743-75a": kitExplain("A high-end FPV stack bundle pairing an H743 flight controller with the 75 A 4-in-1 ESC.", "高阶穿越机飞塔套装，组合 H743 飞控和 75 A 四合一电调。", "H7D/H7D Pro manual plus 4IN1 75A ESC manual"),
-  "fpv-stack-f4d-45a": kitExplain("A compact FPV stack package based around the F4D flight controller and 45 A ESC class.", "基于 F4D 飞控和 45 A 电调级别的紧凑穿越机飞塔套餐。", "F4D manual plus 4IN1 45A ESC manual"),
+  "stack-h743-75a": kitExplain("A high-end FPV stack bundle pairing the H7D Pro H743 flight controller with the 75 A 4-in-1 ESC.", "高阶穿越机飞塔套装，组合 H7D Pro H743 飞控和 75 A 四合一电调。", "H7D Pro manual plus 4IN1 75A ESC manual"),
   "fixed-wing-kit": kitExplain("A fixed-wing package page for comparing FlyingRC fixed-wing controller bundles such as F4WSE, F4Wing Mini, and H7Wlite.", "固定翼套餐页，用于对比 F4WSE、F4Wing Mini、H7Wlite 等 FlyingRC 固定翼飞控组合。", "Fixed-wing controller manuals"),
   "fpv-kit": kitExplain("An FPV kit overview for stack and drone-electronics bundles.", "穿越机套餐总览，用于飞塔和穿越机电子组合选择。", "FPV flight-controller and ESC manuals")
 };
@@ -1223,15 +1243,6 @@ const PRODUCT_LABELS = {
     productLabel("h743", 3),
     productLabel("4in1-esc", 4),
     productLabel("high-current", 5),
-    productLabel("betaflight"),
-    productLabel("3-7s")
-  ],
-  "fpv-stack-f4d-45a": [
-    productLabel("fpv", 1),
-    productLabel("stack-bundle", 2),
-    productLabel("f405", 3),
-    productLabel("4in1-esc", 4),
-    productLabel("compact", 5),
     productLabel("betaflight"),
     productLabel("3-7s")
   ],
