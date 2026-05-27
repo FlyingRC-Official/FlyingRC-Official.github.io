@@ -472,24 +472,6 @@ window.FLYINGRC_CATALOG = {
       ]
     },
     {
-      slug: "rm3100-module",
-      category: "sensors",
-      tags: ["RM3100", "sensor", "wiring", "video"],
-      title: { en: "FlyingRC RM3100 Module", zh: "FlyingRC RM3100 模块" },
-      summary: { en: "Module documentation with parameter table, layout, pin definition, wiring table, render, instruction image, and video.", zh: "RM3100 模块资料，包含参数表、布局图、引脚定义、接线表、渲染图、说明图和视频。" },
-      specs: { en: ["PNI RM3100 external magnetometer module", "+/-400 uT measurement range", "12.70 x 12.70 x 7.42 mm module size"], zh: ["RM3100 类传感器模块", "包含参数、布局与接线表", "包含产品视频"] },
-      hero: "assets/products/rm3100-module/hero.jpg",
-      images: [
-        img("assets/products/rm3100-module/specs.jpg", "Parameter table", "参数表", "spec"),
-        img("assets/products/rm3100-module/layout.jpg", "Layout", "布局图", "diagram"),
-        img("assets/products/rm3100-module/pinout.jpg", "Pin definition", "引脚定义", "diagram"),
-        img("assets/products/rm3100-module/wiring.jpg", "Wiring table", "接线表", "diagram"),
-        img("assets/products/rm3100-module/board.jpg", "Board photo", "整板图", "gallery"),
-        img("assets/products/rm3100-module/instructions.jpg", "Instruction image", "说明图", "gallery")
-      ],
-      downloads: [download("assets/products/rm3100-module/video-square.mp4", "Product video", "产品视频")]
-    },
-    {
       slug: "l4-can-rm3100",
       category: "sensors",
       tags: ["RM3100", "CAN", "ArduPilot", "PX4"],
@@ -767,31 +749,16 @@ const PRODUCT_EXPLANATIONS = {
     watchEn: ["Do not connect video equipment until polarity and output voltage are verified."],
     watchZh: ["未确认极性和输出电压前，不要连接图传设备。"]
   }),
-  "rm3100-module": explain({
-    manual: "FlyingRC® RM3100 SPI Module Product Manual.docx",
-    whatEn: "A high-resolution external compass/magnetometer module based on the PNI RM3100 sensor. It gives autopilots and robots a cleaner heading reference when the main flight controller is affected by current, motors, or magnetic interference.",
-    whatZh: "一块基于 PNI RM3100 的高分辨率外置罗盘/磁力计模块。当主飞控附近存在电流、电机或磁干扰时，它可以为自动驾驶仪和机器人提供更干净的航向参考。",
-    bestEn: ["UAV or RC aircraft electronic compass applications.", "Robot positioning, vehicle navigation, AHRS, and magnetic field detection.", "Builds that need an external compass mounted away from power wiring."],
-    bestZh: ["无人机/航模电子罗盘应用。", "机器人定位、车辆导航、AHRS 和磁场检测。", "需要把罗盘远离动力线安装的装机。"],
-    featuresEn: ["Uses PNI RM3100 3-axis geomagnetic magnetometer IC.", "Manual describes X/Y sensors, Z sensor, and MagI2C ASIC controller architecture.", "SPI pins include VCC, GND, DRDY, SCK, MISO, MOSI, and chip-select style signals."],
-    featuresZh: ["采用 PNI RM3100 三轴地磁磁力计 IC。", "说明书描述了 X/Y 轴传感器、Z 轴传感器和 MagI2C ASIC 控制器结构。", "SPI 引脚包含 VCC、GND、DRDY、SCK、MISO、MOSI 和片选类信号。"],
-    techEn: ["Size: 12.70 x 12.70 x 7.42 mm; weight: 0.53 g.", "Measurement range: +/-400 uT.", "Sensitivity: 13 nT; noise: 15 nT; maximum tri-axis sampling rate: 550 Hz.", "Recommended power: 3.3 V on VCC according to pin table.", "ArduPilot branch: FlyingRC-Official/ardupilot L4_CAN_RM3100."],
-    techZh: ["尺寸：12.70 x 12.70 x 7.42 mm；重量：0.53 g。", "测量范围：+/-400 uT。", "灵敏度：13 nT；噪声：15 nT；最大三轴采样率：550 Hz。", "引脚表建议 VCC 使用 3.3 V。", "ArduPilot 分支：FlyingRC-Official/ardupilot 的 L4_CAN_RM3100。"],
-    setupEn: ["Mount the compass away from motors, ESCs, high-current battery wires, and magnets.", "Use the pin definition image/table before connecting to a flight controller SPI port.", "After installation, run compass calibration in the flight firmware."],
-    setupZh: ["安装时远离电机、电调、大电流电池线和磁铁。", "连接飞控 SPI 口前先查看引脚定义图/表。", "安装后在飞控固件中执行罗盘校准。"],
-    watchEn: ["Compass performance depends strongly on installation location and magnetic cleanliness."],
-    watchZh: ["罗盘效果高度依赖安装位置和磁环境。"]
-  }),
   "l4-can-rm3100": explain({
     manual: "FlyingRC L4CAN RM3100 listing materials",
-    whatEn: "A CAN-bus compass module built around the RM3100 geomagnetic sensor and AP_Periph-style firmware. It lets builders mount the compass away from power wiring, ESCs, motors, and other magnetic noise sources while keeping communication on a robust CAN link.",
-    whatZh: "一款基于 RM3100 地磁传感器和 AP_Periph 类固件的 CAN 总线罗盘模块。它可以把罗盘安装在远离电源线、电调、电机和其他磁干扰源的位置，同时通过 CAN 总线保持稳定通信。",
-    bestEn: ["ArduPilot or PX4 aircraft that need a remote compass on CAN.", "Fixed-wing or multirotor builds where the main flight controller is close to high-current wiring.", "Longer-distance sensor placement where CAN wiring is cleaner than direct SPI/I2C wiring."],
-    bestZh: ["需要 CAN 外置罗盘的 ArduPilot 或 PX4 飞机。", "主飞控靠近大电流线、电调或电机的固定翼/多旋翼装机。", "需要较远距离布置传感器，且 CAN 接线比直接 SPI/I2C 更适合的场景。"],
-    featuresEn: ["Industrial-grade RM3100 compass sensor for high-resolution heading data.", "CAN communication for remote mounting and stable wiring.", "Supports AP and PX4 firmware workflows according to the listing material.", "Includes 3D printed base, GH1.25 4P cable, and mounting screws in the package list."],
-    featuresZh: ["采用工业级 RM3100 磁力计，提供高分辨率航向数据。", "通过 CAN 通信，便于远距离安装和稳定接线。", "上架资料标注支持 AP 和 PX4 固件流程。", "发货清单包含 3D 打印底座、GH1.25 4P 硅胶线和安装螺丝。"],
-    techEn: ["Size: 29.3 x 29.3 x 9.0 mm.", "Weight: 4.5 g without base, 10.5 g with base.", "Board: 4 layers, 1.64 mm thickness, 1 oz gold-plated finish.", "Controller: STM32L431RCT6.", "ArduPilot branch: FlyingRC-Official/ardupilot L4_CAN_RM3100."],
-    techZh: ["尺寸：29.3 x 29.3 x 9.0 mm。", "重量：不加底座 4.5 g，加底座 10.5 g。", "板卡：4 层板，板厚 1.64 mm，沉金 1u。", "主控：STM32L431RCT6。", "ArduPilot 分支：FlyingRC-Official/ardupilot 的 L4_CAN_RM3100。"],
+    whatEn: "A CAN-bus compass module built around the PNI RM3100 geomagnetic sensor and AP_Periph-style firmware. It gives autopilots cleaner heading data when the main flight controller is affected by current, motors, or magnetic interference, while keeping remote communication on a robust CAN link.",
+    whatZh: "一款基于 PNI RM3100 地磁传感器和 AP_Periph 类固件的 CAN 总线罗盘模块。当主飞控附近存在电流、电机或磁干扰时，它可以提供更干净的航向数据，同时通过 CAN 总线保持远距离稳定通信。",
+    bestEn: ["ArduPilot or PX4 aircraft that need a remote compass on CAN.", "Fixed-wing or multirotor builds where the main flight controller is close to high-current wiring.", "UAV, RC aircraft, robot positioning, vehicle navigation, AHRS, and magnetic-field detection uses."],
+    bestZh: ["需要 CAN 外置罗盘的 ArduPilot 或 PX4 飞机。", "主飞控靠近大电流线、电调或电机的固定翼/多旋翼装机。", "无人机、航模、机器人定位、车辆导航、AHRS 和磁场检测应用。"],
+    featuresEn: ["Uses PNI RM3100 3-axis geomagnetic magnetometer IC with X/Y sensors, a Z sensor, and MagI2C ASIC controller architecture.", "Industrial-grade RM3100 compass sensor for high-resolution, repeatable heading data.", "CAN communication for remote mounting and stable wiring.", "Supports AP and PX4 firmware workflows according to the listing material.", "Includes 3D printed base, GH1.25 4P cable, and mounting screws in the package list."],
+    featuresZh: ["采用 PNI RM3100 三轴地磁磁力计 IC，包含 X/Y 轴传感器、Z 轴传感器和 MagI2C ASIC 控制器结构。", "工业级 RM3100 磁力计可提供高分辨率、重复性好的航向数据。", "通过 CAN 通信，便于远距离安装和稳定接线。", "上架资料标注支持 AP 和 PX4 固件流程。", "发货清单包含 3D 打印底座、GH1.25 4P 硅胶线和安装螺丝。"],
+    techEn: ["Size: 29.3 x 29.3 x 9.0 mm.", "Weight: 4.5 g without base, 10.5 g with base.", "Board: 4 layers, 1.64 mm thickness, 1 oz gold-plated finish.", "Controller: STM32L431RCT6.", "RM3100 measurement range: +/-400 uT; sensitivity: 13 nT; noise: 15 nT; maximum tri-axis sampling rate: 550 Hz.", "ArduPilot branch: FlyingRC-Official/ardupilot L4_CAN_RM3100."],
+    techZh: ["尺寸：29.3 x 29.3 x 9.0 mm。", "重量：不加底座 4.5 g，加底座 10.5 g。", "板卡：4 层板，板厚 1.64 mm，沉金 1u。", "主控：STM32L431RCT6。", "RM3100 测量范围：+/-400 uT；灵敏度：13 nT；噪声：15 nT；最大三轴采样率：550 Hz。", "ArduPilot 分支：FlyingRC-Official/ardupilot 的 L4_CAN_RM3100。"],
     setupEn: ["Mount at least 10 cm away from power wires, ESCs, motors, magnets, and ferrous metal materials.", "If the CAN cable is long, short the onboard 120 ohm termination jumper as needed for the bus layout.", "After installation, configure CAN/AP_Periph parameters and run compass calibration in the flight firmware."],
     setupZh: ["安装时应远离电源线、电调、电机、磁铁和铁质金属物料，间距不小于 10 厘米。", "如果 CAN 总线接线较长，可按总线布局短接板上 120 欧终端电阻跳帽。", "安装后在飞控固件中配置 CAN/AP_Periph 参数并执行罗盘校准。"],
     watchEn: ["Compass accuracy depends on magnetic cleanliness, orientation, CAN bus wiring, and correct firmware setup."],
@@ -926,7 +893,6 @@ const PUBLIC_MANUALS = {
   "bec-5a-6s": manualDownload("assets/downloads/manuals/bec-5a-6s-manual.docx"),
   "bec-10a-12s": manualDownload("assets/downloads/manuals/bec-10a-12s-manual.docx"),
   "bec-mini-dji-o4": manualDownload("assets/downloads/manuals/bec-mini-dji-o4-manual.docx"),
-  "rm3100-module": manualDownload("assets/downloads/manuals/rm3100-module-manual.docx"),
   "h7-can-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx", "CAN/GPS family manual", "CAN/GPS 系列说明书"),
   "ublox-m10-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx"),
   "digital-airspeed": manualDownload("assets/downloads/manuals/digital-airspeed-manual.docx"),
@@ -1261,14 +1227,6 @@ const PRODUCT_LABELS = {
     productLabel("flight-controller", 3),
     productLabel("4in1-esc", 4),
     productLabel("betaflight", 5)
-  ],
-  "rm3100-module": [
-    productLabel("navigation-sensor", 1),
-    productLabel("fixed-wing", 2),
-    productLabel("robotics", 3),
-    productLabel("rm3100", 4),
-    productLabel("spi", 5),
-    productLabel("external-mounting")
   ],
   "l4-can-rm3100": [
     productLabel("navigation-sensor", 1),

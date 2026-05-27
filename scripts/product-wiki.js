@@ -257,7 +257,7 @@
 
   const selectorProfiles = [
     { id: "all", labelKey: "selectorAll", slugs: [] },
-    { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "rm3100-module", "l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
+    { id: "fixed-wing", labelKey: "selectorFixedWing", slugs: ["f4wing-mini-mk1", "h7wlite-mk1", "f4wse-f405", "f4wse-pro", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "fixed-wing-kit", "l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter"] },
     { id: "fpv", labelKey: "selectorFpv", slugs: ["f4d-mk1", "h7d-h743", "h7d-pro", "am32-4in1-75a", "am32-4in1-45a", "bec-mini-dji-o4", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "fpv-kit", "elrs-24g-diversity", "pdb-12s-400a"] },
     { id: "power", labelKey: "selectorPower", slugs: ["am32-4in1-75a", "am32-4in1-45a", "am32-mini-esc-40a", "am32-esc-75a-v25", "am32-dual-esc-40a", "bec-5a-6s", "bec-10a-12s", "bec-mini-dji-o4", "pdb-12s-400a", "stack-f405-45a", "stack-h743-45a", "stack-f4d-75a", "stack-h743-75a", "fpv-stack-f4d-45a", "am32-configurator"] }
   ];
@@ -281,7 +281,7 @@
     {
       titleKey: "compareSensorsModules",
       categories: ["sensors", "modules"],
-      slugs: ["rm3100-module", "l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter", "elrs-24g-diversity", "am32-configurator"]
+      slugs: ["l4-can-rm3100", "h7-can-gps", "ublox-m10-gps", "digital-airspeed", "l4-can-rcgps-adapter", "elrs-24g-diversity", "am32-configurator"]
     }
   ];
 
