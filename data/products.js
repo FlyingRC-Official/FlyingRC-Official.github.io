@@ -1307,15 +1307,31 @@ const PRODUCT_LABELS = {
 const PUBLIC_REFERENCE_FILES = {
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
-  "f4wse-pro": [download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支")],
+  "f4wing-mini-mk1": [
+    download("assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件")
+  ],
+  "f4wse-pro": [
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支"),
+    download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/AP457_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.5.7 firmware with bootloader", "ArduPlane 4.5.7 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件")
+  ],
   "h7d-h743": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7D_target", "ArduPilot H7D target branch", "ArduPilot H7D 目标分支"),
-    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Config", "Betaflight H7D config branch", "Betaflight H7D 配置分支")
+    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Config", "Betaflight H7D config branch", "Betaflight H7D 配置分支"),
+    download("assets/downloads/firmware/h7d-h743/betaflight_2025.12.2_STM32H743_FLRCH7D.hex", "Betaflight 2025.12.2 firmware", "Betaflight 2025.12.2 固件"),
+    download("assets/downloads/firmware/h7d-h743/inav_8.0.0_FLRCH7D.hex", "INAV 8.0.0 firmware", "INAV 8.0.0 固件"),
+    download("assets/downloads/firmware/h7d-h743/AC463_FLRCH7D_bdshot_arducopter_with_bl.hex", "ArduCopter 4.6.3 BDShot firmware with bootloader", "ArduCopter 4.6.3 BDShot 带 Bootloader 固件")
   ],
   "h7d-pro": [
     download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7D-Pro-Board", "PX4 H7D Pro firmware repository", "PX4 H7D Pro 固件仓库"),
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7DPro_target", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
-    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支")
+    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支"),
+    download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.2_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.2 DUAL-ICM firmware", "Betaflight 2025.12.2 DUAL-ICM 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP463-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.6.3 dual ICM42688 firmware with bootloader", "ArduCopter 4.6.3 双 ICM42688 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/FlyingRC_H7DPro_PX4_1.17.0_FlyingRC-H7D-Pro-Board.zip", "PX4 1.17.0 firmware package", "PX4 1.17.0 固件包"),
+    download("assets/downloads/firmware/h7d-pro/inav_9.0.1_FLYINGRCH7DPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件")
   ],
   "l4-can-rm3100": [download("https://github.com/FlyingRC-Official/ardupilot/tree/L4_CAN_RM3100", "ArduPilot L4 CAN RM3100 branch", "ArduPilot L4 CAN RM3100 分支")],
   "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],

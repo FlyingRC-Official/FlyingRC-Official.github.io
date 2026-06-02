@@ -22,6 +22,7 @@
       view: "Open details",
       inquire: "Ask price / stock",
       fileManual: "Manual",
+      fileFirmware: "Firmware",
       fileStep: "STEP",
       fileVideo: "Video",
       fileWiring: "Wiring",
@@ -140,6 +141,7 @@
       view: "查看详情",
       inquire: "询价 / 库存",
       fileManual: "说明书",
+      fileFirmware: "固件",
       fileStep: "STEP",
       fileVideo: "视频",
       fileWiring: "接线",
@@ -473,6 +475,7 @@
     const downloads = product.downloads || [];
     const images = product.images || [];
     if (downloads.some((item) => /\.docx$/i.test(item.href))) badges.push(labels[state.lang].fileManual);
+    if (downloads.some((item) => /\.(hex|zip)$/i.test(item.href))) badges.push(labels[state.lang].fileFirmware);
     if (downloads.some((item) => /\.(step|stp)$/i.test(item.href))) badges.push(labels[state.lang].fileStep);
     if (downloads.some((item) => /\.(mp4|mov|webm)$/i.test(item.href))) badges.push(labels[state.lang].fileVideo);
     if (images.some((item) => item.type === "diagram")) badges.push(labels[state.lang].fileWiring);
