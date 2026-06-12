@@ -60,6 +60,8 @@ def optimize_image(path: Path) -> None:
     full_path = DIST / path
     if not full_path.exists() or full_path.stat().st_size < 450 * 1024:
         return
+    if shutil.which("sips") is None:
+        return
 
     max_edge = "1400"
     quality = "72"

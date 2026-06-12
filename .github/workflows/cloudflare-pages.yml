@@ -1,0 +1,33 @@
+name: Deploy Cloudflare Pages mirror
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build China-near mirror
+        run: python3 scripts/build-cn-mirror.py
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: cc1fa5c6f1e05b0b253dc0a23d08c5ac
+          command: pages deploy dist-cn --project-name=flyingrc-cn-mirror --branch=main --commit-dirty=true
