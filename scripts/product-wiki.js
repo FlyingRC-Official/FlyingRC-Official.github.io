@@ -21,6 +21,9 @@
       empty: "No matching products",
       view: "Open details",
       inquire: "Ask price / stock",
+      store: "Taobao Store",
+      storeCta: "Buy on Taobao",
+      storeLead: "Purchase FlyingRC hardware through the official Taobao purchase channel.",
       fileManual: "Manual",
       fileFirmware: "Firmware",
       fileStep: "STEP",
@@ -140,6 +143,9 @@
       empty: "没有匹配的产品",
       view: "查看详情",
       inquire: "询价 / 库存",
+      store: "淘宝店铺",
+      storeCta: "去淘宝购买",
+      storeLead: "通过 FlyingRC 官方淘宝购买渠道选购硬件产品。",
       fileManual: "说明书",
       fileFirmware: "固件",
       fileStep: "STEP",
@@ -256,6 +262,7 @@
     email: "FlyingRC.Official@gmail.com",
     whatsapp: "https://wa.me/6591216107",
     github: "https://github.com/FlyingRC-Official",
+    taobao: "https://e7wgwo2ehnynhjklw2knt535zmlw176.world.taobao.com/shop/view_shop.htm?appUid=RAzN8HAiDiXrnbmP2phqB88hKp1Wt&spm=a21n57.1.hoverItem.1",
     siteUrl: "https://flyingrc-official.github.io"
   };
 
@@ -1121,7 +1128,8 @@
           <p>${escapeHtml(productCardSummary(product))}</p>
           ${productLabelChips(product)}
           <div class="detail-actions">
-            <a class="button primary" href="${productEmailHref(product)}">${labels[state.lang].contactCta}</a>
+            <a class="button primary" href="${contact.taobao}" target="_blank" rel="noopener">${labels[state.lang].storeCta}</a>
+            <a class="button secondary" href="${productEmailHref(product)}">${labels[state.lang].contactCta}</a>
             <a class="button secondary" href="${contact.whatsapp}" target="_blank" rel="noopener">${labels[state.lang].whatsappCta}</a>
             <a class="button secondary" href="${contact.github}" target="_blank" rel="noopener">${labels[state.lang].githubCta}</a>
           </div>
