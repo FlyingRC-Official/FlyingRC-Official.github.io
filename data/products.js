@@ -1315,6 +1315,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支"),
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP457_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.5.7 firmware with bootloader", "ArduPlane 4.5.7 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件")
   ],
   "h7d-h743": [
