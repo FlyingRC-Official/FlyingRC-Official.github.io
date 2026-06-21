@@ -475,6 +475,28 @@ window.FLYINGRC_CATALOG = {
       ]
     },
     {
+      slug: "i2c-current-meter",
+      category: "sensors",
+      status: "latest",
+      tags: ["INA226", "I2C", "current", "ArduPilot", "PX4"],
+      title: { en: "FlyingRC I2C External Current Meter", zh: "FlyingRC I2C 外置电流计" },
+      summary: { en: "Compact INA226 I2C voltage and current sensor for ArduPilot/PX4 aircraft that need an external current meter.", zh: "基于 INA226 的紧凑型 I2C 电压/电流检测模块，适合需要外置电流计的 ArduPilot/PX4 装机。" },
+      specs: { en: ["INA226 I2C voltage/current sensing chip", "2-8S LiPo VBAT range", "16.04 x 27.52 mm board size; socket and no-socket versions"], zh: ["INA226 I2C 电压/电流检测芯片", "VBAT 支持 2-8S LiPo", "尺寸 16.04 x 27.52 mm，提供有插座/无插座版本"] },
+      hero: "assets/products/i2c-current-meter/hero.jpg",
+      images: [
+        img("assets/products/i2c-current-meter/specs.png", "Parameter table", "参数表", "spec"),
+        img("assets/products/i2c-current-meter/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/i2c-current-meter/wiring-h7wlite.png", "H7Wlite wiring diagram", "与 H7Wlite 接线图", "diagram"),
+        img("assets/products/i2c-current-meter/ardupilot-setup.png", "ArduPilot INA226 parameter setup", "ArduPilot INA226 参数设置", "diagram"),
+        img("assets/products/i2c-current-meter/socket-display.jpg", "Socket version display", "有插座版本展示图", "gallery"),
+        img("assets/products/i2c-current-meter/socket-front.jpg", "Socket version front photo", "有插座版本正面图", "gallery"),
+        img("assets/products/i2c-current-meter/socket-back.jpg", "Socket version back photo", "有插座版本背面图", "gallery"),
+        img("assets/products/i2c-current-meter/no-socket-board.jpg", "No-socket board photo", "无插座版本整板图", "gallery"),
+        img("assets/products/i2c-current-meter/soldered-wires.png", "Soldered XT60 power wire photo", "焊接 XT60 电源线示意图", "gallery"),
+        img("assets/products/i2c-current-meter/package-list.jpg", "Package contents", "发货清单", "gallery")
+      ]
+    },
+    {
       slug: "l4-can-rm3100",
       category: "sensors",
       tags: ["RM3100", "CAN", "ArduPilot", "PX4"],
@@ -752,6 +774,21 @@ const PRODUCT_EXPLANATIONS = {
     watchEn: ["Do not connect video equipment until polarity and output voltage are verified."],
     watchZh: ["未确认极性和输出电压前，不要连接图传设备。"]
   }),
+  "i2c-current-meter": explain({
+    manual: "FlyingRC®I2C 外置电流计产品手册.docx",
+    whatEn: "An external I2C current and voltage sensor for flight controllers. It uses an INA226 sensor so ArduPilot/PX4 systems can read battery voltage and current from an external module instead of relying on an onboard analog current sensor.",
+    whatZh: "一款外置 I2C 电流/电压检测模块。它使用 INA226 检测芯片，让 ArduPilot/PX4 系统可以从外置模块读取电池电压和电流，而不是依赖飞控板载模拟电流计。",
+    bestEn: ["Fixed-wing or multirotor builds that need external battery current sensing.", "FlyingRC H7Wlite and other flight controllers with an available I2C port.", "Builders who want a small 2-8S LiPo current meter with socket and no-socket installation options."],
+    bestZh: ["需要外置电池电流检测的固定翼或多旋翼装机。", "FlyingRC H7Wlite 以及其它带可用 I2C 接口的飞控。", "需要 2-8S LiPo 小型电流计，并希望有插座/无插座两种安装方式的用户。"],
+    featuresEn: ["Uses INA226 I2C current/voltage sensing chip.", "Supports ArduPilot and PX4 firmware workflows according to the manual.", "2-8S LiPo VBAT input range.", "Socket version and no-socket version are documented in the product photos."],
+    featuresZh: ["使用 INA226 I2C 电流/电压检测芯片。", "说明书标注支持 ArduPilot 和 PX4 固件流程。", "VBAT 支持 2-8S LiPo。", "产品图中提供有插座版本和无插座版本。"],
+    techEn: ["Size without socket: 16.04 x 27.52 x 6 mm.", "Size with socket: 16.04 x 27.52 x 14.5 mm.", "Weight: 2.4 g without socket; 6.8 g with socket.", "Default INA226 address: 0x40 / decimal 64.", "Shunt value used by the manual: 0.0003 ohm."],
+    techZh: ["无插座尺寸：16.04 x 27.52 x 6 mm。", "有插座尺寸：16.04 x 27.52 x 14.5 mm。", "重量：无插座 2.4 g；有插座 6.8 g。", "INA226 默认地址：0x40 / 十进制 64。", "说明书使用的采样电阻值：0.0003 ohm。"],
+    setupEn: ["For ArduPilot, set BATT_MONITOR = 21 for INA2xx/INA226.", "Set BATT_I2C_ADDR = 64 and BATT_SHUNT = 0.0003, then reboot the flight controller.", "If current or voltage is not detected, try BATT_I2C_BUS = 0 or 1 because firmware bus numbering may differ from the physical I2C label."],
+    setupZh: ["ArduPilot 中将 BATT_MONITOR 设置为 21，对应 INA2xx/INA226。", "设置 BATT_I2C_ADDR = 64、BATT_SHUNT = 0.0003，保存后重启飞控。", "如果无法读取电流/电压，尝试在 BATT_I2C_BUS = 0 和 1 之间切换，因为固件总线编号可能与物理 I2C 丝印不完全一致。"],
+    watchEn: ["When soldering XT60 wires, fully insert the connector and avoid touching nearby components with the iron tip.", "Verify I2C bus selection and reboot after each parameter change."],
+    watchZh: ["焊接 XT60 线材时插头要插到底，烙铁头不要碰到焊盘旁边元件。", "修改 I2C 总线参数后需要重启飞控，并确认读取结果。"]
+  }),
   "l4-can-rm3100": explain({
     manual: "FlyingRC L4CAN RM3100 listing materials",
     whatEn: "A CAN-bus compass module built around the PNI RM3100 geomagnetic sensor and AP_Periph-style firmware. It gives autopilots cleaner heading data when the main flight controller is affected by current, motors, or magnetic interference, while keeping remote communication on a robust CAN link.",
@@ -899,6 +936,7 @@ const PUBLIC_MANUALS = {
   "h7-can-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx", "CAN/GPS family manual", "CAN/GPS 系列说明书"),
   "ublox-m10-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx"),
   "digital-airspeed": manualDownload("assets/downloads/manuals/digital-airspeed-manual.docx"),
+  "i2c-current-meter": manualDownload("assets/downloads/manuals/i2c-current-meter-manual.docx"),
   "l4-can-rcgps-adapter": manualDownload("assets/downloads/manuals/l4-can-rcgps-adapter-manual.docx"),
   "elrs-24g-diversity": manualDownload("assets/downloads/manuals/elrs-24g-diversity-manual.docx"),
   "am32-configurator": manualDownload("assets/downloads/manuals/am32-configurator-manual.docx"),
@@ -953,6 +991,7 @@ const LABEL_DEFINITIONS = {
   h743: productLabelDef("STM32H743", "STM32H743", "hardware"),
   l431: productLabelDef("STM32L431", "STM32L431", "hardware"),
   can: productLabelDef("CAN", "CAN", "hardware"),
+  i2c: productLabelDef("I2C", "I2C", "hardware"),
   uart: productLabelDef("UART / serial", "UART / 串口", "hardware"),
   pwm: productLabelDef("PWM outputs", "PWM 输出", "hardware"),
   spi: productLabelDef("SPI", "SPI", "hardware"),
@@ -1010,6 +1049,7 @@ const FILTER_LABEL_IDS = [
   "can",
   "dji-o4",
   "gps-gnss",
+  "i2c",
   "4in1-esc",
   "single-esc",
   "dual-esc"
@@ -1266,6 +1306,17 @@ const PRODUCT_LABELS = {
     productLabel("pitotless", 3),
     productLabel("ardupilot", 4),
     productLabel("compact", 5)
+  ],
+  "i2c-current-meter": [
+    productLabel("navigation-sensor", 1),
+    productLabel("current-sensor", 2),
+    productLabel("i2c", 3),
+    productLabel("2-8s", 4),
+    productLabel("ardupilot", 5),
+    productLabel("px4"),
+    productLabel("fixed-wing"),
+    productLabel("compact"),
+    productLabel("external-mounting")
   ],
   "l4-can-rcgps-adapter": [
     productLabel("navigation-sensor", 1),
