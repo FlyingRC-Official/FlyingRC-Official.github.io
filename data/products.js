@@ -676,8 +676,8 @@ const PRODUCT_EXPLANATIONS = {
     techZh: ["F405 级飞控。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 add_FlyingRC_F4WSE_Pro_target。", "配置 LED 灯带时参考说明书中的 S12/LED 说明。", "说明书提供固件支持和接线说明。"],
     setupEn: ["For fixed-wing aircraft, start with ArduPlane or INAV rather than generic multirotor assumptions.", "Check the SERIAL mapping table before assigning telemetry, GPS, or receiver ports."],
     setupZh: ["固定翼装机应从 ArduPlane 或 INAV 逻辑出发，不要套用普通多旋翼默认假设。", "分配数传、GPS、接收机接口前先查看 SERIAL 映射表。"],
-    watchEn: ["Do not guess port numbers from silkscreen alone; use the firmware mapping table."],
-    watchZh: ["不要只凭丝印猜串口编号，要按固件映射表配置。"]
+    watchEn: ["Use the BDShot ArduPlane firmware only for ESC setups that need bidirectional DShot; standard PWM/servo builds should use the normal ArduPlane firmware.", "Do not guess port numbers from silkscreen alone; use the firmware mapping table."],
+    watchZh: ["BDShot 版 ArduPlane 固件仅用于需要双向 DShot 的电调配置；普通 PWM/舵机输出装机请使用标准 ArduPlane 固件。", "不要只凭丝印猜串口编号，要按固件映射表配置。"]
   }),
   "f4d-mk1": explain({
     manual: "FlyingRC® F4D MK1 F405 FPV Flight Controller (2030.5mm Mounting) Product Manual.docx",
