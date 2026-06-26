@@ -54,7 +54,23 @@
       watchOut: "Check before use",
       diagrams: "Wiring / Pinout / Dimension",
       gallery: "Gallery",
-      downloads: "Downloads / Reference Files",
+      downloads: "Downloads",
+      referenceFiles: "Reference Files",
+      downloadsTitle: "Downloads",
+      downloadsLead: "Find FlyingRC manuals, firmware, checksums, source branches, and reference files by product.",
+      downloadSource: "Product-first file index",
+      downloadSearch: "Search product, firmware, manual, target...",
+      downloadProduct: "product with files",
+      downloadProducts: "products with files",
+      downloadNoMatches: "No matching downloads",
+      downloadManuals: "Manuals",
+      downloadFirmware: "Firmware",
+      downloadChecksums: "Checksums",
+      downloadSourceFiles: "Config / Source",
+      downloadModelsMedia: "Models / Media",
+      downloadOtherFiles: "Other Files",
+      downloadProductPage: "View product page",
+      downloadSafetyNote: "Before flashing firmware, verify the board revision, target name, and product-page notes.",
       related: "Related Products",
       back: "Back to products",
       contact: "Contact",
@@ -176,7 +192,23 @@
       watchOut: "使用前检查",
       diagrams: "接线 / 引脚 / 尺寸",
       gallery: "图片资料",
-      downloads: "下载 / 参考文件",
+      downloads: "下载",
+      referenceFiles: "参考文件",
+      downloadsTitle: "下载",
+      downloadsLead: "按产品查找 FlyingRC 说明书、固件、校验值、源码分支和参考文件。",
+      downloadSource: "按产品整理的文件索引",
+      downloadSearch: "搜索产品、固件、说明书、目标...",
+      downloadProduct: "个产品有资料",
+      downloadProducts: "个产品有资料",
+      downloadNoMatches: "没有匹配的下载",
+      downloadManuals: "说明书",
+      downloadFirmware: "固件",
+      downloadChecksums: "校验值",
+      downloadSourceFiles: "配置 / 源码",
+      downloadModelsMedia: "模型 / 媒体",
+      downloadOtherFiles: "其他文件",
+      downloadProductPage: "查看产品页",
+      downloadSafetyNote: "刷写固件前，请核对硬件版本、目标名称和产品页说明。",
       related: "相关产品",
       back: "返回产品列表",
       contact: "联系",
@@ -323,6 +355,7 @@
     if (document.body.dataset.page === "wiki") renderLabelFilters();
     if (document.body.dataset.page === "wiki") renderSelector();
     if (document.body.dataset.page === "wiki") renderWiki();
+    if (document.body.dataset.page === "downloads") renderDownloads();
     if (document.body.dataset.page === "product") renderProduct();
   }
 
@@ -353,6 +386,8 @@
       ...plainList(product.technicalHighlights),
       ...plainList(product.setupNotes),
       ...plainList(product.watchOut),
+      localizedText(product.hardwareRevisionDescription, "en"),
+      localizedText(product.hardwareRevisionDescription, "zh"),
       ...hardwareChangeSearchTerms(product)
     ].join(" ").toLowerCase();
   }
@@ -371,6 +406,8 @@
       ...plainList(product.technicalHighlights),
       ...plainList(product.setupNotes),
       ...plainList(product.watchOut),
+      localizedText(product.hardwareRevisionDescription, "en"),
+      localizedText(product.hardwareRevisionDescription, "zh"),
       ...hardwareChangeSearchTerms(product)
     ].join(" ").toLowerCase();
   }
@@ -1065,6 +1102,21 @@
     `).join("")}</div>`;
   }
 
+  function hardwareRevisionImagesSection(product) {
+    if (product.hardwareChanges || !product.hardwareRevisionImages?.length) return "";
+    const title = state.lang === "zh" ? "硬件版本辨别" : "Hardware revision identification";
+    const description = localizedText(product.hardwareRevisionDescription, state.lang);
+    return `
+      <section class="detail-section hardware-change-section">
+        <div class="hardware-change-heading">
+          <h2>${escapeHtml(title)}</h2>
+          ${description ? `<p>${escapeHtml(description)}</p>` : ""}
+        </div>
+        ${hardwareRevisionImages(product)}
+      </section>
+    `;
+  }
+
   function textPanel(titleKey, value) {
     const content = text(value);
     if (!content) return "";
@@ -1103,6 +1155,131 @@
     return `<section class="detail-practical-grid">${sections.join("")}</section>`;
   }
 
+  function isDownloadArtifact(item) {
+    const value = `${item.href || ""} ${text(item.label)}`.toLowerCase();
+    return /\.(docx?|pdf|hex|zip|apj|bin)$/i.test(item.href || "") || /sha256|checksum|校验/.test(value);
+  }
+
+  function downloadListSection(labelKey, items) {
+    if (!items.length) return "";
+    return `<section class="detail-section"><h2>${labels[state.lang][labelKey]}</h2><div class="download-list">${items.map((item) => downloadLink(item)).join("")}</div></section>`;
+  }
+
+  function downloadCorpus(product) {
+    const downloadTerms = (product.downloads || []).flatMap((item) => [
+      item.href,
+      localizedText(item.label, "en"),
+      localizedText(item.label, "zh")
+    ]);
+    return [
+      searchable(product),
+      ...downloadTerms
+    ].join(" ").toLowerCase();
+  }
+
+  function downloadKind(item) {
+    const href = item.href || "";
+    const label = text(item.label);
+    const value = `${href} ${label}`.toLowerCase();
+    if (/sha256|sha256sums|checksum|校验/.test(value)) return "checksums";
+    if (/\.(docx?|pdf)(?:$|[?#])/i.test(href)) return "manuals";
+    if (/\.(hex|bin|apj)(?:$|[?#])/i.test(href)) return "firmware";
+    if (/\.zip(?:$|[?#])/i.test(href) && /(firmware|固件|px4|ardupilot|arduplane|arducopter|ardurover|betaflight|inav)/i.test(value)) return "firmware";
+    if (/^https?:\/\/github\.com\//i.test(href)) return "source";
+    if (/\.(step|stp|mp4|mov|webm)(?:$|[?#])/i.test(href)) return "models";
+    return "other";
+  }
+
+  function downloadGroups(product) {
+    const groups = [
+      { id: "manuals", labelKey: "downloadManuals", items: [] },
+      { id: "firmware", labelKey: "downloadFirmware", items: [] },
+      { id: "checksums", labelKey: "downloadChecksums", items: [] },
+      { id: "source", labelKey: "downloadSourceFiles", items: [] },
+      { id: "models", labelKey: "downloadModelsMedia", items: [] },
+      { id: "other", labelKey: "downloadOtherFiles", items: [] }
+    ];
+    const byId = Object.fromEntries(groups.map((group) => [group.id, group]));
+    (product.downloads || []).forEach((item) => {
+      byId[downloadKind(item)].items.push(item);
+    });
+    return groups.filter((group) => group.items.length);
+  }
+
+  function downloadBadges(groups) {
+    return groups.map((group) => `
+      <span>${escapeHtml(labels[state.lang][group.labelKey])} ${group.items.length}</span>
+    `).join("");
+  }
+
+  function downloadLink(item) {
+    return `<a href="${escapeHtml(item.href)}" target="_blank" rel="noopener">${escapeHtml(text(item.label))}</a>`;
+  }
+
+  function downloadGroupSection(group) {
+    return `
+      <section class="download-file-group download-file-group-${escapeHtml(group.id)}">
+        <h3>${escapeHtml(labels[state.lang][group.labelKey])}</h3>
+        <div class="download-file-list">
+          ${group.items.map((item) => downloadLink(item)).join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function downloadAccordionItem(product) {
+    const groups = downloadGroups(product);
+    const hasFirmware = groups.some((group) => group.id === "firmware");
+    return `
+      <details class="download-product" data-download-product="${escapeHtml(product.slug)}">
+        <summary>
+          <span class="download-product-copy">
+            <span class="download-product-meta">
+              <span>${escapeHtml(text(catalog.categories[product.category]))}</span>
+              ${productStatusBadge(product)}
+            </span>
+            <strong>${escapeHtml(text(product.title))}</strong>
+          </span>
+          <span class="download-product-badges">${downloadBadges(groups)}</span>
+          <svg class="download-chevron" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </summary>
+        <div class="download-product-body">
+          ${hasFirmware ? `<p class="download-safety-note">${escapeHtml(labels[state.lang].downloadSafetyNote)}</p>` : ""}
+          <div class="download-file-groups">
+            ${groups.map(downloadGroupSection).join("")}
+          </div>
+          <a class="text-link download-product-page-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].downloadProductPage}</a>
+        </div>
+      </details>
+    `;
+  }
+
+  function renderDownloads() {
+    const target = document.querySelector("[data-download-accordion]");
+    const count = document.querySelector("[data-download-count]");
+    if (!target) return;
+    const query = state.query.toLowerCase();
+    const products = catalog.products.filter((product) => (product.downloads || []).length);
+    const filtered = products.filter((product) => !query || downloadCorpus(product).includes(query));
+    const countLabel = filtered.length === 1 ? labels[state.lang].downloadProduct : labels[state.lang].downloadProducts;
+    if (count) count.textContent = `${filtered.length} ${countLabel}`;
+    target.innerHTML = filtered.length
+      ? filtered.map(downloadAccordionItem).join("")
+      : `<p class="empty-state">${labels[state.lang].downloadNoMatches}</p>`;
+  }
+
+  function initDownloads() {
+    const search = document.querySelector("[data-download-search]");
+    if (!search) return;
+    search.addEventListener("input", () => {
+      state.query = search.value.trim();
+      renderDownloads();
+    });
+    renderDownloads();
+  }
+
   function renderProduct() {
     const slug = new URLSearchParams(location.search).get("p") || location.hash.replace("#", "");
     const product = catalog.products.find((item) => item.slug === slug) || catalog.products[0];
@@ -1114,6 +1291,8 @@
     const specImages = state.lang === "zh" ? mediaSection(product, "spec") : "";
     const galleryHtml = mediaSection(product, "gallery");
     const downloads = product.downloads || [];
+    const downloadItems = downloads.filter(isDownloadArtifact);
+    const referenceItems = downloads.filter((item) => !isDownloadArtifact(item));
     const related = catalog.products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 4);
 
     main.innerHTML = `
@@ -1144,9 +1323,11 @@
         ${specImages}
       </section>
       ${hardwareChangesSection(product)}
+      ${hardwareRevisionImagesSection(product)}
       ${diagramHtml ? `<section class="detail-section"><h2>${labels[state.lang].diagrams}</h2>${diagramHtml}</section>` : ""}
       ${galleryHtml ? `<section class="detail-section"><h2>${labels[state.lang].gallery}</h2>${galleryHtml}</section>` : ""}
-      ${downloads.length ? `<section class="detail-section"><h2>${labels[state.lang].downloads}</h2><div class="download-list">${downloads.map((item) => `<a href="${item.href}" target="_blank" rel="noopener">${escapeHtml(text(item.label))}</a>`).join("")}</div></section>` : ""}
+      ${downloadListSection("downloads", downloadItems)}
+      ${downloadListSection("referenceFiles", referenceItems)}
       ${related.length ? `<section class="detail-section"><h2>${labels[state.lang].related}</h2><div class="related-grid">${related.map((item) => `<a href="product.html?p=${encodeURIComponent(item.slug)}">${escapeHtml(text(item.title))}</a>`).join("")}</div></section>` : ""}
     `;
   }
@@ -1251,6 +1432,7 @@
   window.addEventListener("DOMContentLoaded", () => {
     bindLanguage();
     if (document.body.dataset.page === "wiki") initWiki();
+    if (document.body.dataset.page === "downloads") initDownloads();
     if (document.body.dataset.page === "product") renderProduct();
   });
 })();
