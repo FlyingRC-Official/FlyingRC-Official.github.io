@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python3 scripts/build-cn-mirror.py",
+  "outputDirectory": "dist-cn",
+  "cleanUrls": true,
+  "trailingSlash": false
+}

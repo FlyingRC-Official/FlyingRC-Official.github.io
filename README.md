@@ -12,6 +12,43 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
+## SEO static pages
+
+Product data stays in `data/products.js`. After editing products, downloads, or
+firmware metadata, regenerate the static SEO pages with:
+
+```sh
+node scripts/build-static-pages.js
+```
+
+The script writes localized `/en/` and `/zh/` entry pages, localized product and
+download indexes, core product pages under `/products/<slug>/`, and
+`sitemap.xml`.
+
+## China-near mirror build
+
+The GitHub Pages site remains the canonical full site. For a Hong Kong or
+Singapore-near mirror, build the lightweight static artifact:
+
+```sh
+python3 scripts/build-cn-mirror.py
+```
+
+Deploy the generated `dist-cn/` directory to Vercel or Cloudflare Pages. The
+mirror excludes heavyweight manuals, videos, and STEP files, then rewrites those
+download links back to the canonical GitHub Pages site. Product images stay
+local to the mirror and are recompressed during the build.
+
+Recommended DNS shape:
+
+```text
+cn.your-domain.example -> mirror platform CNAME
+```
+
+Vercel can use the included `vercel.json`. Cloudflare Pages can use the same
+build command with `dist-cn` as the output directory; `wrangler.toml` is included
+for direct Pages deployment workflows.
+
 ## GitHub Pages
 
 For an organization site, publish this repository as:
