@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="FlyingRC product manuals, firmware, checksums, source branches, and reference files.">
     <link rel="canonical" href="https://flyingrc-official.github.io/downloads.html">
+    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/downloads/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/downloads/">
+    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/downloads.html">
     <link rel="icon" href="/assets/brand/flyingrc-logo-transparent.png" type="image/png">
     <meta property="og:title" content="Downloads | FlyingRC Official">
     <meta property="og:description" content="Product-first downloads for FlyingRC manuals, firmware, checksums, source branches, and reference files.">
@@ -16,9 +19,10 @@
     <meta name="twitter:description" content="Product-first downloads for FlyingRC manuals, firmware, checksums, source branches, and reference files.">
     <meta name="twitter:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
     <title>Downloads | FlyingRC Official</title>
-    <link rel="stylesheet" href="styles.css?v=20260630-logo-png-v1">
+    <link rel="stylesheet" href="styles.css?v=20260630-seo-static-logo-png-v2">
   </head>
   <body data-page="downloads">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="FlyingRC Official home">
         <img src="assets/brand/flyingrc-logo-transparent.png" alt="" class="brand-mark">
@@ -38,7 +42,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="wiki-hero downloads-hero">
         <div>
           <p class="status" data-i18n="downloadSource">Product-first file index</p>
@@ -50,7 +54,7 @@
       <section class="wiki-toolbar downloads-toolbar" aria-label="Download search">
         <div class="search-wrap">
           <input data-download-search type="search" placeholder="Search product, firmware, manual, target..." data-i18n-placeholder="downloadSearch">
-          <span data-download-count></span>
+          <span id="downloads-count" data-download-count aria-live="polite"></span>
         </div>
       </section>
 
@@ -65,7 +69,7 @@
       <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
     </footer>
 
-    <script src="data/products.js?v=20260626-downloads-accordion-v1"></script>
-    <script src="scripts/product-wiki.js?v=20260626-downloads-accordion-v1"></script>
+    <script src="data/products.js?v=20260630-seo-static-v1"></script>
+    <script src="scripts/product-wiki.js?v=20260630-seo-static-v1"></script>
   </body>
 </html>

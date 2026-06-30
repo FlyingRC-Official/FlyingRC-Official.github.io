@@ -151,6 +151,13 @@ window.FLYINGRC_CATALOG = {
       summary: { en: "Pro version listing material for the F4WSE fixed-wing controller family.", zh: "F4WSE 固定翼飞控系列 Pro 版本上架资料。" },
       specs: { en: ["F405 Pro fixed-wing autopilot controller", "Supports ArduPilot and INAV workflows", "MatekF405-TE compatible firmware path noted in manual"], zh: ["F405 Pro 固定翼飞控", "已整理产品主图", "作为 F4WSE 系列高配资料页"] },
       hero: "assets/products/f4wse-pro/hero.jpg",
+      hardwareRevisionDescription: {
+        en: "Identify F4WSE Pro hardware revisions by the IMU chip marking: current units use BMI270, while earlier units use ICM42688P.",
+        zh: "可通过 IMU 芯片丝印辨别 F4WSE Pro 新旧版本：当前版本使用 BMI270，早期版本使用 ICM42688P。"
+      },
+      hardwareRevisionImages: [
+        img("assets/products/f4wse-pro/imu-revision-20260602.jpg", "IMU chip marking guide for F4WSE Pro earlier and current revisions", "F4WSE Pro IMU 芯片丝印新旧版本辨别图", "gallery")
+      ],
       images: [
         img("assets/products/f4wse-pro/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/f4wse-pro/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
@@ -1359,6 +1366,8 @@ const PUBLIC_REFERENCE_FILES = {
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
   "f4wing-mini-mk1": [
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/feature/add_flyingrc_targets", "ArduPilot F4Wing Mini target branch", "ArduPilot F4Wing Mini 目标分支"),
+    download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI", "INAV F4Wing Mini target branch", "INAV F4Wing Mini 目标分支"),
     download("assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
@@ -1367,16 +1376,20 @@ const PUBLIC_REFERENCE_FILES = {
   ],
   "f4wse-pro": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支"),
+    download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WSEPRO", "INAV F4WSE Pro target branch", "INAV F4WSE Pro 目标分支"),
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_bdshot_arduplane_with_bl.hex", "ArduPlane 4.6.3 BDShot firmware with bootloader", "ArduPlane 4.6.3 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP457_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.5.7 firmware with bootloader", "ArduPlane 4.5.7 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
-    download("assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件")
+    download("assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
+    download("assets/downloads/firmware/f4wse-pro/betaflight_2025.12.4_STM32F405_FLYINGRCF4WSEPRO.hex", "Betaflight 2025.12.4 firmware", "Betaflight 2025.12.4 固件"),
+    download("assets/downloads/firmware/f4wse-pro/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
   "h7d-h743": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7D_target", "ArduPilot H7D target branch", "ArduPilot H7D 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Config", "Betaflight H7D config branch", "Betaflight H7D 配置分支"),
+    download("https://github.com/FlyingRC-Official/inav/tree/Add-Target-FlyingRC-H7D", "INAV H7D target branch", "INAV H7D 目标分支"),
     download("assets/downloads/firmware/h7d-h743/betaflight_2025.12.2_STM32H743_FLRCH7D.hex", "Betaflight 2025.12.2 firmware", "Betaflight 2025.12.2 固件"),
     download("assets/downloads/firmware/h7d-h743/inav_8.0.0_FLRCH7D.hex", "INAV 8.0.0 firmware", "INAV 8.0.0 固件"),
     download("assets/downloads/firmware/h7d-h743/AC463_FLRCH7D_bdshot_arducopter_with_bl.hex", "ArduCopter 4.6.3 BDShot firmware with bootloader", "ArduCopter 4.6.3 BDShot 带 Bootloader 固件")
@@ -1385,15 +1398,158 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7D-Pro-Board", "PX4 H7D Pro firmware repository", "PX4 H7D Pro 固件仓库"),
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7DPro_target", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支"),
-    download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.2_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.2 DUAL-ICM firmware", "Betaflight 2025.12.2 DUAL-ICM 固件"),
+    download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7DPRO", "INAV H7D Pro target branch", "INAV H7D Pro 目标分支"),
+    download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.4_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.4 DUAL-ICM firmware", "Betaflight 2025.12.4 DUAL-ICM 固件"),
     download("assets/downloads/firmware/h7d-pro/AP463-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.6.3 dual ICM42688 firmware with bootloader", "ArduCopter 4.6.3 双 ICM42688 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/FlyingRC_H7DPro_PX4_1.17.0_FlyingRC-H7D-Pro-Board.zip", "PX4 1.17.0 firmware package", "PX4 1.17.0 固件包"),
-    download("assets/downloads/firmware/h7d-pro/inav_9.0.1_FLYINGRCH7DPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件")
+    download("assets/downloads/firmware/h7d-pro/inav_9.0.1_FLYINGRCH7DPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
+    download("assets/downloads/firmware/h7d-pro/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
   "l4-can-rm3100": [download("https://github.com/FlyingRC-Official/ardupilot/tree/L4_CAN_RM3100", "ArduPilot L4 CAN RM3100 branch", "ArduPilot L4 CAN RM3100 分支")],
   "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],
   "elrs-24g-diversity": [download("assets/products/elrs-24g-diversity/model.step", "STEP 3D model", "STEP 3D 模型")],
   "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")]
+};
+
+const FIRMWARE_DOWNLOAD_METADATA = {
+  "assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex": firmwareMeta({
+    target: "FLYINGRCF4WINGMINI",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    compatibilityEn: "INAV 9.0.1 firmware for the FlyingRC F4Wing Mini target.",
+    compatibilityZh: "适用于 FlyingRC F4Wing Mini 目标的 INAV 9.0.1 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arduplane_with_bl.hex": firmwareMeta({
+    target: "FlyingRCF4WingMini / ArduPlane",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    compatibilityEn: "ArduPlane 4.6.3 firmware with bootloader for the F4Wing Mini target.",
+    compatibilityZh: "适用于 F4Wing Mini 目标的 ArduPlane 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arducopter_with_bl.hex": firmwareMeta({
+    target: "FlyingRCF4WingMini / ArduCopter",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "c21551141b9ee8c941d784d895ba994c534056b0c9335abbc2cec76211411adc",
+    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the F4Wing Mini target.",
+    compatibilityZh: "适用于 F4Wing Mini 目标的 ArduCopter 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/betaflight_2025.12.4_STM32F405_FLYINGRCF4WINGMINI.hex": firmwareMeta({
+    target: "STM32F405 / FLYINGRCF4WINGMINI",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "21f94fb8a6a6a195bbb71895b6fc255f12d552639b7bf2108c15a873809083f2",
+    compatibilityEn: "Betaflight 2025.12.4 firmware for the FLYINGRCF4WINGMINI target.",
+    compatibilityZh: "适用于 FLYINGRCF4WINGMINI 目标的 Betaflight 2025.12.4 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
+    target: "FlyingRC_F4WSE_Pro / ArduPlane",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "18009d54878ee5bbd2ac6d22c8ac0f3c7ee71258ce8afa03b152a7047e4ce949",
+    compatibilityEn: "ArduPlane 4.6.3 firmware with bootloader for the F4WSE Pro target.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_bdshot_arduplane_with_bl.hex": firmwareMeta({
+    target: "FlyingRC_F4WSE_Pro / ArduPlane BDShot",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "52ec4a8df4d3399c3aa18d9efb588c9cc2e62ae990d63376f8d03309da898a41",
+    compatibilityEn: "ArduPlane 4.6.3 BDShot firmware with bootloader for the F4WSE Pro target.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 BDShot 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
+    target: "FlyingRC_F4WSE_Pro / ArduCopter",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "88779e52d06759ad0b47a57e330cce0c420d60727cf4e854327c3624bd61b49b",
+    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the F4WSE Pro target.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduCopter 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/AP457_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
+    target: "FlyingRC_F4WSE_Pro / ArduPlane",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "4cc715eead96a5a67ff941168dd191afc7e7062c6e6b6514d03d85fab8328a50",
+    compatibilityEn: "ArduPlane 4.5.7 firmware with bootloader for the F4WSE Pro target.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.5.7 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
+    target: "FlyingRC_F4WSE_Pro / ArduRover",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "b765e6d1ca089396d285496b57fbcb84a9b1012d48ae7039969455082c570a15",
+    compatibilityEn: "ArduRover 4.6.3 firmware with bootloader for the F4WSE Pro target.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduRover 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex": firmwareMeta({
+    target: "FLYINGRCF4WSEPRO",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "b996bdd8cb1dd4a41a94a15554c7d8b5cad0dc52b5c3b23198d53da1e0c5f1c0",
+    compatibilityEn: "INAV 9.0.1 firmware for the FLYINGRCF4WSEPRO target.",
+    compatibilityZh: "适用于 FLYINGRCF4WSEPRO 目标的 INAV 9.0.1 固件。"
+  }),
+  "assets/downloads/firmware/f4wse-pro/betaflight_2025.12.4_STM32F405_FLYINGRCF4WSEPRO.hex": firmwareMeta({
+    target: "STM32F405 / FLYINGRCF4WSEPRO",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    compatibilityEn: "Betaflight 2025.12.4 firmware for the FLYINGRCF4WSEPRO target.",
+    compatibilityZh: "适用于 FLYINGRCF4WSEPRO 目标的 Betaflight 2025.12.4 固件。"
+  }),
+  "assets/downloads/firmware/h7d-h743/betaflight_2025.12.2_STM32H743_FLRCH7D.hex": firmwareMeta({
+    target: "STM32H743 / FLRCH7D",
+    boardRevisionEn: "H7D H743 hardware; verify target name before flashing.",
+    boardRevisionZh: "H7D H743 硬件；刷写前请核对目标名称。",
+    compatibilityEn: "Betaflight 2025.12.2 firmware for the FLRCH7D target.",
+    compatibilityZh: "适用于 FLRCH7D 目标的 Betaflight 2025.12.2 固件。"
+  }),
+  "assets/downloads/firmware/h7d-h743/inav_8.0.0_FLRCH7D.hex": firmwareMeta({
+    target: "FLRCH7D",
+    boardRevisionEn: "H7D H743 hardware; verify target name before flashing.",
+    boardRevisionZh: "H7D H743 硬件；刷写前请核对目标名称。",
+    compatibilityEn: "INAV 8.0.0 firmware for the FLRCH7D target.",
+    compatibilityZh: "适用于 FLRCH7D 目标的 INAV 8.0.0 固件。"
+  }),
+  "assets/downloads/firmware/h7d-h743/AC463_FLRCH7D_bdshot_arducopter_with_bl.hex": firmwareMeta({
+    target: "FLRCH7D / ArduCopter BDShot",
+    boardRevisionEn: "H7D H743 hardware; verify target name before flashing.",
+    boardRevisionZh: "H7D H743 硬件；刷写前请核对目标名称。",
+    compatibilityEn: "ArduCopter 4.6.3 BDShot firmware with bootloader for the FLRCH7D target.",
+    compatibilityZh: "适用于 FLRCH7D 目标的 ArduCopter 4.6.3 BDShot 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/h7d-pro/betaflight_2025.12.4_STM32H743_FLRCH7DPRO_DUAL-ICM.hex": firmwareMeta({
+    target: "STM32H743 / FLRCH7DPRO_DUAL-ICM",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "db3b4863ce1cdbbefd53d942ab394a7bc9f41057837189cc814f82d74fd0e9cf",
+    compatibilityEn: "Betaflight 2025.12.4 DUAL-ICM firmware for the FLRCH7DPRO target.",
+    compatibilityZh: "适用于 FLRCH7DPRO 目标的 Betaflight 2025.12.4 DUAL-ICM 固件。"
+  }),
+  "assets/downloads/firmware/h7d-pro/AP463-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
+    target: "FlrcH7DPro / ArduCopter",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "61d2570ffa60c6d8a9d77a6165348f960324122ba83f3c69d25d49d56bb4e3c8",
+    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the H7D Pro target.",
+    compatibilityZh: "适用于 H7D Pro 目标的 ArduCopter 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/h7d-pro/FlyingRC_H7DPro_PX4_1.17.0_FlyingRC-H7D-Pro-Board.zip": firmwareMeta({
+    target: "FlyingRC-H7D-Pro-Board / PX4",
+    boardRevisionEn: "H7D Pro hardware; verify PX4 board package before flashing.",
+    boardRevisionZh: "H7D Pro 硬件；刷写前请核对 PX4 板级固件包。",
+    checksum: "d129ba717e894c9b30a4173b2256923c69da1aaba0cf38a439168046eda993be",
+    compatibilityEn: "PX4 1.17.0 firmware package for the FlyingRC-H7D-Pro-Board port.",
+    compatibilityZh: "适用于 FlyingRC-H7D-Pro-Board 板级移植的 PX4 1.17.0 固件包。"
+  }),
+  "assets/downloads/firmware/h7d-pro/inav_9.0.1_FLYINGRCH7DPRO.hex": firmwareMeta({
+    target: "FLYINGRCH7DPRO",
+    boardRevisionEn: "H7D Pro hardware; verify target name before flashing.",
+    boardRevisionZh: "H7D Pro 硬件；刷写前请核对目标名称。",
+    checksum: "82eaee4682d991220e6b17da2b75104d0e0ae841408e74ed8dba698697f3d69b",
+    compatibilityEn: "INAV 9.0.1 firmware for the FLYINGRCH7DPRO target.",
+    compatibilityZh: "适用于 FLYINGRCH7DPRO 目标的 INAV 9.0.1 固件。"
+  })
 };
 
 window.FLYINGRC_CATALOG.labelGroups = LABEL_GROUPS;
@@ -1408,15 +1564,28 @@ window.FLYINGRC_CATALOG.products.forEach((product) => {
     PUBLIC_MANUALS[product.slug],
     ...(PUBLIC_REFERENCE_FILES[product.slug] || []),
     ...(product.downloads || [])
-  ].filter(Boolean));
+  ].filter(Boolean)).map(attachDownloadMetadata);
 });
 
 function img(src, en, zh, type) {
   return { src, label: { en, zh }, type };
 }
 
-function download(href, en, zh) {
-  return { href, label: { en, zh } };
+function download(href, en, zh, metadata = {}) {
+  return { href, label: { en, zh }, ...metadata };
+}
+
+function firmwareMeta(config) {
+  return {
+    firmwareTarget: config.target,
+    boardRevision: { en: config.boardRevisionEn, zh: config.boardRevisionZh },
+    checksum: config.checksum,
+    compatibilityNote: { en: config.compatibilityEn, zh: config.compatibilityZh }
+  };
+}
+
+function attachDownloadMetadata(item) {
+  return { ...item, ...(FIRMWARE_DOWNLOAD_METADATA[item.href] || {}) };
 }
 
 function productLabelDef(en, zh, group) {

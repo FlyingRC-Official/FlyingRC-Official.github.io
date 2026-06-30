@@ -32,6 +32,35 @@ a {
   color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(20, 105, 65, 0.34);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  transform: translateY(calc(-100% - 18px));
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 720;
+  text-decoration: none;
+  transition: transform 0.16s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -127,13 +156,13 @@ nav a:hover,
 }
 
 .hero {
-  min-height: min(560px, calc(100svh - 92px));
+  min-height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
-  padding: 78px clamp(20px, 5vw, 72px);
+  gap: 14px;
+  padding: 48px clamp(20px, 5vw, 72px) 42px;
   border-bottom: 1px solid #0a0d0b;
   background:
     radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 18%),
@@ -149,7 +178,7 @@ nav a:hover,
   width: 100%;
   max-width: 720px;
   height: 1px;
-  margin-top: 20px;
+  margin-top: 8px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
 }
 
@@ -186,17 +215,19 @@ h1 {
 }
 
 .home-page h1 {
+  max-width: 980px;
   color: #ffffff;
+  font-size: clamp(34px, 4.5vw, 54px);
   font-weight: 760;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .home-page .hero p {
-  max-width: 620px;
+  max-width: 760px;
   margin: 0;
   color: rgba(255, 255, 255, 0.68);
-  font-size: 16px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 
 .lead {
@@ -216,12 +247,19 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 20px;
-  margin-top: 4px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .hero-links a {
-  color: rgba(255, 255, 255, 0.82);
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   font-size: 13px;
   font-weight: 760;
   letter-spacing: 0.08em;
@@ -230,6 +268,26 @@ h1 {
 }
 
 .hero-links a:hover {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.hero-secondary-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+}
+
+.hero-secondary-links a {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 720;
+  text-decoration: none;
+}
+
+.hero-secondary-links a:hover {
   color: #ffffff;
 }
 
@@ -451,6 +509,44 @@ h2 {
 
 .product-wiki-band div {
   max-width: 840px;
+}
+
+.why-band {
+  display: grid;
+  gap: 26px;
+  border-bottom: 1px solid var(--line);
+  background: #f5f7f5;
+}
+
+.why-band .section-heading {
+  margin-bottom: 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.why-grid article {
+  min-height: 178px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.why-grid h3 {
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font-size: 19px;
+  line-height: 1.18;
+}
+
+.why-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .company-band {
@@ -826,7 +922,8 @@ h2 {
 
   .contact-band,
   .contact-methods,
-  .business-lanes {
+  .business-lanes,
+  .why-grid {
     grid-template-columns: 1fr;
   }
 
@@ -850,7 +947,10 @@ h2 {
   nav {
     width: 100%;
     justify-content: flex-start;
+    padding-bottom: 3px;
     overflow-x: auto;
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, #000 88%, transparent);
   }
 
   nav a {
@@ -878,13 +978,59 @@ h2 {
 }
 
 @media (max-width: 520px) {
+  .site-header {
+    position: sticky;
+    min-height: 0;
+    gap: 10px;
+    padding: 14px 30px 14px;
+  }
+
+  .site-header .language-switch {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+  }
+
+  .brand-mark {
+    width: 132px;
+    max-height: 44px;
+  }
+
+  nav {
+    padding-right: 36px;
+  }
+
   .hero-actions,
   .button {
     width: 100%;
   }
 
+  .hero {
+    gap: 12px;
+    padding: 40px 22px 34px;
+  }
+
+  .hero-mark {
+    width: min(62vw, 240px);
+  }
+
+  .hero-links {
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .hero-links a {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .hero-secondary-links {
+    margin-top: 2px;
+  }
+
   .home-page h1 {
-    letter-spacing: 0.08em;
+    font-size: clamp(30px, 9vw, 38px);
   }
 
   .board-visual {
@@ -930,7 +1076,11 @@ h2 {
 }
 
 .language-switch button,
+.language-switch a,
 .filter-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 36px;
   border: 0;
   border-radius: 6px;
@@ -941,12 +1091,28 @@ h2 {
   font-size: 14px;
   font-weight: 720;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .language-switch button.active,
+.language-switch a.active,
 .filter-button.active {
   background: var(--ink);
   color: #ffffff;
+}
+
+.filter-state {
+  display: inline-flex;
+  min-height: 18px;
+  align-items: center;
+  border-radius: 999px;
+  margin-right: 6px;
+  padding: 0 6px;
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
 }
 
 .wiki-toolbar {
@@ -2003,6 +2169,8 @@ h2 {
 }
 
 .download-file-list a {
+  display: grid;
+  gap: 7px;
   max-width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -2014,6 +2182,43 @@ h2 {
   line-height: 1.25;
   overflow-wrap: anywhere;
   text-decoration: none;
+}
+
+.download-link-with-meta {
+  flex: 1 1 270px;
+}
+
+.download-file-meta {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.download-file-meta div {
+  display: grid;
+  grid-template-columns: minmax(92px, 0.35fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.download-file-meta dt,
+.download-file-meta dd {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.download-file-meta dt {
+  color: var(--green-dark);
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.download-file-meta dd {
+  color: #405047;
+  font-weight: 640;
+  overflow-wrap: anywhere;
 }
 
 .download-file-list a:hover,
@@ -2037,7 +2242,8 @@ h2 {
 @media (max-width: 980px) {
   .wiki-product-grid,
   .spec-list,
-  .business-lanes {
+  .business-lanes,
+  .why-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2057,6 +2263,7 @@ h2 {
   .search-wrap,
   .detail-media-grid,
   .wiki-product-grid,
+  .why-grid,
   .spec-list {
     grid-template-columns: 1fr;
   }

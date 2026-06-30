@@ -71,12 +71,17 @@
       downloadOtherFiles: "Other Files",
       downloadProductPage: "View product page",
       downloadSafetyNote: "Before flashing firmware, verify the board revision, target name, and product-page notes.",
+      downloadBoardRevision: "Board revision",
+      downloadFirmwareTarget: "Firmware target",
+      downloadChecksum: "SHA256",
+      downloadCompatibility: "Compatibility note",
       related: "Related Products",
       back: "Back to products",
       contact: "Contact",
       contactCta: "Email sales",
       whatsappCta: "WhatsApp support",
       githubCta: "GitHub",
+      selectedFilter: "Selected",
       compareTitle: "Product comparison",
       compareLead: "Quick category comparisons for choosing the right FlyingRC hardware before opening the detail pages.",
       compareProduct: "Product",
@@ -96,8 +101,20 @@
       hardware: "Hardware",
       wikiLead: "Search flight controllers, ESCs, BEC modules, sensors, GPS, receivers, adapters, and stack kits with bilingual product notes and original wiring/spec images.",
       wikiTitle: "FlyingRC Product Wiki",
-      homeTitle: "FlyingRC Official",
-      homeLead: "Flight controllers, ESCs, BEC modules, GPS, sensors, and open firmware notes for UAV builders.",
+      homeTitle: "Open-firmware UAV hardware for ArduPilot, INAV, Betaflight and PX4 builders",
+      homeLead: "Flight controllers, ESCs, BEC modules, GPS, sensors, wiring diagrams, manuals, and tested firmware notes for UAV builders.",
+      productSelectionCta: "Choose products",
+      downloadDocsCta: "Download files",
+      technicalSupportCta: "Technical support",
+      whyTitle: "Why FlyingRC",
+      whyOpenFirmwareTitle: "Open firmware ready",
+      whyOpenFirmwareText: "ArduPilot, INAV, Betaflight, and PX4 board support plus configuration notes for builders.",
+      whyWiringTitle: "Wiring-first documentation",
+      whyWiringText: "Pinout, dimensions, receiver, GPS, CAN, and video wiring diagrams are kept close to each product.",
+      whyRevisionTitle: "Revision-aware support",
+      whyRevisionText: "Board revision, sensor changes, firmware targets, and compatibility notes are documented before flashing.",
+      whySupportTitle: "Direct technical support",
+      whySupportText: "Email, WhatsApp, GitHub issues, Taobao, and distributor/OEM routes are available from the product path.",
       productWikiTitle: "Product Wiki",
       productWikiLead: "Bilingual product notes, wiring diagrams, dimensions, and setup notes for FlyingRC hardware.",
       openProductWiki: "Open Product Wiki",
@@ -209,12 +226,17 @@
       downloadOtherFiles: "其他文件",
       downloadProductPage: "查看产品页",
       downloadSafetyNote: "刷写固件前，请核对硬件版本、目标名称和产品页说明。",
+      downloadBoardRevision: "硬件版本",
+      downloadFirmwareTarget: "固件目标",
+      downloadChecksum: "SHA256",
+      downloadCompatibility: "兼容说明",
       related: "相关产品",
       back: "返回产品列表",
       contact: "联系",
       contactCta: "邮件咨询",
       whatsappCta: "WhatsApp 技术支持",
       githubCta: "GitHub",
+      selectedFilter: "已选",
       compareTitle: "产品对比",
       compareLead: "按类别快速对比 FlyingRC 硬件，先判断适合哪一款，再打开详情页查看接线和资料。",
       compareProduct: "产品",
@@ -234,8 +256,20 @@
       hardware: "硬件",
       wikiLead: "搜索飞控、电调、BEC 降压模块、传感器、GPS、接收机、扩展板和飞塔套装，查看双语产品说明和原始接线/参数图片。",
       wikiTitle: "FlyingRC 产品资料",
-      homeTitle: "FlyingRC Official",
-      homeLead: "为无人机装机用户提供飞控、电调、BEC、GPS、传感器和开源固件资料。",
+      homeTitle: "面向 ArduPilot / INAV / Betaflight / PX4 装机用户的无人机硬件与固件资料库",
+      homeLead: "提供飞控、电调、BEC、GPS、传感器、接线图、说明书和经过整理的开源固件资料。",
+      productSelectionCta: "产品选型",
+      downloadDocsCta: "下载资料",
+      technicalSupportCta: "技术支持",
+      whyTitle: "为什么选择 FlyingRC",
+      whyOpenFirmwareTitle: "开源固件就绪",
+      whyOpenFirmwareText: "面向 ArduPilot、INAV、Betaflight、PX4 用户整理板卡支持和配置说明。",
+      whyWiringTitle: "接线优先的资料",
+      whyWiringText: "每个产品尽量集中提供引脚、尺寸、接收机、GPS、CAN 和图传接线图。",
+      whyRevisionTitle: "重视硬件版本",
+      whyRevisionText: "硬件版本、传感器变化、固件目标和兼容说明会在刷写前明确提示。",
+      whySupportTitle: "直接技术支持",
+      whySupportText: "产品路径中保留邮箱、WhatsApp、GitHub、淘宝和代理/OEM 咨询入口。",
       productWikiTitle: "产品资料库",
       productWikiLead: "FlyingRC 硬件的双语产品说明、接线图、尺寸图和设置注意事项。",
       openProductWiki: "打开产品资料库",
@@ -328,6 +362,21 @@
     }
   ];
 
+  const staticProductSlugs = new Set([
+    "f4wing-mini-mk1",
+    "f4wse-pro",
+    "h7d-pro",
+    "h7d-h743",
+    "f4d-mk1",
+    "h7wlite-mk1",
+    "am32-4in1-75a",
+    "am32-4in1-45a",
+    "am32-mini-esc-40a",
+    "am32-esc-75a-v25",
+    "l4-can-rm3100",
+    "bec-mini-dji-o4"
+  ]);
+
   function text(value) {
     if (!value) return "";
     return typeof value === "string" ? value : value[state.lang] || value.en || value.zh || "";
@@ -348,12 +397,9 @@
       const key = node.dataset.i18nPlaceholder;
       if (labels[lang][key]) node.placeholder = labels[lang][key];
     });
-    document.querySelectorAll("[data-category]").forEach((button) => {
-      const category = button.dataset.category;
-      if (catalog.categories[category]) button.textContent = text(catalog.categories[category]);
-    });
     if (document.body.dataset.page === "wiki") renderLabelFilters();
     if (document.body.dataset.page === "wiki") renderSelector();
+    if (document.body.dataset.page === "wiki") renderCategoryFilters();
     if (document.body.dataset.page === "wiki") renderWiki();
     if (document.body.dataset.page === "downloads") renderDownloads();
     if (document.body.dataset.page === "product") renderProduct();
@@ -514,6 +560,12 @@
     return `<span class="product-status product-status-${escapeHtml(product.status)}">${escapeHtml(label)}</span>`;
   }
 
+  function productPageHref(product) {
+    return staticProductSlugs.has(product.slug)
+      ? `products/${encodeURIComponent(product.slug)}/`
+      : `product.html?p=${encodeURIComponent(product.slug)}`;
+  }
+
   function productFileBadges(product) {
     const badges = [];
     const downloads = product.downloads || [];
@@ -636,7 +688,8 @@
             <span class="label-filter-group-title">${escapeHtml(text(groupLabel))}</span>
             <div class="label-filter-options">
               ${groups[groupId].map((item) => `
-                <button class="label-filter-button product-label-${escapeHtml(item.group)}${state.labels.includes(item.id) ? " active" : ""}" type="button" data-label-filter="${escapeHtml(item.id)}">
+                <button class="label-filter-button product-label-${escapeHtml(item.group)}${state.labels.includes(item.id) ? " active" : ""}" type="button" data-label-filter="${escapeHtml(item.id)}" aria-pressed="${state.labels.includes(item.id) ? "true" : "false"}">
+                  ${state.labels.includes(item.id) ? `<span class="filter-state">${escapeHtml(labels[state.lang].selectedFilter)}</span>` : ""}
                   ${escapeHtml(labelText(item))}
                 </button>
               `).join("")}
@@ -659,7 +712,8 @@
       <div class="selector-controls">
         <div class="selector-button-row" role="group" aria-label="${labels[state.lang].selectorTitle}">
           ${selectorProfiles.map((profile) => `
-            <button class="selector-button${state.selector === profile.id ? " active" : ""}" type="button" data-selector-profile="${profile.id}">
+            <button class="selector-button${state.selector === profile.id ? " active" : ""}" type="button" data-selector-profile="${profile.id}" aria-pressed="${state.selector === profile.id ? "true" : "false"}">
+              ${state.selector === profile.id ? `<span class="filter-state">${escapeHtml(labels[state.lang].selectedFilter)}</span>` : ""}
               ${labels[state.lang][profile.labelKey]}
             </button>
           `).join("")}
@@ -734,7 +788,7 @@
     count.textContent = `${filtered.length} ${labels[state.lang].products}`;
     grid.innerHTML = filtered.length ? filtered.map((product) => `
       <article class="wiki-product-card">
-        <a class="product-media" href="product.html?p=${encodeURIComponent(product.slug)}">
+        <a class="product-media" href="${productPageHref(product)}">
           ${productImage(product)}
         </a>
         <div class="product-card-body">
@@ -747,7 +801,7 @@
           ${productLabelChips(product, 5)}
           ${productFileBadges(product)}
           <div class="card-actions">
-            <a class="text-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].view}</a>
+            <a class="text-link" href="${productPageHref(product)}">${labels[state.lang].view}</a>
             <a class="inquiry-link" href="${productEmailHref(product)}">${labels[state.lang].inquire}</a>
           </div>
         </div>
@@ -812,7 +866,7 @@
     return `
       <tr>
         <th scope="row">
-          <a href="product.html?p=${encodeURIComponent(product.slug)}">${escapeHtml(text(product.title))}</a>
+          <a href="${productPageHref(product)}">${escapeHtml(text(product.title))}</a>
           ${productStatusBadge(product)}
         </th>
         <td data-label="${labels[state.lang].compareRole}">${escapeHtml(role)}</td>
@@ -821,28 +875,40 @@
         <td data-label="${labels[state.lang].compareDownloads}">
           <div class="comparison-actions">
             ${hasManual ? `<span>${labels[state.lang].manualAvailable}</span>` : `<span class="comparison-action-placeholder" aria-hidden="true"></span>`}
-            <a href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].compareOpen}</a>
+            <a href="${productPageHref(product)}">${labels[state.lang].compareOpen}</a>
           </div>
         </td>
       </tr>
     `;
   }
 
+  function renderCategoryFilters() {
+    const filters = document.querySelector("[data-category-filters]");
+    if (!filters) return;
+    const activeCategories = activeCategoryIds();
+    filters.innerHTML = Object.entries(catalog.categories).map(([id, label]) => {
+      const active = (id === "all" && !activeCategories.length) || activeCategories.includes(id);
+      return `
+        <button class="filter-button${active ? " active" : ""}" type="button" data-category="${id}" aria-pressed="${active ? "true" : "false"}">
+          ${active ? `<span class="filter-state">${escapeHtml(labels[state.lang].selectedFilter)}</span>` : ""}
+          ${escapeHtml(text(label))}
+        </button>
+      `;
+    }).join("");
+  }
+
   function initWiki() {
     bindSelector();
     bindLabelFilters();
     const filters = document.querySelector("[data-category-filters]");
-    const activeCategories = activeCategoryIds();
-    filters.innerHTML = Object.entries(catalog.categories).map(([id, label]) => `
-      <button class="filter-button${(id === "all" && !activeCategories.length) || activeCategories.includes(id) ? " active" : ""}" type="button" data-category="${id}">${escapeHtml(text(label))}</button>
-    `).join("");
+    renderCategoryFilters();
     filters.addEventListener("click", (event) => {
       const button = event.target.closest("[data-category]");
       if (!button) return;
       state.category = button.dataset.category;
       state.categories = state.category === "all" ? [] : [state.category];
-      document.querySelectorAll("[data-category]").forEach((item) => item.classList.toggle("active", item === button));
       updateFilterUrl();
+      renderCategoryFilters();
       renderLabelFilters();
       renderWiki();
     });
@@ -1169,7 +1235,14 @@
     const downloadTerms = (product.downloads || []).flatMap((item) => [
       item.href,
       localizedText(item.label, "en"),
-      localizedText(item.label, "zh")
+      localizedText(item.label, "zh"),
+      localizedText(item.boardRevision, "en"),
+      localizedText(item.boardRevision, "zh"),
+      localizedText(item.firmwareTarget, "en"),
+      localizedText(item.firmwareTarget, "zh"),
+      localizedText(item.compatibilityNote, "en"),
+      localizedText(item.compatibilityNote, "zh"),
+      item.checksum
     ]);
     return [
       searchable(product),
@@ -1213,7 +1286,27 @@
   }
 
   function downloadLink(item) {
-    return `<a href="${escapeHtml(item.href)}" target="_blank" rel="noopener">${escapeHtml(text(item.label))}</a>`;
+    const metadata = downloadMetadataRows(item);
+    return `
+      <a class="${metadata.length ? "download-link-with-meta" : ""}" href="${escapeHtml(item.href)}" target="_blank" rel="noopener">
+        <span>${escapeHtml(text(item.label))}</span>
+        ${metadata.length ? `<dl class="download-file-meta">${metadata.map(([label, value]) => `
+          <div>
+            <dt>${escapeHtml(label)}</dt>
+            <dd>${escapeHtml(value)}</dd>
+          </div>
+        `).join("")}</dl>` : ""}
+      </a>
+    `;
+  }
+
+  function downloadMetadataRows(item) {
+    return [
+      [labels[state.lang].downloadBoardRevision, localizedText(item.boardRevision, state.lang)],
+      [labels[state.lang].downloadFirmwareTarget, localizedText(item.firmwareTarget, state.lang)],
+      [labels[state.lang].downloadChecksum, item.checksum],
+      [labels[state.lang].downloadCompatibility, localizedText(item.compatibilityNote, state.lang)]
+    ].filter(([, value]) => value);
   }
 
   function downloadGroupSection(group) {
@@ -1250,7 +1343,7 @@
           <div class="download-file-groups">
             ${groups.map(downloadGroupSection).join("")}
           </div>
-          <a class="text-link download-product-page-link" href="product.html?p=${encodeURIComponent(product.slug)}">${labels[state.lang].downloadProductPage}</a>
+          <a class="text-link download-product-page-link" href="${productPageHref(product)}">${labels[state.lang].downloadProductPage}</a>
         </div>
       </details>
     `;
@@ -1328,17 +1421,23 @@
       ${galleryHtml ? `<section class="detail-section"><h2>${labels[state.lang].gallery}</h2>${galleryHtml}</section>` : ""}
       ${downloadListSection("downloads", downloadItems)}
       ${downloadListSection("referenceFiles", referenceItems)}
-      ${related.length ? `<section class="detail-section"><h2>${labels[state.lang].related}</h2><div class="related-grid">${related.map((item) => `<a href="product.html?p=${encodeURIComponent(item.slug)}">${escapeHtml(text(item.title))}</a>`).join("")}</div></section>` : ""}
+      ${related.length ? `<section class="detail-section"><h2>${labels[state.lang].related}</h2><div class="related-grid">${related.map((item) => `<a href="${productPageHref(item)}">${escapeHtml(text(item.title))}</a>`).join("")}</div></section>` : ""}
     `;
   }
 
   function productEmailHref(product) {
-    const subject = `FlyingRC product inquiry: ${localizedText(product.title, "en")}`;
+    const productName = localizedText(product.title, "en");
+    const subjectName = /^FlyingRC\b/i.test(productName) ? productName : `FlyingRC ${productName}`;
+    const subject = `${subjectName} stock / price inquiry`;
     const body = [
       `Hello FlyingRC,`,
       ``,
-      `I would like to ask about ${localizedText(product.title, "en")}.`,
-      `Product page: ${absoluteUrl(`product.html?p=${encodeURIComponent(product.slug)}`)}`,
+      `I would like to ask about ${productName}.`,
+      `Product page: ${absoluteUrl(productPageHref(product))}`,
+      `Quantity:`,
+      `Country / region:`,
+      `Firmware ecosystem: ArduPilot / INAV / Betaflight / PX4 / other`,
+      `Board revision if known:`,
       ``,
       `My question:`
     ].join("\n");
@@ -1348,7 +1447,7 @@
   function updateProductMeta(product) {
     const title = `${text(product.title)} | FlyingRC Official`;
     const description = productCardSummary(product);
-    const url = absoluteUrl(`product.html?p=${encodeURIComponent(product.slug)}`);
+    const url = absoluteUrl(productPageHref(product));
     const image = product.hero ? absoluteUrl(product.hero) : absoluteUrl("assets/products/rm3100-module/hero.jpg");
 
     document.title = title;

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="FlyingRC product wiki for flight controllers, ESCs, BEC modules, sensors, GPS, and stack kits.">
     <link rel="canonical" href="https://flyingrc-official.github.io/wiki.html">
+    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/products/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/products/">
+    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/wiki.html">
     <link rel="icon" href="/assets/brand/flyingrc-logo-transparent.png" type="image/png">
     <meta property="og:title" content="Products | FlyingRC Official">
     <meta property="og:description" content="Search FlyingRC flight controllers, ESCs, BEC modules, sensors, GPS, receivers, adapters, and stack kits with bilingual product notes.">
@@ -16,9 +19,10 @@
     <meta name="twitter:description" content="Search FlyingRC hardware with bilingual product notes, wiring diagrams, manuals, and comparison tables.">
     <meta name="twitter:image" content="https://flyingrc-official.github.io/assets/products/rm3100-module/hero.jpg">
     <title>Products | FlyingRC Official</title>
-    <link rel="stylesheet" href="styles.css?v=20260630-logo-png-v1">
+    <link rel="stylesheet" href="styles.css?v=20260630-seo-static-logo-png-v2">
   </head>
   <body data-page="wiki">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="FlyingRC Official home">
         <img src="assets/brand/flyingrc-logo-transparent.png" alt="" class="brand-mark">
@@ -38,7 +42,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="wiki-hero">
         <div>
           <p class="status" data-i18n="source">Curated from FlyingRC listing materials</p>
@@ -50,7 +54,7 @@
       <section class="wiki-toolbar" aria-label="Product search and filters">
         <div class="search-wrap">
           <input data-product-search type="search" placeholder="Search products, specs, wiring, firmware..." data-i18n-placeholder="search">
-          <span data-product-count></span>
+          <span id="product-count" data-product-count aria-live="polite"></span>
         </div>
         <div class="category-filters" data-category-filters></div>
         <div class="label-filters" data-label-filters></div>
@@ -69,7 +73,7 @@
       <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
     </footer>
 
-    <script src="data/products.js?v=20260626-downloads-accordion-v1"></script>
-    <script src="scripts/product-wiki.js?v=20260626-downloads-accordion-v1"></script>
+    <script src="data/products.js?v=20260630-seo-static-v1"></script>
+    <script src="scripts/product-wiki.js?v=20260630-seo-static-v1"></script>
   </body>
 </html>
