@@ -8,6 +8,8 @@ const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://flyingrc-official.github.io";
 const STATIC_VERSION = "20260630-seo-static-v1";
 const SOCIAL_IMAGE = `${SITE_URL}/assets/brand/flyingrc-social-card.jpg`;
+const BRAND_LOGO = "/assets/brand/flyingrc-logo-transparent.png";
+const COMPANY_MAP_URL = "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%97%B5%E8%A1%8C%E5%8C%BA%E6%B5%A6%E6%B1%9F%E9%95%87%E7%AB%B9%E5%9B%AD%E8%B7%AF559%E5%8F%B7%20%E5%BF%85%E7%BF%94%E5%BD%B1%E5%83%8F%E7%A7%91%E6%8A%80%E4%BA%A7%E4%B8%9A%E5%9B%AD%20T9%E5%8F%B7%E6%A5%BC";
 const CONTACT = {
   email: "FlyingRC.Official@gmail.com",
   whatsapp: "https://wa.me/6591216107",
@@ -52,6 +54,17 @@ const UI = {
       ["Revision-aware support", "Board revision, sensor changes, firmware targets, and compatibility notes are documented before flashing."],
       ["Direct technical support", "Email, WhatsApp, GitHub issues, Taobao, and distributor/OEM routes are available from the product path."]
     ],
+    companyTitle: "R&D workspace",
+    companyLead: "FlyingRC hardware is developed, checked, and documented from a real electronics workspace for UAV builders.",
+    locationLabel: "Location",
+    locationRegion: "Shanghai, Minhang District, Pujiang Town",
+    locationDetail: "Zhuyuan Road No.559, Bixiang Imaging Technology Industrial Park, Building T9, Room 1002A",
+    viewOnGoogleMaps: "View on Google Maps",
+    companyGalleryLabel: "FlyingRC workspace and office building",
+    workspaceAlt: "FlyingRC electronics workspace",
+    workspaceCaption: "Electronics bench and documentation workspace",
+    buildingAlt: "FlyingRC office building",
+    buildingCaption: "Office building",
     productIndexTitle: "FlyingRC products",
     productIndexLead: "Static index of FlyingRC hardware pages generated from the product catalog.",
     downloadsTitle: "FlyingRC downloads",
@@ -100,6 +113,17 @@ const UI = {
       ["重视硬件版本", "硬件版本、传感器变化、固件目标和兼容说明会在刷写前明确提示。"],
       ["直接技术支持", "产品路径中保留邮箱、WhatsApp、GitHub、淘宝和代理/OEM 咨询入口。"]
     ],
+    companyTitle: "研发工作空间",
+    companyLead: "FlyingRC 硬件在真实电子研发工位中完成开发、检查和资料整理，面向无人机装机用户持续完善。",
+    locationLabel: "所在地区",
+    locationRegion: "上海上海市闵行区浦江镇",
+    locationDetail: "竹园路559号，必翔影像科技产业园T9号楼1002A",
+    viewOnGoogleMaps: "在 Google 地图中查看",
+    companyGalleryLabel: "FlyingRC 研发工位和办公楼",
+    workspaceAlt: "FlyingRC 电子研发工位",
+    workspaceCaption: "电子研发工位和资料整理工作区",
+    buildingAlt: "FlyingRC 办公楼",
+    buildingCaption: "办公楼",
     productIndexTitle: "FlyingRC 产品资料",
     productIndexLead: "基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。",
     downloadsTitle: "FlyingRC 下载",
@@ -235,7 +259,7 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
     <a class="skip-link" href="#main">${html(labels.skip)}</a>
     <header class="site-header">
       <a class="brand" href="/${lang}/" aria-label="FlyingRC Official home">
-        <img src="/assets/brand/flyingrc-logo.jpg" alt="" class="brand-mark">
+        <img src="${BRAND_LOGO}" alt="" class="brand-mark">
         <span>FlyingRC Official</span>
       </a>
       <nav aria-label="Primary navigation">${nav}</nav>
@@ -362,7 +386,7 @@ function productPageShell({ lang, title, description, canonicalPath, alternates,
     <a class="skip-link" href="#main">${html(labels.skip)}</a>
     <header class="site-header">
       <a class="brand" href="/${lang}/" aria-label="FlyingRC Official home">
-        <img src="/assets/brand/flyingrc-logo.jpg" alt="" class="brand-mark">
+        <img src="${BRAND_LOGO}" alt="" class="brand-mark">
         <span>FlyingRC Official</span>
       </a>
       <nav aria-label="Primary navigation">${nav}</nav>
@@ -487,7 +511,7 @@ function homePage(lang) {
   const body = `
     <section class="hero">
       <div class="hero-mark" aria-label="FlyingRC Official">
-        <img src="/assets/brand/flyingrc-logo.jpg" alt="">
+        <img src="${BRAND_LOGO}" alt="">
       </div>
       <h1>${html(labels.heroTitle)}</h1>
       <p>${html(labels.heroLead)}</p>
@@ -507,6 +531,29 @@ function homePage(lang) {
         <h2>${html(labels.whyTitle)}</h2>
       </div>
       <div class="why-grid">${labels.whyItems.map(([title, text]) => `<article><h3>${html(title)}</h3><p>${html(text)}</p></article>`).join("")}</div>
+    </section>
+    <section class="home-strip company-band" aria-labelledby="company-title">
+      <div class="company-copy">
+        <p class="status">FlyingRC Official</p>
+        <h2 id="company-title">${html(labels.companyTitle)}</h2>
+        <p>${html(labels.companyLead)}</p>
+        <a class="company-address address-map-link" href="${COMPANY_MAP_URL}" target="_blank" rel="noopener noreferrer">
+          <span>${html(labels.locationLabel)}</span>
+          <strong>${html(labels.locationRegion)}</strong>
+          <small>${html(labels.locationDetail)}</small>
+          <b class="map-cta">${html(labels.viewOnGoogleMaps)}</b>
+        </a>
+      </div>
+      <div class="company-gallery" aria-label="${attr(labels.companyGalleryLabel)}">
+        <figure>
+          <img src="/assets/company/flyingrc-workspace.jpg" alt="${attr(labels.workspaceAlt)}" loading="lazy" decoding="async">
+          <figcaption>${html(labels.workspaceCaption)}</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/company/flyingrc-building.jpg" alt="${attr(labels.buildingAlt)}" loading="lazy" decoding="async">
+          <figcaption>${html(labels.buildingCaption)}</figcaption>
+        </figure>
+      </div>
     </section>
   `;
   return pageShell({
