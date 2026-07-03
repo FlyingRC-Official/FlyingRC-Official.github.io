@@ -1373,6 +1373,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/betaflight_2025.12.5_STM32F405_FLYINGRCF4WINGMINI.hex", "Betaflight 2025.12.5 firmware", "Betaflight 2025.12.5 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/betaflight_4.5.5_STM32F405_FLYINGRCF4WINGMINI.hex", "Betaflight 4.5.5 firmware", "Betaflight 4.5.5 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/betaflight_2025.12.4_STM32F405_FLYINGRCF4WINGMINI.hex", "Betaflight 2025.12.4 firmware", "Betaflight 2025.12.4 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
@@ -1386,6 +1387,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
     download("assets/downloads/firmware/f4wse-pro/betaflight_2025.12.5_STM32F405_FLYINGRCF4WSEPRO.hex", "Betaflight 2025.12.5 firmware", "Betaflight 2025.12.5 固件"),
+    download("assets/downloads/firmware/f4wse-pro/betaflight_4.5.5_STM32F405_FLYINGRCF4WSEPRO.hex", "Betaflight 4.5.5 firmware", "Betaflight 4.5.5 固件"),
     download("assets/downloads/firmware/f4wse-pro/betaflight_2025.12.4_STM32F405_FLYINGRCF4WSEPRO.hex", "Betaflight 2025.12.4 firmware", "Betaflight 2025.12.4 固件"),
     download("assets/downloads/firmware/f4wse-pro/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
@@ -1403,6 +1405,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7DPRO", "INAV H7D Pro target branch", "INAV H7D Pro 目标分支"),
     download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.5_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.5 DUAL-ICM firmware", "Betaflight 2025.12.5 DUAL-ICM 固件"),
+    download("assets/downloads/firmware/h7d-pro/betaflight_4.5.5_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 4.5.5 DUAL-ICM firmware", "Betaflight 4.5.5 DUAL-ICM 固件"),
     download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.4_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.4 DUAL-ICM firmware", "Betaflight 2025.12.4 DUAL-ICM 固件"),
     download("assets/downloads/firmware/h7d-pro/betaflight_2025.12.2_STM32H743_FLRCH7DPRO_DUAL-ICM.hex", "Betaflight 2025.12.2 DUAL-ICM firmware", "Betaflight 2025.12.2 DUAL-ICM 固件"),
     download("assets/downloads/firmware/h7d-pro/AP463-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.6.3 dual ICM42688 firmware with bootloader", "ArduCopter 4.6.3 双 ICM42688 带 Bootloader 固件"),
@@ -1466,6 +1469,20 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "74455393edd9609c3e422dcb60de122b9dddfeaeba5ee26ff02a308ae483c097",
     compatibilityEn: "Betaflight 2025.12.5 firmware for the FLYINGRCF4WINGMINI target.",
     compatibilityZh: "适用于 FLYINGRCF4WINGMINI 目标的 Betaflight 2025.12.5 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/betaflight_4.5.5_STM32F405_FLYINGRCF4WINGMINI.hex": firmwareMeta({
+    family: "betaflight",
+    version: "4.5.5",
+    channel: "stable",
+    role: "archive",
+    archiveNoteEn: "Retained Betaflight 4.5.5 stable maintenance-line build for users who need the 4.5.x series; use Betaflight 2025.12.5 for the current recommended stable build.",
+    archiveNoteZh: "保留的 Betaflight 4.5.5 稳定维护线构建，供需要 4.5.x 系列的用户使用；当前推荐稳定版请优先使用 Betaflight 2025.12.5。",
+    target: "STM32F405 / FLYINGRCF4WINGMINI",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "28372661b9200f2b14ad75ae4c8085745929c5d773582da281ff97527c89e4e4",
+    compatibilityEn: "Betaflight 4.5.5 firmware for the FLYINGRCF4WINGMINI target.",
+    compatibilityZh: "适用于 FLYINGRCF4WINGMINI 目标的 Betaflight 4.5.5 固件。"
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/betaflight_2025.12.4_STM32F405_FLYINGRCF4WINGMINI.hex": firmwareMeta({
     family: "betaflight",
@@ -1579,6 +1596,20 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "Betaflight 2025.12.5 firmware for the FLYINGRCF4WSEPRO target.",
     compatibilityZh: "适用于 FLYINGRCF4WSEPRO 目标的 Betaflight 2025.12.5 固件。"
   }),
+  "assets/downloads/firmware/f4wse-pro/betaflight_4.5.5_STM32F405_FLYINGRCF4WSEPRO.hex": firmwareMeta({
+    family: "betaflight",
+    version: "4.5.5",
+    channel: "stable",
+    role: "archive",
+    archiveNoteEn: "Retained Betaflight 4.5.5 stable maintenance-line build for users who need the 4.5.x series; use Betaflight 2025.12.5 for the current recommended stable build.",
+    archiveNoteZh: "保留的 Betaflight 4.5.5 稳定维护线构建，供需要 4.5.x 系列的用户使用；当前推荐稳定版请优先使用 Betaflight 2025.12.5。",
+    target: "STM32F405 / FLYINGRCF4WSEPRO",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "abbea0690ddb64050b6b1f43efb7984dc06a795c1c8ae656ede789b70757a2c6",
+    compatibilityEn: "Betaflight 4.5.5 firmware for the FLYINGRCF4WSEPRO target.",
+    compatibilityZh: "适用于 FLYINGRCF4WSEPRO 目标的 Betaflight 4.5.5 固件。"
+  }),
   "assets/downloads/firmware/f4wse-pro/betaflight_2025.12.4_STM32F405_FLYINGRCF4WSEPRO.hex": firmwareMeta({
     family: "betaflight",
     version: "2025.12.4",
@@ -1641,6 +1672,22 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "eab0f75717e8d97b739c7070dba9f8d369c2c28ce3ad9e88c656443a622e5135",
     compatibilityEn: "Betaflight 2025.12.5 DUAL-ICM firmware for the FLRCH7DPRO target.",
     compatibilityZh: "适用于 FLRCH7DPRO 目标的 Betaflight 2025.12.5 DUAL-ICM 固件。"
+  }),
+  "assets/downloads/firmware/h7d-pro/betaflight_4.5.5_STM32H743_FLRCH7DPRO_DUAL-ICM.hex": firmwareMeta({
+    family: "betaflight",
+    version: "4.5.5",
+    channel: "stable",
+    role: "archive",
+    variantEn: "DUAL-ICM",
+    variantZh: "DUAL-ICM",
+    archiveNoteEn: "Retained Betaflight 4.5.5 stable maintenance-line build for users who need the 4.5.x series; use Betaflight 2025.12.5 for the current recommended stable build.",
+    archiveNoteZh: "保留的 Betaflight 4.5.5 稳定维护线构建，供需要 4.5.x 系列的用户使用；当前推荐稳定版请优先使用 Betaflight 2025.12.5。",
+    target: "STM32H743 / FLRCH7DPRO_DUAL-ICM",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "46af66614e6aafade10b25f78e9af5c2afeeb83b9f3cc6fdcd179a349ea1f710",
+    compatibilityEn: "Betaflight 4.5.5 DUAL-ICM firmware for the FLRCH7DPRO target.",
+    compatibilityZh: "适用于 FLRCH7DPRO 目标的 Betaflight 4.5.5 DUAL-ICM 固件。"
   }),
   "assets/downloads/firmware/h7d-pro/betaflight_2025.12.4_STM32H743_FLRCH7DPRO_DUAL-ICM.hex": firmwareMeta({
     family: "betaflight",
