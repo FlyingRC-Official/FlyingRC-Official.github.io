@@ -2155,6 +2155,10 @@ h2 {
   align-content: start;
 }
 
+.download-file-group-firmware {
+  grid-column: 1 / -1;
+}
+
 .download-file-group h3 {
   margin: 0;
   color: var(--green-dark);
@@ -2186,6 +2190,111 @@ h2 {
 
 .download-link-with-meta {
   flex: 1 1 270px;
+}
+
+.download-release-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.download-release-chips b {
+  border: 1px solid rgba(20, 105, 65, 0.18);
+  border-radius: 999px;
+  padding: 3px 7px;
+  background: #f2f8f4;
+  color: #2d6848;
+  font-size: 10px;
+  font-weight: 820;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.download-firmware-families {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.detail-section > .download-firmware-families {
+  margin-top: 18px;
+}
+
+.download-firmware-family {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(42, 69, 88, 0.12);
+  border-radius: 8px;
+  padding: 12px;
+  background: #f8fbf8;
+}
+
+.download-firmware-family-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.download-firmware-family-head h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 860;
+}
+
+.download-firmware-family-head span,
+.download-firmware-archive summary {
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 840;
+  text-transform: uppercase;
+}
+
+.download-firmware-family-head span {
+  border: 1px solid rgba(20, 105, 65, 0.18);
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #ffffff;
+}
+
+.download-firmware-archive {
+  border-top: 1px solid rgba(42, 69, 88, 0.12);
+  padding-top: 10px;
+}
+
+.download-firmware-archive summary {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 30px;
+  padding: 4px 0;
+  cursor: pointer;
+  list-style: none;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.download-firmware-archive summary::-webkit-details-marker {
+  display: none;
+}
+
+.download-firmware-archive summary::before {
+  content: "+";
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1.2em;
+  font-weight: 900;
+}
+
+.download-firmware-archive[open] summary::before {
+  content: "-";
+}
+
+.download-archive-list {
+  margin-top: 10px;
 }
 
 .download-file-meta {

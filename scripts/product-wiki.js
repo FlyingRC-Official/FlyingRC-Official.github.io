@@ -3,7 +3,7 @@
   const langKey = "flyingrc-wiki-lang";
   const initialCategories = requestedCategories();
   const state = {
-    lang: localStorage.getItem(langKey) || "en",
+    lang: requestedLanguage() || localStorage.getItem(langKey) || "en",
     category: initialCategories.length === 1 ? initialCategories[0] : "all",
     categories: initialCategories,
     labels: requestedLabelIds(),
@@ -75,6 +75,17 @@
       downloadFirmwareTarget: "Firmware target",
       downloadChecksum: "SHA256",
       downloadCompatibility: "Compatibility note",
+      downloadLatestStable: "Latest stable",
+      downloadArchive: "Past / unstable releases",
+      downloadArchived: "Archived",
+      downloadStable: "Stable",
+      downloadUnstable: "Unstable",
+      downloadReleaseNote: "Release note",
+      downloadFamilyArduPilot: "ArduPilot",
+      downloadFamilyBetaflight: "Betaflight",
+      downloadFamilyInav: "INAV / INAVFlight",
+      downloadFamilyPx4: "PX4",
+      downloadFamilyOther: "Other firmware",
       related: "Related Products",
       back: "Back to products",
       contact: "Contact",
@@ -230,6 +241,17 @@
       downloadFirmwareTarget: "固件目标",
       downloadChecksum: "SHA256",
       downloadCompatibility: "兼容说明",
+      downloadLatestStable: "最新稳定版",
+      downloadArchive: "历史 / 非稳定版本",
+      downloadArchived: "历史版本",
+      downloadStable: "稳定版",
+      downloadUnstable: "非稳定版",
+      downloadReleaseNote: "版本说明",
+      downloadFamilyArduPilot: "ArduPilot",
+      downloadFamilyBetaflight: "Betaflight",
+      downloadFamilyInav: "INAV / INAVFlight",
+      downloadFamilyPx4: "PX4",
+      downloadFamilyOther: "其他固件",
       related: "相关产品",
       back: "返回产品列表",
       contact: "联系",
@@ -380,6 +402,11 @@
   function text(value) {
     if (!value) return "";
     return typeof value === "string" ? value : value[state.lang] || value.en || value.zh || "";
+  }
+
+  function requestedLanguage() {
+    const lang = new URLSearchParams(location.search).get("lang");
+    return lang === "zh" || lang === "en" ? lang : "";
   }
 
   function setLanguage(lang) {
@@ -1228,7 +1255,7 @@
 
   function downloadListSection(labelKey, items) {
     if (!items.length) return "";
-    return `<section class="detail-section"><h2>${labels[state.lang][labelKey]}</h2><div class="download-list">${items.map((item) => downloadLink(item)).join("")}</div></section>`;
+    return `<section class="detail-section"><h2>${labels[state.lang][labelKey]}</h2>${downloadSectionContent(items)}</section>`;
   }
 
   function downloadCorpus(product) {
@@ -1242,6 +1269,14 @@
       localizedText(item.firmwareTarget, "zh"),
       localizedText(item.compatibilityNote, "en"),
       localizedText(item.compatibilityNote, "zh"),
+      localizedText(item.variant, "en"),
+      localizedText(item.variant, "zh"),
+      localizedText(item.archiveNote, "en"),
+      localizedText(item.archiveNote, "zh"),
+      item.firmwareFamily,
+      item.releaseVersion,
+      item.releaseChannel,
+      item.releaseRole,
       item.checksum
     ]);
     return [
@@ -1287,9 +1322,11 @@
 
   function downloadLink(item) {
     const metadata = downloadMetadataRows(item);
+    const releaseChips = downloadReleaseChips(item);
     return `
       <a class="${metadata.length ? "download-link-with-meta" : ""}" href="${escapeHtml(item.href)}" target="_blank" rel="noopener">
         <span>${escapeHtml(text(item.label))}</span>
+        ${releaseChips}
         ${metadata.length ? `<dl class="download-file-meta">${metadata.map(([label, value]) => `
           <div>
             <dt>${escapeHtml(label)}</dt>
@@ -1305,17 +1342,88 @@
       [labels[state.lang].downloadBoardRevision, localizedText(item.boardRevision, state.lang)],
       [labels[state.lang].downloadFirmwareTarget, localizedText(item.firmwareTarget, state.lang)],
       [labels[state.lang].downloadChecksum, item.checksum],
-      [labels[state.lang].downloadCompatibility, localizedText(item.compatibilityNote, state.lang)]
+      [labels[state.lang].downloadCompatibility, localizedText(item.compatibilityNote, state.lang)],
+      [labels[state.lang].downloadReleaseNote, localizedText(item.archiveNote, state.lang)]
     ].filter(([, value]) => value);
+  }
+
+  function downloadReleaseChips(item) {
+    if (!item.releaseRole && !item.releaseVersion && !item.releaseChannel && !localizedText(item.variant, state.lang)) return "";
+    const chips = [
+      item.releaseRole === "latest-stable" ? labels[state.lang].downloadLatestStable : labels[state.lang].downloadArchived,
+      item.releaseVersion,
+      localizedText(item.variant, state.lang),
+      item.releaseChannel === "unstable" ? labels[state.lang].downloadUnstable : labels[state.lang].downloadStable
+    ].filter(Boolean);
+    return `<span class="download-release-chips">${chips.map((chip) => `<b>${escapeHtml(chip)}</b>`).join("")}</span>`;
+  }
+
+  function firmwareFamilyLabel(family) {
+    const key = {
+      ardupilot: "downloadFamilyArduPilot",
+      betaflight: "downloadFamilyBetaflight",
+      inav: "downloadFamilyInav",
+      px4: "downloadFamilyPx4",
+      other: "downloadFamilyOther"
+    }[family || "other"] || "downloadFamilyOther";
+    return labels[state.lang][key];
+  }
+
+  function firmwareFamilyGroups(items) {
+    const order = ["ardupilot", "betaflight", "inav", "px4", "other"];
+    const groups = new Map();
+    items.forEach((item) => {
+      const family = item.firmwareFamily || "other";
+      if (!groups.has(family)) groups.set(family, []);
+      groups.get(family).push(item);
+    });
+    return [...groups.entries()]
+      .sort(([a], [b]) => {
+        const rankA = order.includes(a) ? order.indexOf(a) : order.indexOf("other");
+        const rankB = order.includes(b) ? order.indexOf(b) : order.indexOf("other");
+        return rankA - rankB;
+      })
+      .map(([family, familyItems]) => ({ family, items: familyItems }));
+  }
+
+  function firmwareFamilyPanels(items) {
+    return `<div class="download-firmware-families">${firmwareFamilyGroups(items).map(firmwareFamilyPanel).join("")}</div>`;
+  }
+
+  function firmwareFamilyPanel(group) {
+    const latestItems = group.items.filter((item) => item.releaseRole === "latest-stable");
+    const archiveItems = group.items.filter((item) => item.releaseRole !== "latest-stable");
+    return `
+      <section class="download-firmware-family">
+        <div class="download-firmware-family-head">
+          <h4>${escapeHtml(firmwareFamilyLabel(group.family))}</h4>
+          ${latestItems.length ? `<span>${escapeHtml(labels[state.lang].downloadLatestStable)}</span>` : ""}
+        </div>
+        ${latestItems.length ? `<div class="download-file-list download-latest-list">${latestItems.map((item) => downloadLink(item)).join("")}</div>` : ""}
+        ${archiveItems.length ? `
+          <details class="download-firmware-archive">
+            <summary>${escapeHtml(labels[state.lang].downloadArchive)} (${archiveItems.length})</summary>
+            <div class="download-file-list download-archive-list">${archiveItems.map((item) => downloadLink(item)).join("")}</div>
+          </details>
+        ` : ""}
+      </section>
+    `;
+  }
+
+  function downloadSectionContent(items) {
+    const firmwareItems = items.filter((item) => downloadKind(item) === "firmware");
+    const otherItems = items.filter((item) => downloadKind(item) !== "firmware");
+    return `
+      ${firmwareItems.length ? firmwareFamilyPanels(firmwareItems) : ""}
+      ${otherItems.length ? `<div class="download-list">${otherItems.map((item) => downloadLink(item)).join("")}</div>` : ""}
+    `;
   }
 
   function downloadGroupSection(group) {
     return `
       <section class="download-file-group download-file-group-${escapeHtml(group.id)}">
         <h3>${escapeHtml(labels[state.lang][group.labelKey])}</h3>
-        <div class="download-file-list">
-          ${group.items.map((item) => downloadLink(item)).join("")}
-        </div>
+        ${group.id === "firmware" ? firmwareFamilyPanels(group.items) : `<div class="download-file-list">${group.items.map((item) => downloadLink(item)).join("")}</div>`}
       </section>
     `;
   }

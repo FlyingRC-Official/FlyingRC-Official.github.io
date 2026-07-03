@@ -6,7 +6,7 @@ const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://flyingrc-official.github.io";
-const STATIC_VERSION = "20260630-seo-static-v1";
+const STATIC_VERSION = "20260703-firmware-archive-v1";
 const SOCIAL_IMAGE = `${SITE_URL}/assets/brand/flyingrc-social-card.jpg`;
 const BRAND_LOGO = "/assets/brand/flyingrc-logo-transparent.png";
 const COMPANY_MAP_URL = "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%97%B5%E8%A1%8C%E5%8C%BA%E6%B5%A6%E6%B1%9F%E9%95%87%E7%AB%B9%E5%9B%AD%E8%B7%AF559%E5%8F%B7%20%E5%BF%85%E7%BF%94%E5%BD%B1%E5%83%8F%E7%A7%91%E6%8A%80%E4%BA%A7%E4%B8%9A%E5%9B%AD%20T9%E5%8F%B7%E6%A5%BC";
@@ -45,6 +45,7 @@ const UI = {
     choose: "Choose products",
     files: "Download files",
     support: "Technical support",
+    hardware: "Hardware",
     heroTitle: "Open-firmware UAV hardware for ArduPilot, INAV, Betaflight and PX4 builders",
     heroLead: "FlyingRC flight controllers, ESCs, BEC modules, GPS, sensors, wiring diagrams, manuals, and tested firmware notes for UAV builders.",
     whyTitle: "Why FlyingRC",
@@ -65,6 +66,13 @@ const UI = {
     workspaceCaption: "Electronics bench and documentation workspace",
     buildingAlt: "FlyingRC office building",
     buildingCaption: "Office building",
+    productWikiTitle: "Product Wiki",
+    productWikiLead: "Bilingual product notes, wiring diagrams, dimensions, and setup notes for FlyingRC hardware.",
+    openProductWiki: "Open Product Wiki",
+    hardwareLead: "Board support and documentation for autopilot, sensor, ESC, CAN, GPS, receiver, and power modules.",
+    flightControllers: "Flight controllers",
+    escBecModules: "ESCs and BEC modules",
+    sensorModules: "GPS, CAN, receivers, and sensors",
     productIndexTitle: "FlyingRC products",
     productIndexLead: "Static index of FlyingRC hardware pages generated from the product catalog.",
     downloadsTitle: "FlyingRC downloads",
@@ -85,6 +93,17 @@ const UI = {
     firmwareTarget: "Firmware target",
     checksum: "SHA256",
     compatibility: "Compatibility note",
+    latestStable: "Latest stable",
+    archive: "Past / unstable releases",
+    archived: "Archived",
+    stable: "Stable",
+    unstable: "Unstable",
+    releaseNote: "Release note",
+    familyArduPilot: "ArduPilot",
+    familyBetaflight: "Betaflight",
+    familyInav: "INAV / INAVFlight",
+    familyPx4: "PX4",
+    familyOther: "Other firmware",
     manual: "Manual",
     firmware: "Firmware",
     checksums: "Checksums",
@@ -104,6 +123,7 @@ const UI = {
     choose: "产品选型",
     files: "下载资料",
     support: "技术支持",
+    hardware: "硬件",
     heroTitle: "面向 ArduPilot / INAV / Betaflight / PX4 装机用户的无人机硬件与固件资料库",
     heroLead: "FlyingRC 提供飞控、电调、BEC、GPS、传感器、接线图、说明书和经过整理的开源固件资料。",
     whyTitle: "为什么选择 FlyingRC",
@@ -124,6 +144,13 @@ const UI = {
     workspaceCaption: "电子研发工位和资料整理工作区",
     buildingAlt: "FlyingRC 办公楼",
     buildingCaption: "办公楼",
+    productWikiTitle: "产品资料库",
+    productWikiLead: "FlyingRC 硬件的双语产品说明、接线图、尺寸图和设置注意事项。",
+    openProductWiki: "打开产品资料库",
+    hardwareLead: "自动驾驶飞控、传感器、电调、CAN、GPS、接收机和电源模块的板卡支持与文档。",
+    flightControllers: "飞控",
+    escBecModules: "电调和 BEC 模块",
+    sensorModules: "GPS、CAN、接收机和传感器",
     productIndexTitle: "FlyingRC 产品资料",
     productIndexLead: "基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。",
     downloadsTitle: "FlyingRC 下载",
@@ -144,6 +171,17 @@ const UI = {
     firmwareTarget: "固件目标",
     checksum: "SHA256",
     compatibility: "兼容说明",
+    latestStable: "最新稳定版",
+    archive: "历史 / 非稳定版本",
+    archived: "历史版本",
+    stable: "稳定版",
+    unstable: "非稳定版",
+    releaseNote: "版本说明",
+    familyArduPilot: "ArduPilot",
+    familyBetaflight: "Betaflight",
+    familyInav: "INAV / INAVFlight",
+    familyPx4: "PX4",
+    familyOther: "其他固件",
     manual: "说明书",
     firmware: "固件",
     checksums: "校验值",
@@ -432,7 +470,7 @@ function practicalSections(product, lang) {
 function fileSection(title, items, lang) {
   return `<section class="detail-section">
     <h2>${html(title)}</h2>
-    <div class="download-list">${items.map((item) => downloadLink(item, lang)).join("")}</div>
+    ${downloadSectionContent(items, lang)}
   </section>`;
 }
 
@@ -473,13 +511,90 @@ function downloadLink(item, lang) {
     [labels.boardRevision, localized(item.boardRevision, lang)],
     [labels.firmwareTarget, localized(item.firmwareTarget, lang)],
     [labels.checksum, item.checksum],
-    [labels.compatibility, localized(item.compatibilityNote, lang)]
+    [labels.compatibility, localized(item.compatibilityNote, lang)],
+    [labels.releaseNote, localized(item.archiveNote, lang)]
   ].filter(([, value]) => value);
   const href = /^https?:\/\//i.test(item.href) ? item.href : assetUrl(item.href);
   return `<a class="${meta.length ? "download-link-with-meta" : ""}" href="${attr(href)}" target="_blank" rel="noopener">
     <span>${html(localized(item.label, lang))}</span>
+    ${downloadReleaseChips(item, lang)}
     ${meta.length ? `<dl class="download-file-meta">${meta.map(([label, value]) => `<div><dt>${html(label)}</dt><dd>${html(value)}</dd></div>`).join("")}</dl>` : ""}
   </a>`;
+}
+
+function downloadReleaseChips(item, lang) {
+  const labels = UI[lang];
+  if (!item.releaseRole && !item.releaseVersion && !item.releaseChannel && !localized(item.variant, lang)) return "";
+  const chips = [
+    item.releaseRole === "latest-stable" ? labels.latestStable : labels.archived,
+    item.releaseVersion,
+    localized(item.variant, lang),
+    item.releaseChannel === "unstable" ? labels.unstable : labels.stable
+  ].filter(Boolean);
+  return `<span class="download-release-chips">${chips.map((chip) => `<b>${html(chip)}</b>`).join("")}</span>`;
+}
+
+function firmwareFamilyLabel(family, lang) {
+  const labels = UI[lang];
+  const key = {
+    ardupilot: "familyArduPilot",
+    betaflight: "familyBetaflight",
+    inav: "familyInav",
+    px4: "familyPx4",
+    other: "familyOther"
+  }[family || "other"] || "familyOther";
+  return labels[key];
+}
+
+function firmwareFamilyGroups(items) {
+  const order = ["ardupilot", "betaflight", "inav", "px4", "other"];
+  const groups = new Map();
+  items.forEach((item) => {
+    const family = item.firmwareFamily || "other";
+    if (!groups.has(family)) groups.set(family, []);
+    groups.get(family).push(item);
+  });
+  return [...groups.entries()]
+    .sort(([a], [b]) => {
+      const rankA = order.includes(a) ? order.indexOf(a) : order.indexOf("other");
+      const rankB = order.includes(b) ? order.indexOf(b) : order.indexOf("other");
+      return rankA - rankB;
+    })
+    .map(([family, familyItems]) => ({ family, items: familyItems }));
+}
+
+function firmwareFamilyPanels(items, lang) {
+  return `<div class="download-firmware-families">${firmwareFamilyGroups(items).map((group) => firmwareFamilyPanel(group, lang)).join("")}</div>`;
+}
+
+function firmwareFamilyPanel(group, lang) {
+  const labels = UI[lang];
+  const latestItems = group.items.filter((item) => item.releaseRole === "latest-stable");
+  const archiveItems = group.items.filter((item) => item.releaseRole !== "latest-stable");
+  return `
+      <section class="download-firmware-family">
+        <div class="download-firmware-family-head">
+          <h4>${html(firmwareFamilyLabel(group.family, lang))}</h4>
+          ${latestItems.length ? `<span>${html(labels.latestStable)}</span>` : ""}
+        </div>
+        ${latestItems.length ? `<div class="download-file-list download-latest-list">${latestItems.map((item) => downloadLink(item, lang)).join("")}</div>` : ""}
+        ${archiveItems.length ? `
+          <details class="download-firmware-archive">
+            <summary>${html(labels.archive)} (${archiveItems.length})</summary>
+            <div class="download-file-list download-archive-list">${archiveItems.map((item) => downloadLink(item, lang)).join("")}</div>
+          </details>
+        ` : ""}
+      </section>
+    `;
+}
+
+function downloadSectionContent(items, lang) {
+  const firmwareItems = items.filter((item) => downloadKind(item) === "firmware");
+  const otherItems = items.filter((item) => downloadKind(item) !== "firmware");
+  return `
+    ${firmwareItems.length ? firmwareFamilyPanels(firmwareItems, lang) : ""}
+    ${otherItems.length ? `<div class="download-list">${otherItems.map((item) => downloadLink(item, lang)).join("")}</div>` : ""}
+  `;
 }
 
 function productEmailHref(product) {
@@ -532,6 +647,13 @@ function homePage(lang) {
       </div>
       <div class="why-grid">${labels.whyItems.map(([title, text]) => `<article><h3>${html(title)}</h3><p>${html(text)}</p></article>`).join("")}</div>
     </section>
+    <section class="home-strip product-wiki-band">
+      <div>
+        <h2>${html(labels.productWikiTitle)}</h2>
+        <p>${html(labels.productWikiLead)}</p>
+      </div>
+      <a class="plain-link" href="/wiki.html?lang=${lang}">${html(labels.openProductWiki)}</a>
+    </section>
     <section class="home-strip company-band" aria-labelledby="company-title">
       <div class="company-copy">
         <p class="status">FlyingRC Official</p>
@@ -554,6 +676,17 @@ function homePage(lang) {
           <figcaption>${html(labels.buildingCaption)}</figcaption>
         </figure>
       </div>
+    </section>
+    <section class="home-strip hardware-band" id="hardware">
+      <div>
+        <h2>${html(labels.hardware)}</h2>
+        <p>${html(labels.hardwareLead)}</p>
+      </div>
+      <ul class="capability-list">
+        <li><a href="/wiki.html?lang=${lang}&amp;categories=flight-controllers">${html(labels.flightControllers)}</a></li>
+        <li><a href="/wiki.html?lang=${lang}&amp;categories=esc,bec">${html(labels.escBecModules)}</a></li>
+        <li><a href="/wiki.html?lang=${lang}&amp;categories=sensors,modules">${html(labels.sensorModules)}</a></li>
+      </ul>
     </section>
   `;
   return pageShell({
@@ -661,10 +794,18 @@ function staticDownloadProduct(product, lang) {
     </summary>
     <div class="download-product-body">
       ${groups.some((group) => group.id === "firmware") ? `<p class="download-safety-note">${html(lang === "zh" ? "刷写固件前，请核对硬件版本、目标名称和产品页说明。" : "Before flashing firmware, verify the board revision, target name, and product-page notes.")}</p>` : ""}
-      <div class="download-file-groups">${groups.map((group) => `<section class="download-file-group"><h3>${html(labels[group.id])}</h3><div class="download-file-list">${group.items.map((item) => downloadLink(item, lang)).join("")}</div></section>`).join("")}</div>
+      <div class="download-file-groups">${groups.map((group) => downloadGroupSection(group, lang)).join("")}</div>
       <a class="text-link download-product-page-link" href="${attr(staticProductHref(product, lang))}">${html(labels.products)}</a>
     </div>
   </details>`;
+}
+
+function downloadGroupSection(group, lang) {
+  const labels = UI[lang];
+  return `<section class="download-file-group download-file-group-${html(group.id)}">
+    <h3>${html(labels[group.id])}</h3>
+    ${group.id === "firmware" ? firmwareFamilyPanels(group.items, lang) : `<div class="download-file-list">${group.items.map((item) => downloadLink(item, lang)).join("")}</div>`}
+  </section>`;
 }
 
 function groupDownloads(downloads) {
