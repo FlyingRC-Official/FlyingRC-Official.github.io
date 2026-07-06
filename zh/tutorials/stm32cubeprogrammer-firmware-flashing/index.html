@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="使用 ST 官方 STM32CubeProgrammer，通过 STM32 USB Bootloader / DFU 接口写入 FlyingRC 的 .hex 固件文件。">
+    <link rel="canonical" href="https://flyingrc-official.github.io/zh/tutorials/stm32cubeprogrammer-firmware-flashing/">
+    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/tutorials/stm32cubeprogrammer-firmware-flashing/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/tutorials/stm32cubeprogrammer-firmware-flashing/">
+    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/tutorials/stm32cubeprogrammer-firmware-flashing/">
+    <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
+    <meta property="og:title" content="使用 STM32CubeProgrammer 刷写固件 | FlyingRC Official">
+    <meta property="og:description" content="使用 ST 官方 STM32CubeProgrammer，通过 STM32 USB Bootloader / DFU 接口写入 FlyingRC 的 .hex 固件文件。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flyingrc-official.github.io/zh/tutorials/stm32cubeprogrammer-firmware-flashing/">
+    <meta property="og:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="使用 STM32CubeProgrammer 刷写固件 | FlyingRC Official">
+    <meta name="twitter:description" content="使用 ST 官方 STM32CubeProgrammer，通过 STM32 USB Bootloader / DFU 接口写入 FlyingRC 的 .hex 固件文件。">
+    <meta name="twitter:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
+    <title>使用 STM32CubeProgrammer 刷写固件 | FlyingRC Official</title>
+    <link rel="stylesheet" href="/styles.css?v=20260706-tutorials-v1">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="/zh/" aria-label="FlyingRC Official home">
+        <img src="/assets/brand/flyingrc-logo-transparent.png" alt="" class="brand-mark">
+        <span>FlyingRC Official</span>
+      </a>
+      <nav aria-label="Primary navigation"><a href="/zh/">首页</a><a href="/zh/products/">产品资料</a><a href="/zh/downloads/">下载</a><a href="/zh/tutorials/" aria-current="page">教程</a><a href="/projects.html">项目</a><a href="/contact.html">联系</a></nav>
+      <div class="language-switch compact" aria-label="Language selector">
+        <a class="" href="/en/tutorials/stm32cubeprogrammer-firmware-flashing/">EN</a>
+        <a class="active" href="/zh/tutorials/stm32cubeprogrammer-firmware-flashing/">中文</a>
+      </div>
+    </header>
+    <main id="main">
+    <section class="product-detail-hero tutorial-detail-hero">
+      <div>
+        <a class="back-link" href="/zh/tutorials/">教程</a>
+        <p class="detail-kicker"><span>固件刷写</span><span>更新 2026-07-06</span></p>
+        <h1>使用 STM32CubeProgrammer 刷写固件</h1>
+        <p>使用 ST 官方 STM32CubeProgrammer，通过 STM32 USB Bootloader / DFU 接口写入 FlyingRC 的 .hex 固件文件。</p>
+      </div>
+      <div class="tutorial-hero-panel">
+        <strong>适用场景</strong>
+        <p>适用于需要从本地文件恢复、替换或升级 STM32 飞控固件的 FlyingRC 用户。</p>
+      </div>
+    </section>
+    <section class="tutorial-layout">
+      <article class="tutorial-article">
+        <section class="detail-section tutorial-check-list">
+    <h2>开始前准备</h2>
+    <ul class="detail-rich-list"><li>FlyingRC STM32 板卡，以及下载页中与该板卡匹配的固件文件。</li><li>电脑已安装 ST STM32CubeProgrammer。</li><li>一根确认可传输数据的 USB 线。仅充电线无法识别 Bootloader。</li><li>拆除螺旋桨，且除非产品说明书明确要求，否则不要接外部电源。</li></ul>
+  </section>
+        <section class="detail-section tutorial-warning-list">
+    <h2>安全检查</h2>
+    <ul class="detail-rich-list"><li>刷写前必须确认固件目标与板卡型号、硬件版本一致。目标错误可能导致板卡无法正常启动。</li><li>如果产品说明书中的 BOOT / DFU 进入方式与本通用流程不同，以对应产品说明书为准。</li><li>固件恢复测试期间不要连接电机、螺旋桨或带电负载线。</li></ul>
+  </section>
+        <section class="detail-section tutorial-steps-section">
+          <h2>操作步骤</h2>
+          <ol class="tutorial-steps"><li>
+              <h3>下载正确固件</h3>
+              <p>打开 FlyingRC 下载页，选择准确的产品型号，下载与页面中固件目标和硬件版本一致的 .hex 固件。如有校验文件，请一并保留。</p>
+            </li><li>
+              <h3>安全准备板卡</h3>
+              <p>拆除螺旋桨，断开电池电源，拔掉非必要外设。除非产品说明书另有要求，本步骤只使用 USB。</p>
+            </li><li>
+              <h3>进入 STM32 Bootloader / DFU 模式</h3>
+              <p>按照产品说明书按住 BOOT 按键或短接 BOOT 焊盘，再插入 USB。电脑应识别到 STM32 Bootloader / DFU 设备。</p>
+            </li><li>
+              <h3>在 STM32CubeProgrammer 中连接</h3>
+              <p>打开 STM32CubeProgrammer，选择 USB 连接方式，选中识别到的 DFU 设备，然后点击 Connect。如果没有 USB 设备，重新进入 Bootloader 模式，并更换 USB 线或接口重试。</p>
+            </li><li>
+              <h3>载入并写入 .hex 文件</h3>
+              <p>进入 Erasing &amp; Programming 页面，选择下载好的 .hex 文件，保持写入后校验开启，然后开始刷写。STM32CubeProgrammer 提示成功前不要拔掉 USB。</p>
+            </li><li>
+              <h3>重启并确认固件正常启动</h3>
+              <p>在 STM32CubeProgrammer 中断开连接，拔掉 USB，再不按 BOOT 正常重新插入。打开对应配置器或地面站，确认固件可以正常连接。</p>
+            </li></ol>
+        </section>
+        <section class="detail-section">
+          <h2>故障排查</h2>
+          <div class="troubleshooting-list"><article>
+              <h3>STM32CubeProgrammer 没有显示 USB 设备</h3>
+              <p>更换可传输数据的 USB 线，换 USB 接口，先按住 BOOT 再插 USB，并检查产品说明书是否有特定的 Bootloader 进入方式。</p>
+            </article><article>
+              <h3>开始写入后失败</h3>
+              <p>重新进入 DFU 模式连接，保持校验开启，避免使用 USB 集线器，并确认文件是完整的 FlyingRC .hex 固件，而不是压缩包。</p>
+            </article><article>
+              <h3>板卡仍然启动旧固件</h3>
+              <p>确认写入流程已成功完成，然后在不按 BOOT 的情况下重新上电。如果仍异常，重新选择正确的 .hex 文件再刷写一次。</p>
+            </article><article>
+              <h3>刷写后配置器无法连接</h3>
+              <p>使用与固件体系匹配的配置器，确认 USB 串口设备是否出现，并再次核对固件目标是否与板卡一致。</p>
+            </article></div>
+        </section>
+        <section class="detail-section">
+          <h2>相关链接</h2>
+          <div class="download-list tutorial-link-list"><a href="https://www.st.com/en/development-tools/stm32cubeprog.html" target="_blank" rel="noopener">从 ST 下载 STM32CubeProgrammer</a><a href="/zh/downloads/">FlyingRC 下载页</a><a href="/zh/products/">FlyingRC 产品资料</a><a href="/contact.html">联系 FlyingRC 技术支持</a></div>
+        </section>
+      </article>
+    </section>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"使用 STM32CubeProgrammer 刷写固件","description":"使用 ST 官方 STM32CubeProgrammer，通过 STM32 USB Bootloader / DFU 接口写入 FlyingRC 的 .hex 固件文件。","dateModified":"2026-07-06","image":"https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg","url":"https://flyingrc-official.github.io/zh/tutorials/stm32cubeprogrammer-firmware-flashing/","tool":[{"@type":"HowToTool","name":"STM32CubeProgrammer"},{"@type":"HowToTool","name":"USB data cable"}],"supply":[{"@type":"HowToSupply","name":"匹配的 FlyingRC .hex 固件文件"}],"step":[{"@type":"HowToStep","position":1,"name":"下载正确固件","text":"打开 FlyingRC 下载页，选择准确的产品型号，下载与页面中固件目标和硬件版本一致的 .hex 固件。如有校验文件，请一并保留。"},{"@type":"HowToStep","position":2,"name":"安全准备板卡","text":"拆除螺旋桨，断开电池电源，拔掉非必要外设。除非产品说明书另有要求，本步骤只使用 USB。"},{"@type":"HowToStep","position":3,"name":"进入 STM32 Bootloader / DFU 模式","text":"按照产品说明书按住 BOOT 按键或短接 BOOT 焊盘，再插入 USB。电脑应识别到 STM32 Bootloader / DFU 设备。"},{"@type":"HowToStep","position":4,"name":"在 STM32CubeProgrammer 中连接","text":"打开 STM32CubeProgrammer，选择 USB 连接方式，选中识别到的 DFU 设备，然后点击 Connect。如果没有 USB 设备，重新进入 Bootloader 模式，并更换 USB 线或接口重试。"},{"@type":"HowToStep","position":5,"name":"载入并写入 .hex 文件","text":"进入 Erasing & Programming 页面，选择下载好的 .hex 文件，保持写入后校验开启，然后开始刷写。STM32CubeProgrammer 提示成功前不要拔掉 USB。"},{"@type":"HowToStep","position":6,"name":"重启并确认固件正常启动","text":"在 STM32CubeProgrammer 中断开连接，拔掉 USB，再不按 BOOT 正常重新插入。打开对应配置器或地面站，确认固件可以正常连接。"}]}</script>
+  </main>
+    <footer class="site-footer">
+      <span>FlyingRC Official</span>
+      <a href="https://e7wgwo2ehnynhjklw2knt535zmlw176.world.taobao.com/shop/view_shop.htm?appUid=RAzN8HAiDiXrnbmP2phqB88hKp1Wt&amp;spm=a21n57.1.hoverItem.1" target="_blank" rel="noopener">淘宝店铺</a>
+      <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
+    </footer>
+  </body>
+</html>

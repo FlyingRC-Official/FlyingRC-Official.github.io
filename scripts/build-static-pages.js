@@ -6,7 +6,8 @@ const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://flyingrc-official.github.io";
-const STATIC_VERSION = "20260703-firmware-archive-v1";
+const STATIC_VERSION = "20260706-tutorials-v1";
+const SITE_LASTMOD = "2026-07-06";
 const SOCIAL_IMAGE = `${SITE_URL}/assets/brand/flyingrc-social-card.jpg`;
 const BRAND_LOGO = "/assets/brand/flyingrc-logo-transparent.png";
 const COMPANY_MAP_URL = "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%97%B5%E8%A1%8C%E5%8C%BA%E6%B5%A6%E6%B1%9F%E9%95%87%E7%AB%B9%E5%9B%AD%E8%B7%AF559%E5%8F%B7%20%E5%BF%85%E7%BF%94%E5%BD%B1%E5%83%8F%E7%A7%91%E6%8A%80%E4%BA%A7%E4%B8%9A%E5%9B%AD%20T9%E5%8F%B7%E6%A5%BC";
@@ -39,6 +40,7 @@ const UI = {
     home: "Home",
     products: "Products",
     downloads: "Downloads",
+    tutorials: "Tutorials",
     projects: "Projects",
     contact: "Contact",
     store: "Taobao Store",
@@ -77,6 +79,15 @@ const UI = {
     productIndexLead: "Static index of FlyingRC hardware pages generated from the product catalog.",
     downloadsTitle: "FlyingRC downloads",
     downloadsLead: "Product-first manuals, firmware, checksums, target branches, and reference files.",
+    tutorialsTitle: "FlyingRC tutorials",
+    tutorialsLead: "Step-by-step setup, flashing, and recovery workflows for FlyingRC hardware users.",
+    tutorialUpdated: "Updated",
+    tutorialRequirements: "Before you start",
+    tutorialSafety: "Safety checks",
+    tutorialSteps: "Steps",
+    tutorialTroubleshooting: "Troubleshooting",
+    tutorialLinks: "Related links",
+    tutorialOpen: "Open tutorial",
     keySpecs: "Key specs",
     bestFor: "Best used for",
     features: "Key features",
@@ -117,6 +128,7 @@ const UI = {
     home: "首页",
     products: "产品资料",
     downloads: "下载",
+    tutorials: "教程",
     projects: "项目",
     contact: "联系",
     store: "淘宝店铺",
@@ -155,6 +167,15 @@ const UI = {
     productIndexLead: "基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。",
     downloadsTitle: "FlyingRC 下载",
     downloadsLead: "按产品整理说明书、固件、校验值、目标分支和参考文件。",
+    tutorialsTitle: "FlyingRC 教程",
+    tutorialsLead: "面向 FlyingRC 硬件用户的设置、刷写和恢复流程教程。",
+    tutorialUpdated: "更新",
+    tutorialRequirements: "开始前准备",
+    tutorialSafety: "安全检查",
+    tutorialSteps: "操作步骤",
+    tutorialTroubleshooting: "故障排查",
+    tutorialLinks: "相关链接",
+    tutorialOpen: "打开教程",
     keySpecs: "关键参数",
     bestFor: "适合场景",
     features: "主要功能",
@@ -201,7 +222,16 @@ function loadCatalog() {
   return context.window.FLYINGRC_CATALOG;
 }
 
+function loadTutorials() {
+  const code = fs.readFileSync(path.join(ROOT, "data/tutorials.js"), "utf8");
+  const context = { window: {} };
+  vm.createContext(context);
+  vm.runInContext(code, context, { filename: "data/tutorials.js" });
+  return context.window.FLYINGRC_TUTORIALS;
+}
+
 const catalog = loadCatalog();
+const tutorialCatalog = loadTutorials();
 
 function writeFile(relativePath, content) {
   const fullPath = path.join(ROOT, relativePath);
@@ -238,10 +268,19 @@ function productBySlug(slug) {
   return catalog.products.find((product) => product.slug === slug);
 }
 
+function tutorialBySlug(slug) {
+  return tutorialCatalog.tutorials.find((tutorial) => tutorial.slug === slug);
+}
+
 function staticProductHref(product, lang = "en", rootAlias = false) {
   if (!CORE_SET.has(product.slug)) return `/product.html?p=${encodeURIComponent(product.slug)}`;
   if (rootAlias) return `/products/${encodeURIComponent(product.slug)}/`;
   return `/${lang}/products/${encodeURIComponent(product.slug)}/`;
+}
+
+function staticTutorialHref(tutorial, lang = "en", rootAlias = false) {
+  if (rootAlias) return `/tutorials/${encodeURIComponent(tutorial.slug)}/`;
+  return `/${lang}/tutorials/${encodeURIComponent(tutorial.slug)}/`;
 }
 
 function absoluteUrl(relativeUrl) {
@@ -267,6 +306,7 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
     [labels.home, `/${lang}/`, "home"],
     [labels.products, `/${lang}/products/`, "products"],
     [labels.downloads, `/${lang}/downloads/`, "downloads"],
+    [labels.tutorials, `/${lang}/tutorials/`, "tutorials"],
     [labels.projects, "/projects.html", "projects"],
     [labels.contact, "/contact.html", "contact"]
   ].map(([label, href, key]) => `<a href="${attr(href)}"${current === key ? ' aria-current="page"' : ""}>${html(label)}</a>`).join("");
@@ -394,6 +434,7 @@ function productPageShell({ lang, title, description, canonicalPath, alternates,
     [labels.home, `/${lang}/`, "home"],
     [labels.products, `/${lang}/products/`, "products"],
     [labels.downloads, `/${lang}/downloads/`, "downloads"],
+    [labels.tutorials, `/${lang}/tutorials/`, "tutorials"],
     [labels.projects, "/projects.html", "projects"],
     [labels.contact, "/contact.html", "contact"]
   ].map(([label, href, key]) => `<a href="${attr(href)}"${key === "products" ? ' aria-current="page"' : ""}>${html(label)}</a>`).join("");
@@ -780,6 +821,149 @@ function downloadsIndexPage(lang) {
   });
 }
 
+function tutorialsIndexPage(lang, rootAlias = false) {
+  const labels = UI[lang];
+  const alternates = [
+    { lang: "en", href: "/en/tutorials/" },
+    { lang: "zh-Hans", href: "/zh/tutorials/" },
+    { lang: "x-default", href: "/tutorials.html" }
+  ];
+  const body = `
+    <section class="wiki-hero tutorials-hero">
+      <div>
+        <p class="status">FlyingRC Official</p>
+        <h1>${html(labels.tutorialsTitle)}</h1>
+        <p class="lead">${html(labels.tutorialsLead)}</p>
+      </div>
+    </section>
+    <section class="tutorials-section">
+      <div class="tutorial-grid">${tutorialCatalog.tutorials.map((tutorial) => tutorialCard(tutorial, lang, rootAlias)).join("")}</div>
+    </section>
+  `;
+  return pageShell({
+    lang,
+    title: `${labels.tutorialsTitle} | FlyingRC Official`,
+    description: labels.tutorialsLead,
+    canonicalPath: rootAlias ? "/tutorials.html" : `/${lang}/tutorials/`,
+    alternates,
+    current: "tutorials",
+    body
+  });
+}
+
+function tutorialCard(tutorial, lang, rootAlias = false) {
+  const labels = UI[lang];
+  const href = staticTutorialHref(tutorial, lang, rootAlias);
+  return `<article class="tutorial-card">
+    <div class="tutorial-card-meta">
+      <span>${html(localized(tutorial.category, lang))}</span>
+      <span>${html(labels.tutorialUpdated)} ${html(tutorial.updated)}</span>
+    </div>
+    <h2>${html(localized(tutorial.title, lang))}</h2>
+    <p>${html(localized(tutorial.summary, lang))}</p>
+    <a class="text-link" href="${attr(href)}">${html(labels.tutorialOpen)}</a>
+  </article>`;
+}
+
+function tutorialPage(tutorial, lang, rootAlias = false) {
+  const labels = UI[lang];
+  const alternates = [
+    { lang: "en", href: `/en/tutorials/${tutorial.slug}/` },
+    { lang: "zh-Hans", href: `/zh/tutorials/${tutorial.slug}/` },
+    { lang: "x-default", href: `/tutorials/${tutorial.slug}/` }
+  ];
+  const canonicalPath = staticTutorialHref(tutorial, lang, rootAlias);
+  const title = `${localized(tutorial.title, lang)} | FlyingRC Official`;
+  const description = localized(tutorial.summary, lang);
+  const jsonLd = tutorialHowToJsonLd(tutorial, lang, canonicalPath);
+  const body = `
+    <section class="product-detail-hero tutorial-detail-hero">
+      <div>
+        <a class="back-link" href="${rootAlias ? "/tutorials.html" : `/${lang}/tutorials/`}">${html(labels.tutorials)}</a>
+        <p class="detail-kicker"><span>${html(localized(tutorial.category, lang))}</span><span>${html(labels.tutorialUpdated)} ${html(tutorial.updated)}</span></p>
+        <h1>${html(localized(tutorial.title, lang))}</h1>
+        <p>${html(description)}</p>
+      </div>
+      <div class="tutorial-hero-panel">
+        <strong>${html(lang === "zh" ? "适用场景" : "Use case")}</strong>
+        <p>${html(localized(tutorial.audience, lang))}</p>
+      </div>
+    </section>
+    <section class="tutorial-layout">
+      <article class="tutorial-article">
+        ${tutorialListSection(labels.tutorialRequirements, tutorial.requirements, lang, "tutorial-check-list")}
+        ${tutorialListSection(labels.tutorialSafety, tutorial.warnings, lang, "tutorial-warning-list")}
+        <section class="detail-section tutorial-steps-section">
+          <h2>${html(labels.tutorialSteps)}</h2>
+          <ol class="tutorial-steps">${tutorial.steps.map((step) => `<li>
+              <h3>${html(localized(step.title, lang))}</h3>
+              <p>${html(localized(step.body, lang))}</p>
+            </li>`).join("")}</ol>
+        </section>
+        <section class="detail-section">
+          <h2>${html(labels.tutorialTroubleshooting)}</h2>
+          <div class="troubleshooting-list">${tutorial.troubleshooting.map((item) => `<article>
+              <h3>${html(localized(item.issue, lang))}</h3>
+              <p>${html(localized(item.fix, lang))}</p>
+            </article>`).join("")}</div>
+        </section>
+        <section class="detail-section">
+          <h2>${html(labels.tutorialLinks)}</h2>
+          <div class="download-list tutorial-link-list">${tutorial.links.map((item) => `<a href="${attr(localizedTutorialLinkHref(item.href, lang))}"${/^https?:\/\//i.test(item.href) ? ' target="_blank" rel="noopener"' : ""}>${html(localized(item.label, lang))}</a>`).join("")}</div>
+        </section>
+      </article>
+    </section>
+    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  `;
+  return pageShell({
+    lang,
+    title,
+    description,
+    canonicalPath,
+    alternates,
+    current: "tutorials",
+    body
+  });
+}
+
+function tutorialListSection(title, items, lang, className) {
+  return `<section class="detail-section ${html(className)}">
+    <h2>${html(title)}</h2>
+    <ul class="detail-rich-list">${items.map((item) => `<li>${html(localized(item, lang))}</li>`).join("")}</ul>
+  </section>`;
+}
+
+function localizedTutorialLinkHref(href, lang) {
+  if (href === "/downloads.html") return `/${lang}/downloads/`;
+  if (href === "/wiki.html") return `/${lang}/products/`;
+  return href;
+}
+
+function tutorialHowToJsonLd(tutorial, lang, canonicalPath) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: localized(tutorial.title, lang),
+    description: localized(tutorial.summary, lang),
+    dateModified: tutorial.updated,
+    image: SOCIAL_IMAGE,
+    url: absoluteUrl(canonicalPath),
+    tool: [
+      { "@type": "HowToTool", name: "STM32CubeProgrammer" },
+      { "@type": "HowToTool", name: "USB data cable" }
+    ],
+    supply: [
+      { "@type": "HowToSupply", name: lang === "zh" ? "匹配的 FlyingRC .hex 固件文件" : "Matching FlyingRC .hex firmware file" }
+    ],
+    step: tutorial.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: localized(step.title, lang),
+      text: localized(step.body, lang)
+    }))
+  };
+}
+
 function staticDownloadProduct(product, lang) {
   const labels = UI[lang];
   const groups = groupDownloads(product.downloads || []);
@@ -846,11 +1030,23 @@ function generateProductPages() {
   });
 }
 
+function generateTutorialPages() {
+  writeFile("tutorials.html", tutorialsIndexPage("en", true));
+  writeFile("en/tutorials/index.html", tutorialsIndexPage("en"));
+  writeFile("zh/tutorials/index.html", tutorialsIndexPage("zh"));
+  tutorialCatalog.tutorials.forEach((tutorial) => {
+    writeFile(`tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "en", true));
+    writeFile(`en/tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "en"));
+    writeFile(`zh/tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "zh"));
+  });
+}
+
 function generateSitemap() {
   const urls = [
     "/",
     "/wiki.html",
     "/downloads.html",
+    "/tutorials.html",
     "/projects.html",
     "/contact.html",
     "/support.html",
@@ -860,11 +1056,18 @@ function generateSitemap() {
     "/zh/products/",
     "/en/downloads/",
     "/zh/downloads/",
-    ...CORE_SLUGS.flatMap((slug) => [`/products/${slug}/`, `/en/products/${slug}/`, `/zh/products/${slug}/`])
+    "/en/tutorials/",
+    "/zh/tutorials/",
+    ...CORE_SLUGS.flatMap((slug) => [`/products/${slug}/`, `/en/products/${slug}/`, `/zh/products/${slug}/`]),
+    ...tutorialCatalog.tutorials.flatMap((tutorial) => [
+      `/tutorials/${tutorial.slug}/`,
+      `/en/tutorials/${tutorial.slug}/`,
+      `/zh/tutorials/${tutorial.slug}/`
+    ])
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((url) => `  <url><loc>${html(absoluteUrl(url))}</loc><lastmod>2026-06-30</lastmod></url>`).join("\n")}
+${urls.map((url) => `  <url><loc>${html(absoluteUrl(url))}</loc><lastmod>${SITE_LASTMOD}</lastmod></url>`).join("\n")}
 </urlset>
 `;
   writeFile("sitemap.xml", body);
@@ -878,8 +1081,9 @@ function main() {
   writeFile("en/downloads/index.html", downloadsIndexPage("en"));
   writeFile("zh/downloads/index.html", downloadsIndexPage("zh"));
   generateProductPages();
+  generateTutorialPages();
   generateSitemap();
-  console.log(`Generated localized entry pages and ${CORE_SLUGS.length} core product pages.`);
+  console.log(`Generated localized entry pages, ${CORE_SLUGS.length} core product pages, and ${tutorialCatalog.tutorials.length} tutorial pages.`);
 }
 
 main();
