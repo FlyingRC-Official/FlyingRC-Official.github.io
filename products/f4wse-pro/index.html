@@ -56,17 +56,17 @@
       <h2>Best used for</h2>
       <ul class="detail-rich-list"><li>Fixed-wing users who want a richer F4WSE family board.</li><li>ArduPlane or INAV builds where open firmware and wiring clarity are important.</li><li>Users upgrading from simpler fixed-wing controllers.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Key features</h2>
       <ul class="detail-rich-list"><li>Supports ArduPilot and INAV; ArduPlane is the fixed-wing recommended path in the manual.</li><li>Directly compatible with MatekF405-TE firmware according to the manual.</li><li>Manual includes UART/SERIAL mapping and default function references.</li><li>Built-in analog video switch for two camera inputs.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Setup / wiring notes</h2>
       <ul class="detail-rich-list"><li>For fixed-wing aircraft, start with ArduPlane or INAV rather than generic multirotor assumptions.</li><li>Check the SERIAL mapping table before assigning telemetry, GPS, or receiver ports.</li><li>For dual analog camera switching, connect the two camera video signals to C0 and C1, connect the analog VTX video input to VTX, and keep both cameras and the VTX on a shared ground.</li><li>In ArduPilot, configure the switch as Relay2 with RELAY2_PIN=82 and RELAY2_FUNCTION=1, then assign an RC channel such as RC8_OPTION=34 to toggle the active camera input.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Check before use</h2>
       <ul class="detail-rich-list"><li>Use the BDShot ArduPlane firmware only for ESC setups that need bidirectional DShot; standard PWM/servo builds should use the normal ArduPlane firmware.</li><li>Do not guess port numbers from silkscreen alone; use the firmware mapping table.</li><li>Power cameras and analog VTX only within their rated voltage range; if the default camera is opposite to the expected input, invert Relay2 or swap the C0/C1 signal wires.</li></ul>
@@ -75,7 +75,7 @@
       <section class="detail-section"><h2>Key specs</h2><ul class="spec-list"><li>F405 Pro fixed-wing autopilot controller</li><li>Supports ArduPilot and INAV workflows</li><li>MatekF405-TE compatible firmware path noted in manual</li></ul></section>
       <section class="detail-section">
     <h2>Downloads</h2>
-    
+
     <div class="download-firmware-families">
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
@@ -95,7 +95,7 @@
     <span class="download-release-chips"><b>Latest stable</b><b>4.6.3</b><b>ArduRover</b><b>Stable</b></span>
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FlyingRC_F4WSE_Pro / ArduRover</dd></div><div><dt>SHA256</dt><dd>b765e6d1ca089396d285496b57fbcb84a9b1012d48ae7039969455082c570a15</dd></div><div><dt>Compatibility note</dt><dd>ArduRover 4.6.3 firmware with bootloader for the F4WSE Pro target.</dd></div></dl>
   </a></div>
-        
+
           <details class="download-firmware-archive">
             <summary>Past / unstable releases (2)</summary>
             <div class="download-file-list download-archive-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_bdshot_arduplane_with_bl.hex" target="_blank" rel="noopener">
@@ -108,9 +108,9 @@
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FlyingRC_F4WSE_Pro / ArduPlane</dd></div><div><dt>SHA256</dt><dd>4cc715eead96a5a67ff941168dd191afc7e7062c6e6b6514d03d85fab8328a50</dd></div><div><dt>Compatibility note</dt><dd>ArduPlane 4.5.7 firmware with bootloader for the F4WSE Pro target.</dd></div><div><dt>Release note</dt><dd>Older stable ArduPlane build retained for users who need the previous tested release.</dd></div></dl>
   </a></div>
           </details>
-        
+
       </section>
-    
+
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
           <h4>Betaflight</h4>
@@ -121,7 +121,7 @@
     <span class="download-release-chips"><b>Latest stable</b><b>2025.12.5</b><b>Stable</b></span>
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>STM32F405 / FLYINGRCF4WSEPRO</dd></div><div><dt>SHA256</dt><dd>b0ca203c20f507594137cfdd64a69d3d6b009ce75f714472bc0f345cbc8d57f0</dd></div><div><dt>Compatibility note</dt><dd>Betaflight 2025.12.5 firmware for the FLYINGRCF4WSEPRO target.</dd></div></dl>
   </a></div>
-        
+
           <details class="download-firmware-archive">
             <summary>Past / unstable releases (2)</summary>
             <div class="download-file-list download-archive-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wse-pro/betaflight_4.5.5_STM32F405_FLYINGRCF4WSEPRO.hex" target="_blank" rel="noopener">
@@ -134,47 +134,56 @@
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>STM32F405 / FLYINGRCF4WSEPRO</dd></div><div><dt>SHA256</dt><dd>1e982c89bd9946f146e597275ac261fd41d32945023dca6f6f93bc96ed484b5f</dd></div><div><dt>Compatibility note</dt><dd>Betaflight 2025.12.4 firmware for the FLYINGRCF4WSEPRO target.</dd></div><div><dt>Release note</dt><dd>Older stable Betaflight build retained for users who need the previous tested release.</dd></div></dl>
   </a></div>
           </details>
-        
+
       </section>
-    
+
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
           <h4>INAV / INAVFlight</h4>
           <span>Latest stable</span>
         </div>
-        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex" target="_blank" rel="noopener">
-    <span>INAV 9.0.1 firmware</span>
-    <span class="download-release-chips"><b>Latest stable</b><b>9.0.1</b><b>Stable</b></span>
-    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WSEPRO</dd></div><div><dt>SHA256</dt><dd>b996bdd8cb1dd4a41a94a15554c7d8b5cad0dc52b5c3b23198d53da1e0c5f1c0</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.0.1 firmware for the FLYINGRCF4WSEPRO target.</dd></div></dl>
+        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wse-pro/inav_9.1.0_FLYINGRCF4WSEPRO.hex" target="_blank" rel="noopener">
+    <span>INAV 9.1.0 firmware</span>
+    <span class="download-release-chips"><b>Latest stable</b><b>9.1.0</b><b>Stable</b></span>
+    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WSEPRO</dd></div><div><dt>SHA256</dt><dd>a5a4c5481812040f21f6ddd3a60b72b6039565891dc121b9c9798b32e856de3d</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.1.0 firmware for the FLYINGRCF4WSEPRO target.</dd></div></dl>
   </a></div>
-        
+
+          <details class="download-firmware-archive">
+            <summary>Past / unstable releases (1)</summary>
+            <div class="download-file-list download-archive-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex" target="_blank" rel="noopener">
+    <span>INAV 9.0.1 firmware</span>
+    <span class="download-release-chips"><b>Archived</b><b>9.0.1</b><b>Stable</b></span>
+    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WSEPRO</dd></div><div><dt>SHA256</dt><dd>b996bdd8cb1dd4a41a94a15554c7d8b5cad0dc52b5c3b23198d53da1e0c5f1c0</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.0.1 firmware for the FLYINGRCF4WSEPRO target.</dd></div><div><dt>Release note</dt><dd>Older stable INAV build retained for users who need the previous tested release.</dd></div></dl>
+  </a></div>
+          </details>
+
       </section>
     </div>
     <div class="download-list"><a class="" href="/assets/downloads/manuals/f4wse-pro-manual.docx" target="_blank" rel="noopener">
     <span>Product manual</span>
-    
-    
+
+
   </a><a class="" href="/assets/downloads/firmware/f4wse-pro/SHA256SUMS.txt" target="_blank" rel="noopener">
     <span>SHA256 checksums</span>
-    
-    
+
+
   </a></div>
-  
+
   </section>
       <section class="detail-section">
     <h2>Reference files</h2>
-    
-    
+
+
     <div class="download-list"><a class="" href="https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target" target="_blank" rel="noopener">
     <span>ArduPilot F4WSE Pro target branch</span>
-    
-    
+
+
   </a><a class="" href="https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WSEPRO" target="_blank" rel="noopener">
     <span>INAV F4WSE Pro target branch</span>
-    
-    
+
+
   </a></div>
-  
+
   </section>
       <section class="detail-section"><h2>Wiring / dimensions / specs</h2><div class="detail-media-grid">
     <figure>
@@ -189,7 +198,7 @@
       </a>
       <figcaption>Full wiring diagram</figcaption>
     </figure></div></section>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC F4WSE F405 Pro Fixed-wing Flight Controller","description":"A Pro fixed-wing F405 flight controller intended for ArduPlane/INAV aircraft. It acts as the aircraft’s autopilot, sensor hub, and servo/ESC output controller.","image":"https://flyingrc-official.github.io/assets/products/f4wse-pro/hero.jpg","url":"https://flyingrc-official.github.io/products/f4wse-pro/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"Flight Controllers","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"F405"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"},{"@type":"PropertyValue","name":"Tag","value":"Pro"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane BDShot"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduCopter"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduRover"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"}]}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC F4WSE F405 Pro Fixed-wing Flight Controller","description":"A Pro fixed-wing F405 flight controller intended for ArduPlane/INAV aircraft. It acts as the aircraft’s autopilot, sensor hub, and servo/ESC output controller.","image":"https://flyingrc-official.github.io/assets/products/f4wse-pro/hero.jpg","url":"https://flyingrc-official.github.io/products/f4wse-pro/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"Flight Controllers","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"F405"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"},{"@type":"PropertyValue","name":"Tag","value":"Pro"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane BDShot"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduCopter"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRC_F4WSE_Pro / ArduRover"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WSEPRO"}]}</script>
   </main>
     <footer class="site-footer">
       <span>FlyingRC Official</span>

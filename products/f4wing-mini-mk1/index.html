@@ -56,17 +56,17 @@
       <h2>Best used for</h2>
       <ul class="detail-rich-list"><li>Small and micro fixed-wing aircraft where board size and weight matter.</li><li>Builders who want ArduPlane/INAV capability in a compact airframe.</li><li>HD digital video builds using DJI HD, Walksnail HD, OpenIPC, or similar HD OSD workflows.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Key features</h2>
       <ul class="detail-rich-list"><li>STM32F405RGT6 MCU with BMI270 IMU on current units released from May 25, 2026; earlier units used ICM42688P/ICM42605.</li><li>SPL06/SPA06 barometer, with dual independent sensor LDOs to improve sensor power stability.</li><li>3 UARTs plus SBUS, 6 PWM outputs, I2C, Type-C USB, HD VTX plug-in, and ELRS receiver plug-in support.</li><li>Supports AP, Betaflight, and INAV; ArduPlane is recommended for fixed-wing use.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Setup / wiring notes</h2>
       <ul class="detail-rich-list"><li>Use the SH1.0 2P connector only for battery voltage detection and HD VTX direct-power input, not as the flight-controller power input.</li><li>For fixed-wing aircraft, start from ArduPlane wiring examples and check UART/SERIAL mapping carefully.</li><li>Use USB-C for configuration; mobile ground-station setup is possible with a USB-C to USB-C cable.</li></ul>
     </section>
-  
+
     <section class="detail-info-panel">
       <h2>Check before use</h2>
       <ul class="detail-rich-list"><li>Analog OSD is not supported on this board.</li><li>Because there is no onboard BEC, plan a clean 5 V supply for the flight controller.</li></ul>
@@ -75,7 +75,7 @@
       <section class="detail-section"><h2>Key specs</h2><ul class="spec-list"><li>STM32F405 fixed-wing autopilot controller</li><li>27.9 x 20.3 x 11.2 mm board size</li><li>6 PWM outputs, 3 UARTs, SBUS, I2C, USB-C, and HD VTX connector</li></ul></section>
       <section class="detail-section">
     <h2>Downloads</h2>
-    
+
     <div class="download-firmware-families">
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
@@ -91,9 +91,9 @@
     <span class="download-release-chips"><b>Latest stable</b><b>4.6.3</b><b>ArduCopter</b><b>Stable</b></span>
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FlyingRCF4WingMini / ArduCopter</dd></div><div><dt>SHA256</dt><dd>c21551141b9ee8c941d784d895ba994c534056b0c9335abbc2cec76211411adc</dd></div><div><dt>Compatibility note</dt><dd>ArduCopter 4.6.3 firmware with bootloader for the F4Wing Mini target.</dd></div></dl>
   </a></div>
-        
+
       </section>
-    
+
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
           <h4>Betaflight</h4>
@@ -104,7 +104,7 @@
     <span class="download-release-chips"><b>Latest stable</b><b>2025.12.5</b><b>Stable</b></span>
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>STM32F405 / FLYINGRCF4WINGMINI</dd></div><div><dt>SHA256</dt><dd>74455393edd9609c3e422dcb60de122b9dddfeaeba5ee26ff02a308ae483c097</dd></div><div><dt>Compatibility note</dt><dd>Betaflight 2025.12.5 firmware for the FLYINGRCF4WINGMINI target.</dd></div></dl>
   </a></div>
-        
+
           <details class="download-firmware-archive">
             <summary>Past / unstable releases (2)</summary>
             <div class="download-file-list download-archive-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wing-mini-mk1/betaflight_4.5.5_STM32F405_FLYINGRCF4WINGMINI.hex" target="_blank" rel="noopener">
@@ -117,47 +117,56 @@
     <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>STM32F405 / FLYINGRCF4WINGMINI</dd></div><div><dt>SHA256</dt><dd>21f94fb8a6a6a195bbb71895b6fc255f12d552639b7bf2108c15a873809083f2</dd></div><div><dt>Compatibility note</dt><dd>Betaflight 2025.12.4 firmware for the FLYINGRCF4WINGMINI target.</dd></div><div><dt>Release note</dt><dd>Older stable Betaflight build retained for users who need the previous tested release.</dd></div></dl>
   </a></div>
           </details>
-        
+
       </section>
-    
+
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
           <h4>INAV / INAVFlight</h4>
           <span>Latest stable</span>
         </div>
-        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex" target="_blank" rel="noopener">
-    <span>INAV 9.0.1 firmware</span>
-    <span class="download-release-chips"><b>Latest stable</b><b>9.0.1</b><b>Stable</b></span>
-    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WINGMINI</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.0.1 firmware for the FlyingRC F4Wing Mini target.</dd></div></dl>
+        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI.hex" target="_blank" rel="noopener">
+    <span>INAV 9.1.0 firmware</span>
+    <span class="download-release-chips"><b>Latest stable</b><b>9.1.0</b><b>Stable</b></span>
+    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WINGMINI</dd></div><div><dt>SHA256</dt><dd>de2009e9f90bbced7f05a11387c0dcc2bca69ee1d0aa1ec283dc27756b7c32a3</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.1.0 firmware for the FlyingRC F4Wing Mini target.</dd></div></dl>
   </a></div>
-        
+
+          <details class="download-firmware-archive">
+            <summary>Past / unstable releases (1)</summary>
+            <div class="download-file-list download-archive-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex" target="_blank" rel="noopener">
+    <span>INAV 9.0.1 firmware</span>
+    <span class="download-release-chips"><b>Archived</b><b>9.0.1</b><b>Stable</b></span>
+    <dl class="download-file-meta"><div><dt>Board revision</dt><dd>F4Wing Mini MK1; verify IMU and barometer revision before flashing.</dd></div><div><dt>Firmware target</dt><dd>FLYINGRCF4WINGMINI</dd></div><div><dt>SHA256</dt><dd>c4b6fe0b33c65f49c937d5a3287bbf4de0980171aa0fa09bda7d6f69d4804657</dd></div><div><dt>Compatibility note</dt><dd>INAV 9.0.1 firmware for the FlyingRC F4Wing Mini target.</dd></div><div><dt>Release note</dt><dd>Older stable INAV build retained for users who need the previous tested release.</dd></div></dl>
+  </a></div>
+          </details>
+
       </section>
     </div>
     <div class="download-list"><a class="" href="/assets/downloads/manuals/f4wing-mini-mk1-manual.docx" target="_blank" rel="noopener">
     <span>Product manual</span>
-    
-    
+
+
   </a><a class="" href="/assets/downloads/firmware/f4wing-mini-mk1/SHA256SUMS.txt" target="_blank" rel="noopener">
     <span>SHA256 checksums</span>
-    
-    
+
+
   </a></div>
-  
+
   </section>
       <section class="detail-section">
     <h2>Reference files</h2>
-    
-    
+
+
     <div class="download-list"><a class="" href="https://github.com/FlyingRC-Official/ardupilot/tree/feature/add_flyingrc_targets" target="_blank" rel="noopener">
     <span>ArduPilot F4Wing Mini target branch</span>
-    
-    
+
+
   </a><a class="" href="https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI" target="_blank" rel="noopener">
     <span>INAV F4Wing Mini target branch</span>
-    
-    
+
+
   </a></div>
-  
+
   </section>
       <section class="detail-section"><h2>Wiring / dimensions / specs</h2><div class="detail-media-grid">
     <figure>
@@ -178,7 +187,7 @@
       </a>
       <figcaption>Full wiring diagram</figcaption>
     </figure></div></section>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC F4Wing Mini MK1 F405 Fixed-wing Flight Controller","description":"An ultra-small fixed-wing autopilot board. It is the central controller for a small plane: it reads sensors, runs ArduPilot/INAV-style flight firmware, outputs servo/PWM control, and provides connectors for receiver and HD video equipment.","image":"https://flyingrc-official.github.io/assets/products/f4wing-mini-mk1/hero.jpg","url":"https://flyingrc-official.github.io/products/f4wing-mini-mk1/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"Flight Controllers","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"F405"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"},{"@type":"PropertyValue","name":"Tag","value":"ArduPilot"},{"@type":"PropertyValue","name":"Tag","value":"wiring"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRCF4WingMini / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRCF4WingMini / ArduCopter"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"}]}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC F4Wing Mini MK1 F405 Fixed-wing Flight Controller","description":"An ultra-small fixed-wing autopilot board. It is the central controller for a small plane: it reads sensors, runs ArduPilot/INAV-style flight firmware, outputs servo/PWM control, and provides connectors for receiver and HD video equipment.","image":"https://flyingrc-official.github.io/assets/products/f4wing-mini-mk1/hero.jpg","url":"https://flyingrc-official.github.io/products/f4wing-mini-mk1/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"Flight Controllers","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"F405"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"},{"@type":"PropertyValue","name":"Tag","value":"ArduPilot"},{"@type":"PropertyValue","name":"Tag","value":"wiring"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRCF4WingMini / ArduPlane"},{"@type":"PropertyValue","name":"Firmware target","value":"FlyingRCF4WingMini / ArduCopter"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"},{"@type":"PropertyValue","name":"Firmware target","value":"STM32F405 / FLYINGRCF4WINGMINI"}]}</script>
   </main>
     <footer class="site-footer">
       <span>FlyingRC Official</span>
