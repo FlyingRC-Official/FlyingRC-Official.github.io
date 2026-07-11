@@ -1523,7 +1523,7 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "STM32H743 / FLYINGRCH7WLITEV2",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
-    checksum: "e06e0536149f2dc9fe6bf5f6f7a3928993821a445a2488c2d815c41b60971ebe",
+    checksum: "e94dbc51bba6dd440202cb890114d0952b5daffcb532a3d68de54f9ae2163183",
     compatibilityEn: "Betaflight 4.5.5 firmware for FLYINGRCH7WLITEV2.",
     compatibilityZh: "适用于 FLYINGRCH7WLITEV2 的 Betaflight 4.5.5 固件。"
   }),
