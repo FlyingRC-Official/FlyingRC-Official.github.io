@@ -126,6 +126,33 @@ window.FLYINGRC_CATALOG = {
       ]
     },
     {
+      slug: "h7wlite-v2",
+      category: "flight-controllers",
+      status: "latest",
+      tags: ["H743", "fixed-wing", "BMI270", "SPA06-003", "QMC5883P", "CAN"],
+      title: { en: "FlyingRC H7Wlite V2 H743 Fixed-wing Flight Controller", zh: "FlyingRC H7Wlite V2 H743 主控固定翼飞控" },
+      summary: {
+        en: "H7Wlite V2 hardware revision with dual BMI270 IMUs, SPA06-003 barometer, and internal QMC5883P compass; legacy ICM42688P and ICM42605 populations remain supported by the dedicated firmware targets.",
+        zh: "H7Wlite V2 硬件版本采用双 BMI270 IMU、SPA06-003 气压计和内置 QMC5883P 罗盘；专用固件目标仍兼容 ICM42688P 与 ICM42605 旧版器件。"
+      },
+      specs: {
+        en: ["STM32H743 fixed-wing flight controller", "Dual BMI270 IMUs with ICM42688P / ICM42605 runtime alternatives", "SPA06-003 barometer and internal QMC5883P compass on I2C2", "12 PWM outputs, SDIO logging, analog OSD, CAN, and seven UARTs"],
+        zh: ["STM32H743 固定翼飞控", "双 BMI270 IMU，并兼容 ICM42688P / ICM42605 运行时替代器件", "I2C2 上的 SPA06-003 气压计与内置 QMC5883P 罗盘", "12 路 PWM、SDIO 日志、模拟 OSD、CAN 与 7 路 UART"]
+      },
+      hardwareRevisionDescription: {
+        en: "V2 is the BMI270 / SPA06-003 / QMC5883P revision. The H7Wlite family images below are temporary mechanical and connector references; verify the V2 sensor markings before flashing.",
+        zh: "V2 为 BMI270 / SPA06-003 / QMC5883P 硬件版本。下方暂用 H7Wlite 系列图片作为机械尺寸和接口参考；刷写前请核对 V2 传感器丝印。"
+      },
+      hero: "assets/products/h7wlite-mk1/hero.jpg",
+      images: [
+        img("assets/products/h7wlite-mk1/specs.jpg", "H7Wlite family spec reference; verify V2 sensor revision", "H7Wlite 系列参数参考；请核对 V2 传感器版本", "spec"),
+        img("assets/products/h7wlite-mk1/dimension.jpg", "H7Wlite family dimension reference", "H7Wlite 系列尺寸参考", "diagram"),
+        img("assets/products/h7wlite-mk1/wiring-full.jpg", "H7Wlite family wiring reference", "H7Wlite 系列接线参考", "diagram"),
+        img("assets/products/h7wlite-mk1/layout-top.jpg", "H7Wlite family top-layout reference", "H7Wlite 系列正面布局参考", "diagram"),
+        img("assets/products/h7wlite-mk1/layout-bottom.jpg", "H7Wlite family bottom-layout reference", "H7Wlite 系列反面布局参考", "diagram")
+      ]
+    },
+    {
       slug: "f4wse-f405",
       category: "flight-controllers",
       status: "eol",
@@ -1103,6 +1130,17 @@ const PRODUCT_LABELS = {
     productLabel("gps-gnss"),
     productLabel("high-current")
   ],
+  "h7wlite-v2": [
+    productLabel("fixed-wing", 1),
+    productLabel("flight-controller", 2),
+    productLabel("h743", 3),
+    productLabel("ardupilot", 4),
+    productLabel("inav", 5),
+    productLabel("betaflight"),
+    productLabel("can"),
+    productLabel("pwm"),
+    productLabel("uart")
+  ],
   "f4wse-f405": [
     productLabel("fixed-wing", 1),
     productLabel("flight-controller", 2),
@@ -1366,6 +1404,18 @@ const PRODUCT_LABELS = {
 const PUBLIC_REFERENCE_FILES = {
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
+  "h7wlite-v2": [
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7Wlite_target", "ArduPilot H7Wlite V2 target branch", "ArduPilot H7Wlite V2 目标分支"),
+    download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7WLITEV2", "INAV H7Wlite V2 target branch", "INAV H7Wlite V2 目标分支"),
+    download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7Wlite-V2-BMI270-Config", "Betaflight H7Wlite V2 config branch", "Betaflight H7Wlite V2 配置分支"),
+    download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/inav_9.1.0_FLYINGRCH7WLITEV2.hex", "INAV 9.1.0 firmware", "INAV 9.1.0 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/betaflight_2025.12.5_STM32H743_FLYINGRCH7WLITEV2.hex", "Betaflight 2025.12.5 firmware", "Betaflight 2025.12.5 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/betaflight_4.5.5_STM32H743_FLYINGRCH7WLITEV2.hex", "Betaflight 4.5.5 firmware", "Betaflight 4.5.5 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
+  ],
   "f4wing-mini-mk1": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/feature/add_flyingrc_targets", "ArduPilot F4Wing Mini target branch", "ArduPilot F4Wing Mini 目标分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI", "INAV F4Wing Mini target branch", "INAV F4Wing Mini 目标分支"),
@@ -1423,6 +1473,60 @@ const PUBLIC_REFERENCE_FILES = {
 };
 
 const FIRMWARE_DOWNLOAD_METADATA = {
+  "assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.6.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "5f50740ec64d46e815a1a5d3ea13501ab95980b05c7cad682aed6fb197f63cf0",
+    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for FlyingRC_H7WliteV2.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 的 ArduCopter 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.6.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_H7WliteV2 / ArduPlane",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "a8ff472b99f558fa0e8457c6d67ca844272ec329520cc69eba1065edcffa889b",
+    compatibilityEn: "ArduPlane 4.6.3 firmware with bootloader for FlyingRC_H7WliteV2.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 的 ArduPlane 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.6.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_H7WliteV2 / ArduRover",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "ce7c15ff5e1985e71fbcc306604fb8f57737988645a4bec8af0f579539fde1cb",
+    compatibilityEn: "ArduRover 4.6.3 firmware with bootloader for FlyingRC_H7WliteV2.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 的 ArduRover 4.6.3 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/inav_9.1.0_FLYINGRCH7WLITEV2.hex": firmwareMeta({
+    family: "inav", version: "9.1.0", channel: "stable", role: "latest-stable", target: "FLYINGRCH7WLITEV2 / H7W2",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "9fe26e3364ba2eacc07941170760d690984b03d8e8c8aaaf0d3d4e3e2f3ed052",
+    compatibilityEn: "INAV 9.1.0 firmware for the FLYINGRCH7WLITEV2 target.",
+    compatibilityZh: "适用于 FLYINGRCH7WLITEV2 目标的 INAV 9.1.0 固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/betaflight_2025.12.5_STM32H743_FLYINGRCH7WLITEV2.hex": firmwareMeta({
+    family: "betaflight", version: "2025.12.5", channel: "stable", role: "latest-stable", target: "STM32H743 / FLYINGRCH7WLITEV2",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "5f16226db8d3cb0a70292781e8a0cbd8f8b431ae49929ad89ff4cb0a1ce83e7e",
+    compatibilityEn: "Betaflight 2025.12.5 firmware for FLYINGRCH7WLITEV2.",
+    compatibilityZh: "适用于 FLYINGRCH7WLITEV2 的 Betaflight 2025.12.5 固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/betaflight_4.5.5_STM32H743_FLYINGRCH7WLITEV2.hex": firmwareMeta({
+    family: "betaflight", version: "4.5.5", channel: "stable", role: "archive",
+    archiveNoteEn: "Retained stable 4.5.x build; use Betaflight 2025.12.5 for the current recommended stable build.",
+    archiveNoteZh: "保留的 4.5.x 稳定构建；当前推荐稳定版请使用 Betaflight 2025.12.5。",
+    target: "STM32H743 / FLYINGRCH7WLITEV2",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "e06e0536149f2dc9fe6bf5f6f7a3928993821a445a2488c2d815c41b60971ebe",
+    compatibilityEn: "Betaflight 4.5.5 firmware for FLYINGRCH7WLITEV2.",
+    compatibilityZh: "适用于 FLYINGRCH7WLITEV2 的 Betaflight 4.5.5 固件。"
+  }),
   "assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI.hex": firmwareMeta({
     family: "inav",
     version: "9.1.0",

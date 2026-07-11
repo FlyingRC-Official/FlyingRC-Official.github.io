@@ -25,6 +25,7 @@ const CORE_SLUGS = [
   "h7d-h743",
   "f4d-mk1",
   "h7wlite-mk1",
+  "h7wlite-v2",
   "am32-4in1-75a",
   "am32-4in1-45a",
   "am32-mini-esc-40a",
