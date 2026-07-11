@@ -3,5 +3,12 @@
   "buildCommand": "python3 scripts/build-cn-mirror.py",
   "outputDirectory": "dist-cn",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/wiki", "destination": "/en/products", "permanent": true },
+    { "source": "/downloads", "destination": "/en/downloads", "permanent": true },
+    { "source": "/tutorials", "destination": "/en/tutorials", "permanent": true },
+    { "source": "/products/:slug", "destination": "/en/products/:slug", "permanent": true },
+    { "source": "/tutorials/:slug", "destination": "/en/tutorials/:slug", "permanent": true }
+  ]
 }

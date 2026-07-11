@@ -6,8 +6,8 @@ const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://flyingrc-official.github.io";
-const STATIC_VERSION = "20260706-tutorials-v1";
-const SITE_LASTMOD = "2026-07-06";
+const STATIC_VERSION = "20260711-localized-pages-v1";
+const SITE_LASTMOD = "2026-07-11";
 const SOCIAL_IMAGE = `${SITE_URL}/assets/brand/flyingrc-social-card.jpg`;
 const BRAND_LOGO = "/assets/brand/flyingrc-logo-transparent.png";
 const COMPANY_MAP_URL = "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%97%B5%E8%A1%8C%E5%8C%BA%E6%B5%A6%E6%B1%9F%E9%95%87%E7%AB%B9%E5%9B%AD%E8%B7%AF559%E5%8F%B7%20%E5%BF%85%E7%BF%94%E5%BD%B1%E5%83%8F%E7%A7%91%E6%8A%80%E4%BA%A7%E4%B8%9A%E5%9B%AD%20T9%E5%8F%B7%E6%A5%BC";
@@ -17,24 +17,6 @@ const CONTACT = {
   github: "https://github.com/FlyingRC-Official",
   taobao: "https://e7wgwo2ehnynhjklw2knt535zmlw176.world.taobao.com/shop/view_shop.htm?appUid=RAzN8HAiDiXrnbmP2phqB88hKp1Wt&spm=a21n57.1.hoverItem.1"
 };
-
-const CORE_SLUGS = [
-  "f4wing-mini-mk1",
-  "f4wse-pro",
-  "h7d-pro",
-  "h7d-h743",
-  "f4d-mk1",
-  "h7wlite-mk1",
-  "h7wlite-v2",
-  "am32-4in1-75a",
-  "am32-4in1-45a",
-  "am32-mini-esc-40a",
-  "am32-esc-75a-v25",
-  "l4-can-rm3100",
-  "bec-mini-dji-o4"
-];
-
-const CORE_SET = new Set(CORE_SLUGS);
 
 const UI = {
   en: {
@@ -123,7 +105,9 @@ const UI = {
     media: "Models / media",
     other: "Other files",
     skip: "Skip to content",
-    staticNotice: "Static product page"
+    staticNotice: "Static product page",
+    statusLatest: "LATEST",
+    statusEol: "EOL"
   },
   zh: {
     home: "首页",
@@ -211,7 +195,9 @@ const UI = {
     media: "模型 / 媒体",
     other: "其他文件",
     skip: "跳到主要内容",
-    staticNotice: "静态产品页"
+    staticNotice: "静态产品页",
+    statusLatest: "最新",
+    statusEol: "停产"
   }
 };
 
@@ -237,7 +223,7 @@ const tutorialCatalog = loadTutorials();
 function writeFile(relativePath, content) {
   const fullPath = path.join(ROOT, relativePath);
   fs.mkdirSync(path.dirname(fullPath), { recursive: true });
-  fs.writeFileSync(fullPath, content, "utf8");
+  fs.writeFileSync(fullPath, content.replace(/[ \t]+$/gm, ""), "utf8");
 }
 
 function html(value) {
@@ -273,15 +259,22 @@ function tutorialBySlug(slug) {
   return tutorialCatalog.tutorials.find((tutorial) => tutorial.slug === slug);
 }
 
-function staticProductHref(product, lang = "en", rootAlias = false) {
-  if (!CORE_SET.has(product.slug)) return `/product.html?p=${encodeURIComponent(product.slug)}`;
-  if (rootAlias) return `/products/${encodeURIComponent(product.slug)}/`;
+function staticProductHref(product, lang = "en") {
   return `/${lang}/products/${encodeURIComponent(product.slug)}/`;
 }
 
-function staticTutorialHref(tutorial, lang = "en", rootAlias = false) {
-  if (rootAlias) return `/tutorials/${encodeURIComponent(tutorial.slug)}/`;
+function staticTutorialHref(tutorial, lang = "en") {
   return `/${lang}/tutorials/${encodeURIComponent(tutorial.slug)}/`;
+}
+
+function productStatusBadge(product, lang) {
+  if (!product.status) return "";
+  const label = product.status === "latest"
+    ? UI[lang].statusLatest
+    : product.status === "eol"
+      ? UI[lang].statusEol
+      : product.status.toUpperCase();
+  return `<span class="product-status product-status-${attr(product.status)}">${html(label)}</span>`;
 }
 
 function absoluteUrl(relativeUrl) {
@@ -362,7 +355,7 @@ function alternateForLang(alternates, lang) {
   return alternates.find((item) => item.lang === lang)?.href;
 }
 
-function productShell({ product, lang, canonicalPath, alternates, rootAlias = false }) {
+function productShell({ product, lang, canonicalPath, alternates }) {
   const labels = UI[lang];
   const title = `${localized(product.title, lang)} | FlyingRC Official`;
   const description = localized(product.cardSummary, lang) || localized(product.whatItDoes, lang) || localized(product.summary, lang);
@@ -393,8 +386,8 @@ function productShell({ product, lang, canonicalPath, alternates, rootAlias = fa
   const body = `
       <section class="product-detail-hero">
         <div>
-          <a class="back-link" href="${rootAlias ? "/wiki.html" : `/${lang}/products/`}">${html(labels.products)}</a>
-          <p class="detail-kicker"><span>${html(localized(catalog.categories[product.category], lang))}</span>${product.status ? `<span class="product-status product-status-${html(product.status)}">${html(product.status)}</span>` : ""}</p>
+          <a class="back-link" href="/${lang}/products/">${html(labels.products)}</a>
+          <p class="detail-kicker"><span>${html(localized(catalog.categories[product.category], lang))}</span>${productStatusBadge(product, lang)}</p>
           <h1>${html(localized(product.title, lang))}</h1>
           <p>${html(description)}</p>
           ${labelChips(product, lang)}
@@ -647,7 +640,7 @@ function productEmailHref(product) {
     "Hello FlyingRC,",
     "",
     `I would like to ask about ${productName}.`,
-    `Product page: ${absoluteUrl(staticProductHref(product, "en", true))}`,
+    `Product page: ${absoluteUrl(staticProductHref(product, "en"))}`,
     "Quantity:",
     "Country / region:",
     "Firmware ecosystem: ArduPilot / INAV / Betaflight / PX4 / other",
@@ -663,7 +656,7 @@ function homePage(lang) {
   const alternates = [
     { lang: "en", href: "/en/" },
     { lang: "zh-Hans", href: "/zh/" },
-    { lang: "x-default", href: "/" }
+    { lang: "x-default", href: "/en/" }
   ];
   const body = `
     <section class="hero">
@@ -694,7 +687,7 @@ function homePage(lang) {
         <h2>${html(labels.productWikiTitle)}</h2>
         <p>${html(labels.productWikiLead)}</p>
       </div>
-      <a class="plain-link" href="/wiki.html?lang=${lang}">${html(labels.openProductWiki)}</a>
+      <a class="plain-link" href="/${lang}/products/">${html(labels.openProductWiki)}</a>
     </section>
     <section class="home-strip company-band" aria-labelledby="company-title">
       <div class="company-copy">
@@ -725,9 +718,9 @@ function homePage(lang) {
         <p>${html(labels.hardwareLead)}</p>
       </div>
       <ul class="capability-list">
-        <li><a href="/wiki.html?lang=${lang}&amp;categories=flight-controllers">${html(labels.flightControllers)}</a></li>
-        <li><a href="/wiki.html?lang=${lang}&amp;categories=esc,bec">${html(labels.escBecModules)}</a></li>
-        <li><a href="/wiki.html?lang=${lang}&amp;categories=sensors,modules">${html(labels.sensorModules)}</a></li>
+        <li><a href="/${lang}/products/">${html(labels.flightControllers)}</a></li>
+        <li><a href="/${lang}/products/">${html(labels.escBecModules)}</a></li>
+        <li><a href="/${lang}/products/">${html(labels.sensorModules)}</a></li>
       </ul>
     </section>
   `;
@@ -747,7 +740,7 @@ function productsIndexPage(lang) {
   const alternates = [
     { lang: "en", href: "/en/products/" },
     { lang: "zh-Hans", href: "/zh/products/" },
-    { lang: "x-default", href: "/wiki.html" }
+    { lang: "x-default", href: "/en/products/" }
   ];
   const products = catalog.products;
   const body = `
@@ -779,7 +772,7 @@ function productCard(product, lang) {
   return `<article class="wiki-product-card">
     <a class="product-media" href="${attr(href)}">${product.hero ? `<img src="${attr(assetUrl(product.hero))}" alt="${attr(localized(product.title, lang))}" loading="lazy" decoding="async">` : ""}</a>
     <div class="product-card-body">
-      <div class="product-card-meta"><span>${html(localized(catalog.categories[product.category], lang))}</span></div>
+      <div class="product-card-meta"><span>${html(localized(catalog.categories[product.category], lang))}</span>${productStatusBadge(product, lang)}</div>
       <h3>${html(localized(product.title, lang))}</h3>
       <p>${html(description)}</p>
       ${labelChips(product, lang)}
@@ -796,7 +789,7 @@ function downloadsIndexPage(lang) {
   const alternates = [
     { lang: "en", href: "/en/downloads/" },
     { lang: "zh-Hans", href: "/zh/downloads/" },
-    { lang: "x-default", href: "/downloads.html" }
+    { lang: "x-default", href: "/en/downloads/" }
   ];
   const products = catalog.products.filter((product) => product.downloads?.length);
   const body = `
@@ -822,12 +815,12 @@ function downloadsIndexPage(lang) {
   });
 }
 
-function tutorialsIndexPage(lang, rootAlias = false) {
+function tutorialsIndexPage(lang) {
   const labels = UI[lang];
   const alternates = [
     { lang: "en", href: "/en/tutorials/" },
     { lang: "zh-Hans", href: "/zh/tutorials/" },
-    { lang: "x-default", href: "/tutorials.html" }
+    { lang: "x-default", href: "/en/tutorials/" }
   ];
   const body = `
     <section class="wiki-hero tutorials-hero">
@@ -838,23 +831,23 @@ function tutorialsIndexPage(lang, rootAlias = false) {
       </div>
     </section>
     <section class="tutorials-section">
-      <div class="tutorial-grid">${tutorialCatalog.tutorials.map((tutorial) => tutorialCard(tutorial, lang, rootAlias)).join("")}</div>
+      <div class="tutorial-grid">${tutorialCatalog.tutorials.map((tutorial) => tutorialCard(tutorial, lang)).join("")}</div>
     </section>
   `;
   return pageShell({
     lang,
     title: `${labels.tutorialsTitle} | FlyingRC Official`,
     description: labels.tutorialsLead,
-    canonicalPath: rootAlias ? "/tutorials.html" : `/${lang}/tutorials/`,
+    canonicalPath: `/${lang}/tutorials/`,
     alternates,
     current: "tutorials",
     body
   });
 }
 
-function tutorialCard(tutorial, lang, rootAlias = false) {
+function tutorialCard(tutorial, lang) {
   const labels = UI[lang];
-  const href = staticTutorialHref(tutorial, lang, rootAlias);
+  const href = staticTutorialHref(tutorial, lang);
   return `<article class="tutorial-card">
     <div class="tutorial-card-meta">
       <span>${html(localized(tutorial.category, lang))}</span>
@@ -866,21 +859,21 @@ function tutorialCard(tutorial, lang, rootAlias = false) {
   </article>`;
 }
 
-function tutorialPage(tutorial, lang, rootAlias = false) {
+function tutorialPage(tutorial, lang) {
   const labels = UI[lang];
   const alternates = [
     { lang: "en", href: `/en/tutorials/${tutorial.slug}/` },
     { lang: "zh-Hans", href: `/zh/tutorials/${tutorial.slug}/` },
-    { lang: "x-default", href: `/tutorials/${tutorial.slug}/` }
+    { lang: "x-default", href: `/en/tutorials/${tutorial.slug}/` }
   ];
-  const canonicalPath = staticTutorialHref(tutorial, lang, rootAlias);
+  const canonicalPath = staticTutorialHref(tutorial, lang);
   const title = `${localized(tutorial.title, lang)} | FlyingRC Official`;
   const description = localized(tutorial.summary, lang);
   const jsonLd = tutorialHowToJsonLd(tutorial, lang, canonicalPath);
   const body = `
     <section class="product-detail-hero tutorial-detail-hero">
       <div>
-        <a class="back-link" href="${rootAlias ? "/tutorials.html" : `/${lang}/tutorials/`}">${html(labels.tutorials)}</a>
+        <a class="back-link" href="/${lang}/tutorials/">${html(labels.tutorials)}</a>
         <p class="detail-kicker"><span>${html(localized(tutorial.category, lang))}</span><span>${html(labels.tutorialUpdated)} ${html(tutorial.updated)}</span></p>
         <h1>${html(localized(tutorial.title, lang))}</h1>
         <p>${html(description)}</p>
@@ -1000,22 +993,54 @@ function groupDownloads(downloads) {
   return groups.filter((group) => group.items.length);
 }
 
+function redirectPage({ title, destination, script = "" }) {
+  const target = absoluteUrl(destination);
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,follow">
+    <meta name="description" content="This legacy FlyingRC URL has moved to the localized site.">
+    <link rel="canonical" href="${attr(target)}">
+    <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
+    <title>${html(title)} | FlyingRC Official</title>
+    ${script ? `<script>${script}</script>` : ""}
+    <meta http-equiv="refresh" content="0;url=${attr(destination)}">
+  </head>
+  <body>
+    <p>This page has moved to <a href="${attr(destination)}">${html(destination)}</a>.</p>
+  </body>
+</html>
+`;
+}
+
+function legacyProductRedirectPage() {
+  const slugs = JSON.stringify(catalog.products.map((product) => product.slug));
+  const script = `
+      (() => {
+        const slugs = new Set(${slugs});
+        const slug = new URLSearchParams(location.search).get("p");
+        const target = slug && slugs.has(slug)
+          ? "/en/products/" + encodeURIComponent(slug) + "/"
+          : "/en/products/";
+        location.replace(target);
+      })();`;
+  return redirectPage({
+    title: "Product page moved",
+    destination: "/en/products/",
+    script
+  });
+}
+
 function generateProductPages() {
-  CORE_SLUGS.forEach((slug) => {
-    const product = productBySlug(slug);
-    if (!product) return;
+  catalog.products.forEach((product) => {
+    const slug = product.slug;
     const alternates = [
       { lang: "en", href: `/en/products/${slug}/` },
       { lang: "zh-Hans", href: `/zh/products/${slug}/` },
-      { lang: "x-default", href: `/products/${slug}/` }
+      { lang: "x-default", href: `/en/products/${slug}/` }
     ];
-    writeFile(`products/${slug}/index.html`, productShell({
-      product,
-      lang: "en",
-      canonicalPath: `/products/${slug}/`,
-      alternates,
-      rootAlias: true
-    }));
     writeFile(`en/products/${slug}/index.html`, productShell({
       product,
       lang: "en",
@@ -1028,26 +1053,29 @@ function generateProductPages() {
       canonicalPath: `/zh/products/${slug}/`,
       alternates
     }));
+    writeFile(`products/${slug}/index.html`, redirectPage({
+      title: `${localized(product.title, "en")} page moved`,
+      destination: `/en/products/${slug}/`
+    }));
   });
 }
 
 function generateTutorialPages() {
-  writeFile("tutorials.html", tutorialsIndexPage("en", true));
   writeFile("en/tutorials/index.html", tutorialsIndexPage("en"));
   writeFile("zh/tutorials/index.html", tutorialsIndexPage("zh"));
   tutorialCatalog.tutorials.forEach((tutorial) => {
-    writeFile(`tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "en", true));
     writeFile(`en/tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "en"));
     writeFile(`zh/tutorials/${tutorial.slug}/index.html`, tutorialPage(tutorial, "zh"));
+    writeFile(`tutorials/${tutorial.slug}/index.html`, redirectPage({
+      title: `${localized(tutorial.title, "en")} moved`,
+      destination: `/en/tutorials/${tutorial.slug}/`
+    }));
   });
 }
 
 function generateSitemap() {
   const urls = [
     "/",
-    "/wiki.html",
-    "/downloads.html",
-    "/tutorials.html",
     "/projects.html",
     "/contact.html",
     "/support.html",
@@ -1059,9 +1087,8 @@ function generateSitemap() {
     "/zh/downloads/",
     "/en/tutorials/",
     "/zh/tutorials/",
-    ...CORE_SLUGS.flatMap((slug) => [`/products/${slug}/`, `/en/products/${slug}/`, `/zh/products/${slug}/`]),
+    ...catalog.products.flatMap((product) => [`/en/products/${product.slug}/`, `/zh/products/${product.slug}/`]),
     ...tutorialCatalog.tutorials.flatMap((tutorial) => [
-      `/tutorials/${tutorial.slug}/`,
       `/en/tutorials/${tutorial.slug}/`,
       `/zh/tutorials/${tutorial.slug}/`
     ])
@@ -1081,10 +1108,14 @@ function main() {
   writeFile("zh/products/index.html", productsIndexPage("zh"));
   writeFile("en/downloads/index.html", downloadsIndexPage("en"));
   writeFile("zh/downloads/index.html", downloadsIndexPage("zh"));
+  writeFile("wiki.html", redirectPage({ title: "Products moved", destination: "/en/products/" }));
+  writeFile("product.html", legacyProductRedirectPage());
+  writeFile("downloads.html", redirectPage({ title: "Downloads moved", destination: "/en/downloads/" }));
+  writeFile("tutorials.html", redirectPage({ title: "Tutorials moved", destination: "/en/tutorials/" }));
   generateProductPages();
   generateTutorialPages();
   generateSitemap();
-  console.log(`Generated localized entry pages, ${CORE_SLUGS.length} core product pages, and ${tutorialCatalog.tutorials.length} tutorial pages.`);
+  console.log(`Generated localized entry pages, ${catalog.products.length} product pages per language, and ${tutorialCatalog.tutorials.length} tutorial pages per language.`);
 }
 
 main();
