@@ -1408,12 +1408,14 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7Wlite_target", "ArduPilot H7Wlite V2 target branch", "ArduPilot H7Wlite V2 目标分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7WLITEV2", "INAV H7Wlite V2 target branch", "INAV H7Wlite V2 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7Wlite-V2-BMI270-Config", "Betaflight H7Wlite V2 config branch", "Betaflight H7Wlite V2 配置分支"),
+    download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7Wlite-V2-Board", "PX4 H7Wlite V2 base branch", "PX4 H7Wlite V2 基础分支"),
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/inav_9.1.0_FLYINGRCH7WLITEV2.hex", "INAV 9.1.0 firmware", "INAV 9.1.0 固件"),
     download("assets/downloads/firmware/h7wlite-v2/betaflight_2025.12.5_STM32H743_FLYINGRCH7WLITEV2_BMI270.hex", "Betaflight 2025.12.5 BMI270 firmware", "Betaflight 2025.12.5 BMI270 固件"),
     download("assets/downloads/firmware/h7wlite-v2/betaflight_4.5.5_STM32H743_FLYINGRCH7WLITEV2_BMI270.hex", "Betaflight 4.5.5 BMI270 firmware", "Betaflight 4.5.5 BMI270 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/FlyingRC_H7WliteV2_PX4_custom_50161b1_FlyingRC-H7Wlite-V2-Board.zip", "PX4 custom firmware package (commit 50161b1)", "PX4 自定义固件包（commit 50161b1）"),
     download("assets/downloads/firmware/h7wlite-v2/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
   "f4wing-mini-mk1": [
@@ -1526,6 +1528,20 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "a5c85433c2a0d8eac7c2ec4bc9caf8d77634be72370cecd691e4d4fbe1e5e907",
     compatibilityEn: "Betaflight 4.5.5 BMI270-only firmware for FLYINGRCH7WLITEV2_BMI270.",
     compatibilityZh: "适用于 FLYINGRCH7WLITEV2_BMI270 的 Betaflight 4.5.5 BMI270 专用固件。"
+  }),
+  "assets/downloads/firmware/h7wlite-v2/FlyingRC_H7WliteV2_PX4_custom_50161b1_FlyingRC-H7Wlite-V2-Board.zip": firmwareMeta({
+    family: "px4",
+    version: "custom-50161b1",
+    channel: "unstable",
+    role: "archive",
+    archiveNoteEn: "Custom board-port build based on commit 50161b1; not an official tagged PX4 release.",
+    archiveNoteZh: "基于 commit 50161b1 的自定义板级移植构建；并非 PX4 官方 tag 正式版。",
+    target: "flyingrc_h7wlite-v2 / Board ID 1219",
+    boardRevisionEn: "FlyingRC H7Wlite V2 board package with default and bootloader firmware.",
+    boardRevisionZh: "FlyingRC H7Wlite V2 板级固件包，包含 default 与 bootloader 固件。",
+    checksum: "fa777f8d47b8c9d1f8272bd27759d2cf0e8d0c6d65d8d67bc395465bfecf3168",
+    compatibilityEn: "PX4 custom firmware package for the flyingrc_h7wlite-v2 target; use the default .px4 file with QGroundControl.",
+    compatibilityZh: "适用于 flyingrc_h7wlite-v2 目标的 PX4 自定义固件包；可在 QGroundControl 中加载 default .px4 文件。"
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI.hex": firmwareMeta({
     family: "inav",
