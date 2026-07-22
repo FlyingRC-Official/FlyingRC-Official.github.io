@@ -1422,6 +1422,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/ardupilot/tree/feature/add_flyingrc_targets", "ArduPilot F4Wing Mini target branch", "ArduPilot F4Wing Mini 目标分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI", "INAV F4Wing Mini target branch", "INAV F4Wing Mini 目标分支"),
     download("assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI.hex", "INAV 9.1.0 firmware", "INAV 9.1.0 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI_INA226.hex", "INAV 9.1.0 custom INA226 I2C firmware", "INAV 9.1.0 INA226 I2C 定制固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex", "INAV 9.0.1 firmware", "INAV 9.0.1 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP463_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
@@ -1554,6 +1555,22 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "de2009e9f90bbced7f05a11387c0dcc2bca69ee1d0aa1ec283dc27756b7c32a3",
     compatibilityEn: "INAV 9.1.0 firmware for the FlyingRC F4Wing Mini target.",
     compatibilityZh: "适用于 FlyingRC F4Wing Mini 目标的 INAV 9.1.0 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/inav_9.1.0_FLYINGRCF4WINGMINI_INA226.hex": firmwareMeta({
+    family: "inav",
+    version: "9.1.0-custom-INA226",
+    channel: "unstable",
+    role: "archive",
+    variantEn: "INA226 I2C",
+    variantZh: "INA226 I2C",
+    archiveNoteEn: "Custom build based on official INAV 9.1.0 with FlyingRC INA226 support; it is not an official INAV release asset.",
+    archiveNoteZh: "基于官方 INAV 9.1.0 并加入 FlyingRC INA226 支持的定制构建；不是 INAV 官方发布附件。",
+    target: "FLYINGRCF4WINGMINI / INA226 on I2C1",
+    boardRevisionEn: "F4Wing Mini MK1; external INA226 on PB8 SCL / PB7 SDA at default address 0x40.",
+    boardRevisionZh: "F4Wing Mini MK1；外接 INA226 使用 PB8 SCL / PB7 SDA，默认地址 0x40。",
+    checksum: "d80855722b3cc6b20bf1a90b86e49dd0c19e04a09864349116091d3155161cb8",
+    compatibilityEn: "Select INA226 for current and voltage after flashing, then set ina_shunt_res_uohm to the module's actual shunt resistance.",
+    compatibilityZh: "刷写后将电流计和电压计类型设为 INA226，并按模块实际分流电阻设置 ina_shunt_res_uohm。"
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/inav_9.0.1_FLYINGRCF4WINGMINI.hex": firmwareMeta({
     family: "inav",
