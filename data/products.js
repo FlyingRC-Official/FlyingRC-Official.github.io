@@ -1412,6 +1412,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.6.3 firmware with bootloader", "ArduCopter 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.6.3 firmware with bootloader", "ArduPlane 4.6.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_ardurover_with_bl.hex", "ArduRover 4.6.3 firmware with bootloader", "ArduRover 4.6.3 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/ArduSub_custom_f3a6fa9d_FlyingRC_H7WliteV2_with_bl.hex", "ArduSub development build with bootloader (commit f3a6fa9d)", "ArduSub 开发分支带 Bootloader 固件（commit f3a6fa9d）"),
     download("assets/downloads/firmware/h7wlite-v2/inav_9.1.0_FLYINGRCH7WLITEV2.hex", "INAV 9.1.0 firmware", "INAV 9.1.0 固件"),
     download("assets/downloads/firmware/h7wlite-v2/betaflight_2025.12.5_STM32H743_FLYINGRCH7WLITEV2_BMI270.hex", "Betaflight 2025.12.5 BMI270 firmware", "Betaflight 2025.12.5 BMI270 固件"),
     download("assets/downloads/firmware/h7wlite-v2/betaflight_4.5.5_STM32H743_FLYINGRCH7WLITEV2_BMI270.hex", "Betaflight 4.5.5 BMI270 firmware", "Betaflight 4.5.5 BMI270 固件"),
@@ -1476,6 +1477,22 @@ const PUBLIC_REFERENCE_FILES = {
 };
 
 const FIRMWARE_DOWNLOAD_METADATA = {
+  "assets/downloads/firmware/h7wlite-v2/ArduSub_custom_f3a6fa9d_FlyingRC_H7WliteV2_with_bl.hex": firmwareMeta({
+    family: "ardupilot",
+    version: "custom-f3a6fa9d",
+    channel: "unstable",
+    role: "archive",
+    variantEn: "ArduSub development build",
+    variantZh: "ArduSub 开发分支构建",
+    archiveNoteEn: "Built from the FlyingRC add_FlyingRC_H7Wlite_target branch at commit f3a6fa9d; no matching formal Sub-* release exists.",
+    archiveNoteZh: "基于 FlyingRC add_FlyingRC_H7Wlite_target 分支 commit f3a6fa9d 构建；当前没有对应的正式 Sub-* release。",
+    target: "FlyingRC_H7WliteV2 / ArduSub",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "4ff2579c7a04b1617d399758efceb3994e3edcc23060fb99f3d260739e5609bd",
+    compatibilityEn: "ArduSub branch build with bootloader for FlyingRC_H7WliteV2; development/testing use only.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 的 ArduSub 开发分支带 Bootloader 固件；仅用于开发与测试。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP463_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.6.3", channel: "stable", role: "latest-stable",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
