@@ -35,8 +35,17 @@ def is_excluded(path: Path) -> bool:
 
 
 def externalize_heavy_links(text: str) -> str:
-    pattern = re.compile(r'"(assets/[^"]+\.(?:docx|hex|mp4|step|zip))"', re.IGNORECASE)
-    return pattern.sub(lambda match: f'"{ORIGIN}/{match.group(1)}"', text)
+    pattern = re.compile(
+        r'(?P<quote>["\'])(?P<path>/?assets/[^"\']+\.(?:docx|hex|mp4|step|zip))(?P=quote)',
+        re.IGNORECASE,
+    )
+
+    def replace(match: re.Match[str]) -> str:
+        quote = match.group("quote")
+        path = match.group("path").lstrip("/")
+        return f"{quote}{ORIGIN}/{path}{quote}"
+
+    return pattern.sub(replace, text)
 
 
 def copy_file(path: Path) -> None:
@@ -46,8 +55,7 @@ def copy_file(path: Path) -> None:
 
     if path.suffix.lower() in TEXT_SUFFIXES:
         content = source.read_text(encoding="utf-8")
-        if path.as_posix() == "data/products.js":
-            content = externalize_heavy_links(content)
+        content = externalize_heavy_links(content)
         target.write_text(content, encoding="utf-8")
         return
 
