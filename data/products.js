@@ -751,8 +751,8 @@ const PRODUCT_EXPLANATIONS = {
     bestZh: ["需要 H743 性能和 Pro 系列布局的穿越机装机。", "需要可开关图传供电的数字/模拟图传装机。", "希望使用双陀螺仪和气压计稳定性特性的用户。"],
     featuresEn: ["STM32H743VIT6 MCU family with dual high-precision gyros and barometer.", "Switchable onboard 9 V BEC controlled through PINIO1/User1.", "BF, AP, INAV, and PX4 firmware paths are documented; factory default is BF4.4.2."],
     featuresZh: ["STM32H743VIT6 主控系列，配备双高精度陀螺仪和气压计。", "板载 9 V BEC 可通过 PINIO1/User1 控制。", "说明书包含 BF、AP、INAV 与 PX4 固件路径；出厂默认 BF4.4.2。"],
-    techEn: ["Firmware target: FLRC H7D.", "PX4 board port: FlyingRC-Official/PX4-Autopilot branch FlyingRC-H7D-Pro-Board.", "ArduPilot target branch: FlyingRC-Official/ardupilot add_FlyingRC_H7DPro_target.", "Betaflight config branch: FlyingRC-Official/betaflight-config Add-FlyingRC-H7D-Pro-Config.", "LED pad is S13 and can be configured in Betaflight; AP firmware can show flight-controller status through WS2812 LEDs."],
-    techZh: ["固件目标：FLRC H7D。", "PX4 板级移植：FlyingRC-Official/PX4-Autopilot 的 FlyingRC-H7D-Pro-Board 分支。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 add_FlyingRC_H7DPro_target。", "Betaflight 配置分支：FlyingRC-Official/betaflight-config 的 Add-FlyingRC-H7D-Pro-Config。", "LED 焊盘为 S13，可在 Betaflight 中配置；AP 固件可用 WS2812 显示飞控状态。"],
+    techEn: ["Firmware target: FLRC H7D.", "PX4 board port: FlyingRC-Official/PX4-Autopilot branch FlyingRC-H7D-Pro-Board.", "ArduPilot target branch: FlyingRC-Official/ardupilot pr-flyingrch7dpro-upstream.", "Betaflight config branch: FlyingRC-Official/betaflight-config Add-FlyingRC-H7D-Pro-Config.", "LED pad is S13 and can be configured in Betaflight; AP firmware can show flight-controller status through WS2812 LEDs."],
+    techZh: ["固件目标：FLRC H7D。", "PX4 板级移植：FlyingRC-Official/PX4-Autopilot 的 FlyingRC-H7D-Pro-Board 分支。", "ArduPilot 目标分支：FlyingRC-Official/ardupilot 的 pr-flyingrch7dpro-upstream。", "Betaflight 配置分支：FlyingRC-Official/betaflight-config 的 Add-FlyingRC-H7D-Pro-Config。", "LED 焊盘为 S13，可在 Betaflight 中配置；AP 固件可用 WS2812 显示飞控状态。"],
     setupEn: ["Use the H7D Pro wiring references before connecting video, receiver, and LED accessories.", "Do not infer ArduPilot SERIAL numbers from UART labels without the mapping table."],
     setupZh: ["连接图传、接收机和 LED 外设前，先查看 H7D Pro 接线参考。", "不要在未查看映射表的情况下用 UART 丝印推断 ArduPilot SERIAL 编号。"],
     watchEn: ["Choose the firmware path that matches your build, and verify the board target, wiring, and sensor orientation before flight."],
@@ -1469,7 +1469,7 @@ const PUBLIC_REFERENCE_FILES = {
   ],
   "h7d-pro": [
     download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7D-Pro-Board", "PX4 H7D Pro firmware repository", "PX4 H7D Pro 固件仓库"),
-    download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_H7DPro_target", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
+    download("https://github.com/FlyingRC-Official/ardupilot/tree/pr-flyingrch7dpro-upstream", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7DPRO", "INAV H7D Pro target branch", "INAV H7D Pro 目标分支"),
     download("assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.7.0 firmware with bootloader", "ArduCopter 4.7.0 带 Bootloader 固件"),
@@ -1606,7 +1606,7 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCH7DPro / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
-    checksum: "372896924d4717037cc5408f8df99d855ca1b59e31782a1a7e6be80b4856a612",
+    checksum: "ee4bbec89c84852bfaf8056c39df510c08636ce37af09a309d7e4724a41be71b",
     compatibilityEn: "ArduCopter 4.7.0 firmware with bootloader for the H7D Pro target.",
     compatibilityZh: "适用于 H7D Pro 目标的 ArduCopter 4.7.0 带 Bootloader 固件。"
   }),
@@ -1615,7 +1615,7 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCH7DPro / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
-    checksum: "1cf9001542c5886ec00c206d28aa3bdc75b9df78113bc18bbbcfe4b56b6042d6",
+    checksum: "165bc38e92b5e209b14f0578749784e6fc512b2f855c748e5ee90268864ac139",
     compatibilityEn: "ArduPlane 4.7.0 firmware with bootloader for the H7D Pro target.",
     compatibilityZh: "适用于 H7D Pro 目标的 ArduPlane 4.7.0 带 Bootloader 固件。"
   }),
@@ -1624,7 +1624,7 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCH7DPro / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
-    checksum: "3d88fa5aaf861deff66f6b29942caea752eaca5163e3b9b24afddce4549b5cbc",
+    checksum: "1bbcef573dc659d9e86a7100b68f6f762880b07db8ed80c52b622fbb5a833d3c",
     compatibilityEn: "ArduRover 4.7.0 firmware with bootloader for the H7D Pro target.",
     compatibilityZh: "适用于 H7D Pro 目标的 ArduRover 4.7.0 带 Bootloader 固件。"
   }),
@@ -1633,7 +1633,7 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCH7DPro / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
-    checksum: "affd00e51c409416df84366bcffb4b710ad5c3cb9a7ddb6bb2e55ab166ab8906",
+    checksum: "5d0393f3ffbd88dbd279decc0d942c35ff726a9a1ca39c0fd95b8052c35e528b",
     compatibilityEn: "ArduSub 4.7.0 firmware with bootloader for the H7D Pro target.",
     compatibilityZh: "适用于 H7D Pro 目标的 ArduSub 4.7.0 带 Bootloader 固件。"
   }),
@@ -2074,10 +2074,10 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     role: "archive",
     variantEn: "ArduCopter",
     variantZh: "ArduCopter",
-    target: "FlrcH7DPro / ArduCopter",
+    target: "FlyingRCH7DPro / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
-    checksum: "61d2570ffa60c6d8a9d77a6165348f960324122ba83f3c69d25d49d56bb4e3c8",
+    checksum: "2b39a8da307a033cae6e3b9cdaddf9aaa4c83f45978cb4b65a711becf1e1c502",
     compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the H7D Pro target.",
     compatibilityZh: "适用于 H7D Pro 目标的 ArduCopter 4.6.3 带 Bootloader 固件。"
   }),
