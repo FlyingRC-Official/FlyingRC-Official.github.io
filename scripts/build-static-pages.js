@@ -519,16 +519,24 @@ function fileSection(title, items, lang) {
 }
 
 function imageSection(product, lang) {
-  const items = (product.images || []).filter((item) => ["diagram", "spec"].includes(item.type)).slice(0, 4);
-  if (!items.length) return "";
-  const title = lang === "zh" ? "接线 / 尺寸 / 参数图" : "Wiring / dimensions / specs";
-  return `<section class="detail-section"><h2>${html(title)}</h2><div class="detail-media-grid">${items.map((item) => `
+  const images = product.images || [];
+  const sections = [
+    {
+      title: lang === "zh" ? "接线 / 尺寸 / 参数图" : "Wiring / dimensions / specs",
+      items: images.filter((item) => ["diagram", "spec"].includes(item.type))
+    },
+    {
+      title: lang === "zh" ? "产品图库" : "Product gallery",
+      items: images.filter((item) => item.type === "gallery" && item.src !== product.hero)
+    }
+  ].filter((section) => section.items.length);
+  return sections.map(({ title, items }) => `<section class="detail-section"><h2>${html(title)}</h2><div class="detail-media-grid">${items.map((item) => `
     <figure>
       <a href="${attr(assetUrl(item.src))}" target="_blank" rel="noopener">
         <img src="${attr(assetUrl(item.src))}" alt="${attr(localized(item.label, lang))}" loading="lazy" decoding="async">
       </a>
       <figcaption>${html(localized(item.label, lang))}</figcaption>
-    </figure>`).join("")}</div></section>`;
+    </figure>`).join("")}</div></section>`).join("");
 }
 
 function isDownloadArtifact(item) {
