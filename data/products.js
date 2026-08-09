@@ -147,7 +147,7 @@ window.FLYINGRC_CATALOG = {
         en: "V2 is the BMI270 / SPA06-003 / QMC5883P revision. The H7Wlite family images below are temporary mechanical and connector references; verify the V2 sensor markings before flashing.",
         zh: "V2 为 BMI270 / SPA06-003 / QMC5883P 硬件版本。下方暂用 H7Wlite 系列图片作为机械尺寸和接口参考；刷写前请核对 V2 传感器丝印。"
       },
-      hero: "assets/products/h7wlite-v2/hero-20260809-v3.jpg",
+      hero: "assets/products/h7wlite-v2/hero-20260809-v4.png",
       images: [
         img("assets/products/h7wlite-mk1/specs.jpg", "H7Wlite family spec reference; verify V2 sensor revision", "H7Wlite 系列参数参考；请核对 V2 传感器版本", "spec"),
         img("assets/products/h7wlite-mk1/dimension.jpg", "H7Wlite family dimension reference", "H7Wlite 系列尺寸参考", "diagram"),
