@@ -147,7 +147,7 @@ window.FLYINGRC_CATALOG = {
         en: "V2 is the BMI270 / SPA06-003 / QMC5883P revision. The H7Wlite family images below are temporary mechanical and connector references; verify the V2 sensor markings before flashing.",
         zh: "V2 为 BMI270 / SPA06-003 / QMC5883P 硬件版本。下方暂用 H7Wlite 系列图片作为机械尺寸和接口参考；刷写前请核对 V2 传感器丝印。"
       },
-      hero: "assets/products/h7wlite-mk1/hero.jpg",
+      hero: "assets/products/h7wlite-v2/hero-20260809-v3.jpg",
       images: [
         img("assets/products/h7wlite-mk1/specs.jpg", "H7Wlite family spec reference; verify V2 sensor revision", "H7Wlite 系列参数参考；请核对 V2 传感器版本", "spec"),
         img("assets/products/h7wlite-mk1/dimension.jpg", "H7Wlite family dimension reference", "H7Wlite 系列尺寸参考", "diagram"),
@@ -164,7 +164,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC F4WSE F405 Fixed-wing Flight Controller", zh: "FlyingRC F4WSE F405 主控固定翼飞控" },
       summary: { en: "F4WSE fixed-wing controller reference page with product images, wiring layout, and render material.", zh: "F4WSE 固定翼飞控资料页，包含产品图、接线布局和渲染素材。" },
       specs: { en: ["STM32F405 fixed-wing autopilot controller", "ArduPilot/INAV-style airplane control workflow", "Wiring layout reference for receiver, GPS, telemetry, and PWM outputs"], zh: ["F405 主控", "固定翼飞控布局", "提供 Type-C 渲染素材"] },
-      hero: "assets/products/f4wse-f405/hero.jpg",
+      hero: "assets/products/f4wse-f405/hero-20260809-v3.jpg",
       images: [
         img("assets/products/f4wse-f405/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/f4wse-f405/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
@@ -238,7 +238,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC H7D H743 FPV Flight Controller", zh: "FlyingRC H7D H743 主控穿越机飞控" },
       summary: { en: "H743 FPV controller reference with dimension drawing and common receiver/video wiring diagrams.", zh: "H743 穿越机飞控资料，包含尺寸图以及常用接收机和图传接线图。" },
       specs: { en: ["STM32H743 FPV flight controller", "12-28 V DC / 3-6S LiPo input range", "Dual BEC outputs: 5 V/4 A and 12 V/2 A"], zh: ["H743 穿越机飞控", "包含尺寸、DJI O4、ELRS 与图传参考", "包含产品组合图"] },
-      hero: "assets/products/h7d-h743/hero.jpg",
+      hero: "assets/products/h7d-h743/hero-20260809-v3.jpg",
       images: [
         img("assets/products/h7d-h743/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/h7d-h743/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
@@ -270,7 +270,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC H7D Pro H743 FPV Flight Controller", zh: "FlyingRC H7D Pro H743 主控穿越机飞控" },
       summary: { en: "H7D Pro listing material with board and front-side images for the H743 FPV line.", zh: "H7D Pro 上架资料，包含整板图与正面图，属于 H743 穿越机飞控系列。" },
       specs: { en: ["STM32H743 Pro FPV flight controller", "Dual gyro and barometer sensor architecture", "Switchable onboard 9 V BEC for VTX/camera power"], zh: ["H743 穿越机飞控系列", "H7D Pro 高配版本", "包含整板图与正面图"] },
-      hero: "assets/products/h7d-pro/hero-info-20260527.jpg",
+      hero: "assets/products/h7d-pro/hero-20260809-v3.png",
       images: [
         img("assets/products/h7d-pro/specs.jpg", "Spec table", "参数表", "spec"),
         img("assets/products/h7d-pro/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
@@ -356,7 +356,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC AM32 ESC 75A V2.5 Single Metal-sealed ESC", zh: "FlyingRC AM32 ESC 75A V2.5 单体金封电调" },
       summary: { en: "75A single AM32 ESC listing page with product image and control-board render.", zh: "75A AM32 单体电调资料页，包含产品图和控制板渲染图。" },
       specs: { en: ["AM32 single-channel ESC", "75 A class for one high-current brushless motor", "7-28 V DC / 2-6S LiPo input range"], zh: ["AM32 单体电调", "75A 级别", "V2.5 上架资料"] },
-      hero: "assets/products/am32-esc-75a-v25/hero.jpg",
+      hero: "assets/products/am32-esc-75a-v25/hero-20260809-v3.png",
       images: [
         img("assets/products/am32-esc-75a-v25/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-esc-75a-v25/detail-1.jpg", "Product introduction", "产品介绍图", "gallery"),
@@ -377,7 +377,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC AM32 Dual ESC 40A Two-in-one ESC", zh: "FlyingRC AM32 Dual ESC 40A 二合一电调" },
       summary: { en: "Dual 40A AM32 ESC material for fixed-wing twin-motor style builds.", zh: "40A AM32 二合一电调资料，适合固定翼双发类装机。" },
       specs: { en: ["AM32 two-in-one ESC", "40 A dual-motor class", "2-6S LiPo input range"], zh: ["二合一电调布局", "40A 级别", "AM32 固件系列"] },
-      hero: "assets/products/am32-dual-esc-40a/hero.jpg",
+      hero: "assets/products/am32-dual-esc-40a/hero-20260809-v3.png",
       images: [
         img("assets/products/am32-dual-esc-40a/specs.jpg", "Parameter table", "参数表", "spec"),
         img("assets/products/am32-dual-esc-40a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
@@ -494,7 +494,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Entry Stack Kit F405 FC + 45A 4-in-1 ESC", zh: "FlyingRC 入门版飞塔套装 F405 控 + 四合一 45A 金封电调" },
       summary: { en: "Entry-level FPV stack kit combining an F405 flight controller with a 45A four-in-one ESC.", zh: "入门版穿越机飞塔套装，组合 F405 飞控和 45A 四合一电调。" },
       specs: { en: ["F405 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for compact FPV builds"], zh: ["F405 飞控飞塔", "45A 四合一电调组合", "入门版定位"] },
-      hero: "assets/products/stack-f405-45a/photo-stack-20260513.jpg",
+      hero: "assets/products/stack-f405-45a/hero-20260809-v3.jpg",
       images: [
         img("assets/products/stack-f405-45a/photo-stack-20260513.jpg", "Stack kit product photo", "飞塔套装实物图", "gallery"),
         img("assets/products/stack-f405-45a/f4d-45a-render.png", "F4D and 45A ESC stack render", "F4D + 45A 电调飞塔渲染图", "gallery"),
@@ -508,7 +508,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Advanced Stack Kit H7D Pro FC + 45A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 H7D Pro 飞控 + 45A 四合一电调" },
       summary: { en: "Advanced FPV stack kit pairing the H7D Pro H743 flight controller with a 45A four-in-one ESC.", zh: "进阶版穿越机飞塔套装，组合 H7D Pro H743 飞控和 45A 四合一电调。" },
       specs: { en: ["H7D Pro H743 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for higher-performance FPV builds"], zh: ["H7D Pro H743 穿越机飞控飞塔", "45A 四合一电调组合", "进阶版定位"] },
-      hero: "assets/products/stack-h743-45a/listing-main-20260527.jpg",
+      hero: "assets/products/stack-h743-45a/hero-20260809-v3.jpg",
       images: [
         img("assets/products/stack-h743-45a/gallery.jpg", "Product detail", "产品细节", "gallery"),
         img("assets/products/stack-h743-45a/detail-20260403.jpg", "Stack kit detail", "飞塔套装细节图", "gallery")
@@ -521,7 +521,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Advanced Stack Kit F4D FC + 75A 4-in-1 ESC", zh: "FlyingRC 进阶版飞塔套装 F4D 穿越机飞控 + 四合一 75A 金封电调" },
       summary: { en: "F4D FPV flight-controller bundle with 75A metal-sealed ESC kit photos.", zh: "F4D 穿越机飞控与 75A 金封电调组合套装，已补充套装图片。" },
       specs: { en: ["F4D FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "Matched stack kit for high-current FPV builds"], zh: ["F4D 穿越机飞控飞塔", "75A 四合一电调组合", "包含组合套装图片"] },
-      hero: "assets/products/stack-f4d-75a/photo-01-20260513.jpg",
+      hero: "assets/products/stack-f4d-75a/hero-20260809-v3.jpg",
       images: [
         img("assets/products/stack-f4d-75a/gallery.jpg", "Expanded kit option", "扩展套装选项", "gallery"),
         img("assets/products/stack-f4d-75a/photo-01-20260513.jpg", "Stack kit product photo 1", "飞塔套装实物图 1", "gallery"),
@@ -535,7 +535,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC High-end Stack Kit H7D Pro FC + 75A 4-in-1 ESC", zh: "FlyingRC 高阶版飞塔套装 H7D Pro 飞控 + 75A 四合一金封电调" },
       summary: { en: "High-end FPV stack kit pairing the H7D Pro H743 flight controller with a 75A metal-sealed four-in-one ESC.", zh: "高阶穿越机飞塔套装，组合 H7D Pro H743 飞控和 75A 金封四合一电调。" },
       specs: { en: ["H7D Pro H743 FPV flight controller bundle", "75 A 4-in-1 ESC bundle", "High-current stack kit for advanced FPV builds"], zh: ["H7D Pro H743 穿越机飞控飞塔", "75A 四合一电调组合", "高阶版定位"] },
-      hero: "assets/products/stack-h743-75a/photo-02-20260525.jpg",
+      hero: "assets/products/stack-h743-75a/hero-20260809-v3.jpg",
       images: [
         img("assets/products/stack-h743-75a/details.jpg", "Detail image", "详情图", "gallery"),
         img("assets/products/stack-h743-75a/detail-20260527.jpg", "Stack kit detail", "飞塔套装详情图", "gallery"),
