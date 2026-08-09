@@ -1138,6 +1138,36 @@ h2 {
   background: #fdfefd;
 }
 
+.product-category-toolbar {
+  gap: 14px;
+}
+
+.product-category-filter-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.product-category-filter-heading h2 {
+  margin: 0 0 5px;
+  color: var(--green-dark);
+  font-size: 20px;
+}
+
+.product-category-filter-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-category-filter-heading .product-filter-count {
+  flex: 0 0 auto;
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 780;
+}
+
 .selector-panel {
   display: grid;
   grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
@@ -1434,6 +1464,10 @@ h2 {
   border-radius: 8px;
   background: #ffffff;
   overflow: hidden;
+}
+
+.wiki-product-card[hidden] {
+  display: none;
 }
 
 .product-media,

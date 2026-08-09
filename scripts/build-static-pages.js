@@ -60,6 +60,10 @@ const UI = {
     sensorModules: "GPS, CAN, receivers, and sensors",
     productIndexTitle: "FlyingRC products",
     productIndexLead: "Static index of FlyingRC hardware pages generated from the product catalog.",
+    productCategoryFilter: "Browse by category",
+    productCategoryFilterLead: "Choose a category to narrow the product list.",
+    productCount: "products",
+    noProductsInCategory: "No products in this category.",
     downloadsTitle: "FlyingRC downloads",
     downloadsLead: "Product-first manuals, firmware, checksums, target branches, and reference files.",
     tutorialsTitle: "FlyingRC tutorials",
@@ -150,6 +154,10 @@ const UI = {
     sensorModules: "GPS、CAN、接收机和传感器",
     productIndexTitle: "FlyingRC 产品资料",
     productIndexLead: "基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。",
+    productCategoryFilter: "按类目浏览",
+    productCategoryFilterLead: "选择一个类目，快速筛选产品资料。",
+    productCount: "个产品",
+    noProductsInCategory: "该类目暂时没有产品。",
     downloadsTitle: "FlyingRC 下载",
     downloadsLead: "按产品整理说明书、固件、校验值、目标分支和参考文件。",
     tutorialsTitle: "FlyingRC 教程",
@@ -292,7 +300,7 @@ function metaImage(product) {
   return product?.hero ? absoluteUrl(assetUrl(product.hero)) : SOCIAL_IMAGE;
 }
 
-function pageShell({ lang, title, description, canonicalPath, alternates = [], current = "", body }) {
+function pageShell({ lang, title, description, canonicalPath, alternates = [], current = "", body, scripts = [], styleVersion = STATIC_VERSION }) {
   const labels = UI[lang];
   const canonical = absoluteUrl(canonicalPath);
   const langAttr = lang === "zh" ? "zh-Hans" : "en";
@@ -305,6 +313,7 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
     [labels.contact, "/contact.html", "contact"]
   ].map(([label, href, key]) => `<a href="${attr(href)}"${current === key ? ' aria-current="page"' : ""}>${html(label)}</a>`).join("");
   const altLinks = alternates.map((item) => `<link rel="alternate" hreflang="${attr(item.lang)}" href="${attr(absoluteUrl(item.href))}">`).join("\n    ");
+  const scriptTags = scripts.length ? `\n    ${scripts.map((src) => `<script src="${attr(src)}" defer></script>`).join("\n    ")}` : "";
 
   return `<!doctype html>
 <html lang="${langAttr}">
@@ -325,7 +334,7 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
     <meta name="twitter:description" content="${attr(description)}">
     <meta name="twitter:image" content="${attr(SOCIAL_IMAGE)}">
     <title>${html(title)}</title>
-    <link rel="stylesheet" href="/styles.css?v=${STATIC_VERSION}">
+    <link rel="stylesheet" href="/styles.css?v=${attr(styleVersion)}">
   </head>
   <body>
     <a class="skip-link" href="#main">${html(labels.skip)}</a>
@@ -345,7 +354,7 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
       <span>FlyingRC Official</span>
       <a href="${attr(CONTACT.taobao)}" target="_blank" rel="noopener">${html(labels.store)}</a>
       <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
-    </footer>
+    </footer>${scriptTags}
   </body>
 </html>
 `;
@@ -743,6 +752,9 @@ function productsIndexPage(lang) {
     { lang: "x-default", href: "/en/products/" }
   ];
   const products = catalog.products;
+  const categoryButtons = Object.entries(catalog.categories).map(([category, label]) =>
+    `<button class="filter-button${category === "all" ? " active" : ""}" type="button" data-product-category-filter="${attr(category)}" aria-pressed="${category === "all" ? "true" : "false"}">${html(localized(label, lang))}</button>`
+  ).join("\n        ");
   const body = `
     <section class="wiki-hero">
       <div>
@@ -751,8 +763,20 @@ function productsIndexPage(lang) {
         <p class="lead">${html(labels.productIndexLead)}</p>
       </div>
     </section>
+    <section class="wiki-toolbar product-category-toolbar" aria-labelledby="product-category-filter-title">
+      <div class="product-category-filter-heading">
+        <div>
+          <h2 id="product-category-filter-title">${html(labels.productCategoryFilter)}</h2>
+          <p>${html(labels.productCategoryFilterLead)}</p>
+        </div>
+        <p class="product-filter-count" data-product-filter-count aria-live="polite">${products.length} ${html(labels.productCount)}</p>
+      </div>
+      <div class="category-filters" data-product-category-filters role="group" aria-label="${attr(labels.productCategoryFilter)}">
+        ${categoryButtons}
+      </div>
+    </section>
     <section class="wiki-grid-section">
-      <div class="wiki-product-grid">${products.map((product) => productCard(product, lang)).join("")}</div>
+      <div class="wiki-product-grid" data-product-grid data-empty-message="${attr(labels.noProductsInCategory)}">${products.map((product) => productCard(product, lang)).join("")}</div>
     </section>
   `;
   return pageShell({
@@ -762,14 +786,16 @@ function productsIndexPage(lang) {
     canonicalPath: `/${lang}/products/`,
     alternates,
     current: "products",
-    body
+    body,
+    styleVersion: "20260809-product-categories-v2",
+    scripts: ["/scripts/static-product-filters.js?v=20260809-product-categories-v1"]
   });
 }
 
 function productCard(product, lang) {
   const description = localized(product.cardSummary, lang) || localized(product.summary, lang);
   const href = staticProductHref(product, lang);
-  return `<article class="wiki-product-card">
+  return `<article class="wiki-product-card" data-product-category="${attr(product.category)}">
     <a class="product-media" href="${attr(href)}">${product.hero ? `<img src="${attr(assetUrl(product.hero))}" alt="${attr(localized(product.title, lang))}" loading="lazy" decoding="async">` : ""}</a>
     <div class="product-card-body">
       <div class="product-card-meta"><span>${html(localized(catalog.categories[product.category], lang))}</span>${productStatusBadge(product, lang)}</div>
