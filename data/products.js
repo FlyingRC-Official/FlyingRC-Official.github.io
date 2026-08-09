@@ -475,7 +475,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC 5A 12S BEC V1 Step-down Module", zh: "FlyingRC 12S 5A BEC V1 降压模块" },
       summary: { en: "Compact 2-12S BEC module with 5 V output by default and a 12 V option selected through the jumper pads.", zh: "紧凑型 2-12S BEC 降压模块，默认输出 5V，可通过跳线焊盘选择 12V。" },
       specs: { en: ["6-60 V input; 2-12S LiPo", "5 V default output; 12 V selectable by jumper", "5 A continuous at 5 V with 6S input; 3.5 A at 5 V with 12S input", "30.01 x 17.82 x 5.52 mm; 5.4 g without capacitor"], zh: ["输入 6-60V，支持 2-12S LiPo", "默认 5V 输出；跳线可选 12V", "6S 输入时 5V 持续 5A；12S 输入时 5V 持续 3.5A", "尺寸 30.01 x 17.82 x 5.52 mm；不含电容重 5.4g"] },
-      hero: "assets/products/bec-5a-12s/hero-20260809.jpg",
+      hero: "assets/products/bec-5a-12s/hero-20260809-v2.jpg",
       images: [
         img("assets/products/bec-5a-12s/dimension.jpg", "Dimensions and weight", "尺寸与重量", "diagram"),
         img("assets/products/bec-5a-12s/jumper-12v.jpg", "12 V jumper selection", "12V 跳线选择", "diagram"),
