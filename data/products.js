@@ -105,7 +105,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4wing-mini-mk1/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/f4wing-mini-mk1/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
         img("assets/products/f4wing-mini-mk1/photo-pin-headers-20260508.jpg", "Soldered pin header photo", "焊接排针实物图", "gallery"),
-        img("assets/products/f4wing-mini-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/f4wing-mini-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/f4wing-mini-mk1/layout-top.png", "Top layout", "正面布局", "diagram"),
+        img("assets/products/f4wing-mini-mk1/layout-bottom.png", "Bottom layout", "反面布局", "diagram"),
+        img("assets/products/f4wing-mini-mk1/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -122,7 +125,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/h7wlite-mk1/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/h7wlite-mk1/layout-top.jpg", "Top layout", "正面布局", "diagram"),
         img("assets/products/h7wlite-mk1/layout-bottom.jpg", "Bottom layout", "反面布局", "diagram"),
-        img("assets/products/h7wlite-mk1/soldered-pins.jpg", "Soldered pin headers", "焊好排针", "gallery")
+        img("assets/products/h7wlite-mk1/soldered-pins.jpg", "Soldered pin headers", "焊好排针", "gallery"),
+        img("assets/products/h7wlite-mk1/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -166,7 +170,9 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4wse-f405/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/f4wse-f405/wiring-full.jpg", "Full wiring diagram", "完整接线图", "diagram"),
         img("assets/products/f4wse-f405/layout-top.jpg", "Top layout", "正面布局", "diagram"),
-        img("assets/products/f4wse-f405/board.jpeg", "Board photo", "整板图", "gallery")
+        img("assets/products/f4wse-f405/board.jpeg", "Board photo", "整板图", "gallery"),
+        img("assets/products/f4wse-f405/layout-3.png", "Additional layout reference 3", "补充布局参考图 3", "diagram"),
+        img("assets/products/f4wse-f405/layout-4.png", "Additional layout reference 4", "补充布局参考图 4", "diagram")
       ]
     },
     {
@@ -193,7 +199,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4wse-pro/detail.jpg", "Product detail image", "产品细节图", "gallery"),
         img("assets/products/f4wse-pro/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/f4wse-pro/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
-        img("assets/products/f4wse-pro/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/f4wse-pro/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/f4wse-pro/specs-bmi270.png", "BMI270 revision parameter table", "BMI270 版本参数表", "spec"),
+        img("assets/products/f4wse-pro/package-base.jpg", "Base version package contents", "基础版发货清单", "gallery"),
+        img("assets/products/f4wse-pro/package-advanced.jpg", "Advanced version package contents", "进阶版发货清单", "gallery")
       ]
     },
     {
@@ -214,7 +223,11 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f4d-mk1/kit-fc-75a.jpg", "F4D with 75A ESC kit", "飞控 + 75A 金封电调套装", "gallery"),
         img("assets/products/f4d-mk1/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/f4d-mk1/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
-        img("assets/products/f4d-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/f4d-mk1/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/f4d-mk1/specs-technical.jpg", "Technical parameter table", "技术参数表", "spec"),
+        img("assets/products/f4d-mk1/layout-top.png", "Top layout", "正面布局", "diagram"),
+        img("assets/products/f4d-mk1/layout-bottom.png", "Bottom layout", "反面布局", "diagram"),
+        img("assets/products/f4d-mk1/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -243,7 +256,10 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/h7d-h743/packing-list-20260527.jpg", "Packing list", "发货清单", "gallery"),
         img("assets/products/h7d-h743/render-bec-20260527.jpg", "BEC render detail", "BEC 功能渲染图", "gallery"),
         img("assets/products/h7d-h743/render-imu-baro-20260527.jpg", "IMU and barometer render detail", "IMU 与气压计渲染图", "gallery"),
-        img("assets/products/h7d-h743/render-dji-analog-20260527.jpg", "Digital and analog video render detail", "数字/模拟图传渲染图", "gallery")
+        img("assets/products/h7d-h743/render-dji-analog-20260527.jpg", "Digital and analog video render detail", "数字/模拟图传渲染图", "gallery"),
+        img("assets/products/h7d-h743/specs-technical.png", "Technical parameter table", "技术参数表", "spec"),
+        img("assets/products/h7d-h743/layout-top.png", "Top layout", "正面布局", "diagram"),
+        img("assets/products/h7d-h743/layout-bottom.png", "Bottom layout", "反面布局", "diagram")
       ]
     },
     {
@@ -267,7 +283,9 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/h7d-pro/photo-01-20260525.jpg", "Product photo 1", "实物图 1", "gallery"),
         img("assets/products/h7d-pro/photo-02-20260525.jpg", "Product photo 2", "实物图 2", "gallery"),
         img("assets/products/h7d-pro/photo-03-20260525.jpg", "Product photo 3", "实物图 3", "gallery"),
-        img("assets/products/h7d-pro/photo-04-20260525.jpg", "Product photo 4", "实物图 4", "gallery")
+        img("assets/products/h7d-pro/photo-04-20260525.jpg", "Product photo 4", "实物图 4", "gallery"),
+        img("assets/products/h7d-pro/wiring-rm3100.png", "RM3100 compass wiring", "RM3100 罗盘接线图", "diagram"),
+        img("assets/products/h7d-pro/package.png", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -287,7 +305,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-4in1-75a/photo-front-wired-20260508.jpg", "Wired front photo", "焊线正面实物图", "gallery"),
         img("assets/products/am32-4in1-75a/photo-back-wired-20260508.jpg", "Wired back photo", "焊线背面实物图", "gallery"),
         img("assets/products/am32-4in1-75a/photo-heatsink-20260508.jpg", "Heatsink side photo", "散热片侧实物图", "gallery"),
-        img("assets/products/am32-4in1-75a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/am32-4in1-75a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/am32-4in1-75a/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -304,7 +323,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-4in1-45a/dimension.jpg", "Dimension drawing", "尺寸图", "diagram"),
         img("assets/products/am32-4in1-45a/pinout.jpg", "Pinout diagram", "引脚定义图", "diagram"),
         img("assets/products/am32-4in1-45a/product-front.jpg", "Product front photo", "实物正面图", "gallery"),
-        img("assets/products/am32-4in1-45a/product-back.jpg", "Product back photo", "实物背面图", "gallery")
+        img("assets/products/am32-4in1-45a/product-back.jpg", "Product back photo", "实物背面图", "gallery"),
+        img("assets/products/am32-4in1-45a/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -325,7 +345,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-mini-esc-40a/render-up.jpg", "PCB render", "PCB 渲染图", "gallery"),
         img("assets/products/am32-mini-esc-40a/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/am32-mini-esc-40a/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
-        img("assets/products/am32-mini-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/am32-mini-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/am32-mini-esc-40a/package.png", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -364,7 +385,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/am32-dual-esc-40a/wiring-f4wse-pro.jpg", "F4WSE Pro wiring", "与 F4WSE Pro 接线图", "diagram"),
         img("assets/products/am32-dual-esc-40a/soldered-set.jpeg", "Soldered set", "全套焊好", "gallery"),
         img("assets/products/am32-dual-esc-40a/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
-        img("assets/products/am32-dual-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/am32-dual-esc-40a/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/am32-dual-esc-40a/package.png", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -384,7 +406,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/bec-5a-6s/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/bec-5a-6s/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
         img("assets/products/bec-5a-6s/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
-        img("assets/products/bec-5a-6s/photo-wired-20260508.jpg", "Wired product photo", "焊线实物图", "gallery")
+        img("assets/products/bec-5a-6s/photo-wired-20260508.jpg", "Wired product photo", "焊线实物图", "gallery"),
+        img("assets/products/bec-5a-6s/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -404,7 +427,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/bec-10a-12s/render.jpg", "PCB render", "PCB 渲染图", "gallery"),
         img("assets/products/bec-10a-12s/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/bec-10a-12s/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery"),
-        img("assets/products/bec-10a-12s/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery")
+        img("assets/products/bec-10a-12s/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
+        img("assets/products/bec-10a-12s/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -427,6 +451,37 @@ window.FLYINGRC_CATALOG = {
       ]
     },
     {
+      slug: "bec-10a-8s",
+      category: "bec",
+      status: "latest",
+      tags: ["BEC", "10A", "8S", "LM61495", "servo"],
+      title: { en: "FlyingRC 10A 8S BEC V1 Step-down Module", zh: "FlyingRC 10A 8S BEC V1 降压模块" },
+      summary: { en: "Compact 2-8S BEC with selectable 5 V / 6 V / 7 V output, designed for fast transient response in servo-power applications.", zh: "紧凑型 2-8S BEC，支持 5V / 6V / 7V 跳线选压，适合对瞬态响应要求高的舵机供电场景。" },
+      specs: { en: ["6-36 V input; 2-8S LiPo", "5 V default output; 6 V / 7 V selectable by jumper", "10 A continuous with heatsink or airflow; 12 A peak at 5 V", "33.9 x 18.5 x 5.5 mm; 10.3 mm with heatsink"], zh: ["输入 6-36V，支持 2-8S LiPo", "默认 5V 输出；跳线可选 6V / 7V", "有散热片或风冷时 5V 持续 10A；5V 峰值 12A", "尺寸 33.9 x 18.5 x 5.5 mm；带散热片高度 10.3 mm"] },
+      hero: "assets/products/bec-10a-8s/hero.jpg",
+      images: [
+        img("assets/products/bec-10a-8s/specs.png", "Parameter table", "参数表", "spec"),
+        img("assets/products/bec-10a-8s/dimension.png", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/bec-10a-8s/wiring.png", "Wiring and jumper selection", "接线与跳线选压", "diagram"),
+        img("assets/products/bec-10a-8s/board.png", "Board photo", "整板图", "gallery"),
+        img("assets/products/bec-10a-8s/package.jpg", "Package contents", "发货清单", "gallery")
+      ]
+    },
+    {
+      slug: "bec-5a-12s",
+      category: "bec",
+      status: "latest",
+      tags: ["BEC", "5A", "12S", "5V", "12V"],
+      title: { en: "FlyingRC 5A 12S BEC V1 Step-down Module", zh: "FlyingRC 12S 5A BEC V1 降压模块" },
+      summary: { en: "Compact 2-12S BEC module with 5 V output by default and a 12 V option selected through the jumper pads.", zh: "紧凑型 2-12S BEC 降压模块，默认输出 5V，可通过跳线焊盘选择 12V。" },
+      specs: { en: ["6-60 V input; 2-12S LiPo", "5 V default output; 12 V selectable by jumper", "5 A continuous at 5 V with 6S input; 3.5 A at 5 V with 12S input", "30.01 x 17.82 x 5.52 mm; 5.4 g without capacitor"], zh: ["输入 6-60V，支持 2-12S LiPo", "默认 5V 输出；跳线可选 12V", "6S 输入时 5V 持续 5A；12S 输入时 5V 持续 3.5A", "尺寸 30.01 x 17.82 x 5.52 mm；不含电容重 5.4g"] },
+      hero: "assets/products/bec-5a-12s/hero.jpg",
+      images: [
+        img("assets/products/bec-5a-12s/board.png", "Board photo", "整板图", "gallery"),
+        img("assets/products/bec-5a-12s/package.jpg", "Package contents", "发货清单", "gallery")
+      ]
+    },
+    {
       slug: "stack-f405-45a",
       category: "stacks",
       tags: ["F405", "45A", "stack", "entry"],
@@ -435,7 +490,9 @@ window.FLYINGRC_CATALOG = {
       specs: { en: ["F405 FPV flight controller bundle", "45 A 4-in-1 ESC bundle", "Matched stack kit for compact FPV builds"], zh: ["F405 飞控飞塔", "45A 四合一电调组合", "入门版定位"] },
       hero: "assets/products/stack-f405-45a/photo-stack-20260513.jpg",
       images: [
-        img("assets/products/stack-f405-45a/photo-stack-20260513.jpg", "Stack kit product photo", "飞塔套装实物图", "gallery")
+        img("assets/products/stack-f405-45a/photo-stack-20260513.jpg", "Stack kit product photo", "飞塔套装实物图", "gallery"),
+        img("assets/products/stack-f405-45a/f4d-45a-render.png", "F4D and 45A ESC stack render", "F4D + 45A 电调飞塔渲染图", "gallery"),
+        img("assets/products/stack-f405-45a/f4d-45a-photo.png", "F4D and 45A ESC stack product photo", "F4D + 45A 电调飞塔实物图", "gallery")
       ]
     },
     {
@@ -545,7 +602,27 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/l4-can-rm3100/render-front.png", "Front 3D render", "正面 3D 渲染图", "gallery"),
         img("assets/products/l4-can-rm3100/front.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/l4-can-rm3100/back-rotated.jpg", "Back product photo", "实物反面图", "gallery"),
-        img("assets/products/l4-can-rm3100/package.jpg", "Package contents", "发货清单", "gallery")
+        img("assets/products/l4-can-rm3100/package.jpg", "Package contents", "发货清单", "gallery"),
+        img("assets/products/l4-can-rm3100/specs-table.png", "Technical parameter table", "技术参数表", "spec"),
+        img("assets/products/l4-can-rm3100/wiring-h7d-pro.png", "H7D Pro wiring", "与 H7D Pro 接线图", "diagram")
+      ]
+    },
+    {
+      slug: "rm3100-spi",
+      category: "sensors",
+      status: "latest",
+      tags: ["RM3100", "SPI", "compass", "PNI", "3.3V"],
+      title: { en: "FlyingRC RM3100 SPI Compass Module", zh: "FlyingRC RM3100 SPI 罗盘模块" },
+      summary: { en: "Ultra-low-noise PNI RM3100 three-axis compass module with an 8-pin SPI interface for remote mounting away from magnetic interference.", zh: "采用 PNI RM3100 的超低噪声三轴罗盘模块，提供 8Pin SPI 接口，适合远离磁干扰源安装。" },
+      specs: { en: ["PNI RM3100 three-axis geomagnetic sensor", "12.70 x 12.70 x 7.42 mm; 0.53 g", "3.3 V recommended supply; operating range 2.0-3.6 V", "8-pin SPI: VCC, dual GND, DRDY, CLK, MISO, MOSI, SSN"], zh: ["PNI RM3100 三轴地磁传感器", "尺寸 12.70 x 12.70 x 7.42 mm；重量 0.53g", "推荐 3.3V 供电；工作范围 2.0-3.6V", "8Pin SPI：VCC、双 GND、DRDY、CLK、MISO、MOSI、SSN"] },
+      hero: "assets/products/rm3100-module/hero.jpg",
+      images: [
+        img("assets/products/rm3100-module/specs.jpg", "Technical specifications", "技术参数", "spec"),
+        img("assets/products/rm3100-module/layout.jpg", "Module layout", "模块布局图", "diagram"),
+        img("assets/products/rm3100-module/pinout.jpg", "8-pin SPI pinout", "8Pin SPI 引脚定义", "diagram"),
+        img("assets/products/rm3100-module/wiring.jpg", "SPI wiring table", "SPI 接线表", "diagram"),
+        img("assets/products/rm3100-module/board.jpg", "Board photo", "整板图", "gallery"),
+        img("assets/products/rm3100-module/instructions.jpg", "Installation notes", "安装说明", "gallery")
       ]
     },
     {
@@ -570,6 +647,7 @@ window.FLYINGRC_CATALOG = {
     {
       slug: "digital-airspeed",
       category: "sensors",
+      status: "eol",
       tags: ["airspeed", "fixed-wing", "sensor"],
       title: { en: "FlyingRC Pitotless Digital Airspeed Meter", zh: "FlyingRC 无空速管数字空速计" },
       summary: { en: "Digital airspeed product material for fixed-wing users who want a no-pitot airspeed option.", zh: "无空速管数字空速计资料，面向需要无空速管方案的固定翼用户。" },
@@ -580,6 +658,22 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/digital-airspeed/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
         img("assets/products/digital-airspeed/photo-angle-20260508.jpg", "Angled product photo", "实物斜视图", "gallery"),
         img("assets/products/digital-airspeed/photo-back-20260508.jpg", "Back product photo", "实物背面图", "gallery")
+      ]
+    },
+    {
+      slug: "i2c-digital-airspeed",
+      category: "sensors",
+      status: "latest",
+      tags: ["MS4525D", "I2C", "airspeed", "fixed-wing", "ArduPilot"],
+      title: { en: "FlyingRC I2C Digital Airspeed Meter", zh: "FlyingRC I2C 数字空速计" },
+      summary: { en: "Latest integrated I2C airspeed sensor and pitot-tube design for fixed-wing ArduPilot setups.", zh: "最新一代 I2C 数字空速计与空速管一体设计，面向固定翼 ArduPilot 装机。" },
+      specs: { en: ["MS4525D-compatible digital airspeed sensor with I2C interface", "25 x 15 x 5 mm; 2.8 g", "512 Hz sampling and 8 Hz refresh rate", "0.5 Pa RMS pressure measurement accuracy with temperature compensation"], zh: ["MS4525D 兼容数字空速传感器，I2C 接口", "尺寸 25 x 15 x 5 mm；重量 2.8g", "采样率 512Hz，刷新率 8Hz", "支持温度补偿；压力测量精度 0.5Pa RMS"] },
+      hero: "assets/products/i2c-digital-airspeed/hero.png",
+      images: [
+        img("assets/products/i2c-digital-airspeed/front.png", "Front product view", "产品正面图", "gallery"),
+        img("assets/products/i2c-digital-airspeed/back.png", "Back product view", "产品背面图", "gallery"),
+        img("assets/products/i2c-digital-airspeed/connector.png", "Connector view", "接口图", "gallery"),
+        img("assets/products/i2c-digital-airspeed/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -607,7 +701,8 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/elrs-24g-diversity/board.jpeg", "Board photo", "整板图", "gallery"),
         img("assets/products/elrs-24g-diversity/photo-front-20260508.jpg", "Front receiver photo", "接收机正面实物图", "gallery"),
         img("assets/products/elrs-24g-diversity/photo-back-20260508.jpg", "Back receiver photo", "接收机背面实物图", "gallery"),
-        img("assets/products/elrs-24g-diversity/photo-pair-20260508.jpg", "Receiver pair photo", "接收机组合实物图", "gallery")
+        img("assets/products/elrs-24g-diversity/photo-pair-20260508.jpg", "Receiver pair photo", "接收机组合实物图", "gallery"),
+        img("assets/products/elrs-24g-diversity/package.jpg", "Package contents", "发货清单", "gallery")
       ]
     },
     {
@@ -948,7 +1043,51 @@ const PRODUCT_EXPLANATIONS = {
   "stack-f4d-75a": kitExplain("An FPV stack bundle pairing the F4D flight controller family with a 75 A 4-in-1 ESC.", "穿越机飞塔套装，组合 F4D 飞控系列和 75 A 四合一电调。", "F4D manual plus 4IN1 75A ESC manual"),
   "stack-h743-75a": kitExplain("A high-end FPV stack bundle pairing the H7D Pro H743 flight controller with the 75 A 4-in-1 ESC.", "高阶穿越机飞塔套装，组合 H7D Pro H743 飞控和 75 A 四合一电调。", "H7D Pro manual plus 4IN1 75A ESC manual"),
   "fixed-wing-kit": kitExplain("A fixed-wing package page for comparing FlyingRC fixed-wing controller bundles such as F4WSE, F4Wing Mini, and H7Wlite.", "固定翼套餐页，用于对比 F4WSE、F4Wing Mini、H7Wlite 等 FlyingRC 固定翼飞控组合。", "Fixed-wing controller manuals"),
-  "fpv-kit": kitExplain("An FPV kit overview for stack and drone-electronics bundles.", "穿越机套餐总览，用于飞塔和穿越机电子组合选择。", "FPV flight-controller and ESC manuals")
+  "fpv-kit": kitExplain("An FPV kit overview for stack and drone-electronics bundles.", "穿越机套餐总览，用于飞塔和穿越机电子组合选择。", "FPV flight-controller and ESC manuals"),
+  "bec-10a-8s": explain({
+    manual: "FlyingRC 10A 8S BEC V1 Product Manual",
+    whatEn: "A compact high-current BEC for aircraft and other projects that need a selectable regulated supply.",
+    whatZh: "一款紧凑型大电流 BEC，适合需要可选稳压输出的飞机和其他电子项目。",
+    featuresEn: ["Uses an LM61495 regulator and current-mode control.", "Select 5 V, 6 V, or 7 V using the output jumper pads.", "The package includes a 16 V 680 uF capacitor and a heatsink."],
+    featuresZh: ["使用 LM61495 芯片和电流模式控制。", "通过输出跳线焊盘选择 5V、6V 或 7V。", "包装包含 16V 680uF 电容和散热片。"],
+    setupEn: ["Connect the battery to VIN and the load to VOUT.", "Attach the heatsink to the reverse side before sustained high-current use."],
+    setupZh: ["电池接 VIN，负载接 VOUT。", "持续大电流使用前，应将散热片贴到 BEC 背面。"],
+    watchEn: ["Input voltage must remain at least 0.8 V above the selected output voltage."],
+    watchZh: ["输入电压必须比选定输出电压至少高 0.8V。"]
+  }),
+  "bec-5a-12s": explain({
+    manual: "FlyingRC 5A 12S BEC V1 Product Manual",
+    whatEn: "A compact high-voltage BEC for 2-12S builds, with 5 V output by default and a 12 V jumper option.",
+    whatZh: "一款适用于 2-12S 装机的紧凑型高压 BEC，默认输出 5V，可跳线选择 12V。",
+    featuresEn: ["Accepts 6-60 V input.", "Default 5 V output; jumper-selectable 12 V output.", "Supplied with a 35 V 220 uF electrolytic capacitor."],
+    featuresZh: ["支持 6-60V 输入。", "默认 5V 输出；跳线可选 12V。", "随附 35V 220uF 电解电容。"],
+    setupEn: ["Connect VIN to the battery and VO to the load, with the capacitor installed on the load side."],
+    setupZh: ["VIN 接电池，VO 接负载；电容安装在负载侧。"],
+    watchEn: ["Select the output jumper before connecting sensitive equipment."],
+    watchZh: ["连接敏感设备前，先确认输出跳线选择。"]
+  }),
+  "rm3100-spi": explain({
+    manual: "FlyingRC RM3100 SPI Module Product Manual",
+    whatEn: "A remote-mountable three-axis compass module for heading measurement in aircraft, robotics, and navigation projects.",
+    whatZh: "一款可远离磁干扰源安装的三轴罗盘模块，用于飞行器、机器人和导航项目的航向测量。",
+    featuresEn: ["Uses the PNI RM3100 magnetic sensor set and MagI2C controller.", "Provides SPI clock, MISO, MOSI, chip-select, and data-ready signals.", "Full attitude calibration is required after installation."],
+    featuresZh: ["采用 PNI RM3100 磁传感器组和 MagI2C 控制器。", "提供 SPI 时钟、MISO、MOSI、片选和数据就绪信号。", "安装后必须完成全姿态校准。"],
+    setupEn: ["Use a 3.3 V supply and follow the 8-pin SPI wiring table.", "Mount the module away from power wiring, motors, and other magnetic interference sources."],
+    setupZh: ["使用 3.3V 供电，并遵循 8Pin SPI 接线表。", "模块应远离动力线、电机和其他磁干扰源安装。"],
+    watchEn: ["Do not power the module from 5 V."],
+    watchZh: ["请勿使用 5V 为模块供电。"]
+  }),
+  "i2c-digital-airspeed": explain({
+    manual: "FlyingRC I2C Digital Airspeed Meter Product Manual",
+    whatEn: "The latest integrated I2C airspeed sensor for fixed-wing aircraft using ArduPilot airspeed workflows.",
+    whatZh: "面向使用 ArduPilot 空速工作流的固定翼飞机的最新一代 I2C 一体式空速计。",
+    featuresEn: ["MS4525D-compatible digital sensor with an integrated pitot tube.", "Factory-calibrated for zero drift before shipment.", "Includes a silicone connector lead and plastic mounting screws."],
+    featuresZh: ["MS4525D 兼容数字传感器，空速计与空速管一体化。", "每只产品出货前均进行零漂校准。", "附送硅胶端子线和塑料安装螺丝。"],
+    setupEn: ["For ArduPilot, set ARSPD_TYPE = 1 and follow the manual's calibration sequence after a successful basic flight test.", "Keep ARSPD_AUTOCAL enabled only for the calibration flight, then disable it for normal operation."],
+    setupZh: ["ArduPilot 中设置 ARSPD_TYPE = 1，并在完成基础试飞后按说明书进行校准。", "仅在校准飞行期间开启 ARSPD_AUTOCAL，正常使用时应关闭。"],
+    watchEn: ["This is the current model; the earlier pitotless airspeed meter is retained as EOL reference material."],
+    watchZh: ["本产品为当前型号；旧款无空速管数字空速计保留为 EOL 参考资料。"]
+  })
 };
 
 const PUBLIC_MANUALS = {
@@ -967,9 +1106,13 @@ const PUBLIC_MANUALS = {
   "bec-5a-6s": manualDownload("assets/downloads/manuals/bec-5a-6s-manual.docx"),
   "bec-10a-12s": manualDownload("assets/downloads/manuals/bec-10a-12s-manual.docx"),
   "bec-mini-dji-o4": manualDownload("assets/downloads/manuals/bec-mini-dji-o4-manual.docx"),
+  "bec-10a-8s": manualDownload("assets/downloads/manuals/bec-10a-8s-manual.docx"),
+  "bec-5a-12s": manualDownload("assets/downloads/manuals/bec-5a-12s-manual.docx"),
+  "rm3100-spi": manualDownload("assets/downloads/manuals/rm3100-spi-manual.docx"),
   "h7-can-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx", "CAN/GPS family manual", "CAN/GPS 系列说明书"),
   "ublox-m10-gps": manualDownload("assets/downloads/manuals/ublox-m10-gps-manual.docx"),
   "digital-airspeed": manualDownload("assets/downloads/manuals/digital-airspeed-manual.docx"),
+  "i2c-digital-airspeed": manualDownload("assets/downloads/manuals/i2c-digital-airspeed-manual.docx"),
   "i2c-current-meter": manualDownload("assets/downloads/manuals/i2c-current-meter-manual.docx"),
   "l4-can-rcgps-adapter": manualDownload("assets/downloads/manuals/l4-can-rcgps-adapter-manual.docx"),
   "elrs-24g-diversity": manualDownload("assets/downloads/manuals/elrs-24g-diversity-manual.docx"),
@@ -1267,6 +1410,20 @@ const PRODUCT_LABELS = {
     productLabel("compact"),
     productLabel("check-output")
   ],
+  "bec-10a-8s": [
+    productLabel("bec-module", 1),
+    productLabel("fixed-wing", 2),
+    productLabel("2-8s", 3),
+    productLabel("selectable-bec", 4),
+    productLabel("high-current", 5)
+  ],
+  "bec-5a-12s": [
+    productLabel("bec-module", 1),
+    productLabel("fixed-wing", 2),
+    productLabel("2-12s", 3),
+    productLabel("selectable-bec", 4),
+    productLabel("high-voltage", 5)
+  ],
   "stack-f405-45a": [
     productLabel("fpv", 1),
     productLabel("stack-bundle", 2),
@@ -1328,6 +1485,13 @@ const PRODUCT_LABELS = {
     productLabel("can-wiring"),
     productLabel("external-mounting")
   ],
+  "rm3100-spi": [
+    productLabel("navigation-sensor", 1),
+    productLabel("rm3100", 2),
+    productLabel("spi", 3),
+    productLabel("fixed-wing", 4),
+    productLabel("external-mounting", 5)
+  ],
   "h7-can-gps": [
     productLabel("navigation-sensor", 1),
     productLabel("fixed-wing", 2),
@@ -1350,6 +1514,13 @@ const PRODUCT_LABELS = {
     productLabel("navigation-sensor", 1),
     productLabel("fixed-wing", 2),
     productLabel("pitotless", 3),
+    productLabel("ardupilot", 4),
+    productLabel("compact", 5)
+  ],
+  "i2c-digital-airspeed": [
+    productLabel("navigation-sensor", 1),
+    productLabel("fixed-wing", 2),
+    productLabel("i2c", 3),
     productLabel("ardupilot", 4),
     productLabel("compact", 5)
   ],
