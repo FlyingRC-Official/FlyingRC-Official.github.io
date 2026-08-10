@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="解释为什么模拟 FPV 图传的 VIDEO、CAM、VIN、VOUT 是模拟视频信号而不是 UART 串口，并说明 TX/RX、SmartAudio、Tramp 的区别与正确接线。">
+    <link rel="canonical" href="https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
+    <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
+    <meta property="og:title" content="模拟图传的视频信号不是串口 | FlyingRC Official">
+    <meta property="og:description" content="一文分清模拟 VIDEO、UART TX/RX 与 SmartAudio / Tramp，避免把摄像头或图传视频线接到串口。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/">
+    <meta property="og:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="模拟图传的视频信号不是串口 | FlyingRC Official">
+    <meta name="twitter:description" content="一文分清模拟 VIDEO、UART TX/RX 与 SmartAudio / Tramp，避免把摄像头或图传视频线接到串口。">
+    <meta name="twitter:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
+    <title>模拟图传的视频信号不是串口 | FlyingRC Official</title>
+    <link rel="stylesheet" href="/styles.css?v=20260809-product-catalog-v1">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="/zh/" aria-label="FlyingRC Official home">
+        <img src="/assets/brand/flyingrc-logo-transparent.png" alt="" class="brand-mark">
+        <span>FlyingRC Official</span>
+      </a>
+      <nav aria-label="Primary navigation"><a href="/zh/">首页</a><a href="/zh/products/">产品资料</a><a href="/zh/downloads/">下载</a><a href="/zh/tutorials/" aria-current="page">教程</a><a href="/projects.html">项目</a><a href="/contact.html">联系</a></nav>
+      <div class="language-switch compact" aria-label="Language selector">
+        <a class="" href="/en/tutorials/analog-video-vs-uart/">EN</a>
+        <a class="active" href="/zh/tutorials/analog-video-vs-uart/">中文</a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="product-detail-hero tutorial-detail-hero">
+        <div>
+          <a class="back-link" href="/zh/tutorials/">教程</a>
+          <p class="detail-kicker"><span>FPV / 接线</span><span>更新 2026-08-10</span></p>
+          <h1>模拟图传的视频信号不是串口</h1>
+          <p>VIDEO、CAM、VIN、VOUT 与 UART TX/RX 是完全不同的信号。本文说明模拟摄像头、飞控 OSD、模拟图传以及 SmartAudio / Tramp 应该如何连接。</p>
+        </div>
+        <div class="tutorial-hero-panel">
+          <strong>一句话结论</strong>
+          <p><strong>VIDEO 负责画面；UART 负责数字数据；SmartAudio / Tramp 负责控制图传。</strong> 模拟视频线不能接到普通 TX/RX 串口上。</p>
+        </div>
+      </section>
+
+      <section class="tutorial-layout">
+        <article class="tutorial-article">
+          <section class="detail-section">
+            <h2>1. 先分清三类完全不同的信号</h2>
+            <div class="troubleshooting-list">
+              <article>
+                <h3>VIDEO / CAM / VIN / VOUT：模拟视频</h3>
+                <p>传统模拟 FPV 摄像头通常输出 CVBS 复合视频信号。它是一种模拟波形，包含图像与同步信息，不是 UART 数据，因此没有波特率、TX/RX 方向或 SERIAL 端口编号。</p>
+              </article>
+              <article>
+                <h3>TX / RX / UART：数字串口</h3>
+                <p>UART 用高低电平传输数字数据，常见用途包括 GPS、接收机、数传、遥测或外设控制。UART 通常需要指定协议、波特率和对应串口。</p>
+              </article>
+              <article>
+                <h3>SmartAudio / IRC Tramp：图传控制</h3>
+                <p>SmartAudio 和 Tramp 用于让飞控修改模拟图传的频段、频道、发射功率或 Pit Mode。它们传输的是控制数据，不负责传输摄像头画面。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h2>2. 模拟视频经过飞控时，信号是怎么走的？</h2>
+            <p>支持模拟 OSD 的飞控通常让摄像头的视频信号先进入飞控，再从飞控输出到图传：</p>
+            <p><strong>Camera VIDEO → FC CAM / VIDEO IN → 飞控叠加 OSD → FC VIDEO OUT / VTX → VTX VIDEO IN</strong></p>
+            <p>飞控并不是通过 UART “发送画面”。视频信号仍然是模拟视频，只是在飞控的视频/OSD 电路中加入电压、电流、GPS、高度、飞行模式、人工地平线等 OSD 信息后继续输出。</p>
+          </section>
+
+          <section class="detail-section tutorial-check-list">
+            <h2>3. 为什么 VIDEO 不能接到 UART？</h2>
+            <ul class="detail-rich-list">
+              <li><strong>VIDEO 是模拟信号：</strong>电压连续变化，用于表达图像与同步信息。</li>
+              <li><strong>UART 是数字信号：</strong>按照规定的波特率发送 0/1 数据位。</li>
+              <li><strong>接口电气和数据格式都不同：</strong>把 VIDEO 接到 TX/RX 上，串口无法把它当成视频解析，图传也收不到正确的视频输入。</li>
+              <li><strong>模拟 VIDEO 不需要设置 SERIALx_PROTOCOL：</strong>如果问题是摄像头没有画面，通常不应该通过修改串口协议或波特率来解决。</li>
+            </ul>
+          </section>
+
+          <section class="detail-section">
+            <h2>4. 典型的完整接线</h2>
+            <div class="troubleshooting-list">
+              <article>
+                <h3>摄像头 → 飞控</h3>
+                <p><strong>Camera VIDEO → FC CAM / VIN / VIDEO IN</strong><br>同时按产品要求连接摄像头 VCC 与 GND。</p>
+              </article>
+              <article>
+                <h3>飞控 → 模拟图传</h3>
+                <p><strong>FC VOUT / VIDEO OUT / VTX → VTX VIDEO</strong><br>这条线负责把已经叠加 OSD 的模拟画面送入图传。</p>
+              </article>
+              <article>
+                <h3>飞控 → 图传控制线（可选）</h3>
+                <p><strong>FC UART TX → VTX SmartAudio / Tramp</strong><br>这条线只负责频道、频率、功率等控制。具体使用哪个 UART 和协议，以飞控固件及图传说明书为准。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="detail-section tutorial-warning-list">
+            <h2>5. 特别注意：飞控上写着“VTX”的焊盘，不一定是串口</h2>
+            <ul class="detail-rich-list">
+              <li>很多飞控会把模拟视频输出焊盘直接标记为 <strong>VTX</strong>，它的含义是“输出到 VTX 的视频信号”，本质上仍然是 <strong>VIDEO OUT</strong>。</li>
+              <li>真正用于 SmartAudio / Tramp 控制的通常是某个 UART TX，或者专门标记为 SA、SmartAudio、Tramp、VTX Control 等的焊盘。</li>
+              <li>不同飞控丝印习惯并不完全一致。看到“VTX”字样时，应先查看对应产品的引脚图，而不是直接判断它是 UART。</li>
+            </ul>
+          </section>
+
+          <section class="detail-section">
+            <h2>6. 三种常见错误接法</h2>
+            <div class="troubleshooting-list">
+              <article>
+                <h3>错误：VTX VIDEO → FC TX2</h3>
+                <p>TX2 是 UART 数字输出，不能代替飞控的模拟 VIDEO OUT。</p>
+              </article>
+              <article>
+                <h3>错误：Camera VIDEO → FC RX3</h3>
+                <p>摄像头输出的是模拟视频，不是串口数据。应接到 CAM / VIN / VIDEO IN。</p>
+              </article>
+              <article>
+                <h3>错误：FC VIDEO OUT → VTX SmartAudio</h3>
+                <p>SmartAudio 是控制输入，不是视频输入。FC VIDEO OUT 应接 VTX 的 VIDEO 引脚。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="detail-section">
+            <h2>7. 有 OSD，但是没有摄像头画面，说明什么？</h2>
+            <p>如果眼镜或接收机里能够看到飞控生成的 OSD 字符，但背景没有摄像头画面，这通常说明：</p>
+            <ul class="detail-rich-list">
+              <li><strong>飞控 VIDEO OUT → 图传 → 接收端</strong> 这一段大概率已经工作，因为 OSD 已经能送到图传。</li>
+              <li>应该优先检查 <strong>摄像头供电、Camera VIDEO 接线、FC CAM / VIDEO IN</strong> 以及飞控的视频输入/OSD 电路。</li>
+              <li>此时反复修改 UART、SERIAL 参数通常没有意义，因为摄像头原始画面并不通过 UART 进入飞控。</li>
+            </ul>
+          </section>
+
+          <section class="detail-section">
+            <h2>8. 摄像头直连图传有画面，经过飞控却没有，怎么判断？</h2>
+            <p>可以使用最简单的旁路测试：</p>
+            <p><strong>Camera VIDEO → 直接连接 → VTX VIDEO</strong></p>
+            <p>如果直连能够正常显示，而 <strong>Camera → FC → VTX</strong> 没有摄像头画面，则摄像头与图传本身通常没有大问题。接下来重点检查飞控的 CAM / VIDEO IN、VIDEO OUT 接线、地线、模拟视频/OSD 电路以及固件中与模拟 OSD 相关的配置，而不是去寻找所谓的“视频串口”。</p>
+          </section>
+
+          <section class="detail-section">
+            <h2>9. 数字图传为什么又会连接 UART？</h2>
+            <p>DJI、HDZero、Walksnail 等数字图传系统与传统模拟图传的结构不同。数字图传可能通过 UART / MSP 与飞控交换 OSD 或控制数据，但这仍然不代表“视频信号就是 UART”。</p>
+            <p><strong>UART 可以承载控制或 OSD 数据；真正的视频链路由数字图传系统内部完成。</strong> 因此在判断接线时，要先确认设备到底是模拟图传还是数字图传。</p>
+          </section>
+
+          <section class="detail-section tutorial-check-list">
+            <h2>10. 快速记忆</h2>
+            <ul class="detail-rich-list">
+              <li><strong>VIDEO / CAM / VIN / VOUT：</strong>画面。</li>
+              <li><strong>TX / RX / UART：</strong>数字数据。</li>
+              <li><strong>SmartAudio / Tramp：</strong>控制模拟图传。</li>
+              <li><strong>标准模拟视频路径：</strong>Camera VIDEO → FC VIDEO IN → OSD → FC VIDEO OUT → VTX VIDEO。</li>
+            </ul>
+            <p><strong>所以，看到 VIDEO、CAM、VIN、VOUT 时，不要去找 UART。它们是视频接口，不是串口。</strong></p>
+          </section>
+
+          <section class="detail-section">
+            <h2>相关链接</h2>
+            <div class="download-list tutorial-link-list"><a href="/zh/tutorials/">FlyingRC 教程</a><a href="/zh/products/">FlyingRC 产品资料</a><a href="/zh/downloads/">FlyingRC 下载页</a><a href="/contact.html">联系 FlyingRC 技术支持</a></div>
+          </section>
+        </article>
+      </section>
+
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"模拟图传的视频信号不是串口","description":"解释为什么模拟 FPV 图传的 VIDEO、CAM、VIN、VOUT 是模拟视频信号而不是 UART 串口，并说明 TX/RX、SmartAudio、Tramp 的区别与正确接线。","dateModified":"2026-08-10","inLanguage":"zh-Hans","image":"https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg","url":"https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/","author":{"@type":"Organization","name":"FlyingRC Official"},"publisher":{"@type":"Organization","name":"FlyingRC Official"}}</script>
+    </main>
+    <footer class="site-footer">
+      <span>FlyingRC Official</span>
+      <a href="https://e7wgwo2ehnynhjklw2knt535zmlw176.world.taobao.com/shop/view_shop.htm?appUid=RAzN8HAiDiXrnbmP2phqB88hKp1Wt&amp;spm=a21n57.1.hoverItem.1" target="_blank" rel="noopener">淘宝店铺</a>
+      <a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a>
+    </footer>
+  </body>
+</html>
