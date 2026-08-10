@@ -1670,6 +1670,10 @@ const PUBLIC_REFERENCE_FILES = {
     download("assets/downloads/firmware/h7d-pro/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
   ],
   "l4-can-rm3100": [download("https://github.com/FlyingRC-Official/ardupilot/tree/L4_CAN_RM3100", "ArduPilot L4 CAN RM3100 branch", "ArduPilot L4 CAN RM3100 分支")],
+  "rm3100-spi": [
+    download("assets/downloads/rm3100-spi/RM3100SPI模块封装.zip", "PCB footprint package", "PCB 封装包"),
+    download("assets/downloads/rm3100-spi/3D_RM3100_SPI_Module.step", "STEP 3D model", "STEP 3D 模型")
+  ],
   "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],
   "elrs-24g-diversity": [download("assets/products/elrs-24g-diversity/model.step", "STEP 3D model", "STEP 3D 模型")],
   "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")]
