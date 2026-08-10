@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn why analog FPV VIDEO signals are not UART, and understand the difference between VIDEO, UART TX/RX, SmartAudio and Tramp wiring.">
+<link rel="canonical" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
+<link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
+<link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/">
+<title>Analog FPV Video Signal Is Not UART | FlyingRC Official</title>
+<link rel="stylesheet" href="/styles.css?v=20260809-product-catalog-v1">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="/en/"><img src="/assets/brand/flyingrc-logo-transparent.png" alt="" class="brand-mark"><span>FlyingRC Official</span></a><nav><a href="/en/tutorials/">Tutorials</a></nav><div class="language-switch compact"><a class="active" href="/en/tutorials/analog-video-vs-uart/">EN</a><a href="/zh/tutorials/analog-video-vs-uart/">中文</a></div></header>
+<main id="main">
+<section class="product-detail-hero tutorial-detail-hero"><div><a class="back-link" href="/en/tutorials/">Tutorials</a><p class="detail-kicker"><span>FPV Wiring</span><span>Updated 2026-08-10</span></p><h1>Analog FPV Video Signal Is Not UART</h1><p>VIDEO, CAM, VIN and VOUT are analog video signals. They are completely different from UART TX/RX and should never be connected as serial data.</p></div><div class="tutorial-hero-panel"><strong>Remember this</strong><p><strong>VIDEO carries the image. UART carries digital data. SmartAudio/Tramp controls the VTX.</strong></p></div></section>
+<section class="tutorial-layout"><article class="tutorial-article">
+<section class="detail-section"><h2>1. Three different signal types</h2><div class="troubleshooting-list"><article><h3>VIDEO / CAM / VIN / VOUT</h3><p>Traditional analog FPV cameras output CVBS composite video. It is a continuous analog waveform containing image and synchronization information. It does not use baud rate, UART ports or serial protocols.</p></article><article><h3>UART TX/RX</h3><p>UART is a digital communication interface used for GPS, receivers, telemetry and other data devices. It transfers binary data using configured baud rates and protocols.</p></article><article><h3>SmartAudio / IRC Tramp</h3><p>These protocols allow the flight controller to change VTX settings such as channel, frequency and power. They do not carry the camera video.</p></article></div></section>
+<section class="detail-section"><h2>2. Correct analog video path</h2><p>The normal analog FPV OSD path is:</p><p><strong>Camera VIDEO → FC VIDEO IN → OSD overlay → FC VIDEO OUT / VTX → VTX VIDEO IN</strong></p><p>The flight controller does not send the video through UART. The video remains an analog signal while the OSD information is added by the video circuit.</p></section>
+<section class="detail-section tutorial-warning-list"><h2>3. Common mistakes</h2><ul class="detail-rich-list"><li><strong>VTX VIDEO connected to TX/RX:</strong> Wrong. UART cannot process analog video.</li><li><strong>Camera VIDEO connected to RX:</strong> Wrong. Connect it to CAM/VIN/VIDEO IN.</li><li><strong>VIDEO OUT connected to SmartAudio:</strong> Wrong. SmartAudio is only for VTX control.</li></ul></section>
+<section class="detail-section"><h2>4. Important note about the VTX label</h2><p>Many flight controllers label the analog video output pad as <strong>VTX</strong>. In this case VTX means “video output to the video transmitter”, not a UART port. Always check the board pinout before wiring.</p></section>
+<section class="detail-section"><h2>5. OSD visible but no camera image?</h2><p>If you can see OSD text but the camera image is black, the VTX output path is probably working. Check the camera power, camera VIDEO wire and FC CAM/VIDEO IN connection first. Changing UART or SERIAL settings will not fix an analog video input problem.</p></section>
+<section class="detail-section"><h2>6. Quick summary</h2><ul class="detail-rich-list"><li><strong>VIDEO / CAM / VIN / VOUT:</strong> image signal.</li><li><strong>UART TX/RX:</strong> digital data.</li><li><strong>SmartAudio / Tramp:</strong> VTX control.</li><li><strong>Analog FPV:</strong> Camera → FC → VTX.</li></ul><p><strong>When you see VIDEO, CAM, VIN or VOUT, do not look for a UART. They are video interfaces, not serial ports.</strong></p></section>
+</article></section>
+</main>
+<footer class="site-footer"><span>FlyingRC Official</span><a href="https://github.com/FlyingRC-Official">github.com/FlyingRC-Official</a></footer>
+</body></html>
