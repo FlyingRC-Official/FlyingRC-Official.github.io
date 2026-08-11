@@ -658,7 +658,7 @@ window.FLYINGRC_CATALOG = {
       title: { en: "FlyingRC Pitotless Digital Airspeed Meter", zh: "FlyingRC 无空速管数字空速计" },
       summary: { en: "Digital airspeed product material for fixed-wing users who want a no-pitot airspeed option.", zh: "无空速管数字空速计资料，面向需要无空速管方案的固定翼用户。" },
       specs: { en: ["Pitotless digital airspeed sensor", "Fixed-wing airspeed aid for ArduPilot workflows", "Supports automatic thermal soaring use cases"], zh: ["数字空速传感器", "无空速管定位", "固定翼传感器配件"] },
-      hero: "assets/products/digital-airspeed/product-render-20260527.jpg",
+      hero: "assets/products/digital-airspeed/hero-i2c-pitotless-20260811.jpg",
       images: [
         img("assets/products/digital-airspeed/photo-package-20260508.jpg", "Packaged product photo", "包装实物图", "gallery"),
         img("assets/products/digital-airspeed/photo-front-20260508.jpg", "Front product photo", "实物正面图", "gallery"),
