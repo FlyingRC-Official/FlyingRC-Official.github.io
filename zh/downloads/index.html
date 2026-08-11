@@ -872,6 +872,51 @@
     <summary>
       <span class="download-product-copy">
         <span class="download-product-meta"><span>电调</span></span>
+        <strong>FlyingRC AM32 ESC CAN 总线 75A 单体金封电调</strong>
+      </span>
+      <span class="download-product-badges"><span>固件 3</span><span>校验值 1</span></span>
+      <svg class="download-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </summary>
+    <div class="download-product-body">
+      <p class="download-safety-note">刷写固件前，请核对硬件版本、目标名称和产品页说明。</p>
+      <div class="download-file-groups"><section class="download-file-group download-file-group-firmware">
+    <h3>固件</h3>
+    <div class="download-firmware-families">
+      <section class="download-firmware-family">
+        <div class="download-firmware-family-head">
+          <h4>AM32</h4>
+          <span>当前产品文件</span>
+        </div>
+        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022_full_flash.hex" target="_blank" rel="noopener">
+    <span>AM32 2.20 Bootloader + 应用完整 HEX（commit 9bf5022）</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>2.20</b><b>Bootloader + DroneCAN 应用完整 HEX</b><b>定制构建</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。</dd></div><div><dt>固件目标</dt><dd>FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / full flash @ 0x08000000</dd></div><div><dt>SHA256</dt><dd>8d5ab541546acc2545f5fb7afb3a8e8e9a5060268f3b689fa11e29a58d29eff3</dd></div><div><dt>兼容说明</dt><dd>用于 SWD 恢复/烧写的合并 Intel HEX：PB4 CAN V17 Bootloader 位于 0x08000000，同一份 2.20 应用位于 0x08004000。数据结束于 0x0800FCF4，不触及 0x0801F800 EEPROM；烧写前必须完整备份。</dd></div><div><dt>版本说明</dt><dd>已验证组成：其中 Bootloader 和应用载荷分别与单独发布的两个文件逐字节一致。</dd></div></dl>
+  </a><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022.bin" target="_blank" rel="noopener">
+    <span>AM32 2.20 DroneCAN 应用固件 BIN（commit 9bf5022）</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>2.20</b><b>DroneCAN 应用 BIN</b><b>定制构建</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。</dd></div><div><dt>固件目标</dt><dd>FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / application @ 0x08004000</dd></div><div><dt>SHA256</dt><dd>f09d85fe64f041b531bd5a8234e7dd567c28c9607c2bbc9811bd57f0163317b6</dd></div><div><dt>兼容说明</dt><dd>仅含应用固件的 BIN。使用 SWD 烧写时写入 0x08004000，并保留 0x08000000-0x08003FFF Bootloader 区域及 0x0801F800 EEPROM；需配合 PB4 CAN V17 Bootloader。</dd></div><div><dt>版本说明</dt><dd>基于 AM32 2.20、commit 9bf5022 的 FlyingRC 定制构建；这是当前产品固件，并非 AM32 官方 Release 附件。</dd></div></dl>
+  </a><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_F415_BOOTLOADER_PB4_CAN_V17.hex" target="_blank" rel="noopener">
+    <span>AM32 F415 PB4 CAN V17 Bootloader HEX</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>V17</b><b>PB4 CAN Bootloader HEX</b><b>稳定版</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；烧写前必须核对 MCU 丝印。</dd></div><div><dt>固件目标</dt><dd>AT32F415 / PB4 CAN bootloader / 0x08000000</dd></div><div><dt>SHA256</dt><dd>f8f36060f4fc2405441f5addec6e05ece152fe16d57b2a7decaee040c5947b6a</dd></div><div><dt>兼容说明</dt><dd>仅含 Bootloader 的 Intel HEX。实际数据位于预留区 0x08000000-0x08003FFF 内的 0x08000000-0x0800397F；应用从 0x08004000 开始。仅可在完整备份后使用兼容 SWD 下载器烧写。</dd></div><div><dt>版本说明</dt><dd>AM32 官方 F415 PB4 CAN V17 Bootloader。更换 Bootloader 属于恢复/编程器操作，不是普通应用固件升级。</dd></div></dl>
+  </a></div>
+
+      </section>
+    </div>
+  </section><section class="download-file-group download-file-group-checksums">
+    <h3>校验值</h3>
+    <div class="download-file-list"><a class="" href="/assets/downloads/firmware/am32-esc-75a-can/SHA256SUMS.txt" target="_blank" rel="noopener">
+    <span>SHA256 校验值</span>
+
+
+  </a></div>
+  </section></div>
+      <a class="text-link download-product-page-link" href="/zh/products/am32-esc-75a-can/">产品资料</a>
+    </div>
+  </details><details class="download-product">
+    <summary>
+      <span class="download-product-copy">
+        <span class="download-product-meta"><span>电调</span></span>
         <strong>FlyingRC AM32 ESC 75A V2.5 单体金封电调</strong>
       </span>
       <span class="download-product-badges"><span>说明书 1</span></span>

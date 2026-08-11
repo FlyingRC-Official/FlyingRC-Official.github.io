@@ -902,14 +902,14 @@ const PRODUCT_EXPLANATIONS = {
     whatZh: "一块紧凑型 75A 单路 AM32 电调，板载 CAN 总线接口，用于驱动一个大电流无刷电机，适合固定翼、船模、车模或每个电机独立配置电调的装机。",
     bestEn: ["High-current single-motor fixed-wing aircraft.", "Boats, vehicles, and robotics using a separate ESC for one brushless motor.", "Systems that can use the product's onboard CAN interface after protocol and pinout compatibility are confirmed."],
     bestZh: ["大电流单发固定翼飞机。", "使用单独电调驱动一个无刷电机的船模、车模和机器人。", "在确认协议与引脚兼容后使用板载 CAN 接口的系统。"],
-    featuresEn: ["AT32F421K8U7 120 MHz 32-bit controller with 64 KB flash and 16 KB RAM.", "FD6288/JSM6288Q gate driver and Infineon IRF7480 metal-sealed MOSFETs.", "AM32 firmware with sine-wave startup and Stall Protection support.", "Onboard CAN interface plus DSHOT150/300/600, OneShot, and PWM signal support.", "Product material lists onboard BEC variants rated for continuous 5 V/4 A or 7 V/3.5 A output."],
-    featuresZh: ["AT32F421K8U7 120MHz 32 位主控，64KB Flash、16KB RAM。", "FD6288/JSM6288Q 栅极驱动器与英飞凌 IRF7480 金封 MOS。", "AM32 固件，支持正弦波启动与 Stall Protection 堵转保护。", "板载 CAN 总线接口，同时支持 DSHOT150/300/600、OneShot、PWM 等信号。", "产品资料标注板载 BEC 版本可持续输出 5V/4A 或 7V/3.5A。"],
+    featuresEn: ["The original parameter artwork identifies an AT32F421K8U7 64 KB control board; the downloadable firmware below is only for the separate AT32F415KBU7-4 128 KB hardware revision, so check the MCU marking first.", "FD6288/JSM6288Q gate driver and Infineon IRF7480 metal-sealed MOSFETs.", "AM32 firmware with sine-wave startup and Stall Protection support.", "Onboard CAN interface plus DSHOT150/300/600, OneShot, and PWM signal support.", "The published application BIN is a FlyingRC AM32 2.20 DroneCAN build for the AT32F415KBU7-4 hardware revision.", "Product material lists onboard BEC variants rated for continuous 5 V/4 A or 7 V/3.5 A output."],
+    featuresZh: ["原始参数图标注的是 AT32F421K8U7 64KB 控制板；下方下载固件仅适用于另一个 AT32F415KBU7-4 128KB 硬件版本，必须先核对 MCU 丝印。", "FD6288/JSM6288Q 栅极驱动器与英飞凌 IRF7480 金封 MOS。", "AM32 固件，支持正弦波启动与 Stall Protection 堵转保护。", "板载 CAN 总线接口，同时支持 DSHOT150/300/600、OneShot、PWM 等信号。", "当前发布的应用 BIN 是面向 AT32F415KBU7-4 硬件版本的 FlyingRC AM32 2.20 DroneCAN 构建。", "产品资料标注板载 BEC 版本可持续输出 5V/4A 或 7V/3.5A。"],
     techEn: ["Input: 7-28 V DC / 2-6S LiPo.", "Published current ratings: 75 A continuous and 85 A burst under the stated 4S test condition.", "Dimension drawing: approximately 38.10 x 19.16 x 9.24 mm; weight approximately 7.7 g.", "Package includes a GH1.25 4-pin cable, 680 uF 35 V electrolytic capacitor, capacitor heat-shrink, heatsink, and 12 AWG silicone power lead with XT60 connector."],
     techZh: ["输入：7-28V DC / 2-6S LiPo。", "资料标注电流：4S 测试条件下持续 75A、瞬时 85A。", "尺寸图标注约 38.10 x 19.16 x 9.24mm，重量约 7.7g。", "包装含 GH1.25 4Pin 线、680uF 35V 电解电容、电容热缩管、散热片及带 XT60 的 12AWG 硅胶电源线。"],
-    setupEn: ["Remove the propeller before ESC setup, firmware work, or powered bench testing.", "Verify the GH1.25 connector pinout, CAN protocol, bitrate, and controller compatibility before applying power or relying on CAN control/telemetry.", "Install the included electrolytic capacitor with the correct polarity and provide airflow or heatsinking appropriate for the actual load.", "Use wire gauge, connectors, soldering, insulation, and strain relief suitable for the expected current."],
-    setupZh: ["电调设置、固件操作或通电台架测试前必须拆桨。", "上电或使用 CAN 控制/遥测前，先确认 GH1.25 接口引脚、CAN 协议、波特率及控制器兼容性。", "按正确极性安装随附电解电容，并根据实际负载提供合适风冷或散热片。", "按预期电流选择合适线径、接头、焊接、绝缘与拉力保护。"],
-    watchEn: ["The supplied listing material identifies a CAN interface but does not name a specific higher-layer protocol; do not assume DroneCAN or plug-and-play compatibility without confirmation.", "The 75 A/85 A figures are published 4S test-condition ratings; real continuous current depends on cooling, wiring, battery voltage, motor load, and installation."],
-    watchZh: ["现有上架资料只明确标注 CAN 总线接口，未注明具体上层协议；确认前不要直接假定兼容 DroneCAN 或即插即用。", "75A/85A 为资料标注的 4S 测试条件数据；实际持续电流取决于散热、接线、电池电压、电机负载和安装环境。"]
+    setupEn: ["Remove the propeller before ESC setup, firmware work, or powered bench testing.", "Verify the GH1.25 connector pinout, CAN bitrate, and controller compatibility before applying power or relying on CAN control/telemetry.", "For SWD recovery/programming, write the application-only BIN at 0x08004000, or write the combined full-flash HEX at 0x08000000; preserve EEPROM at 0x0801F800 and back up the full device first.", "Install the included electrolytic capacitor with the correct polarity and provide airflow or heatsinking appropriate for the actual load.", "Use wire gauge, connectors, soldering, insulation, and strain relief suitable for the expected current."],
+    setupZh: ["电调设置、固件操作或通电台架测试前必须拆桨。", "上电或使用 CAN 控制/遥测前，先确认 GH1.25 接口引脚、CAN 波特率及控制器兼容性。", "使用 SWD 恢复/烧写时，应用 BIN 写入 0x08004000，或将合并完整 HEX 从 0x08000000 写入；必须保留 0x0801F800 EEPROM，并先完整备份。", "按正确极性安装随附电解电容，并根据实际负载提供合适风冷或散热片。", "按预期电流选择合适线径、接头、焊接、绝缘与拉力保护。"],
+    watchEn: ["DroneCAN operation requires the matching F415 CAN application and PB4 CAN V17 bootloader; the CAN connector alone does not prove that the correct firmware is installed.", "These files are only for the AT32F415KBU7-4 revision. Do not flash them to AT32F421 or 64 KiB AT32F415K8U7-4 hardware.", "The 75 A/85 A figures are published 4S test-condition ratings; real continuous current depends on cooling, wiring, battery voltage, motor load, and installation."],
+    watchZh: ["DroneCAN 工作需要匹配的 F415 CAN 应用固件和 PB4 CAN V17 Bootloader；仅有 CAN 接口不能证明板上已安装正确固件。", "这些文件仅适用于 AT32F415KBU7-4 硬件版本，不可刷入 AT32F421 或 64KiB AT32F415K8U7-4 硬件。", "75A/85A 为资料标注的 4S 测试条件数据；实际持续电流取决于散热、接线、电池电压、电机负载和安装环境。"]
   }),
   "am32-esc-75a-v25": escExplain("FlyingRC® AM32 75A Single ESC V2.5 Product Manual.docx", "A 75 A single-channel AM32 ESC for one high-current brushless motor. It is useful when each motor needs its own ESC or when a single powerful motor is used.", "一块 75 A 单路 AM32 电调，用于驱动一个大电流无刷电机。适合每个电机独立电调或单个大功率电机的场景。", ["High-current fixed-wing or vehicle motors.", "Users who need one ESC per motor rather than a 4-in-1 board.", "AM32 setups requiring configurable braking, startup, and protection behavior."], ["大电流固定翼或车辆电机。", "需要每个电机独立电调，而不是四合一电调的用户。", "需要配置刹车、启动和保护行为的 AM32 场景。"], ["AM32 firmware with sinusoidal startup and stall protection.", "Designed for strong low-speed torque when configured appropriately.", "Manual documents firmware and parameter update workflow."], ["AM32 固件，支持正弦启动和堵转保护。", "正确配置后可提供较强低速扭矩。", "说明书记录固件和参数更新流程。"], ["Input: 7-28 V DC / 2-6S LiPo.", "75 A single ESC class.", "Factory firmware is AM32; manual records firmware update cautions."], ["输入：7-28 V DC / 2-6S LiPo。", "75 A 单体电调级别。", "出厂 AM32 固件；说明书记录了固件更新注意事项。"]),
   "am32-dual-esc-40a": escExplain("FlyingRC® AM32 Dual 40A 2 in 1 ESC  Product Manual.docx", "A two-in-one AM32 ESC that drives two brushless motors from one compact board. It is especially useful for twin-motor fixed-wing aircraft or compact dual-motor builds.", "一块二合一 AM32 电调，用一块板驱动两个无刷电机，特别适合双发固定翼或紧凑双电机装机。", ["Twin-motor fixed-wing aircraft.", "Dual-motor robotics or vehicle builds.", "Builds that want fewer separate ESC boards and cleaner wiring."], ["双发固定翼飞机。", "双电机机器人或车辆装机。", "希望减少独立电调数量、简化走线的装机。"], ["Pre-flashed with AM32 firmware.", "Dual-stage LDO power supply for gate drivers and MCUs.", "Supports wide 2-6S input range according to the manual.", "Sine-wave startup and Stall Protection can improve low-speed torque."], ["出厂预刷 AM32 固件。", "栅极驱动和 MCU 使用双级 LDO 供电。", "说明书标注支持 2-6S 宽输入范围。", "正弦启动和堵转保护可改善低速扭矩。"], ["40 A two-in-one ESC class.", "AM32 firmware version information and update workflow are documented in the manual."], ["40 A 二合一电调级别。", "说明书记录了 AM32 固件版本信息和更新流程。"]),
@@ -1737,7 +1737,13 @@ const PUBLIC_REFERENCE_FILES = {
   ],
   "bec-mini-dji-o4": [download("assets/products/bec-mini-dji-o4/model.step", "STEP 3D model", "STEP 3D 模型")],
   "elrs-24g-diversity": [download("assets/products/elrs-24g-diversity/model.step", "STEP 3D model", "STEP 3D 模型")],
-  "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")]
+  "f4d-mk1": [download("assets/products/f4d-mk1/video.mp4", "Product video", "产品视频")],
+  "am32-esc-75a-can": [
+    download("assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022_full_flash.hex", "AM32 2.20 full-flash HEX with bootloader (commit 9bf5022)", "AM32 2.20 Bootloader + 应用完整 HEX（commit 9bf5022）"),
+    download("assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022.bin", "AM32 2.20 DroneCAN application BIN (commit 9bf5022)", "AM32 2.20 DroneCAN 应用固件 BIN（commit 9bf5022）"),
+    download("assets/downloads/firmware/am32-esc-75a-can/AM32_F415_BOOTLOADER_PB4_CAN_V17.hex", "AM32 F415 PB4 CAN V17 bootloader HEX", "AM32 F415 PB4 CAN V17 Bootloader HEX"),
+    download("assets/downloads/firmware/am32-esc-75a-can/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
+  ]
 };
 
 const FIRMWARE_DOWNLOAD_METADATA = {
@@ -2406,6 +2412,54 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "f76b29c0dc32b123c3ec8da8666e7399f0e07fd6eaf19fa911fad2c5de830335",
     compatibilityEn: "INAV 9.1.0 firmware for the FLYINGRCH7DPRO target.",
     compatibilityZh: "适用于 FLYINGRCH7DPRO 目标的 INAV 9.1.0 固件。"
+  }),
+  "assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022.bin": firmwareMeta({
+    family: "am32",
+    version: "2.20",
+    channel: "custom",
+    role: "current-product",
+    variantEn: "DroneCAN application BIN",
+    variantZh: "DroneCAN 应用 BIN",
+    target: "FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / application @ 0x08004000",
+    boardRevisionEn: "FlyingRC AM32 ESC CAN Bus 75A with AT32F415KBU7-4 (128 KiB); not for AT32F421 or AT32F415K8U7-4.",
+    boardRevisionZh: "FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。",
+    checksum: "f09d85fe64f041b531bd5a8234e7dd567c28c9607c2bbc9811bd57f0163317b6",
+    compatibilityEn: "Application-only BIN. For SWD flashing, write at 0x08004000 and preserve the bootloader at 0x08000000-0x08003FFF and EEPROM at 0x0801F800. Intended for the matching PB4 CAN V17 bootloader.",
+    compatibilityZh: "仅含应用固件的 BIN。使用 SWD 烧写时写入 0x08004000，并保留 0x08000000-0x08003FFF Bootloader 区域及 0x0801F800 EEPROM；需配合 PB4 CAN V17 Bootloader。",
+    archiveNoteEn: "Custom FlyingRC build based on AM32 2.20 at commit 9bf5022; this is the current product build, not an official AM32 release asset.",
+    archiveNoteZh: "基于 AM32 2.20、commit 9bf5022 的 FlyingRC 定制构建；这是当前产品固件，并非 AM32 官方 Release 附件。"
+  }),
+  "assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022_full_flash.hex": firmwareMeta({
+    family: "am32",
+    version: "2.20",
+    channel: "custom",
+    role: "current-product",
+    variantEn: "Bootloader + DroneCAN application HEX",
+    variantZh: "Bootloader + DroneCAN 应用完整 HEX",
+    target: "FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / full flash @ 0x08000000",
+    boardRevisionEn: "FlyingRC AM32 ESC CAN Bus 75A with AT32F415KBU7-4 (128 KiB); not for AT32F421 or AT32F415K8U7-4.",
+    boardRevisionZh: "FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。",
+    checksum: "8d5ab541546acc2545f5fb7afb3a8e8e9a5060268f3b689fa11e29a58d29eff3",
+    compatibilityEn: "Combined Intel HEX for SWD recovery/programming: PB4 CAN V17 bootloader at 0x08000000 plus the exact 2.20 application payload at 0x08004000. Data ends at 0x0800FCF4 and does not touch EEPROM at 0x0801F800. Back up the full device before flashing.",
+    compatibilityZh: "用于 SWD 恢复/烧写的合并 Intel HEX：PB4 CAN V17 Bootloader 位于 0x08000000，同一份 2.20 应用位于 0x08004000。数据结束于 0x0800FCF4，不触及 0x0801F800 EEPROM；烧写前必须完整备份。",
+    archiveNoteEn: "Verified composition: the bootloader payload and application payload match the separately published files byte-for-byte.",
+    archiveNoteZh: "已验证组成：其中 Bootloader 和应用载荷分别与单独发布的两个文件逐字节一致。"
+  }),
+  "assets/downloads/firmware/am32-esc-75a-can/AM32_F415_BOOTLOADER_PB4_CAN_V17.hex": firmwareMeta({
+    family: "am32",
+    version: "V17",
+    channel: "stable",
+    role: "current-product",
+    variantEn: "PB4 CAN bootloader HEX",
+    variantZh: "PB4 CAN Bootloader HEX",
+    target: "AT32F415 / PB4 CAN bootloader / 0x08000000",
+    boardRevisionEn: "FlyingRC AM32 ESC CAN Bus 75A with AT32F415KBU7-4 (128 KiB); verify the MCU marking before flashing.",
+    boardRevisionZh: "FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；烧写前必须核对 MCU 丝印。",
+    checksum: "f8f36060f4fc2405441f5addec6e05ece152fe16d57b2a7decaee040c5947b6a",
+    compatibilityEn: "Bootloader-only Intel HEX. Actual data occupies 0x08000000-0x0800397F inside the reserved 0x08000000-0x08003FFF region; the application starts at 0x08004000. Flash only with a compatible SWD programmer after backing up the full device.",
+    compatibilityZh: "仅含 Bootloader 的 Intel HEX。实际数据位于预留区 0x08000000-0x08003FFF 内的 0x08000000-0x0800397F；应用从 0x08004000 开始。仅可在完整备份后使用兼容 SWD 下载器烧写。",
+    archiveNoteEn: "Official AM32 F415 PB4 CAN V17 bootloader. Bootloader replacement is a recovery/programmer operation, not a normal application update.",
+    archiveNoteZh: "AM32 官方 F415 PB4 CAN V17 Bootloader。更换 Bootloader 属于恢复/编程器操作，不是普通应用固件升级。"
   })
 };
 

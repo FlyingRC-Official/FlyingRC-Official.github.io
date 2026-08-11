@@ -101,7 +101,10 @@ const UI = {
     familyBetaflight: "Betaflight",
     familyInav: "INAV / INAVFlight",
     familyPx4: "PX4",
+    familyAm32: "AM32",
     familyOther: "Other firmware",
+    currentProduct: "Current product file",
+    custom: "Custom build",
     manual: "Manual",
     firmware: "Firmware",
     checksums: "Checksums",
@@ -195,7 +198,10 @@ const UI = {
     familyBetaflight: "Betaflight",
     familyInav: "INAV / INAVFlight",
     familyPx4: "PX4",
+    familyAm32: "AM32",
     familyOther: "其他固件",
+    currentProduct: "当前产品文件",
+    custom: "定制构建",
     manual: "说明书",
     firmware: "固件",
     checksums: "校验值",
@@ -577,11 +583,21 @@ function downloadLink(item, lang) {
 function downloadReleaseChips(item, lang) {
   const labels = UI[lang];
   if (!item.releaseRole && !item.releaseVersion && !item.releaseChannel && !localized(item.variant, lang)) return "";
+  const roleChip = item.releaseRole === "latest-stable"
+    ? labels.latestStable
+    : item.releaseRole === "current-product"
+      ? labels.currentProduct
+      : labels.archived;
+  const channelChip = item.releaseChannel === "unstable"
+    ? labels.unstable
+    : item.releaseChannel === "custom"
+      ? labels.custom
+      : labels.stable;
   const chips = [
-    item.releaseRole === "latest-stable" ? labels.latestStable : labels.archived,
+    roleChip,
     item.releaseVersion,
     localized(item.variant, lang),
-    item.releaseChannel === "unstable" ? labels.unstable : labels.stable
+    channelChip
   ].filter(Boolean);
   return `<span class="download-release-chips">${chips.map((chip) => `<b>${html(chip)}</b>`).join("")}</span>`;
 }
@@ -593,13 +609,14 @@ function firmwareFamilyLabel(family, lang) {
     betaflight: "familyBetaflight",
     inav: "familyInav",
     px4: "familyPx4",
+    am32: "familyAm32",
     other: "familyOther"
   }[family || "other"] || "familyOther";
   return labels[key];
 }
 
 function firmwareFamilyGroups(items) {
-  const order = ["ardupilot", "betaflight", "inav", "px4", "other"];
+  const order = ["ardupilot", "betaflight", "inav", "px4", "am32", "other"];
   const groups = new Map();
   items.forEach((item) => {
     const family = item.firmwareFamily || "other";
@@ -621,13 +638,16 @@ function firmwareFamilyPanels(items, lang) {
 
 function firmwareFamilyPanel(group, lang) {
   const labels = UI[lang];
-  const latestItems = group.items.filter((item) => item.releaseRole === "latest-stable");
-  const archiveItems = group.items.filter((item) => item.releaseRole !== "latest-stable");
+  const latestItems = group.items.filter((item) => ["latest-stable", "current-product"].includes(item.releaseRole));
+  const archiveItems = group.items.filter((item) => !["latest-stable", "current-product"].includes(item.releaseRole));
+  const currentLabel = latestItems.some((item) => item.releaseRole === "latest-stable")
+    ? labels.latestStable
+    : labels.currentProduct;
   return `
       <section class="download-firmware-family">
         <div class="download-firmware-family-head">
           <h4>${html(firmwareFamilyLabel(group.family, lang))}</h4>
-          ${latestItems.length ? `<span>${html(labels.latestStable)}</span>` : ""}
+          ${latestItems.length ? `<span>${html(currentLabel)}</span>` : ""}
         </div>
         ${latestItems.length ? `<div class="download-file-list download-latest-list">${latestItems.map((item) => downloadLink(item, lang)).join("")}</div>` : ""}
         ${archiveItems.length ? `

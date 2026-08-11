@@ -59,21 +59,52 @@
 
     <section class="detail-info-panel">
       <h2>主要功能</h2>
-      <ul class="detail-rich-list"><li>AT32F421K8U7 120MHz 32 位主控，64KB Flash、16KB RAM。</li><li>FD6288/JSM6288Q 栅极驱动器与英飞凌 IRF7480 金封 MOS。</li><li>AM32 固件，支持正弦波启动与 Stall Protection 堵转保护。</li><li>板载 CAN 总线接口，同时支持 DSHOT150/300/600、OneShot、PWM 等信号。</li><li>产品资料标注板载 BEC 版本可持续输出 5V/4A 或 7V/3.5A。</li></ul>
+      <ul class="detail-rich-list"><li>原始参数图标注的是 AT32F421K8U7 64KB 控制板；下方下载固件仅适用于另一个 AT32F415KBU7-4 128KB 硬件版本，必须先核对 MCU 丝印。</li><li>FD6288/JSM6288Q 栅极驱动器与英飞凌 IRF7480 金封 MOS。</li><li>AM32 固件，支持正弦波启动与 Stall Protection 堵转保护。</li><li>板载 CAN 总线接口，同时支持 DSHOT150/300/600、OneShot、PWM 等信号。</li><li>当前发布的应用 BIN 是面向 AT32F415KBU7-4 硬件版本的 FlyingRC AM32 2.20 DroneCAN 构建。</li><li>产品资料标注板载 BEC 版本可持续输出 5V/4A 或 7V/3.5A。</li></ul>
     </section>
 
     <section class="detail-info-panel">
       <h2>设置 / 接线注意</h2>
-      <ul class="detail-rich-list"><li>电调设置、固件操作或通电台架测试前必须拆桨。</li><li>上电或使用 CAN 控制/遥测前，先确认 GH1.25 接口引脚、CAN 协议、波特率及控制器兼容性。</li><li>按正确极性安装随附电解电容，并根据实际负载提供合适风冷或散热片。</li><li>按预期电流选择合适线径、接头、焊接、绝缘与拉力保护。</li></ul>
+      <ul class="detail-rich-list"><li>电调设置、固件操作或通电台架测试前必须拆桨。</li><li>上电或使用 CAN 控制/遥测前，先确认 GH1.25 接口引脚、CAN 波特率及控制器兼容性。</li><li>使用 SWD 恢复/烧写时，应用 BIN 写入 0x08004000，或将合并完整 HEX 从 0x08000000 写入；必须保留 0x0801F800 EEPROM，并先完整备份。</li><li>按正确极性安装随附电解电容，并根据实际负载提供合适风冷或散热片。</li><li>按预期电流选择合适线径、接头、焊接、绝缘与拉力保护。</li></ul>
     </section>
 
     <section class="detail-info-panel">
       <h2>使用前检查</h2>
-      <ul class="detail-rich-list"><li>现有上架资料只明确标注 CAN 总线接口，未注明具体上层协议；确认前不要直接假定兼容 DroneCAN 或即插即用。</li><li>75A/85A 为资料标注的 4S 测试条件数据；实际持续电流取决于散热、接线、电池电压、电机负载和安装环境。</li></ul>
+      <ul class="detail-rich-list"><li>DroneCAN 工作需要匹配的 F415 CAN 应用固件和 PB4 CAN V17 Bootloader；仅有 CAN 接口不能证明板上已安装正确固件。</li><li>这些文件仅适用于 AT32F415KBU7-4 硬件版本，不可刷入 AT32F421 或 64KiB AT32F415K8U7-4 硬件。</li><li>75A/85A 为资料标注的 4S 测试条件数据；实际持续电流取决于散热、接线、电池电压、电机负载和安装环境。</li></ul>
     </section>
   </section>
       <section class="detail-section"><h2>关键参数</h2><ul class="spec-list"><li>输入：7-28V DC / 2-6S LiPo</li><li>资料标注 4S 测试条件下持续电流 75A、瞬时电流 85A</li><li>板载 CAN 总线接口，支持 DSHOT150/300/600、OneShot、PWM 等控制信号</li><li>尺寸图标注约 38.10 x 19.16 x 9.24mm，重量约 7.7g</li></ul></section>
+      <section class="detail-section">
+    <h2>下载</h2>
 
+    <div class="download-firmware-families">
+      <section class="download-firmware-family">
+        <div class="download-firmware-family-head">
+          <h4>AM32</h4>
+          <span>当前产品文件</span>
+        </div>
+        <div class="download-file-list download-latest-list"><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022_full_flash.hex" target="_blank" rel="noopener">
+    <span>AM32 2.20 Bootloader + 应用完整 HEX（commit 9bf5022）</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>2.20</b><b>Bootloader + DroneCAN 应用完整 HEX</b><b>定制构建</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。</dd></div><div><dt>固件目标</dt><dd>FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / full flash @ 0x08000000</dd></div><div><dt>SHA256</dt><dd>8d5ab541546acc2545f5fb7afb3a8e8e9a5060268f3b689fa11e29a58d29eff3</dd></div><div><dt>兼容说明</dt><dd>用于 SWD 恢复/烧写的合并 Intel HEX：PB4 CAN V17 Bootloader 位于 0x08000000，同一份 2.20 应用位于 0x08004000。数据结束于 0x0800FCF4，不触及 0x0801F800 EEPROM；烧写前必须完整备份。</dd></div><div><dt>版本说明</dt><dd>已验证组成：其中 Bootloader 和应用载荷分别与单独发布的两个文件逐字节一致。</dd></div></dl>
+  </a><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_FLYINGRC_75A_F415_CAN_2.20_base_9bf5022.bin" target="_blank" rel="noopener">
+    <span>AM32 2.20 DroneCAN 应用固件 BIN（commit 9bf5022）</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>2.20</b><b>DroneCAN 应用 BIN</b><b>定制构建</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；不适用于 AT32F421 或 AT32F415K8U7-4。</dd></div><div><dt>固件目标</dt><dd>FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / application @ 0x08004000</dd></div><div><dt>SHA256</dt><dd>f09d85fe64f041b531bd5a8234e7dd567c28c9607c2bbc9811bd57f0163317b6</dd></div><div><dt>兼容说明</dt><dd>仅含应用固件的 BIN。使用 SWD 烧写时写入 0x08004000，并保留 0x08000000-0x08003FFF Bootloader 区域及 0x0801F800 EEPROM；需配合 PB4 CAN V17 Bootloader。</dd></div><div><dt>版本说明</dt><dd>基于 AM32 2.20、commit 9bf5022 的 FlyingRC 定制构建；这是当前产品固件，并非 AM32 官方 Release 附件。</dd></div></dl>
+  </a><a class="download-link-with-meta" href="/assets/downloads/firmware/am32-esc-75a-can/AM32_F415_BOOTLOADER_PB4_CAN_V17.hex" target="_blank" rel="noopener">
+    <span>AM32 F415 PB4 CAN V17 Bootloader HEX</span>
+    <span class="download-release-chips"><b>当前产品文件</b><b>V17</b><b>PB4 CAN Bootloader HEX</b><b>稳定版</b></span>
+    <dl class="download-file-meta"><div><dt>硬件版本</dt><dd>FlyingRC AM32 ESC CAN 总线 75A，AT32F415KBU7-4（128KiB）版本；烧写前必须核对 MCU 丝印。</dd></div><div><dt>固件目标</dt><dd>AT32F415 / PB4 CAN bootloader / 0x08000000</dd></div><div><dt>SHA256</dt><dd>f8f36060f4fc2405441f5addec6e05ece152fe16d57b2a7decaee040c5947b6a</dd></div><div><dt>兼容说明</dt><dd>仅含 Bootloader 的 Intel HEX。实际数据位于预留区 0x08000000-0x08003FFF 内的 0x08000000-0x0800397F；应用从 0x08004000 开始。仅可在完整备份后使用兼容 SWD 下载器烧写。</dd></div><div><dt>版本说明</dt><dd>AM32 官方 F415 PB4 CAN V17 Bootloader。更换 Bootloader 属于恢复/编程器操作，不是普通应用固件升级。</dd></div></dl>
+  </a></div>
+
+      </section>
+    </div>
+    <div class="download-list"><a class="" href="/assets/downloads/firmware/am32-esc-75a-can/SHA256SUMS.txt" target="_blank" rel="noopener">
+    <span>SHA256 校验值</span>
+
+
+  </a></div>
+
+  </section>
 
       <section class="detail-section"><h2>接线 / 尺寸 / 参数图</h2><div class="detail-media-grid">
     <figure>
@@ -130,7 +161,7 @@
       </a>
       <figcaption>发货清单</figcaption>
     </figure></div></section>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC AM32 ESC CAN 总线 75A 单体金封电调","description":"一块紧凑型 75A 单路 AM32 电调，板载 CAN 总线接口，用于驱动一个大电流无刷电机，适合固定翼、船模、车模或每个电机独立配置电调的装机。","image":"https://flyingrc-official.github.io/assets/products/am32-esc-75a-can/hero.jpg","url":"https://flyingrc-official.github.io/zh/products/am32-esc-75a-can/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"电调","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"AM32"},{"@type":"PropertyValue","name":"Tag","value":"75A"},{"@type":"PropertyValue","name":"Tag","value":"CAN"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"}]}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"FlyingRC AM32 ESC CAN 总线 75A 单体金封电调","description":"一块紧凑型 75A 单路 AM32 电调，板载 CAN 总线接口，用于驱动一个大电流无刷电机，适合固定翼、船模、车模或每个电机独立配置电调的装机。","image":"https://flyingrc-official.github.io/assets/products/am32-esc-75a-can/hero.jpg","url":"https://flyingrc-official.github.io/zh/products/am32-esc-75a-can/","brand":{"@type":"Brand","name":"FlyingRC Official"},"category":"电调","additionalProperty":[{"@type":"PropertyValue","name":"Tag","value":"AM32"},{"@type":"PropertyValue","name":"Tag","value":"75A"},{"@type":"PropertyValue","name":"Tag","value":"CAN"},{"@type":"PropertyValue","name":"Tag","value":"fixed-wing"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / full flash @ 0x08000000"},{"@type":"PropertyValue","name":"Firmware target","value":"FLYINGRC_75A_F415_CAN / AT32F415KBU7-4 / application @ 0x08004000"},{"@type":"PropertyValue","name":"Firmware target","value":"AT32F415 / PB4 CAN bootloader / 0x08000000"}]}</script>
   </main>
     <footer class="site-footer">
       <span>FlyingRC Official</span>
