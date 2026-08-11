@@ -350,6 +350,40 @@ window.FLYINGRC_CATALOG = {
       ]
     },
     {
+      slug: "am32-esc-75a-can",
+      category: "esc",
+      status: "latest",
+      tags: ["AM32", "75A", "CAN", "fixed-wing"],
+      title: { en: "FlyingRC AM32 ESC CAN Bus 75A Single Metal-sealed ESC", zh: "FlyingRC AM32 ESC CAN 总线 75A 单体金封电调" },
+      summary: { en: "Compact 75 A AM32 single ESC with an onboard CAN interface, high-current metal-sealed MOSFETs, and an included GH1.25 cable set.", zh: "紧凑型 75A AM32 单体金封电调，板载 CAN 总线接口，采用大电流金封 MOS，并附带 GH1.25 线材套件。" },
+      specs: {
+        en: [
+          "7-28 V DC / 2-6S LiPo input",
+          "75 A continuous and 85 A burst current under the published 4S test condition",
+          "Onboard CAN interface plus DSHOT150/300/600, OneShot, and PWM control support",
+          "Approx. 38.10 x 19.16 x 9.24 mm and 7.7 g according to the dimension drawing"
+        ],
+        zh: [
+          "输入：7-28V DC / 2-6S LiPo",
+          "资料标注 4S 测试条件下持续电流 75A、瞬时电流 85A",
+          "板载 CAN 总线接口，支持 DSHOT150/300/600、OneShot、PWM 等控制信号",
+          "尺寸图标注约 38.10 x 19.16 x 9.24mm，重量约 7.7g"
+        ]
+      },
+      hero: "assets/products/am32-esc-75a-can/hero.jpg",
+      images: [
+        img("assets/products/am32-esc-75a-can/specs.jpg", "Published parameter table", "参数表", "spec"),
+        img("assets/products/am32-esc-75a-can/dimension.png", "Dimension drawing", "尺寸图", "diagram"),
+        img("assets/products/am32-esc-75a-can/details.jpg", "Product features", "产品特点", "gallery"),
+        img("assets/products/am32-esc-75a-can/photo-1.jpg", "CAN interface board and ESC power board", "CAN 接口控制板与电调功率板", "gallery"),
+        img("assets/products/am32-esc-75a-can/photo-2.jpg", "Product photo 2", "产品实拍图 2", "gallery"),
+        img("assets/products/am32-esc-75a-can/photo-3.jpg", "Metal-sealed MOSFET power board", "金封 MOS 功率板", "gallery"),
+        img("assets/products/am32-esc-75a-can/photo-4.jpg", "Product photo 4", "产品实拍图 4", "gallery"),
+        img("assets/products/am32-esc-75a-can/photo-5.jpg", "Product photo 5", "产品实拍图 5", "gallery"),
+        img("assets/products/am32-esc-75a-can/package.jpg", "Package contents", "发货清单", "gallery")
+      ]
+    },
+    {
       slug: "am32-esc-75a-v25",
       category: "esc",
       tags: ["AM32", "75A", "fixed-wing", "V2.5"],
@@ -862,6 +896,21 @@ const PRODUCT_EXPLANATIONS = {
   "am32-4in1-75a": escExplain("FlyingRC® 4IN1 75A ESC for FPV Drones – Product Manual.docx", "A four-in-one ESC for FPV drones. It takes one battery input and independently drives four brushless motors from flight-controller throttle signals.", "四合一穿越机电调。它接收一个电池输入，并根据飞控油门信号分别驱动四个无刷电机。", ["High-current FPV builds needing a 75 A x 4 ESC.", "5-inch to larger FPV builds where thermal and current margin matter.", "AM32 users who want configurable open-source ESC firmware."], ["需要 75A x4 电调的大电流穿越机。", "重视散热和电流余量的 5 寸或更大穿越机。", "希望使用可配置 AM32 开源电调固件的用户。"], ["QF32F4AK8U7 32-bit MCU with ID6288 gate driver.", "Infineon IRF7480 gold-packaged MOSFETs.", "10-layer 2 oz PCB with copper strip current assistance.", "Pre-flashed with AM32 firmware."], ["QF32F4AK8U7 32 位 MCU，集成 ID6288 栅极驱动。", "Infineon IRF7480 金封 MOSFET。", "10 层 2 oz PCB，并使用铜条辅助过流。", "出厂预刷 AM32 固件。"], ["Input: 9-30 V / 3-7S LiPo or 3-6S LiHV.", "Continuous current: 75 A per channel for 45 seconds under manual test conditions.", "Burst current: 85 A per channel under manual test conditions.", "Size: 45 x 45.2 x 5.5 mm; mounting: 30.5 x 30.5 mm M3; weight: 18.6 g."], ["输入：9-30 V / 3-7S LiPo 或 3-6S LiHV。", "持续电流：说明书测试条件下单路 75 A 持续 45 秒。", "瞬时电流：说明书测试条件下单路 85 A。", "尺寸：45 x 45.2 x 5.5 mm；孔距：30.5 x 30.5 mm M3；重量：18.6 g。"]),
   "am32-4in1-45a": escExplain("FlyingRC® 4IN1 45A ESC for FPV Drones Product Manual.docx", "A 45 A four-in-one AM32 ESC for FPV drones, intended to drive four brushless motors from one compact board.", "一块 45 A 四合一 AM32 穿越机电调，用一块紧凑电调板驱动四个无刷电机。", ["FPV builds that need a lighter current class than the 75 A ESC.", "AM32 firmware users who want configurable motor behavior.", "Builds where a single 4-in-1 ESC simplifies wiring."], ["电流需求低于 75A 版本的穿越机装机。", "希望使用 AM32 固件调参的用户。", "希望用单块四合一电调简化走线的装机。"], ["Pre-flashed with AM32 firmware.", "Supports DSHOT150/300/600, OneShot, PWM and other control signal inputs.", "Manual includes firmware flashing and parameter setting workflow."], ["出厂预刷 AM32 固件。", "支持 DSHOT150/300/600、OneShot、PWM 等控制信号。", "说明书包含固件刷新和参数设置流程。"], ["Input: 9-30 V / 3-7S LiPo or 3-6S LiHV.", "45 A four-in-one current class.", "Current meter ratio and protocol setup are documented in the manual."], ["输入：9-30 V / 3-7S LiPo 或 3-6S LiHV。", "45 A 四合一电流级别。", "说明书记录了电流计比例和协议设置。"]),
   "am32-mini-esc-40a": escExplain("FlyingRC® Mini 40A Single ESC V1.0 Product Manual.docx", "A compact single-channel AM32 ESC. It drives one brushless motor, making it useful for single-motor fixed-wing aircraft, compact vehicles, or builds where separate ESC placement is preferred.", "一块紧凑型单路 AM32 电调，用于驱动一个无刷电机，适合单发固定翼、小型车辆或需要分开放置电调的装机。", ["Single-motor fixed-wing aircraft.", "Mini RC cars, crawlers, and compact robotics where AM32 low-speed behavior is useful.", "Builds where one ESC per motor is preferred instead of a 4-in-1 board."], ["单发固定翼飞机。", "需要 AM32 低速特性的小型车、攀爬车和紧凑机器人。", "希望每个电机独立电调而不是四合一电调的装机。"], ["Pre-flashed with AM32 firmware.", "Sine-wave startup and Stall Protection can provide strong low-speed torque.", "Manual includes offline firmware flashing and parameter setting workflow."], ["出厂预刷 AM32 固件。", "开启正弦启动和堵转保护后，可提供较强低速扭矩。", "说明书包含离线固件刷新和参数设置流程。"], ["Input: 6-30 V DC / 2-6S LiPo.", "40 A single ESC class.", "Uses offline AM32 parameter tuning workflow."], ["输入：6-30 V DC / 2-6S LiPo。", "40 A 单体电调级别。", "使用离线 AM32 调参工作流。"]),
+  "am32-esc-75a-can": explain({
+    manual: "FlyingRC AM32 ESC CAN Bus 75A listing materials (August 2026)",
+    whatEn: "A compact 75 A single-channel AM32 ESC with an onboard CAN interface. It is designed to drive one high-current brushless motor in fixed-wing aircraft, boats, vehicles, or other builds that use a separate ESC per motor.",
+    whatZh: "一块紧凑型 75A 单路 AM32 电调，板载 CAN 总线接口，用于驱动一个大电流无刷电机，适合固定翼、船模、车模或每个电机独立配置电调的装机。",
+    bestEn: ["High-current single-motor fixed-wing aircraft.", "Boats, vehicles, and robotics using a separate ESC for one brushless motor.", "Systems that can use the product's onboard CAN interface after protocol and pinout compatibility are confirmed."],
+    bestZh: ["大电流单发固定翼飞机。", "使用单独电调驱动一个无刷电机的船模、车模和机器人。", "在确认协议与引脚兼容后使用板载 CAN 接口的系统。"],
+    featuresEn: ["AT32F421K8U7 120 MHz 32-bit controller with 64 KB flash and 16 KB RAM.", "FD6288/JSM6288Q gate driver and Infineon IRF7480 metal-sealed MOSFETs.", "AM32 firmware with sine-wave startup and Stall Protection support.", "Onboard CAN interface plus DSHOT150/300/600, OneShot, and PWM signal support.", "Product material lists onboard BEC variants rated for continuous 5 V/4 A or 7 V/3.5 A output."],
+    featuresZh: ["AT32F421K8U7 120MHz 32 位主控，64KB Flash、16KB RAM。", "FD6288/JSM6288Q 栅极驱动器与英飞凌 IRF7480 金封 MOS。", "AM32 固件，支持正弦波启动与 Stall Protection 堵转保护。", "板载 CAN 总线接口，同时支持 DSHOT150/300/600、OneShot、PWM 等信号。", "产品资料标注板载 BEC 版本可持续输出 5V/4A 或 7V/3.5A。"],
+    techEn: ["Input: 7-28 V DC / 2-6S LiPo.", "Published current ratings: 75 A continuous and 85 A burst under the stated 4S test condition.", "Dimension drawing: approximately 38.10 x 19.16 x 9.24 mm; weight approximately 7.7 g.", "Package includes a GH1.25 4-pin cable, 680 uF 35 V electrolytic capacitor, capacitor heat-shrink, heatsink, and 12 AWG silicone power lead with XT60 connector."],
+    techZh: ["输入：7-28V DC / 2-6S LiPo。", "资料标注电流：4S 测试条件下持续 75A、瞬时 85A。", "尺寸图标注约 38.10 x 19.16 x 9.24mm，重量约 7.7g。", "包装含 GH1.25 4Pin 线、680uF 35V 电解电容、电容热缩管、散热片及带 XT60 的 12AWG 硅胶电源线。"],
+    setupEn: ["Remove the propeller before ESC setup, firmware work, or powered bench testing.", "Verify the GH1.25 connector pinout, CAN protocol, bitrate, and controller compatibility before applying power or relying on CAN control/telemetry.", "Install the included electrolytic capacitor with the correct polarity and provide airflow or heatsinking appropriate for the actual load.", "Use wire gauge, connectors, soldering, insulation, and strain relief suitable for the expected current."],
+    setupZh: ["电调设置、固件操作或通电台架测试前必须拆桨。", "上电或使用 CAN 控制/遥测前，先确认 GH1.25 接口引脚、CAN 协议、波特率及控制器兼容性。", "按正确极性安装随附电解电容，并根据实际负载提供合适风冷或散热片。", "按预期电流选择合适线径、接头、焊接、绝缘与拉力保护。"],
+    watchEn: ["The supplied listing material identifies a CAN interface but does not name a specific higher-layer protocol; do not assume DroneCAN or plug-and-play compatibility without confirmation.", "The 75 A/85 A figures are published 4S test-condition ratings; real continuous current depends on cooling, wiring, battery voltage, motor load, and installation."],
+    watchZh: ["现有上架资料只明确标注 CAN 总线接口，未注明具体上层协议；确认前不要直接假定兼容 DroneCAN 或即插即用。", "75A/85A 为资料标注的 4S 测试条件数据；实际持续电流取决于散热、接线、电池电压、电机负载和安装环境。"]
+  }),
   "am32-esc-75a-v25": escExplain("FlyingRC® AM32 75A Single ESC V2.5 Product Manual.docx", "A 75 A single-channel AM32 ESC for one high-current brushless motor. It is useful when each motor needs its own ESC or when a single powerful motor is used.", "一块 75 A 单路 AM32 电调，用于驱动一个大电流无刷电机。适合每个电机独立电调或单个大功率电机的场景。", ["High-current fixed-wing or vehicle motors.", "Users who need one ESC per motor rather than a 4-in-1 board.", "AM32 setups requiring configurable braking, startup, and protection behavior."], ["大电流固定翼或车辆电机。", "需要每个电机独立电调，而不是四合一电调的用户。", "需要配置刹车、启动和保护行为的 AM32 场景。"], ["AM32 firmware with sinusoidal startup and stall protection.", "Designed for strong low-speed torque when configured appropriately.", "Manual documents firmware and parameter update workflow."], ["AM32 固件，支持正弦启动和堵转保护。", "正确配置后可提供较强低速扭矩。", "说明书记录固件和参数更新流程。"], ["Input: 7-28 V DC / 2-6S LiPo.", "75 A single ESC class.", "Factory firmware is AM32; manual records firmware update cautions."], ["输入：7-28 V DC / 2-6S LiPo。", "75 A 单体电调级别。", "出厂 AM32 固件；说明书记录了固件更新注意事项。"]),
   "am32-dual-esc-40a": escExplain("FlyingRC® AM32 Dual 40A 2 in 1 ESC  Product Manual.docx", "A two-in-one AM32 ESC that drives two brushless motors from one compact board. It is especially useful for twin-motor fixed-wing aircraft or compact dual-motor builds.", "一块二合一 AM32 电调，用一块板驱动两个无刷电机，特别适合双发固定翼或紧凑双电机装机。", ["Twin-motor fixed-wing aircraft.", "Dual-motor robotics or vehicle builds.", "Builds that want fewer separate ESC boards and cleaner wiring."], ["双发固定翼飞机。", "双电机机器人或车辆装机。", "希望减少独立电调数量、简化走线的装机。"], ["Pre-flashed with AM32 firmware.", "Dual-stage LDO power supply for gate drivers and MCUs.", "Supports wide 2-6S input range according to the manual.", "Sine-wave startup and Stall Protection can improve low-speed torque."], ["出厂预刷 AM32 固件。", "栅极驱动和 MCU 使用双级 LDO 供电。", "说明书标注支持 2-6S 宽输入范围。", "正弦启动和堵转保护可改善低速扭矩。"], ["40 A two-in-one ESC class.", "AM32 firmware version information and update workflow are documented in the manual."], ["40 A 二合一电调级别。", "说明书记录了 AM32 固件版本信息和更新流程。"]),
   "bec-5a-6s": explain({
@@ -1369,6 +1418,18 @@ const PRODUCT_LABELS = {
     productLabel("am32", 5),
     productLabel("2-6s"),
     productLabel("compact")
+  ],
+  "am32-esc-75a-can": [
+    productLabel("fixed-wing", 1),
+    productLabel("robotics", 2),
+    productLabel("esc", 3),
+    productLabel("single-esc", 4),
+    productLabel("am32", 5),
+    productLabel("can", 6),
+    productLabel("2-6s"),
+    productLabel("onboard-bec"),
+    productLabel("high-current"),
+    productLabel("can-wiring")
   ],
   "am32-esc-75a-v25": [
     productLabel("fixed-wing", 1),
