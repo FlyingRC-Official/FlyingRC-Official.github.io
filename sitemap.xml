@@ -3,7 +3,6 @@
   <url><loc>https://flyingrc-official.github.io/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/projects.html</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/contact.html</loc><lastmod>2026-08-11</lastmod></url>
-  <url><loc>https://flyingrc-official.github.io/support.html</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/en/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/zh/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/en/products/</loc><lastmod>2026-08-11</lastmod></url>
@@ -84,6 +83,8 @@
   <url><loc>https://flyingrc-official.github.io/zh/products/am32-configurator/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/en/products/pdb-12s-400a/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/zh/products/pdb-12s-400a/</loc><lastmod>2026-08-11</lastmod></url>
+  <url><loc>https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/</loc><lastmod>2026-08-11</lastmod></url>
+  <url><loc>https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/en/tutorials/stm32cubeprogrammer-firmware-flashing/</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://flyingrc-official.github.io/zh/tutorials/stm32cubeprogrammer-firmware-flashing/</loc><lastmod>2026-08-11</lastmod></url>
 </urlset>

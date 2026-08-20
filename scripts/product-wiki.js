@@ -427,12 +427,40 @@
       const key = node.dataset.i18nPlaceholder;
       if (labels[lang][key]) node.placeholder = labels[lang][key];
     });
+    updateLocalizedLinks(lang);
     if (document.body.dataset.page === "wiki") renderLabelFilters();
     if (document.body.dataset.page === "wiki") renderSelector();
     if (document.body.dataset.page === "wiki") renderCategoryFilters();
     if (document.body.dataset.page === "wiki") renderWiki();
     if (document.body.dataset.page === "downloads") renderDownloads();
     if (document.body.dataset.page === "product") renderProduct();
+  }
+
+  function updateLocalizedLinks(lang) {
+    document.querySelectorAll("a[href]").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+
+      const localizedMatch = url.pathname.match(/^\/(?:en|zh)\/(products|downloads|tutorials)(\/.*)?$/);
+      if (localizedMatch) {
+        url.pathname = `/${lang}/${localizedMatch[1]}${localizedMatch[2] || "/"}`;
+      } else if (url.pathname === "/wiki.html") {
+        url.pathname = `/${lang}/products/`;
+      } else if (url.pathname === "/downloads.html") {
+        url.pathname = `/${lang}/downloads/`;
+      } else if (url.pathname === "/tutorials.html") {
+        url.pathname = `/${lang}/tutorials/`;
+      } else if (["/contact.html", "/projects.html"].includes(url.pathname)) {
+        url.searchParams.set("lang", lang);
+      } else {
+        return;
+      }
+
+      link.setAttribute("href", `${url.pathname}${url.search}${url.hash}`);
+    });
   }
 
   function bindLanguage() {

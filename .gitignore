@@ -8,3 +8,6 @@ assets/products/**/*.step
 assets/products/f4d-mk1/video.mp4
 assets/products/**/*.png
 assets/products/**/*.PNG
+!assets/products/am32-esc-75a-can/dimension.png
+!assets/products/stack-f405-45a/f4d-45a-render.png
+!assets/products/stack-f405-45a/f4d-45a-photo.png

@@ -22,6 +22,23 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install mirror build dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Verify generated static pages
+        run: |
+          node scripts/build-static-pages.js
+          git diff --exit-code
+          if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+            git status --short --untracked-files=all
+            exit 1
+          fi
+
       - name: Build China-near mirror
         run: python3 scripts/build-cn-mirror.py
 

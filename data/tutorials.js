@@ -2,6 +2,171 @@
   window.FLYINGRC_TUTORIALS = {
     tutorials: [
       {
+        slug: "analog-video-vs-uart",
+        updated: "2026-08-10",
+        category: {
+          en: "FPV / Wiring",
+          zh: "FPV / 接线"
+        },
+        title: {
+          en: "Analog FPV video is not UART",
+          zh: "模拟图传的视频信号不是串口"
+        },
+        summary: {
+          en: "Learn the difference between VIDEO, CAM, VIN, VOUT, UART TX/RX, SmartAudio, and Tramp to avoid common analog FPV wiring mistakes.",
+          zh: "分清 VIDEO、CAM、VIN、VOUT、UART TX/RX、SmartAudio 与 Tramp，避免常见的模拟图传接线错误。"
+        },
+        audience: {
+          en: "Builders wiring an analog FPV camera, flight-controller OSD, and video transmitter.",
+          zh: "适用于连接模拟 FPV 摄像头、飞控 OSD 与模拟图传的装机用户。"
+        },
+        requirements: [
+          {
+            en: "The pinout diagrams for the exact flight controller, camera, and video transmitter.",
+            zh: "对应飞控、摄像头和图传的准确引脚图。"
+          },
+          {
+            en: "Confirmation that the video system is analog rather than DJI, HDZero, Walksnail, or another digital system.",
+            zh: "确认当前使用的是模拟图传，而不是 DJI、HDZero、Walksnail 等数字图传系统。"
+          },
+          {
+            en: "Propellers removed and power disconnected while checking or changing wiring.",
+            zh: "检查或修改接线时拆除螺旋桨并断开电源。"
+          }
+        ],
+        warnings: [
+          {
+            en: "VIDEO, CAM, VIN, and VOUT carry an analog image signal. Never connect them to an ordinary UART TX or RX pad.",
+            zh: "VIDEO、CAM、VIN 和 VOUT 承载模拟图像信号，不能连接到普通 UART TX 或 RX 焊盘。"
+          },
+          {
+            en: "A pad labelled VTX may mean analog video output to the transmitter, not a UART. Verify the board pinout before wiring.",
+            zh: "标记为 VTX 的焊盘可能表示输出到图传的模拟视频，而不是 UART；接线前必须核对飞控引脚图。"
+          },
+          {
+            en: "SmartAudio and IRC Tramp control VTX settings; they do not carry the camera image.",
+            zh: "SmartAudio 和 IRC Tramp 只控制图传参数，不承载摄像头画面。"
+          }
+        ],
+        steps: [
+          {
+            title: {
+              en: "Identify the three signal types",
+              zh: "先分清三类信号"
+            },
+            body: {
+              en: "VIDEO/CAM/VIN/VOUT is analog video, UART TX/RX is digital serial data, and SmartAudio or Tramp is a digital control connection for VTX settings.",
+              zh: "VIDEO/CAM/VIN/VOUT 是模拟视频，UART TX/RX 是数字串口数据，SmartAudio 或 Tramp 是控制图传参数的数字连接。"
+            }
+          },
+          {
+            title: {
+              en: "Wire the camera video into the flight controller",
+              zh: "把摄像头视频接入飞控"
+            },
+            body: {
+              en: "Connect Camera VIDEO to the flight controller CAM, VIN, or VIDEO IN pad, then connect camera power and ground according to the product pinout.",
+              zh: "将 Camera VIDEO 接到飞控的 CAM、VIN 或 VIDEO IN 焊盘，并按产品引脚图连接摄像头电源与地线。"
+            }
+          },
+          {
+            title: {
+              en: "Wire the flight-controller video output to the VTX",
+              zh: "把飞控视频输出接到图传"
+            },
+            body: {
+              en: "Connect the flight controller VOUT, VIDEO OUT, or analog VTX pad to the video input on the transmitter. The video remains analog while the flight controller adds OSD information.",
+              zh: "将飞控的 VOUT、VIDEO OUT 或模拟 VTX 焊盘接到图传的视频输入。飞控叠加 OSD 时，视频仍然是模拟信号。"
+            }
+          },
+          {
+            title: {
+              en: "Connect optional VTX control separately",
+              zh: "单独连接可选的图传控制线"
+            },
+            body: {
+              en: "If the transmitter supports SmartAudio or Tramp, connect its control wire to the UART TX or dedicated control pad specified by the manuals. This wire controls channel, frequency, power, or Pit Mode only.",
+              zh: "如果图传支持 SmartAudio 或 Tramp，将控制线接到说明书指定的 UART TX 或专用控制焊盘。这条线只控制频道、频率、功率或 Pit Mode。"
+            }
+          },
+          {
+            title: {
+              en: "Diagnose OSD without a camera image",
+              zh: "排查有 OSD 但没有摄像头画面"
+            },
+            body: {
+              en: "If OSD text is visible on a black background, the flight-controller-to-VTX path is probably working. Check camera power, camera VIDEO, ground, and the flight-controller CAM/VIDEO IN connection before changing UART settings.",
+              zh: "如果黑色背景上能看到 OSD 字符，飞控到图传的输出路径通常已经工作。应先检查摄像头供电、VIDEO、地线和飞控 CAM/VIDEO IN，不要先改 UART 参数。"
+            }
+          },
+          {
+            title: {
+              en: "Use a direct-video bypass test when needed",
+              zh: "必要时做视频直连旁路测试"
+            },
+            body: {
+              en: "Temporarily connect Camera VIDEO directly to VTX VIDEO. If the image works directly but not through the flight controller, inspect the flight-controller video input/output wiring and analog OSD circuit.",
+              zh: "临时将 Camera VIDEO 直接接到 VTX VIDEO。若直连有画面、经过飞控却没有，应重点检查飞控视频输入/输出接线和模拟 OSD 电路。"
+            }
+          }
+        ],
+        troubleshooting: [
+          {
+            issue: {
+              en: "VTX VIDEO was connected to a UART TX/RX pad",
+              zh: "图传 VIDEO 被接到了 UART TX/RX"
+            },
+            fix: {
+              en: "Move the video wire to the flight controller's analog VIDEO OUT/VTX pad. Use UART only for SmartAudio, Tramp, or another documented control protocol.",
+              zh: "把视频线移到飞控的模拟 VIDEO OUT/VTX 焊盘；UART 仅用于 SmartAudio、Tramp 或说明书明确指定的控制协议。"
+            }
+          },
+          {
+            issue: {
+              en: "The camera works when connected directly to the VTX but not through the flight controller",
+              zh: "摄像头直连图传有画面，经过飞控却没有"
+            },
+            fix: {
+              en: "Check CAM/VIDEO IN, VIDEO OUT, shared ground, the board's analog OSD hardware, and any firmware setting specifically related to analog OSD.",
+              zh: "检查 CAM/VIDEO IN、VIDEO OUT、共地、飞控模拟 OSD 硬件，以及固件中专门与模拟 OSD 有关的设置。"
+            }
+          },
+          {
+            issue: {
+              en: "A digital VTX also uses UART and the wiring seems contradictory",
+              zh: "数字图传也使用 UART，看起来与本文矛盾"
+            },
+            fix: {
+              en: "Digital systems may exchange OSD or control data over UART/MSP, but their video path is handled inside the digital system. Follow the digital VTX manual rather than the analog wiring path.",
+              zh: "数字图传可以通过 UART/MSP 交换 OSD 或控制数据，但视频链路由数字系统内部处理；应遵循数字图传说明书，而不是模拟视频接线方式。"
+            }
+          }
+        ],
+        links: [
+          {
+            label: {
+              en: "FlyingRC product pages",
+              zh: "FlyingRC 产品资料"
+            },
+            href: "/wiki.html"
+          },
+          {
+            label: {
+              en: "FlyingRC downloads",
+              zh: "FlyingRC 下载页"
+            },
+            href: "/downloads.html"
+          },
+          {
+            label: {
+              en: "Contact FlyingRC support",
+              zh: "联系 FlyingRC 技术支持"
+            },
+            href: "/contact.html"
+          }
+        ]
+      },
+      {
         slug: "stm32cubeprogrammer-firmware-flashing",
         updated: "2026-07-06",
         category: {

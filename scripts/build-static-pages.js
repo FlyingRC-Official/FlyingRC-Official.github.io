@@ -281,6 +281,10 @@ function staticTutorialHref(tutorial, lang = "en") {
   return `/${lang}/tutorials/${encodeURIComponent(tutorial.slug)}/`;
 }
 
+function sharedPageHref(page, lang) {
+  return `/${page}.html?lang=${encodeURIComponent(lang)}`;
+}
+
 function productStatusBadge(product, lang) {
   if (!product.status) return "";
   const label = product.status === "latest"
@@ -315,8 +319,8 @@ function pageShell({ lang, title, description, canonicalPath, alternates = [], c
     [labels.products, `/${lang}/products/`, "products"],
     [labels.downloads, `/${lang}/downloads/`, "downloads"],
     [labels.tutorials, `/${lang}/tutorials/`, "tutorials"],
-    [labels.projects, "/projects.html", "projects"],
-    [labels.contact, "/contact.html", "contact"]
+    [labels.projects, sharedPageHref("projects", lang), "projects"],
+    [labels.contact, sharedPageHref("contact", lang), "contact"]
   ].map(([label, href, key]) => `<a href="${attr(href)}"${current === key ? ' aria-current="page"' : ""}>${html(label)}</a>`).join("");
   const altLinks = alternates.map((item) => `<link rel="alternate" hreflang="${attr(item.lang)}" href="${attr(absoluteUrl(item.href))}">`).join("\n    ");
   const scriptTags = scripts.length ? `\n    ${scripts.map((src) => `<script src="${attr(src)}" defer></script>`).join("\n    ")}` : "";
@@ -444,8 +448,8 @@ function productPageShell({ lang, title, description, canonicalPath, alternates,
     [labels.products, `/${lang}/products/`, "products"],
     [labels.downloads, `/${lang}/downloads/`, "downloads"],
     [labels.tutorials, `/${lang}/tutorials/`, "tutorials"],
-    [labels.projects, "/projects.html", "projects"],
-    [labels.contact, "/contact.html", "contact"]
+    [labels.projects, sharedPageHref("projects", lang), "projects"],
+    [labels.contact, sharedPageHref("contact", lang), "contact"]
   ].map(([label, href, key]) => `<a href="${attr(href)}"${key === "products" ? ' aria-current="page"' : ""}>${html(label)}</a>`).join("");
   const altLinks = alternates.map((item) => `<link rel="alternate" hreflang="${attr(item.lang)}" href="${attr(absoluteUrl(item.href))}">`).join("\n    ");
 
@@ -984,6 +988,7 @@ function tutorialListSection(title, items, lang, className) {
 function localizedTutorialLinkHref(href, lang) {
   if (href === "/downloads.html") return `/${lang}/downloads/`;
   if (href === "/wiki.html") return `/${lang}/products/`;
+  if (href === "/contact.html") return sharedPageHref("contact", lang);
   return href;
 }
 
@@ -1132,7 +1137,6 @@ function generateSitemap() {
     "/",
     "/projects.html",
     "/contact.html",
-    "/support.html",
     "/en/",
     "/zh/",
     "/en/products/",

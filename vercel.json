@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "python3 scripts/build-cn-mirror.py",
+  "buildCommand": "python3 -m pip install -r requirements.txt && python3 scripts/build-cn-mirror.py",
   "outputDirectory": "dist-cn",
   "cleanUrls": true,
   "trailingSlash": false,

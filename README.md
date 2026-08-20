@@ -14,8 +14,9 @@ Then visit `http://localhost:8000`.
 
 ## SEO static pages
 
-Product data stays in `data/products.js`. After editing products, downloads, or
-firmware metadata, regenerate the static SEO pages with:
+Product data stays in `data/products.js`, and tutorial data stays in
+`data/tutorials.js`. After editing products, downloads, firmware metadata, or
+tutorials, regenerate the static SEO pages with:
 
 ```sh
 node scripts/build-static-pages.js
@@ -31,6 +32,7 @@ The GitHub Pages site remains the canonical full site. For a Hong Kong or
 Singapore-near mirror, build the lightweight static artifact:
 
 ```sh
+python3 -m pip install -r requirements.txt
 python3 scripts/build-cn-mirror.py
 ```
 
