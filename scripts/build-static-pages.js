@@ -6,7 +6,7 @@ const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://flyingrc-official.github.io";
-const STATIC_VERSION = "20260809-product-catalog-v1";
+const STATIC_VERSION = "20260826-download-card-layout-v1";
 const SITE_LASTMOD = "2026-08-11";
 const SOCIAL_IMAGE = `${SITE_URL}/assets/brand/flyingrc-social-card.jpg`;
 const BRAND_LOGO = "/assets/brand/flyingrc-logo-transparent.png";

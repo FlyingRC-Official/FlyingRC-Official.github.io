@@ -2416,6 +2416,7 @@ h2 {
 
 .download-file-list a {
   display: grid;
+  align-content: start;
   gap: 7px;
   max-width: 100%;
   border: 1px solid var(--line);
