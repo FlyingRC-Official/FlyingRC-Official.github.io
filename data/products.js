@@ -12,6 +12,67 @@ window.FLYINGRC_CATALOG = {
   },
   products: [
     {
+      slug: "f435wing-mini-osd",
+      category: "flight-controllers",
+      status: "latest",
+      tags: ["AT32F435", "fixed-wing", "INAV", "BMI270", "SPA06-003", "AT7456F", "analog OSD", "digital VTX", "7 PWM"],
+      title: { en: "FlyingRC F435Wing Mini OSD AT32F435 Fixed-wing Flight Controller", zh: "FlyingRC F435Wing Mini OSD版 AT32F435 主控固定翼飞控" },
+      summary: {
+        en: "Ultra-compact AT32F435 fixed-wing flight controller with analog OSD, digital VTX interface, seven PWM outputs, and dedicated INAV 9.1.0 firmware for 1 MB and 4 MB variants.",
+        zh: "超紧凑 AT32F435 固定翼飞控，集成模拟 OSD、数字图传接口与 7 路 PWM，并提供适配 1MB 和 4MB 版本的 INAV 9.1.0 固件。"
+      },
+      specs: {
+        en: [
+          "AT32F435CGU7 (1 MB Flash) or AT32F435CMU7 (4 MB Flash), 288 MHz, 384 KB SRAM",
+          "BMI270 six-axis IMU, SPA06-003 barometer, and AT7456F analog OSD",
+          "27.96 x 20.29 x 11.4 mm; 17.8 x 17.8 mm M1.2 mounting pattern",
+          "3.1 g without pin headers; 5.1 g with soldered headers",
+          "7 PWM outputs (one shared with LED), 3 UARTs, I2C, SBUS, and passive buzzer output",
+          "External regulated 5 V flight-controller power; external I2C current meter supported",
+          "INAV only; ArduPilot, Betaflight, and PX4 are not supported"
+        ],
+        zh: [
+          "AT32F435CGU7（1MB Flash）或 AT32F435CMU7（4MB Flash），288MHz，384KB SRAM",
+          "BMI270 六轴 IMU、SPA06-003 气压计与 AT7456F 模拟 OSD",
+          "尺寸 27.96 x 20.29 x 11.4mm；安装孔距 17.8 x 17.8mm，M1.2",
+          "未焊排针 3.1g；焊好排针 5.1g",
+          "7 路 PWM（其中一路兼作 LED）、3 路 UART、I2C、SBUS 与无源蜂鸣器接口",
+          "飞控本体需外部稳定 5V 供电；支持外置 I2C 电流计",
+          "仅支持 INAV；不支持 ArduPilot、Betaflight、PX4"
+        ]
+      },
+      hero: "assets/products/f435wing-mini-osd/hero.jpg",
+      images: [
+        img("assets/products/f435wing-mini-osd/dimensions.jpg", "Dimensions and weight", "尺寸与重量", "diagram"),
+        img("assets/products/f435wing-mini-osd/component-layout.jpg", "Component layout", "元件布局", "diagram"),
+        img("assets/products/f435wing-mini-osd/port-definition.jpg", "Connector and pin definitions", "接口与引脚定义", "diagram"),
+        img("assets/products/f435wing-mini-osd/digital-vtx-pinout.jpg", "Digital VTX and battery passthrough pinout", "数字图传与电池直通接口定义", "diagram"),
+        img("assets/products/f435wing-mini-osd/wiring-external-bec.jpg", "Complete wiring with external BEC", "外置独立 BEC 完整接线", "diagram"),
+        img("assets/products/f435wing-mini-osd/wiring-esc-bec.jpg", "Complete wiring with ESC BEC", "电调内置 BEC 完整接线", "diagram"),
+        img("assets/products/f435wing-mini-osd/package-contents.jpg", "Package contents", "包装清单", "gallery"),
+        img("assets/products/f435wing-mini-osd/product-angle.jpg", "Flight controller with soldered pin headers", "焊好排针产品图", "gallery"),
+        img("assets/products/f435wing-mini-osd/board-front.jpg", "Board front", "飞控正面", "gallery"),
+        img("assets/products/f435wing-mini-osd/board-front-angle.jpg", "Board front angle", "飞控正面斜视图", "gallery"),
+        img("assets/products/f435wing-mini-osd/board-back.jpg", "Board back", "飞控反面", "gallery"),
+        img("assets/products/f435wing-mini-osd/board-back-clean.jpg", "Board back detail", "飞控反面细节", "gallery"),
+        img("assets/products/f435wing-mini-osd/board-detail.jpg", "Connector detail", "接口细节", "gallery"),
+        img("assets/products/f435wing-mini-osd/render-top.jpg", "Top render", "顶部渲染图", "gallery"),
+        img("assets/products/f435wing-mini-osd/render-bottom.jpg", "Bottom render", "底部渲染图", "gallery"),
+        img("assets/products/f435wing-mini-osd/render-side.jpg", "Side render", "侧面渲染图", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-flight-controller.jpg", "Flight controller SKU", "飞控 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-bec.jpg", "Flight controller and BEC SKU", "飞控与 BEC SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-esc.jpg", "Flight controller and ESC SKU", "飞控与电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-dual-esc.jpg", "Flight controller and dual ESC SKU", "飞控与双电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-bec-esc.jpg", "Flight controller, BEC, and ESC SKU", "飞控、BEC 与电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-bec-dual-esc.jpg", "Flight controller, BEC, and dual ESC SKU", "飞控、BEC 与双电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-pins-bec.jpg", "Soldered headers and BEC SKU", "焊排针与 BEC SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-pins-esc.jpg", "Soldered headers and ESC SKU", "焊排针与电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-pins-dual-esc.jpg", "Soldered headers and dual ESC SKU", "焊排针与双电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-pins-bec-esc.jpg", "Soldered headers, BEC, and ESC SKU", "焊排针、BEC 与电调 SKU", "gallery"),
+        img("assets/products/f435wing-mini-osd/sku-pins-bec-dual-esc.jpg", "Soldered headers, BEC, and dual ESC SKU", "焊排针、BEC 与双电调 SKU", "gallery")
+      ]
+    },
+    {
       slug: "f4wing-mini-mk1",
       category: "flight-controllers",
       tags: ["F405", "fixed-wing", "ArduPilot", "wiring"],
@@ -788,6 +849,21 @@ window.FLYINGRC_CATALOG = {
 };
 
 const PRODUCT_EXPLANATIONS = {
+  "f435wing-mini-osd": explain({
+    manual: "FlyingRC F435Wing Mini OSD版 说明书.docx",
+    whatEn: "An ultra-compact AT32F435 fixed-wing flight controller that combines stabilization, navigation interfaces, servo and ESC outputs, an AT7456F analog OSD, and a digital VTX connector on one board.",
+    whatZh: "一块超紧凑 AT32F435 固定翼飞控，在单板上集成姿态控制、导航接口、舵机/电调输出、AT7456F 模拟 OSD 和数字图传接口。",
+    bestEn: ["Small and micro fixed-wing aircraft that need analog OSD or digital VTX connectivity.", "INAV 9.1.0 builds that need a compact board with seven PWM outputs.", "Builders choosing between the CGU7 1 MB and CMU7 4 MB hardware variants."],
+    bestZh: ["需要模拟 OSD 或数字图传接口的小型、微型固定翼。", "需要 7 路 PWM 的 INAV 9.1.0 紧凑装机。", "按容量选择 CGU7 1MB 或 CMU7 4MB 硬件版本的用户。"],
+    featuresEn: ["AT32F435CGU7 or AT32F435CMU7 MCU at 288 MHz with 384 KB SRAM.", "BMI270 six-axis IMU, SPA06-003 barometer, dual sensor LDOs, and AT7456F analog OSD.", "Seven PWM outputs with one output shared with WS2812 LED, three UARTs, I2C, SBUS, passive buzzer output, and USB-C.", "Six-pin digital VTX interface provides UART4 RX/TX, SBUS, two grounds, and battery passthrough power."],
+    featuresZh: ["AT32F435CGU7 或 AT32F435CMU7 主控，288MHz，384KB SRAM。", "BMI270 六轴 IMU、SPA06-003 气压计、双传感器 LDO 与 AT7456F 模拟 OSD。", "7 路 PWM（其中一路兼作 WS2812 LED）、3 路 UART、I2C、SBUS、无源蜂鸣器接口和 USB-C。", "6P 数字图传接口提供 UART4 RX/TX、SBUS、双 GND 与电池直通供电。"],
+    techEn: ["CGU7: 1 MB Flash; CMU7: 4 MB Flash.", "Dimensions: 27.96 x 20.29 x 11.4 mm; mounting pattern: 17.8 x 17.8 mm with M1.2 holes.", "Weight: 3.1 g without pin headers, 5.1 g with soldered headers.", "Battery voltage sensing and VTX passthrough range: 2.5-30 V / 1-6S LiPo; external I2C current meter supported."],
+    techZh: ["CGU7：1MB Flash；CMU7：4MB Flash。", "尺寸：27.96 x 20.29 x 11.4mm；安装孔距：17.8 x 17.8mm，M1.2。", "重量：未焊排针 3.1g，焊好排针 5.1g。", "电池电压检测与图传直通范围：2.5-30V / 1-6S LiPo；支持外置 I2C 电流计。"],
+    setupEn: ["Power the flight controller itself from an external regulated 5 V source.", "Use the SH1.0 2P VBAT connector only for voltage sensing and battery passthrough power to the digital VTX.", "Flash the matching INAV 9.1.0 target in INAV Configurator: FLYINGRCF435WINGMINI for CGU7 or FLYINGRCF435WINGMINI_CMU7 for CMU7."],
+    setupZh: ["飞控本体必须使用外部稳定 5V 电源供电。", "SH1.0 2P VBAT 接口仅用于电压检测和数字图传电池直通供电。", "在 INAV Configurator 中按主控版本刷写 INAV 9.1.0：CGU7 使用 FLYINGRCF435WINGMINI，CMU7 使用 FLYINGRCF435WINGMINI_CMU7。"],
+    watchEn: ["The VBAT/SH1.0 connector cannot power the flight controller.", "Verify that the digital VTX supports the connected battery voltage before using passthrough power.", "Only INAV is supported; do not flash ArduPilot, Betaflight, or PX4 firmware."],
+    watchZh: ["VBAT/SH1.0 接口不能给飞控本体供电。", "使用电池直通供电前，必须确认数字图传支持所接电池电压。", "本产品仅支持 INAV，请勿刷写 ArduPilot、Betaflight 或 PX4 固件。"]
+  }),
   "f4wing-mini-mk1": explain({
     manual: "FlyingRC® F4Wing Mini MK1 Fixed-Wing Flight Controller Product Manual.docx",
     whatEn: "An ultra-small fixed-wing autopilot board. It is the central controller for a small plane: it reads sensors, runs ArduPilot/INAV-style flight firmware, outputs servo/PWM control, and provides connectors for receiver and HD video equipment.",
@@ -1146,6 +1222,7 @@ const PRODUCT_EXPLANATIONS = {
 };
 
 const PUBLIC_MANUALS = {
+  "f435wing-mini-osd": manualDownload("assets/downloads/manuals/f435wing-mini-osd-manual.docx"),
   "f4wing-mini-mk1": manualDownload("assets/downloads/manuals/f4wing-mini-mk1-manual.docx"),
   "h7wlite-mk1": manualDownload("assets/downloads/manuals/f4wse-pro-manual.docx", "Fixed-wing family manual", "固定翼系列说明书"),
   "f4wse-f405": manualDownload("assets/downloads/manuals/f4wse-f405-manual.docx"),
@@ -1307,6 +1384,16 @@ const PRIMARY_FILTER_LABEL_IDS = [
 ];
 
 const PRODUCT_LABELS = {
+  "f435wing-mini-osd": [
+    productLabel("fixed-wing", 1),
+    productLabel("flight-controller", 2),
+    productLabel("inav", 3),
+    productLabel("pwm", 4),
+    productLabel("uart", 5),
+    productLabel("dji-o4"),
+    productLabel("compact"),
+    productLabel("external-5v")
+  ],
   "f4wing-mini-mk1": [
     productLabel("fixed-wing", 1),
     productLabel("flight-controller", 2),
@@ -1640,6 +1727,11 @@ const PRODUCT_LABELS = {
 };
 
 const PUBLIC_REFERENCE_FILES = {
+  "f435wing-mini-osd": [
+    download("assets/downloads/firmware/f435wing-mini-osd/inav_9.1.0_FLYINGRCF435WINGMINI.hex", "INAV 9.1.0 CGU7 / 1 MB stable firmware", "INAV 9.1.0 CGU7 / 1MB 稳定版固件"),
+    download("assets/downloads/firmware/f435wing-mini-osd/inav_9.1.0_FLYINGRCF435WINGMINI_CMU7.hex", "INAV 9.1.0 CMU7 / 4 MB stable firmware", "INAV 9.1.0 CMU7 / 4MB 稳定版固件"),
+    download("assets/downloads/firmware/f435wing-mini-osd/SHA256SUMS.txt", "SHA256 checksums", "SHA256 校验值")
+  ],
   "f4wse-f405": [download("assets/products/f4wse-f405/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-mk1": [download("assets/products/h7wlite-mk1/model.step", "STEP 3D model", "STEP 3D 模型")],
   "h7wlite-v2": [
@@ -1746,6 +1838,24 @@ const PUBLIC_REFERENCE_FILES = {
 };
 
 const FIRMWARE_DOWNLOAD_METADATA = {
+  "assets/downloads/firmware/f435wing-mini-osd/inav_9.1.0_FLYINGRCF435WINGMINI.hex": firmwareMeta({
+    family: "inav", version: "9.1.0", channel: "stable", role: "latest-stable",
+    variantEn: "CGU7 / 1 MB", variantZh: "CGU7 / 1MB", target: "FLYINGRCF435WINGMINI",
+    boardRevisionEn: "F435Wing Mini OSD with AT32F435CGU7, 1 MB Flash, BMI270, and SPA06-003.",
+    boardRevisionZh: "F435Wing Mini OSD，AT32F435CGU7、1MB Flash、BMI270 与 SPA06-003 版本。",
+    checksum: "39e2e2bda2e5f00bae5b5afd2331eef74bac112b9372038e2d8e8cac273ea985",
+    compatibilityEn: "INAV 9.1.0 stable firmware for the CGU7 / 1 MB hardware variant. This product supports INAV only.",
+    compatibilityZh: "适用于 CGU7 / 1MB 硬件版本的 INAV 9.1.0 稳定固件。本产品仅支持 INAV。"
+  }),
+  "assets/downloads/firmware/f435wing-mini-osd/inav_9.1.0_FLYINGRCF435WINGMINI_CMU7.hex": firmwareMeta({
+    family: "inav", version: "9.1.0", channel: "stable", role: "latest-stable",
+    variantEn: "CMU7 / 4 MB", variantZh: "CMU7 / 4MB", target: "FLYINGRCF435WINGMINI_CMU7",
+    boardRevisionEn: "F435Wing Mini OSD with AT32F435CMU7, 4 MB Flash, BMI270, and SPA06-003.",
+    boardRevisionZh: "F435Wing Mini OSD，AT32F435CMU7、4MB Flash、BMI270 与 SPA06-003 版本。",
+    checksum: "422ec16a4d8d5d4a689f879586fdd98d9f356e871f6ddc450568d9033e800d83",
+    compatibilityEn: "INAV 9.1.0 stable firmware for the CMU7 / 4 MB hardware variant. This product supports INAV only.",
+    compatibilityZh: "适用于 CMU7 / 4MB 硬件版本的 INAV 9.1.0 稳定固件。本产品仅支持 INAV。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP470_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "latest-stable",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",

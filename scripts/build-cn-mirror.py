@@ -37,7 +37,9 @@ PUBLISHABLE_EXTRA_FILES = {
     Path("assets/products/am32-esc-75a-can/dimension.png"),
     Path("assets/products/stack-f405-45a/f4d-45a-photo.png"),
     Path("assets/products/stack-f405-45a/f4d-45a-render.png"),
+    Path("assets/downloads/firmware/f435wing-mini-osd/SHA256SUMS.txt"),
 }
+PUBLISHABLE_EXTRA_DIRECTORIES = {Path("assets/products/f435wing-mini-osd")}
 LOCAL_ASSET_PATTERN = re.compile(r'(?:href|poster|src)=["\'](?P<path>/?assets/[^"\'?#]+)', re.IGNORECASE)
 
 
@@ -45,6 +47,8 @@ def git_files() -> list[Path]:
     output = subprocess.check_output(["git", "ls-files", "-z", "--cached"], cwd=ROOT)
     files = {Path(item.decode("utf-8")) for item in output.split(b"\0") if item}
     files.update(path for path in PUBLISHABLE_EXTRA_FILES if (ROOT / path).is_file())
+    for directory in PUBLISHABLE_EXTRA_DIRECTORIES:
+        files.update(path.relative_to(ROOT) for path in (ROOT / directory).rglob("*") if path.is_file())
     return sorted(files)
 
 

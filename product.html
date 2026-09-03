@@ -10,7 +10,7 @@
     <title>Product page moved | FlyingRC Official</title>
     <script>
       (() => {
-        const slugs = new Set(["f4wing-mini-mk1","h7wlite-mk1","h7wlite-v2","f4wse-f405","f4wse-pro","f4d-mk1","h7d-h743","h7d-pro","am32-4in1-75a","am32-4in1-45a","am32-mini-esc-40a","am32-esc-75a-can","am32-esc-75a-v25","am32-dual-esc-40a","bec-5a-6s","bec-10a-12s","bec-mini-dji-o4","bec-10a-8s","bec-5a-12s","stack-f405-45a","stack-h743-45a","stack-f4d-75a","stack-h743-75a","fixed-wing-kit","fpv-kit","i2c-current-meter","l4-can-rm3100","rm3100-spi","h7-can-gps","ublox-m10-gps","digital-airspeed","i2c-digital-airspeed","l4-can-rcgps-adapter","elrs-24g-diversity","am32-configurator","pdb-12s-400a"]);
+        const slugs = new Set(["f435wing-mini-osd","f4wing-mini-mk1","h7wlite-mk1","h7wlite-v2","f4wse-f405","f4wse-pro","f4d-mk1","h7d-h743","h7d-pro","am32-4in1-75a","am32-4in1-45a","am32-mini-esc-40a","am32-esc-75a-can","am32-esc-75a-v25","am32-dual-esc-40a","bec-5a-6s","bec-10a-12s","bec-mini-dji-o4","bec-10a-8s","bec-5a-12s","stack-f405-45a","stack-h743-45a","stack-f4d-75a","stack-h743-75a","fixed-wing-kit","fpv-kit","i2c-current-meter","l4-can-rm3100","rm3100-spi","h7-can-gps","ublox-m10-gps","digital-airspeed","i2c-digital-airspeed","l4-can-rcgps-adapter","elrs-24g-diversity","am32-configurator","pdb-12s-400a"]);
         const slug = new URLSearchParams(location.search).get("p");
         const target = slug && slugs.has(slug)
           ? "/en/products/" + encodeURIComponent(slug) + "/"
