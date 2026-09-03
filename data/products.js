@@ -54,7 +54,6 @@ window.FLYINGRC_CATALOG = {
         img("assets/products/f435wing-mini-osd/board-front.jpg", "Board front", "飞控正面", "gallery"),
         img("assets/products/f435wing-mini-osd/board-front-angle.jpg", "Board front angle", "飞控正面斜视图", "gallery"),
         img("assets/products/f435wing-mini-osd/board-back.jpg", "Board back", "飞控反面", "gallery"),
-        img("assets/products/f435wing-mini-osd/board-back-clean.jpg", "Board back detail", "飞控反面细节", "gallery"),
         img("assets/products/f435wing-mini-osd/board-detail.jpg", "Connector detail", "接口细节", "gallery"),
         img("assets/products/f435wing-mini-osd/render-top.jpg", "Top render", "顶部渲染图", "gallery"),
         img("assets/products/f435wing-mini-osd/render-bottom.jpg", "Bottom render", "底部渲染图", "gallery"),
