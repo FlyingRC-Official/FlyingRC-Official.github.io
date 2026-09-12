@@ -1952,36 +1952,36 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "49ca1d2449a859f5c6b5431bbe86cbe954d4a47e786bc5ae4e510d9cd0e9f7a3",
-    compatibilityEn: "ArduCopter 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target.",
-    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduCopter 4.7.1 带 Bootloader 固件。"
+    checksum: "ed68e9b36d065a200ba4b39812e1d6ae6f1cd9aba96b8128a0bab28f3fcf16ea",
+    compatibilityEn: "ArduCopter 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduCopter 4.7.1 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "latest-stable",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "7258a307a88186dad9afd0ad9cb7c040ed1310d332658b897f51b7e55effa6da",
-    compatibilityEn: "ArduPlane 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target.",
-    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduPlane 4.7.1 带 Bootloader 固件。"
+    checksum: "655012fbc1f504f6120ba1749d0c3ca42c02f19779ab26d119e76684743cd34b",
+    compatibilityEn: "ArduPlane 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduPlane 4.7.1 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "latest-stable",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "d785b3a54653c460eb4309cd9b5ae0d614125c01d4dea0c58d60bb914680ad08",
-    compatibilityEn: "ArduRover 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target.",
-    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduRover 4.7.1 带 Bootloader 固件。"
+    checksum: "a3a1e31dc113e5fe2dca244d4469c631c71cee7df9d19395fbeec43e45cbf234",
+    compatibilityEn: "ArduRover 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduRover 4.7.1 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "latest-stable",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "54f30c0fb5c3f90ade767269eb2c72fc851f40c4bb7979d2fa2441338b5ad2d7",
-    compatibilityEn: "ArduSub 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target.",
-    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduSub 4.7.1 带 Bootloader 固件。"
+    checksum: "6baca70873bd521ab6fd72edfd13b5e0a6b7944668cd40362a4ce5d8910d0b76",
+    compatibilityEn: "ArduSub 4.7.1 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduSub 4.7.1 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "latest-stable",
@@ -2150,9 +2150,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "1d2b8d5bb0152110a848827469aae3843fea0402ae30f4e950cf1c77cbeb687b",
-    compatibilityEn: "ArduPlane 4.7.0 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.7.0 带 Bootloader 固件。"
+    checksum: "9804dcf6c2e4bf39ecd8aade6e7b03fda46624313679b49861a2095d8c3adac8",
+    compatibilityEn: "ArduPlane 4.7.0 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.7.0 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
@@ -2161,9 +2161,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "7edc4699ca31cfdb67fa7823a45f4a91d95ee38b1d4d8dfc00fcc46f0e3df572",
-    compatibilityEn: "ArduCopter 4.7.0 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduCopter 4.7.0 带 Bootloader 固件。"
+    checksum: "f3dd4ab2884a9eeb0f669ab56e5c7e7227c0d4539b903b18bad7fedaa29c15db",
+    compatibilityEn: "ArduCopter 4.7.0 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduCopter 4.7.0 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
@@ -2172,9 +2172,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "37d53a1ca1446c18eaf96769186bfd5161d594159508f93b1888b6a68bf8dd3c",
-    compatibilityEn: "ArduRover 4.7.0 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduRover 4.7.0 带 Bootloader 固件。"
+    checksum: "ac1ead219dec910609086c2b0af6030a106980701ea494f9c1ee809fb2c4a803",
+    compatibilityEn: "ArduRover 4.7.0 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduRover 4.7.0 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
@@ -2183,9 +2183,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "c952e1b32b85eaf848c7ba463e531530eba78f59f5d07133ae580c5fe652dbd6",
-    compatibilityEn: "ArduSub 4.7.0 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduSub 4.7.0 带 Bootloader 固件。"
+    checksum: "c1f02f6fcc8ae3673e899be1641ba37a88daa2ae98e726a33ad1c87b1248bcc3",
+    compatibilityEn: "ArduSub 4.7.0 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduSub 4.7.0 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
@@ -2434,9 +2434,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "18009d54878ee5bbd2ac6d22c8ac0f3c7ee71258ce8afa03b152a7047e4ce949",
-    compatibilityEn: "ArduPlane 4.6.3 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 带 Bootloader 固件。"
+    checksum: "56a9e7d1291671c1745aeee620926ea6fb8a4821b865dc8b0e2595e0d4801436",
+    compatibilityEn: "ArduPlane 4.6.3 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_bdshot_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot",
@@ -2450,9 +2450,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "FlyingRC_F4WSE_Pro / ArduPlane BDShot",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "52ec4a8df4d3399c3aa18d9efb588c9cc2e62ae990d63376f8d03309da898a41",
-    compatibilityEn: "ArduPlane 4.6.3 BDShot firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 BDShot 带 Bootloader 固件。"
+    checksum: "b9a331b6b9a37716fa8e9be1fbf879a7b33465b1fa6744f82ece6d59da315188",
+    compatibilityEn: "ArduPlane 4.6.3 BDShot firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.6.3 BDShot 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot",
@@ -2464,9 +2464,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "88779e52d06759ad0b47a57e330cce0c420d60727cf4e854327c3624bd61b49b",
-    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduCopter 4.6.3 带 Bootloader 固件。"
+    checksum: "39a294d4b287e71fb6f9f2816729ab55b8e1155469aab21f4c6ff341b9a7d3aa",
+    compatibilityEn: "ArduCopter 4.6.3 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduCopter 4.6.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP457_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot",
@@ -2480,9 +2480,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "4cc715eead96a5a67ff941168dd191afc7e7062c6e6b6514d03d85fab8328a50",
-    compatibilityEn: "ArduPlane 4.5.7 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.5.7 带 Bootloader 固件。"
+    checksum: "e615a975fe06f8ebfea54959d835453881122ff424e7d1bcb4327e9cf4c733af",
+    compatibilityEn: "ArduPlane 4.5.7 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduPlane 4.5.7 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/AP463_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot",
@@ -2494,9 +2494,9 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
-    checksum: "b765e6d1ca089396d285496b57fbcb84a9b1012d48ae7039969455082c570a15",
-    compatibilityEn: "ArduRover 4.6.3 firmware with bootloader for the F4WSE Pro target.",
-    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduRover 4.6.3 带 Bootloader 固件。"
+    checksum: "8dc17697feed3d3855986b547c8fa93bc9d7f31fc23f082d05096a9bc6e5eb8e",
+    compatibilityEn: "ArduRover 4.6.3 firmware with bootloader for the F4WSE Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 F4WSE Pro 目标的 ArduRover 4.6.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
   "assets/downloads/firmware/f4wse-pro/inav_9.0.1_FLYINGRCF4WSEPRO.hex": firmwareMeta({
     family: "inav",
