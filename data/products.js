@@ -1762,6 +1762,7 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI", "INAV F4Wing Mini target branch", "INAV F4Wing Mini 目标分支"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.7.1 firmware with bootloader", "ArduCopter 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.7.1 firmware with bootloader", "ArduPlane 4.7.1 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arduplane_INA226_QMC5883P_with_bl.hex", "ArduPlane 4.7.1 INA226 + QMC5883P custom firmware with bootloader", "ArduPlane 4.7.1 INA226 + QMC5883P 定制带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_ardurover_with_bl.hex", "ArduRover 4.7.1 firmware with bootloader", "ArduRover 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_ardusub_with_bl.hex", "ArduSub 4.7.1 firmware with bootloader", "ArduSub 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP470_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.7.0 firmware with bootloader", "ArduPlane 4.7.0 带 Bootloader 固件"),
@@ -1932,6 +1933,17 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     checksum: "c2972614b3f57e52a747b016763e0c9412d6f5463f33f038935f3921d44e0a2c",
     compatibilityEn: "ArduPlane 4.7.1 firmware with bootloader for the FlyingRCF4WingMini target.",
     compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduPlane 4.7.1 带 Bootloader 固件。"
+  }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arduplane_INA226_QMC5883P_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.1-custom-INA226-QMC5883P", channel: "unstable", role: "archive",
+    variantEn: "ArduPlane / INA226 + QMC5883P", variantZh: "ArduPlane / INA226 + QMC5883P", target: "FlyingRCF4WingMini / ArduPlane",
+    archiveNoteEn: "Custom FlyingRC build based on the official Plane-4.7.1 release; not an official ArduPilot release asset.",
+    archiveNoteZh: "基于官方 Plane-4.7.1 正式版的 FlyingRC 定制构建；并非 ArduPilot 官方 Release 附件。",
+    boardRevisionEn: "F4Wing Mini MK1 with external INA226 current/voltage monitor and external QMC5883P compass on I2C1.",
+    boardRevisionZh: "F4Wing Mini MK1，支持通过 I2C1 外接 INA226 电流/电压计和 QMC5883P 磁力计。",
+    checksum: "d4dec37c9a6cd4eed0f3c5fef90ea79d14ee9941ae098a9b5368950cf7e2a710",
+    compatibilityEn: "Enable INA226 with BATT_MONITOR=21 and configure its I2C address, shunt resistance, and current range for the installed module. QMC5883P is detected on the external I2C bus.",
+    compatibilityZh: "使用 INA226 时设置 BATT_MONITOR=21，并按模块配置 I2C 地址、分流电阻和最大电流；QMC5883P 可在外部 I2C 总线上自动检测。"
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "latest-stable",
