@@ -2,9 +2,20 @@
 <html lang="zh-Hans">
   <head>
     <meta charset="utf-8">
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL("https://www.flyingrctech.com/zh/products/fixed-wing-kit/");
+        const params = new URLSearchParams(location.search);
+
+
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="固定翼套餐页，用于对比 F4WSE、F4Wing Mini、H7Wlite 等 FlyingRC 固定翼飞控组合。">
-    <link rel="canonical" href="https://flyingrc-official.github.io/zh/products/fixed-wing-kit/">
+    <link rel="canonical" href="https://www.flyingrctech.com/zh/products/fixed-wing-kit/">
     <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/products/fixed-wing-kit/">
     <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/products/fixed-wing-kit/">
     <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/products/fixed-wing-kit/">
@@ -12,7 +23,7 @@
     <meta property="og:title" content="FlyingRC 固定翼套餐系列 | FlyingRC Official">
     <meta property="og:description" content="固定翼套餐页，用于对比 F4WSE、F4Wing Mini、H7Wlite 等 FlyingRC 固定翼飞控组合。">
     <meta property="og:type" content="product">
-    <meta property="og:url" content="https://flyingrc-official.github.io/zh/products/fixed-wing-kit/">
+    <meta property="og:url" content="https://www.flyingrctech.com/zh/products/fixed-wing-kit/">
     <meta property="og:image" content="https://flyingrc-official.github.io/assets/products/fixed-wing-kit/hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FlyingRC 固定翼套餐系列 | FlyingRC Official">

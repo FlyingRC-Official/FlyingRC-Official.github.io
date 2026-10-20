@@ -2,14 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL("https://www.flyingrctech.com/en/products/f435wing-mini-osd/");
+        const params = new URLSearchParams(location.search);
+        if (params.get("lang") === "zh") target.pathname = target.pathname.replace("/en/", "/zh/");
+
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,follow">
     <meta name="description" content="This legacy FlyingRC URL has moved to the localized site.">
-    <link rel="canonical" href="https://flyingrc-official.github.io/en/products/f435wing-mini-osd/">
+    <link rel="canonical" href="https://www.flyingrctech.com/en/products/f435wing-mini-osd/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <title>FlyingRC F435Wing Mini OSD AT32F435 Fixed-wing Flight Controller page moved | FlyingRC Official</title>
-
-    <meta http-equiv="refresh" content="0;url=/en/products/f435wing-mini-osd/">
+    <script>if (location.hostname.toLowerCase() !== "flyingrc-official.github.io") location.replace("/en/products/f435wing-mini-osd/" + location.search + location.hash);</script>
+    <noscript><meta http-equiv="refresh" content="0;url=/en/products/f435wing-mini-osd/"></noscript>
   </head>
   <body>
     <p>This page has moved to <a href="/en/products/f435wing-mini-osd/">/en/products/f435wing-mini-osd/</a>.</p>

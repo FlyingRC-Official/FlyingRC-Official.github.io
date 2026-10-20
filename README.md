@@ -64,3 +64,19 @@ GitHub Pages will serve it at:
 ```text
 https://flyingrc-official.github.io/
 ```
+
+## Production website migration
+
+The public website now lives at https://www.flyingrctech.com/. On the
+`flyingrc-official.github.io` hostname, HTML pages immediately replace the
+current browser location with the corresponding new English or Chinese page.
+Legacy `product.html?p=...` links retain the product, and query strings and
+fragments are preserved. Contact/support links go to support; projects go to
+About. The static canonical links point to the new website.
+
+The redirect is emitted by `scripts/build-static-pages.js` before existing page
+scripts. It is limited to the GitHub Pages hostname so local previews and the
+China-near mirror retain their existing behavior. Files under `assets/`,
+including manuals and firmware, are preserved at their original URLs. GitHub
+Pages serves static files, so these are browser redirects rather than HTTP 301
+responses. Browsers need JavaScript enabled for the automatic redirect.

@@ -2,9 +2,20 @@
 <html lang="zh-Hans">
   <head>
     <meta charset="utf-8">
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL("https://www.flyingrctech.com/zh/products/");
+        const params = new URLSearchParams(location.search);
+
+
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。">
-    <link rel="canonical" href="https://flyingrc-official.github.io/zh/products/">
+    <link rel="canonical" href="https://www.flyingrctech.com/zh/products/">
     <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/products/">
     <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/products/">
     <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/products/">
@@ -12,7 +23,7 @@
     <meta property="og:title" content="FlyingRC 产品资料 | FlyingRC Official">
     <meta property="og:description" content="基于同一份产品数据生成的 FlyingRC 硬件静态页面索引。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://flyingrc-official.github.io/zh/products/">
+    <meta property="og:url" content="https://www.flyingrctech.com/zh/products/">
     <meta property="og:image" content="https://flyingrc-official.github.io/assets/brand/flyingrc-social-card.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FlyingRC 产品资料 | FlyingRC Official">

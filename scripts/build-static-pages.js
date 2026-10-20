@@ -1064,8 +1064,8 @@ function redirectPage({ title, destination, script = "" }) {
     <link rel="canonical" href="${attr(target)}">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <title>${html(title)} | FlyingRC Official</title>
-    ${script ? `<script>${script}</script>` : ""}
-    <meta http-equiv="refresh" content="0;url=${attr(destination)}">
+    ${script ? `<script>if (location.hostname.toLowerCase() !== "flyingrc-official.github.io") { ${script} }</script>` : `<script>if (location.hostname.toLowerCase() !== "flyingrc-official.github.io") location.replace(${JSON.stringify(destination)} + location.search + location.hash);</script>`}
+    <noscript><meta http-equiv="refresh" content="0;url=${attr(destination)}"></noscript>
   </head>
   <body>
     <p>This page has moved to <a href="${attr(destination)}">${html(destination)}</a>.</p>
@@ -1159,6 +1159,69 @@ ${urls.map((url) => `  <url><loc>${html(absoluteUrl(url))}</loc><lastmod>${SITE_
   writeFile("sitemap.xml", body);
 }
 
+// Keep GitHub Pages as a stable entry point and download archive. The
+// China-near mirror and local previews keep rendering their existing pages.
+const MIGRATION_ORIGIN = "https://www.flyingrctech.com";
+
+function migrationPath(relativePath) {
+  let route = "/" + relativePath.replace(/index\.html$/, "");
+  if (route === "/") return "/en/";
+  const shared = {
+    "/contact.html": "/en/support/",
+    "/support.html": "/en/support/",
+    "/projects.html": "/en/about/",
+    "/wiki.html": "/en/wiki/",
+    "/product.html": "/en/products/",
+    "/downloads.html": "/en/downloads/",
+    "/tutorials.html": "/en/tutorials/"
+  };
+  if (shared[route]) return shared[route];
+  route = route.replace("/products/digital-airspeed/", "/products/i2c-digital-airspeed/");
+  if (!/^\/(en|zh)\//.test(route)) route = "/en" + route;
+  return route;
+}
+
+function addMigrationRedirects() {
+  const pages = [];
+  function collect(directory) {
+    for (const entry of fs.readdirSync(path.join(ROOT, directory), { withFileTypes: true })) {
+      const relative = path.posix.join(directory, entry.name);
+      if (entry.isDirectory()) collect(relative);
+      else if (entry.name.endsWith(".html")) pages.push(relative);
+    }
+  }
+  for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith(".html")) pages.push(entry.name);
+  }
+  for (const directory of ["en", "zh", "products", "tutorials"]) collect(directory);
+  for (const relative of pages) {
+    const target = MIGRATION_ORIGIN + migrationPath(relative);
+    let body = fs.readFileSync(path.join(ROOT, relative), "utf8")
+      .replace(/\s*<script data-flyingrc-migration>[\s\S]*?<\/script>/g, "");
+    const special = !/^(en|zh)\//.test(relative);
+    const script = `
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL(${JSON.stringify(target)});
+        const params = new URLSearchParams(location.search);
+        ${special ? 'if (params.get("lang") === "zh") target.pathname = target.pathname.replace("/en/", "/zh/");' : ''}
+        ${relative === "product.html" ? `const slugs = new Set(${JSON.stringify(catalog.products.map(product => product.slug))});
+        const slug = params.get("p");
+        if (slugs.has(slug)) target.pathname += (slug === "digital-airspeed" ? "i2c-digital-airspeed" : slug) + "/";` : ''}
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>`;
+    if (!/<meta charset="utf-8">/i.test(body)) throw new Error(`Missing charset: ${relative}`);
+    body = body.replace(/<meta charset="utf-8">/i, match => match + script);
+    body = body.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${target}$2`);
+    body = body.replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${target}$2`);
+    writeFile(relative, body);
+  }
+  console.log(`Added production migration redirects to ${pages.length} HTML entry points.`);
+}
+
 function main() {
   writeFile("en/index.html", homePage("en"));
   writeFile("zh/index.html", homePage("zh"));
@@ -1166,6 +1229,7 @@ function main() {
   writeFile("zh/products/index.html", productsIndexPage("zh"));
   writeFile("en/downloads/index.html", downloadsIndexPage("en"));
   writeFile("zh/downloads/index.html", downloadsIndexPage("zh"));
+  writeFile("support.html", redirectPage({ title: "Support moved", destination: "/contact.html" }));
   writeFile("wiki.html", redirectPage({ title: "Products moved", destination: "/en/products/" }));
   writeFile("product.html", legacyProductRedirectPage());
   writeFile("downloads.html", redirectPage({ title: "Downloads moved", destination: "/en/downloads/" }));
@@ -1173,6 +1237,7 @@ function main() {
   generateProductPages();
   generateTutorialPages();
   generateSitemap();
+  addMigrationRedirects();
   console.log(`Generated localized entry pages, ${catalog.products.length} product pages per language, and ${tutorialCatalog.tutorials.length} tutorial pages per language.`);
 }
 

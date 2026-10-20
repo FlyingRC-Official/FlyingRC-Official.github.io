@@ -2,14 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL("https://www.flyingrctech.com/en/products/stack-f4d-75a/");
+        const params = new URLSearchParams(location.search);
+        if (params.get("lang") === "zh") target.pathname = target.pathname.replace("/en/", "/zh/");
+
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,follow">
     <meta name="description" content="This legacy FlyingRC URL has moved to the localized site.">
-    <link rel="canonical" href="https://flyingrc-official.github.io/en/products/stack-f4d-75a/">
+    <link rel="canonical" href="https://www.flyingrctech.com/en/products/stack-f4d-75a/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <title>FlyingRC Advanced Stack Kit F4D FC + 75A 4-in-1 ESC page moved | FlyingRC Official</title>
-
-    <meta http-equiv="refresh" content="0;url=/en/products/stack-f4d-75a/">
+    <script>if (location.hostname.toLowerCase() !== "flyingrc-official.github.io") location.replace("/en/products/stack-f4d-75a/" + location.search + location.hash);</script>
+    <noscript><meta http-equiv="refresh" content="0;url=/en/products/stack-f4d-75a/"></noscript>
   </head>
   <body>
     <p>This page has moved to <a href="/en/products/stack-f4d-75a/">/en/products/stack-f4d-75a/</a>.</p>

@@ -2,14 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <script data-flyingrc-migration>
+      if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
+        const target = new URL("https://www.flyingrctech.com/en/products/h7wlite-mk1/");
+        const params = new URLSearchParams(location.search);
+        if (params.get("lang") === "zh") target.pathname = target.pathname.replace("/en/", "/zh/");
+
+        target.search = location.search;
+        target.hash = location.hash;
+        location.replace(target.href);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,follow">
     <meta name="description" content="This legacy FlyingRC URL has moved to the localized site.">
-    <link rel="canonical" href="https://flyingrc-official.github.io/en/products/h7wlite-mk1/">
+    <link rel="canonical" href="https://www.flyingrctech.com/en/products/h7wlite-mk1/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <title>FlyingRC H7Wlite MK1 H743 Fixed-wing Flight Controller page moved | FlyingRC Official</title>
-
-    <meta http-equiv="refresh" content="0;url=/en/products/h7wlite-mk1/">
+    <script>if (location.hostname.toLowerCase() !== "flyingrc-official.github.io") location.replace("/en/products/h7wlite-mk1/" + location.search + location.hash);</script>
+    <noscript><meta http-equiv="refresh" content="0;url=/en/products/h7wlite-mk1/"></noscript>
   </head>
   <body>
     <p>This page has moved to <a href="/en/products/h7wlite-mk1/">/en/products/h7wlite-mk1/</a>.</p>
