@@ -83,6 +83,16 @@ def externalize_heavy_links(text: str) -> str:
     return pattern.sub(replace, text)
 
 
+def strip_migration_refresh(content: str) -> str:
+    """Keep the independently hosted mirror from inheriting the GitHub redirect."""
+    content = re.sub(r'\s*<meta data-flyingrc-migration[^>]*>', '', content)
+    return re.sub(
+        r'<meta data-mirror-url="([^" ]+)" http-equiv="refresh" content="[^"]*">',
+        lambda match: f'<meta http-equiv="refresh" content="0;url={match.group(1)}">',
+        content,
+    )
+
+
 def copy_file(path: Path) -> None:
     source = ROOT / path
     target = DIST / path
@@ -90,6 +100,8 @@ def copy_file(path: Path) -> None:
 
     if path.suffix.lower() in TEXT_SUFFIXES:
         content = source.read_text(encoding="utf-8")
+        if path.suffix.lower() == ".html":
+            content = strip_migration_refresh(content)
         content = externalize_heavy_links(content)
         target.write_text(content, encoding="utf-8")
         return

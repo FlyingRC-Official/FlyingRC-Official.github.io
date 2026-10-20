@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta data-flyingrc-migration http-equiv="refresh" content="0;url=https://www.flyingrctech.com/en/">
     <script data-flyingrc-migration>
       if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
         const target = new URL("https://www.flyingrctech.com/en/");
@@ -10,15 +11,16 @@
 
         target.search = location.search;
         target.hash = location.hash;
+        document.querySelector("meta[data-flyingrc-migration]").content = "0;url=" + target.href;
         location.replace(target.href);
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="FlyingRC flight controllers, ESCs, BEC modules, GPS, sensors, wiring diagrams, manuals, and tested firmware notes for UAV builders.">
     <link rel="canonical" href="https://www.flyingrctech.com/en/">
-    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/">
-    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/">
-    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/">
+    <link rel="alternate" hreflang="en" href="https://www.flyingrctech.com/en/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.flyingrctech.com/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://www.flyingrctech.com/en/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <meta property="og:title" content="FlyingRC Official | Open-firmware UAV hardware">
     <meta property="og:description" content="FlyingRC flight controllers, ESCs, BEC modules, GPS, sensors, wiring diagrams, manuals, and tested firmware notes for UAV builders.">

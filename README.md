@@ -74,9 +74,17 @@ Legacy `product.html?p=...` links retain the product, and query strings and
 fragments are preserved. Contact/support links go to support; projects go to
 About. The static canonical links point to the new website.
 
-The redirect is emitted by `scripts/build-static-pages.js` before existing page
-scripts. It is limited to the GitHub Pages hostname so local previews and the
-China-near mirror retain their existing behavior. Files under `assets/`,
-including manuals and firmware, are preserved at their original URLs. GitHub
-Pages serves static files, so these are browser redirects rather than HTTP 301
-responses. Browsers need JavaScript enabled for the automatic redirect.
+The generator emits a zero-second meta refresh in the HTML head as a permanent
+migration signal, plus an immediate JavaScript redirect that preserves query
+strings, fragments and legacy product selection. Static language alternates and
+canonical links point to the corresponding production URLs. Legacy redirect
+aliases no longer carry `noindex`, so their migration signals can be processed.
+
+The China-near mirror builder strips the migration meta refresh; the JavaScript
+redirect remains restricted to the GitHub Pages hostname. Previewing the source
+HTML now follows the migration meta refresh; use the mirror artifact to preview
+the retained content. Files under `assets/`, including manuals and firmware,
+remain at their original URLs. GitHub Pages still serves HTTP 200: this is a
+static permanent-redirect signal, not a server-side HTTP 301. Browsers without
+JavaScript follow the static page destination; dynamic query-based product or
+language selection requires JavaScript.

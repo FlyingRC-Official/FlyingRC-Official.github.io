@@ -1191,15 +1191,17 @@ function addMigrationRedirects() {
     }
   }
   for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
-    if (entry.isFile() && entry.name.endsWith(".html")) pages.push(entry.name);
+    if (entry.isFile() && entry.name.endsWith(".html") && !/^google[0-9a-f]+\.html$/.test(entry.name)) pages.push(entry.name);
   }
   for (const directory of ["en", "zh", "products", "tutorials"]) collect(directory);
   for (const relative of pages) {
     const target = MIGRATION_ORIGIN + migrationPath(relative);
     let body = fs.readFileSync(path.join(ROOT, relative), "utf8")
-      .replace(/\s*<script data-flyingrc-migration>[\s\S]*?<\/script>/g, "");
+      .replace(/\s*<script data-flyingrc-migration>[\s\S]*?<\/script>/g, "")
+      .replace(/\s*<meta data-flyingrc-migration[^>]*>/g, "");
     const special = !/^(en|zh)\//.test(relative);
     const script = `
+    <meta data-flyingrc-migration http-equiv="refresh" content="0;url=${attr(target)}">
     <script data-flyingrc-migration>
       if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
         const target = new URL(${JSON.stringify(target)});
@@ -1210,6 +1212,7 @@ function addMigrationRedirects() {
         if (slugs.has(slug)) target.pathname += (slug === "digital-airspeed" ? "i2c-digital-airspeed" : slug) + "/";` : ''}
         target.search = location.search;
         target.hash = location.hash;
+        document.querySelector("meta[data-flyingrc-migration]").content = "0;url=" + target.href;
         location.replace(target.href);
       }
     </script>`;
@@ -1217,6 +1220,12 @@ function addMigrationRedirects() {
     body = body.replace(/<meta charset="utf-8">/i, match => match + script);
     body = body.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${target}$2`);
     body = body.replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${target}$2`);
+    body = body.replace(/(<link rel="alternate"[^>]* href=")https:\/\/flyingrc-official\.github\.io([^" ]*)(")/g,
+      (_, before, oldPath, after) => before + MIGRATION_ORIGIN + migrationPath(oldPath.replace(/^\//, "")) + after);
+    body = body.replace(/<noscript><meta http-equiv="refresh" content="0;url=([^" ]+)"><\/noscript>/g,
+      (_, original) => `<noscript><meta data-mirror-url="${original}" http-equiv="refresh" content="0;url=${attr(target)}"></noscript>`);
+    // The migration redirect itself is the indexing signal for these aliases.
+    body = body.replace(/(<meta name="robots" content=")noindex(?:,follow)?(")/g, "$1index,follow$2");
     writeFile(relative, body);
   }
   console.log(`Added production migration redirects to ${pages.length} HTML entry points.`);

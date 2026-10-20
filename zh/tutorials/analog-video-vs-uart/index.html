@@ -2,6 +2,7 @@
 <html lang="zh-Hans">
   <head>
     <meta charset="utf-8">
+    <meta data-flyingrc-migration http-equiv="refresh" content="0;url=https://www.flyingrctech.com/zh/tutorials/analog-video-vs-uart/">
     <script data-flyingrc-migration>
       if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
         const target = new URL("https://www.flyingrctech.com/zh/tutorials/analog-video-vs-uart/");
@@ -10,15 +11,16 @@
 
         target.search = location.search;
         target.hash = location.hash;
+        document.querySelector("meta[data-flyingrc-migration]").content = "0;url=" + target.href;
         location.replace(target.href);
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="分清 VIDEO、CAM、VIN、VOUT、UART TX/RX、SmartAudio 与 Tramp，避免常见的模拟图传接线错误。">
     <link rel="canonical" href="https://www.flyingrctech.com/zh/tutorials/analog-video-vs-uart/">
-    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
-    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/tutorials/analog-video-vs-uart/">
-    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="en" href="https://www.flyingrctech.com/en/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.flyingrctech.com/zh/tutorials/analog-video-vs-uart/">
+    <link rel="alternate" hreflang="x-default" href="https://www.flyingrctech.com/en/tutorials/analog-video-vs-uart/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <meta property="og:title" content="模拟图传的视频信号不是串口 | FlyingRC Official">
     <meta property="og:description" content="分清 VIDEO、CAM、VIN、VOUT、UART TX/RX、SmartAudio 与 Tramp，避免常见的模拟图传接线错误。">

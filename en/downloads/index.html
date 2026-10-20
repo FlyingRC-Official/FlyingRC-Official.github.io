@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta data-flyingrc-migration http-equiv="refresh" content="0;url=https://www.flyingrctech.com/en/downloads/">
     <script data-flyingrc-migration>
       if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
         const target = new URL("https://www.flyingrctech.com/en/downloads/");
@@ -10,15 +11,16 @@
 
         target.search = location.search;
         target.hash = location.hash;
+        document.querySelector("meta[data-flyingrc-migration]").content = "0;url=" + target.href;
         location.replace(target.href);
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Product-first manuals, firmware, checksums, target branches, and reference files.">
     <link rel="canonical" href="https://www.flyingrctech.com/en/downloads/">
-    <link rel="alternate" hreflang="en" href="https://flyingrc-official.github.io/en/downloads/">
-    <link rel="alternate" hreflang="zh-Hans" href="https://flyingrc-official.github.io/zh/downloads/">
-    <link rel="alternate" hreflang="x-default" href="https://flyingrc-official.github.io/en/downloads/">
+    <link rel="alternate" hreflang="en" href="https://www.flyingrctech.com/en/downloads/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.flyingrctech.com/zh/downloads/">
+    <link rel="alternate" hreflang="x-default" href="https://www.flyingrctech.com/en/downloads/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
     <meta property="og:title" content="FlyingRC downloads | FlyingRC Official">
     <meta property="og:description" content="Product-first manuals, firmware, checksums, target branches, and reference files.">

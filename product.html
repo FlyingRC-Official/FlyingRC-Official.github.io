@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta data-flyingrc-migration http-equiv="refresh" content="0;url=https://www.flyingrctech.com/en/products/">
     <script data-flyingrc-migration>
       if (location.hostname.toLowerCase() === "flyingrc-official.github.io") {
         const target = new URL("https://www.flyingrctech.com/en/products/");
@@ -12,11 +13,12 @@
         if (slugs.has(slug)) target.pathname += (slug === "digital-airspeed" ? "i2c-digital-airspeed" : slug) + "/";
         target.search = location.search;
         target.hash = location.hash;
+        document.querySelector("meta[data-flyingrc-migration]").content = "0;url=" + target.href;
         location.replace(target.href);
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex,follow">
+    <meta name="robots" content="index,follow">
     <meta name="description" content="This legacy FlyingRC URL has moved to the localized site.">
     <link rel="canonical" href="https://www.flyingrctech.com/en/products/">
     <link rel="icon" href="/assets/brand/flyingrc-logo.jpg" type="image/jpeg">
@@ -30,7 +32,7 @@
           : "/en/products/";
         location.replace(target);
       })(); }</script>
-    <noscript><meta http-equiv="refresh" content="0;url=/en/products/"></noscript>
+    <noscript><meta data-mirror-url="/en/products/" http-equiv="refresh" content="0;url=https://www.flyingrctech.com/en/products/"></noscript>
   </head>
   <body>
     <p>This page has moved to <a href="/en/products/">/en/products/</a>.</p>
