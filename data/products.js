@@ -1738,9 +1738,13 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7WLITEV2", "INAV H7Wlite V2 target branch", "INAV H7Wlite V2 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7Wlite-V2-BMI270-Config", "Betaflight H7Wlite V2 config branch", "Betaflight H7Wlite V2 配置分支"),
     download("https://github.com/FlyingRC-Official/PX4-Autopilot/tree/FlyingRC-H7Wlite-V2-Board", "PX4 H7Wlite V2 base branch", "PX4 H7Wlite V2 基础分支"),
+    download("assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.7.3 firmware with bootloader", "ArduCopter 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.7.2 firmware with bootloader", "ArduCopter 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.7.3 firmware with bootloader", "ArduPlane 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.7.2 firmware with bootloader", "ArduPlane 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_ardurover_with_bl.hex", "ArduRover 4.7.3 firmware with bootloader", "ArduRover 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_ardurover_with_bl.hex", "ArduRover 4.7.2 firmware with bootloader", "ArduRover 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_ardusub_with_bl.hex", "ArduSub 4.7.3 firmware with bootloader", "ArduSub 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_ardusub_with_bl.hex", "ArduSub 4.7.2 firmware with bootloader", "ArduSub 4.7.2 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_arducopter_with_bl.hex", "ArduCopter 4.7.1 firmware with bootloader", "ArduCopter 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_arduplane_with_bl.hex", "ArduPlane 4.7.1 firmware with bootloader", "ArduPlane 4.7.1 带 Bootloader 固件"),
@@ -1764,9 +1768,13 @@ const PUBLIC_REFERENCE_FILES = {
   "f4wing-mini-mk1": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/feature/add_flyingrc_targets", "ArduPilot F4Wing Mini target branch", "ArduPilot F4Wing Mini 目标分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WINGMINI", "INAV F4Wing Mini target branch", "INAV F4Wing Mini 目标分支"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.7.3 firmware with bootloader", "ArduCopter 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.7.2 firmware with bootloader", "ArduCopter 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.7.3 firmware with bootloader", "ArduPlane 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.7.2 firmware with bootloader", "ArduPlane 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_ardurover_with_bl.hex", "ArduRover 4.7.3 firmware with bootloader", "ArduRover 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_ardurover_with_bl.hex", "ArduRover 4.7.2 firmware with bootloader", "ArduRover 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_ardusub_with_bl.hex", "ArduSub 4.7.3 firmware with bootloader", "ArduSub 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_ardusub_with_bl.hex", "ArduSub 4.7.2 firmware with bootloader", "ArduSub 4.7.2 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arducopter_with_bl.hex", "ArduCopter 4.7.1 firmware with bootloader", "ArduCopter 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arduplane_with_bl.hex", "ArduPlane 4.7.1 firmware with bootloader", "ArduPlane 4.7.1 带 Bootloader 固件"),
@@ -1792,9 +1800,13 @@ const PUBLIC_REFERENCE_FILES = {
   "f4wse-pro": [
     download("https://github.com/FlyingRC-Official/ardupilot/tree/add_FlyingRC_F4WSE_Pro_target", "ArduPilot F4WSE Pro target branch", "ArduPilot F4WSE Pro 目标分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCF4WSEPRO", "INAV F4WSE Pro target branch", "INAV F4WSE Pro 目标分支"),
+    download("assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex", "ArduCopter 4.7.3 firmware with bootloader", "ArduCopter 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex", "ArduCopter 4.7.2 firmware with bootloader", "ArduCopter 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.7.3 firmware with bootloader", "ArduPlane 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.7.2 firmware with bootloader", "ArduPlane 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex", "ArduRover 4.7.3 firmware with bootloader", "ArduRover 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex", "ArduRover 4.7.2 firmware with bootloader", "ArduRover 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex", "ArduSub 4.7.3 firmware with bootloader", "ArduSub 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex", "ArduSub 4.7.2 firmware with bootloader", "ArduSub 4.7.2 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex", "ArduCopter 4.7.1 firmware with bootloader", "ArduCopter 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex", "ArduPlane 4.7.1 firmware with bootloader", "ArduPlane 4.7.1 带 Bootloader 固件"),
@@ -1833,13 +1845,21 @@ const PUBLIC_REFERENCE_FILES = {
     download("https://github.com/FlyingRC-Official/ardupilot/tree/pr-flyingrch7dpro-upstream", "ArduPilot H7D Pro target branch", "ArduPilot H7D Pro 目标分支"),
     download("https://github.com/FlyingRC-Official/betaflight-config/tree/Add-FlyingRC-H7D-Pro-Config", "Betaflight H7D Pro config branch", "Betaflight H7D Pro 配置分支"),
     download("https://github.com/FlyingRC-Official/inav/tree/FLYINGRCH7DPRO", "INAV H7D Pro target branch", "INAV H7D Pro 目标分支"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.7.3 firmware with bootloader", "ArduCopter 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.7.2 firmware with bootloader", "ArduCopter 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-arduplane_with_bl.hex", "ArduPlane 4.7.3 firmware with bootloader", "ArduPlane 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-arduplane_with_bl.hex", "ArduPlane 4.7.2 firmware with bootloader", "ArduPlane 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-ardurover_with_bl.hex", "ArduRover 4.7.3 firmware with bootloader", "ArduRover 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-ardurover_with_bl.hex", "ArduRover 4.7.2 firmware with bootloader", "ArduRover 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-ardusub_with_bl.hex", "ArduSub 4.7.3 firmware with bootloader", "ArduSub 4.7.3 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-ardusub_with_bl.hex", "ArduSub 4.7.2 firmware with bootloader", "ArduSub 4.7.2 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-arducopter_with_bl.hex", "ArduCopter 4.7.3 BDShot firmware with bootloader", "ArduCopter 4.7.3 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-arducopter_with_bl.hex", "ArduCopter 4.7.2 BDShot firmware with bootloader", "ArduCopter 4.7.2 BDShot 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-arduplane_with_bl.hex", "ArduPlane 4.7.3 BDShot firmware with bootloader", "ArduPlane 4.7.3 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-arduplane_with_bl.hex", "ArduPlane 4.7.2 BDShot firmware with bootloader", "ArduPlane 4.7.2 BDShot 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-ardurover_with_bl.hex", "ArduRover 4.7.3 BDShot firmware with bootloader", "ArduRover 4.7.3 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-ardurover_with_bl.hex", "ArduRover 4.7.2 BDShot firmware with bootloader", "ArduRover 4.7.2 BDShot 带 Bootloader 固件"),
+    download("assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-ardusub_with_bl.hex", "ArduSub 4.7.3 BDShot firmware with bootloader", "ArduSub 4.7.3 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-ardusub_with_bl.hex", "ArduSub 4.7.2 BDShot firmware with bootloader", "ArduSub 4.7.2 BDShot 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-arducopter_with_bl.hex", "ArduCopter 4.7.1 firmware with bootloader", "ArduCopter 4.7.1 带 Bootloader 固件"),
     download("assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-arduplane_with_bl.hex", "ArduPlane 4.7.1 firmware with bootloader", "ArduPlane 4.7.1 带 Bootloader 固件"),
@@ -1900,8 +1920,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "INAV 9.1.0 stable firmware for the CMU7 / 4 MB hardware variant. This product supports INAV only.",
     compatibilityZh: "适用于 CMU7 / 4MB 硬件版本的 INAV 9.1.0 稳定固件。本产品仅支持 INAV。"
   }),
+  "assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "cd7d755934a72bdf9e630770cf8b206f0d271ae606870c19e21cab8d65c659f3",
+    compatibilityEn: "ArduCopter 4.7.3 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduCopter 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -1909,8 +1940,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduCopter 4.7.2 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
     compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduCopter 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_H7WliteV2 / ArduPlane",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "2a1f13a1b7895538c1077e34eafe34c5dc9db70085785dea8b4c763f5e2b3344",
+    compatibilityEn: "ArduPlane 4.7.3 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduPlane 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_arduplane_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_H7WliteV2 / ArduPlane",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -1918,8 +1960,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduPlane 4.7.2 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
     compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduPlane 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_H7WliteV2 / ArduRover",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "4d9b8a243f9aa1c0857dd393171707419e95838d2d268bebccecc9bd1cb3d970",
+    compatibilityEn: "ArduRover 4.7.3 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduRover 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_ardurover_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_H7WliteV2 / ArduRover",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -1927,8 +1980,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduRover 4.7.2 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
     compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduRover 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7wlite-v2/AP473_FlyingRC_H7WliteV2_ardusub_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_H7WliteV2 / ArduSub",
+    boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
+    boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
+    checksum: "4fe8c94e2c9babe203c1073db5819c7271778a220bfd2da8229d7094e745646f",
+    compatibilityEn: "ArduSub 4.7.3 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
+    compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduSub 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7wlite-v2/AP472_FlyingRC_H7WliteV2_ardusub_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_H7WliteV2 / ArduSub",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -1936,8 +2000,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduSub 4.7.2 firmware with bootloader for the FlyingRC_H7WliteV2 target.",
     compatibilityZh: "适用于 FlyingRC_H7WliteV2 目标的 ArduSub 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCF4WingMini / ArduCopter",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "18497579e4b1a07f2fd699f2ebb9158f012e8c8227db697ab9af70356a5453fd",
+    compatibilityEn: "ArduCopter 4.7.3 firmware with bootloader for the FlyingRCF4WingMini target.",
+    compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduCopter 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_arducopter_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCF4WingMini / ArduCopter",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -1945,8 +2020,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduCopter 4.7.2 firmware with bootloader for the FlyingRCF4WingMini target.",
     compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduCopter 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCF4WingMini / ArduPlane",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "e9ad5afd2ae86f4db7c96f6dc928177429b4f1dc3bf7c691ff0ae31b50280d88",
+    compatibilityEn: "ArduPlane 4.7.3 firmware with bootloader for the FlyingRCF4WingMini target.",
+    compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduPlane 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_arduplane_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCF4WingMini / ArduPlane",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -1954,8 +2040,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduPlane 4.7.2 firmware with bootloader for the FlyingRCF4WingMini target.",
     compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduPlane 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCF4WingMini / ArduRover",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "d9ec947c681e3f2c4c3c719dbc44b64894f2d1e7b053b31a9666a19a8fd6a362",
+    compatibilityEn: "ArduRover 4.7.3 firmware with bootloader for the FlyingRCF4WingMini target.",
+    compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduRover 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_ardurover_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCF4WingMini / ArduRover",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -1963,8 +2060,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduRover 4.7.2 firmware with bootloader for the FlyingRCF4WingMini target.",
     compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduRover 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/f4wing-mini-mk1/AP473_FlyingRCF4WingMini_ardusub_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCF4WingMini / ArduSub",
+    boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
+    boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
+    checksum: "0b6cb647742154ae5a3c6fc4d28471259111a50c362761703741f39c30ecbe61",
+    compatibilityEn: "ArduSub 4.7.3 firmware with bootloader for the FlyingRCF4WingMini target.",
+    compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduSub 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP472_FlyingRCF4WingMini_ardusub_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCF4WingMini / ArduSub",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -1972,8 +2080,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduSub 4.7.2 firmware with bootloader for the FlyingRCF4WingMini target.",
     compatibilityZh: "适用于 FlyingRCF4WingMini 目标的 ArduSub 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "c632284798496e8caf86728037bd3f515ca02228281c2149e58988378e25d0eb",
+    compatibilityEn: "ArduCopter 4.7.3 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduCopter 4.7.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
+  }),
   "assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -1981,8 +2100,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduCopter 4.7.2 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
     compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduCopter 4.7.2 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
+  "assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "c7b30e79d1267ee079bc5e8ae62d635bb7d41b14f4bc7f82cfeb766b75528bc6",
+    compatibilityEn: "ArduPlane 4.7.3 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduPlane 4.7.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
+  }),
   "assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -1990,8 +2120,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduPlane 4.7.2 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
     compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduPlane 4.7.2 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
+  "assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "2f80734395fbd6054d2c1c0c0e2f2d22bb9e9f04c85ab46148d1b8d9bee73694",
+    compatibilityEn: "ArduRover 4.7.3 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduRover 4.7.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
+  }),
   "assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -1999,8 +2140,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduRover 4.7.2 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
     compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduRover 4.7.2 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
+  "assets/downloads/firmware/f4wse-pro/AP473_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
+    boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
+    boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
+    checksum: "f1b31e816a7327dcd80c987f0038dbab9604eb5f263c2ee228421ac3286bbcbb",
+    compatibilityEn: "ArduSub 4.7.3 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
+    compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduSub 4.7.3 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
+  }),
   "assets/downloads/firmware/f4wse-pro/AP472_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2008,8 +2160,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduSub 4.7.2 firmware with bootloader for the FlyingRC_F4WSE_Pro target. Includes the September 2026 Battery 2 analog-input configuration.",
     compatibilityZh: "适用于 FlyingRC_F4WSE_Pro 目标的 ArduSub 4.7.2 带 Bootloader 固件。 包含 2026 年 9 月更新的第二路电池模拟输入配置。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCH7DPro / ArduCopter",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "9d3c104f523726b3d5611eb5499f4110ae32ea796664fea20fd0ea624c4886ae",
+    compatibilityEn: "ArduCopter 4.7.3 firmware with bootloader for the FlyingRCH7DPro target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduCopter 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCH7DPro / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2017,8 +2180,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduCopter 4.7.2 firmware with bootloader for the FlyingRCH7DPro target.",
     compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduCopter 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCH7DPro / ArduPlane",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "464af7e2a8f50c3a744125d5ea9c4c6a8198f6ab4f8621b5ce4e3ebca0f86afe",
+    compatibilityEn: "ArduPlane 4.7.3 firmware with bootloader for the FlyingRCH7DPro target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduPlane 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-arduplane_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCH7DPro / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2026,8 +2200,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduPlane 4.7.2 firmware with bootloader for the FlyingRCH7DPro target.",
     compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduPlane 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCH7DPro / ArduRover",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "8fbca557b6bd8b27692718c2bdb2968632f9559120a69f98246ce9a680c48167",
+    compatibilityEn: "ArduRover 4.7.3 firmware with bootloader for the FlyingRCH7DPro target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduRover 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-ardurover_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCH7DPro / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2035,8 +2220,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduRover 4.7.2 firmware with bootloader for the FlyingRCH7DPro target.",
     compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduRover 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-ardusub_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCH7DPro / ArduSub",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
+    checksum: "e0443db453bcae16a43f67841f75e0b70511a4fbee4970e6bcea7fcca7c38354",
+    compatibilityEn: "ArduSub 4.7.3 firmware with bootloader for the FlyingRCH7DPro target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduSub 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-ardusub_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCH7DPro / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2044,8 +2240,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduSub 4.7.2 firmware with bootloader for the FlyingRCH7DPro target.",
     compatibilityZh: "适用于 FlyingRCH7DPro 目标的 ArduSub 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-arducopter_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduCopter BDShot", variantZh: "ArduCopter BDShot", target: "FlyingRCH7DPro-bdshot / ArduCopter",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
+    checksum: "99dd41651f6031a8a991e267908b0c401d90237873f1cbde171a1e77abf4e5ee",
+    compatibilityEn: "ArduCopter 4.7.3 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduCopter 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-arducopter_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 BDShot 稳定版。",
     variantEn: "ArduCopter BDShot", variantZh: "ArduCopter BDShot", target: "FlyingRCH7DPro-bdshot / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2053,8 +2260,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduCopter 4.7.2 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
     compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduCopter 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-arduplane_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduPlane BDShot", variantZh: "ArduPlane BDShot", target: "FlyingRCH7DPro-bdshot / ArduPlane",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
+    checksum: "c7a53c7d2d9110a3ccd3e6b1278ce8a9fca25ecf6d8a73e4e76382176945caf5",
+    compatibilityEn: "ArduPlane 4.7.3 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduPlane 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-arduplane_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 BDShot 稳定版。",
     variantEn: "ArduPlane BDShot", variantZh: "ArduPlane BDShot", target: "FlyingRCH7DPro-bdshot / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2062,8 +2280,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduPlane 4.7.2 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
     compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduPlane 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-ardurover_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduRover BDShot", variantZh: "ArduRover BDShot", target: "FlyingRCH7DPro-bdshot / ArduRover",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
+    checksum: "238f21958a91c888f0e91b00a609013de5715cb54278779b0d8200806e6d4a2c",
+    compatibilityEn: "ArduRover 4.7.3 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduRover 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-ardurover_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 BDShot 稳定版。",
     variantEn: "ArduRover BDShot", variantZh: "ArduRover BDShot", target: "FlyingRCH7DPro-bdshot / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2071,8 +2300,19 @@ const FIRMWARE_DOWNLOAD_METADATA = {
     compatibilityEn: "ArduRover 4.7.2 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
     compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduRover 4.7.2 带 Bootloader 固件。"
   }),
+  "assets/downloads/firmware/h7d-pro/AP473-FlrcH7DPro-bdshot-ardusub_with_bl.hex": firmwareMeta({
+    family: "ardupilot", version: "4.7.3", channel: "stable", role: "latest-stable",
+    variantEn: "ArduSub BDShot", variantZh: "ArduSub BDShot", target: "FlyingRCH7DPro-bdshot / ArduSub",
+    boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
+    boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
+    checksum: "b8836aa5c7e7615c23cdea29f65dfc1c5ce49ca74af915c3b7755966dc4548a9",
+    compatibilityEn: "ArduSub 4.7.3 firmware with bootloader for the FlyingRCH7DPro-bdshot target.",
+    compatibilityZh: "适用于 FlyingRCH7DPro-bdshot 目标的 ArduSub 4.7.3 带 Bootloader 固件。"
+  }),
   "assets/downloads/firmware/h7d-pro/AP472-FlrcH7DPro-bdshot-ardusub_with_bl.hex": firmwareMeta({
-    family: "ardupilot", version: "4.7.2", channel: "stable", role: "latest-stable",
+    family: "ardupilot", version: "4.7.2", channel: "stable", role: "archive",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 BDShot 稳定版。",
     variantEn: "ArduSub BDShot", variantZh: "ArduSub BDShot", target: "FlyingRCH7DPro-bdshot / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2082,8 +2322,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2093,8 +2333,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_H7WliteV2 / ArduPlane",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2104,8 +2344,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_H7WliteV2 / ArduRover",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2115,8 +2355,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP471_FlyingRC_H7WliteV2_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_H7WliteV2 / ArduSub",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2126,8 +2366,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCF4WingMini / ArduCopter",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2137,8 +2377,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCF4WingMini / ArduPlane",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2159,8 +2399,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCF4WingMini / ArduRover",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2170,8 +2410,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP471_FlyingRCF4WingMini_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCF4WingMini / ArduSub",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2181,8 +2421,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2192,8 +2432,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2203,8 +2443,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2214,8 +2454,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP471_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2225,8 +2465,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCH7DPro / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2236,8 +2476,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCH7DPro / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2247,8 +2487,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCH7DPro / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2258,8 +2498,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCH7DPro / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2269,8 +2509,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-bdshot-arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 BDShot as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 BDShot 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 BDShot 稳定版。",
     variantEn: "ArduCopter BDShot", variantZh: "ArduCopter BDShot", target: "FlyingRCH7DPro-bdshot / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2280,8 +2520,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-bdshot-arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 BDShot as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 BDShot 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 BDShot 稳定版。",
     variantEn: "ArduPlane BDShot", variantZh: "ArduPlane BDShot", target: "FlyingRCH7DPro-bdshot / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2291,8 +2531,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-bdshot-ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 BDShot as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 BDShot 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 BDShot 稳定版。",
     variantEn: "ArduRover BDShot", variantZh: "ArduRover BDShot", target: "FlyingRCH7DPro-bdshot / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2302,8 +2542,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP471-FlrcH7DPro-bdshot-ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.1", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 BDShot as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 BDShot 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 BDShot as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 BDShot 稳定版。",
     variantEn: "ArduSub BDShot", variantZh: "ArduSub BDShot", target: "FlyingRCH7DPro-bdshot / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing. This build uses the dedicated BDShot timer mapping.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。 本构建使用专用 BDShot 定时器映射。",
@@ -2313,8 +2553,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP470_FlyingRC_H7WliteV2_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_H7WliteV2 / ArduCopter",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2324,8 +2564,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP470_FlyingRC_H7WliteV2_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_H7WliteV2 / ArduPlane",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2335,8 +2575,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP470_FlyingRC_H7WliteV2_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_H7WliteV2 / ArduRover",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2346,8 +2586,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7wlite-v2/AP470_FlyingRC_H7WliteV2_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_H7WliteV2 / ArduSub",
     boardRevisionEn: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P revision; secondary BMI270 uses corrected ROTATION_NONE orientation; ICM42688P and ICM42605 alternatives are supported.",
     boardRevisionZh: "H7Wlite V2 BMI270 / SPA06-003 / QMC5883P 版本；第二颗 BMI270 已采用修正后的 ROTATION_NONE 方向；兼容 ICM42688P 与 ICM42605 替代器件。",
@@ -2357,8 +2597,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP470_FlyingRCF4WingMini_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCF4WingMini / ArduPlane",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2368,8 +2608,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP470_FlyingRCF4WingMini_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCF4WingMini / ArduCopter",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2379,8 +2619,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP470_FlyingRCF4WingMini_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCF4WingMini / ArduRover",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2390,8 +2630,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wing-mini-mk1/AP470_FlyingRCF4WingMini_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCF4WingMini / ArduSub",
     boardRevisionEn: "F4Wing Mini MK1; verify IMU and barometer revision before flashing.",
     boardRevisionZh: "F4Wing Mini MK1；刷写前请核对 IMU 和气压计版本。",
@@ -2401,8 +2641,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRC_F4WSE_Pro / ArduPlane",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2412,8 +2652,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRC_F4WSE_Pro / ArduCopter",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2423,8 +2663,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRC_F4WSE_Pro / ArduRover",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2434,8 +2674,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/f4wse-pro/AP470_FlyingRC_F4WSE_Pro_ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRC_F4WSE_Pro / ArduSub",
     boardRevisionEn: "F4WSE Pro; verify BMI270 or ICM42688P hardware revision before flashing.",
     boardRevisionZh: "F4WSE Pro；刷写前请核对 BMI270 或 ICM42688P 硬件版本。",
@@ -2445,8 +2685,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-arducopter_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduCopter 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduCopter 4.7.3 稳定版。",
     variantEn: "ArduCopter", variantZh: "ArduCopter", target: "FlyingRCH7DPro / ArduCopter",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2456,8 +2696,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-arduplane_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduPlane 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduPlane 4.7.3 稳定版。",
     variantEn: "ArduPlane", variantZh: "ArduPlane", target: "FlyingRCH7DPro / ArduPlane",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2467,8 +2707,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-ardurover_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduRover 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduRover 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduRover 4.7.3 稳定版。",
     variantEn: "ArduRover", variantZh: "ArduRover", target: "FlyingRCH7DPro / ArduRover",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
@@ -2478,8 +2718,8 @@ const FIRMWARE_DOWNLOAD_METADATA = {
   }),
   "assets/downloads/firmware/h7d-pro/AP470-FlrcH7DPro-ardusub_with_bl.hex": firmwareMeta({
     family: "ardupilot", version: "4.7.0", channel: "stable", role: "archive",
-    archiveNoteEn: "Archived formal release; use ArduSub 4.7.2 as the recommended stable release.",
-    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.2 稳定版。",
+    archiveNoteEn: "Archived formal release; use ArduSub 4.7.3 as the recommended stable release.",
+    archiveNoteZh: "历史正式版本；推荐使用 ArduSub 4.7.3 稳定版。",
     variantEn: "ArduSub", variantZh: "ArduSub", target: "FlyingRCH7DPro / ArduSub",
     boardRevisionEn: "H7D Pro dual ICM42688 hardware; verify sensor revision before flashing.",
     boardRevisionZh: "H7D Pro 双 ICM42688 硬件；刷写前请核对传感器版本。",
